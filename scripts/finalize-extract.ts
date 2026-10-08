@@ -12,7 +12,8 @@ import { mkdirSync, readFileSync, readdirSync, writeFileSync, rmSync } from "nod
 import { join } from "node:path";
 
 const OUT_ROOT = "/tmp/pp-docs";
-const CONTENT = "/mnt/hdd/Github-Repo/docs/content";
+const HUB = process.env.HUB_ROOT ?? new URL("..", import.meta.url).pathname.replace(/\/$/, "");
+const CONTENT = join(HUB, "content");
 
 const REPOS: Record<string, { skip: Set<string>; siteRoutes: string[] }> = {
   "authcore": { skip: new Set(["index"]), siteRoutes: [] },  // docs/app/content/*.html handled separately
@@ -66,7 +67,7 @@ for (const [slug, cfg] of Object.entries(REPOS)) {
 /* ---- AuthCore prebuilt HTML content pages ---- */
 {
   const slug = "authcore";
-  const src = "/mnt/hdd/Github-Repo/AuthCore/docs/app/content";
+  const src = (process.env.EXTRACT_AUTHCORE_CONTENT ?? "/mnt/hdd/Github-Repo/AuthCore/docs/app/content");
   const pages: string[] = [];
   for (const f of readdirSync(src).filter(x => x.endsWith(".html"))) {
     const base = kebab(f.replace(/\.html$/, ""));

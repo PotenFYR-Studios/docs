@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
 
-const ROOT = "/mnt/hdd/Github-Repo/docs/content";
+const ROOT = join(new URL("..", import.meta.url).pathname.replace(/\/$/, ""), "content");
 const slugByHost: Record<string, string> = {
   "statfyr.docs.potenfyr.in": "/statfyr",
   "ojaj.docs.potenfyr.in": "/ojaj",

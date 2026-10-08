@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { execSync } from "node:child_process";
 import { join } from "node:path";
 
-const ROOT = "/mnt/hdd/Github-Repo/docs";
+const ROOT = new URL("..", import.meta.url).pathname.replace(/\/$/, "");
 const raw = execSync(
   'gh api "orgs/PotenFYR-Studios/repos?per_page=100" --jq \'[.[] | {name, description, stargazers_count, language, topics, homepage_url: .homepage, archived, fork, default_branch, pushed_at}]\'',
   { encoding: "utf8" }

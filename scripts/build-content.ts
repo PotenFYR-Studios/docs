@@ -10,7 +10,7 @@ import { join, relative, dirname, basename as path } from "node:path";
 import MarkdownIt from "markdown-it";
 import { createHighlighter, bundledThemes, bundledLanguages, type Highlighter } from "shiki";
 
-const ROOT = "/mnt/hdd/Github-Repo/docs";
+const ROOT = new URL("..", import.meta.url).pathname.replace(/\/$/, "");
 const CONTENT = join(ROOT, "content");
 const META_FILE = join(ROOT, "src/data/repos.json");
 
