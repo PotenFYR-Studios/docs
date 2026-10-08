@@ -19,9 +19,13 @@ import { NotFound } from "./notfound";
 import { MobileDocBar } from "./repos";
 import { repoBySlug } from "~/data/types";
 
+function DeckHotkey(): React.ReactElement {
+  useDeckHotkey();
+  return <></>;
+}
+
 function App(): React.ReactElement {
   const router = useRouter();
-  useDeckHotkey();
 
   React.useEffect(() => {
     setNavigator(router.navigate);
@@ -40,6 +44,7 @@ function App(): React.ReactElement {
   return (
     <RouterCtx.Provider value={router}>
       <AppProvider>
+        <DeckHotkey />
         <Navbar />
         {page}
         {isRepoDoc ? <MobileDocBar repo={repoBySlug(parts[1] ?? "")!} /> : null}
