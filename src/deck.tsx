@@ -13,7 +13,7 @@ import { navigateTo } from "./nav-bus";
 
 type Line = { kind: "in" | "out" | "err" | "ok"; text: string };
 
-const COMMANDS = ["help", "ls", "all", "open", "search", "stars", "eggs", "whoami", "sudo", "clear", "exit"] as const;
+const COMMANDS = ["help", "ls", "all", "open", "search", "stars", "whoami", "clear", "exit"] as const;
 
 function fuzzyCandidates(q: string): string[] {
   const l = q.toLowerCase();
@@ -123,10 +123,6 @@ export function Deck() {
         for (const r of sorted as RepoEntry[]) push({ kind: "out", text: `  ${String(r.stars).padStart(5)} ★  ${r.slug}` });
         break;
       }
-      case "eggs":
-        push({ kind: "out", text: "konami · fyr · egg · 7× logo taps · ? cheat sheet · meow in footer" });
-        push({ kind: "out", text: "(that listing was maybe too honest)" });
-        break;
       case "whoami":
         push({ kind: "out", text: "docs visitor · powered by curiosity" });
         break;
@@ -136,14 +132,8 @@ export function Deck() {
       case "exit":
         setDeckOpen(false);
         break;
-      case "konami":
-        push({ kind: "err", text: "You must earn it with your keyboard, not your words." });
-        break;
       case "clear":
         setLines([]);
-        break;
-      case "cat":
-        push({ kind: "out", text: "  =^.^=" });
         break;
       default:
         push({ kind: "err", text: `unknown command "${head}"-try: ${COMMANDS.slice(0, 6).join(", ")}…` });

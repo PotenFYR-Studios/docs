@@ -5,6 +5,19 @@ import reposRaw from "./repos.json";
 
 export type Heading = { id: string; level: number; text: string };
 export type PageMeta = { path: string; overview: boolean; title: string; headings: Heading[] };
+
+/* typed content blocks the SPA renders with its own components */
+export type Block =
+  | { t: 1; level: number; id: string; text: string }
+  | { t: 2; html: string }
+  | { t: 3; ordered: boolean; items: Array<{ html?: string }> }
+  | { t: 4; lang: string; html: string }
+  | { t: 5; head: string[]; rows: string[][]; kv?: boolean }
+  | { t: 6; html: string }
+  | { t: 7; src: string; alt: string }
+  | { t: 8 }
+  | { t: 9; html: string };
+
 export type RepoEntry = {
   slug: string;
   label: string;
@@ -27,7 +40,7 @@ export type Registry = {
   stats: { repos: number; pages: number };
 };
 export type RepoMeta = { name: string; label: string; repo: string; description: string; stars: number; language: string; topics: string[]; pushedAt: string | null; defaultBranch: string };
-export type LoadedPage = { path: string; overview: boolean; title: string; headings: Heading[]; excerpt: string; html: string };
+export type LoadedPage = { path: string; overview: boolean; title: string; headings: Heading[]; excerpt: string; html: string; blocks: Block[] };
 
 export const registry = registryRaw as unknown as Registry;
 export const reposMeta = reposRaw as unknown as Record<string, RepoMeta>;

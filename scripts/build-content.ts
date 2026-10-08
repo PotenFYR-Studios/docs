@@ -9,6 +9,7 @@ import { readFileSync, writeFileSync, mkdirSync, rmSync, readdirSync, statSync }
 import { join, relative, dirname, basename as path } from "node:path";
 import MarkdownIt from "markdown-it";
 import { createHighlighter, bundledThemes, bundledLanguages, type Highlighter } from "shiki";
+import { mdToBlocks, htmlToBlocks } from "./blocks";
 
 const ROOT = new URL("..", import.meta.url).pathname.replace(/\/$/, "");
 const CONTENT = join(ROOT, "content");
@@ -70,7 +71,7 @@ function slugify(text: string): string {
 }
 
 type Heading = { id: string; level: number; text: string };
-type Page = { path: string; overview: boolean; title: string; headings: Heading[]; excerpt: string; html: string };
+type Page = { path: string; overview: boolean; title: string; headings: Heading[]; excerpt: string; html: string; blocks: unknown[] };
 
 function listFiles(dir: string): string[] {
   return readdirSync(dir)
@@ -80,6 +81,57 @@ function listFiles(dir: string): string[] {
 
 function pickOverview(paths: string[]): string | undefined {
   return paths.find((p) => /(^|\/)(README|index)$/i.test(p.replace(/\\/g, "/")));
+}
+
+function excerptOfText(t: string, max = 170): string {
+  return t.replace(/\s+/g, " ").trim().slice(0, max);
+}
+
+/*
+ * cleanMarkdown - strips the Github-badge noise that screenshots badly inside a
+ * styled docs hub: capsule-render banners, typing-SVG walls, shields.io badge
+ * rows, komarev/star-history/contrib.rocks embeds, and the <div align="center">
+ * wrappers markdown-it would otherwise pass through unparsed (raw text leak).
+ */
+function cleanMarkdown(src: string): string {
+  let s = src;
+  // centered banner/badge wrappers are pure noise in the hub
+  s = s.replace(/<div align="center">[\s\S]*?<\/div>\n?/gi, "");
+  s = s.replace(/<div align=center>[\s\S]*?<\/div>\n?/gi, "");
+  s = s.replace(/<p align="center">[\s\S]*?<\/p>\n?/gi, "");
+  s = s.replace(/<picture>[\s\S]*?<\/picture>\n?/gi, "");
+  // badge-only markdown lines: ![..](badge-url) and [![..](badge-url)](badge-url)
+  s = s.replace(/^[^\S\n]*(?:!?\[(?:[^\]\\]|\\.)*\]\([^)]*\)|\[\!\[[^\]]*\]\([^)]*\)\]\([^)]*\))[^\S\n]*\n/gm, (line) =>
+    /img\.shields\.io|komarev\.com|ghpvc|star-history|contrib\.rocks|capsule-render|readme-typing|badgen|badge\./i.test(line) ? "" : line);
+  // full lines that exist only to render external badge services
+  s = s.split("\n").filter((line) => {
+    const l = line.trim();
+    if (!l) return true;
+    if (/capsule-render\.vercel\.app|readme-typing-svg|komarev\.com|contrib\.rocks|api\.star-history\.com/.test(l)) return false;
+    return true;
+  }).join("\n");
+  // collapse 3+ blank lines
+  s = s.replace(/\n{3,}/g, "\n\n");
+  return s;
+}
+
+/* humanized "At a glance" callout prepended to every repo overview page */
+function atAGlance(entry: {
+  label: string; description: string; repo: string; category: string; blurb: string;
+  stars: number; language: string; topics: string[]; pageList: Array<{ path: string; overview: boolean; title: string }>;
+}): string {
+  const first = entry.pageList.find((p) => !p.overview);
+  const clone = `git clone ${entry.repo.replace(/^https?:\/\/(www\.)?/, "https://")}.git`.replace(/^https:\/\/https:\/\//, "https://");
+  const lines = [
+    `> **At a glance**`,
+    `>${entry.blurb ? ` ${entry.blurb}` : ""}`,
+    `>`,
+    `> - **Category:** ${entry.category}${entry.language ? ` - ${entry.language}` : ""}${entry.stars >= 0 ? ` - ${entry.stars} star${entry.stars === 1 ? "" : "s"}` : ""}`,
+    `> - **Source:** [${entry.repo.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}](${entry.repo})`,
+    `> - **Clone:** \`${clone}\``,
+  ];
+  if (first) lines.push(`> - **Start here:** [${first.title}](#/repo/${entry.label}/${first.path === entry.pageList[0]?.path ? entry.pageList[0]!.path : first.path})`);
+  return lines.join("\n") + "\n";
 }
 
 function excerptOf(mdText: string, max = 170): string {
@@ -118,7 +170,7 @@ function resolveInternalLinks(text: string, slug: string, filePath: string): str
   });
 }
 
-/* rewrite github.com/PotenFYR-Studios/<X> to hub if a hub page exists? — no; keep as repo link */
+/* rewrite github.com links stay as-is; container slugs come from CONTENT dirlisting */
 
   const slugs = readdirSync(CONTENT).filter((d) => statSync(join(CONTENT, d)).isDirectory()).sort();
 async function main() {
@@ -156,12 +208,14 @@ async function main() {
         headings.push({ id: uid, level: Number(lvl) + 1, text });
         return m0.replace(/id="[^"]*"/, `id="${uid}"`);
       });
-      const excerpt = (text0: string) => html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().slice(0, 170);
-      return { path: rel, overview: false, title, headings, excerpt: excerpt(html), html };
+      const excerptOfHtml = () => html.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().slice(0, 170);
+      const b = htmlToBlocks(html);
+      return { path: rel, overview: false, title, headings: b.headings, excerpt: excerptOfHtml(), html, blocks: b.blocks };
     }
     let src = raw;
     const rel = relative(join(CONTENT, slug), fileAbs).replace(/\.md$/, "").replace(/\\/g, "/");
     const overview = /(^|\/)(README|index)$/i.test(rel);
+    src = cleanMarkdown(src);
     src = resolveInternalLinks(src, slug, rel);
     for (const [host, hubPath] of OLD_DOC_HOSTS) {
       src = src.split(`https://${host}`).join(hubPath);
@@ -202,6 +256,7 @@ async function main() {
       void attrs;
       return out.replace(/<pre /, `<pre data-lang="${lang in bundledLanguages ? lang : "text"}" `);
     });
+    // ?? mark: placeholder for shiki html path kept as html only
 
     return {
       path: rel,
@@ -210,6 +265,7 @@ async function main() {
       headings,
       excerpt: excerptOf(src),
       html,
+      blocks: mdToBlocks(src, md, highlighter).blocks,
     };
   }
 
@@ -247,6 +303,11 @@ async function main() {
       default: overviewIdx ?? pages[0]?.path ?? null,
       pageList: pages.map((p) => ({ path: p.path, overview: p.overview, title: p.title, headings: p.headings })),
     };
+    /* humanized At-a-glance callout on every overview page */
+    if (entry.default) {
+      const ov = pages.find((p) => p.path === entry.default);
+      if (ov) ov.html = md.render(atAGlance({ ...entry, pageList: entry.pageList })) + ov.html;
+    }
     writeFileSync(join(ROOT, "src/data/content", `${slug}.json`), JSON.stringify({ slug, pages }, null, 0));
     registry.repos.push(entry);
   }

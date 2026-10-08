@@ -13,7 +13,7 @@ import { GithubMark } from "~/lib/icons";
 import { Link, useRouteParts, useRouter, RouterCtx } from "./router";
 import { registry, repoBySlug, loadRepoContent, type LoadedPage, type RepoEntry } from "~/data/types";
 import { BlurFade, BorderBeam, MagicCard, Meteors, ScrollProgress } from "./magicui";
-import { MdHtml } from "./mcode";
+import { DocBlocks } from "./doc-blocks";
 import { cn, confetti } from "~/lib/utils";
 import { useAppStore } from "./app-store";
 
@@ -51,7 +51,7 @@ export function ReposIndex(): React.ReactElement {
   });
 
   return (
-    <main className="relative mx-auto max-w-6xl px-4 pb-20 pt-28 sm:px-6">
+    <main className="relative mx-auto max-w-7xl px-4 pb-20 pt-28 sm:px-6">
       <Meteors count={8} />
       <BlurFade>
         <h1 className="text-3xl font-extrabold tracking-tight text-rog-ghost sm:text-4xl">
@@ -166,7 +166,7 @@ function RepoReader({ repo, pathTail, state }: { repo: RepoEntry; pathTail: stri
   const next = idx !== undefined && idx >= 0 && idx < repo.pageList.length - 1 ? repo.pageList[idx + 1] : null;
 
   return (
-    <main className="relative mx-auto max-w-6xl px-4 pb-16 pt-24 sm:px-6">
+    <main className="relative mx-auto max-w-7xl px-4 pb-16 pt-24 sm:px-6">
       <ScrollProgress />
       {/* repo header */}
       <div className="mb-8 border-b border-rog-line/70 pb-6">
@@ -186,7 +186,7 @@ function RepoReader({ repo, pathTail, state }: { repo: RepoEntry; pathTail: stri
         <div className="mt-4 flex flex-wrap items-start justify-between gap-4">
           <div className="min-w-0">
             <h1 className="text-2xl font-extrabold tracking-tight text-rog-ghost sm:text-3xl">{repo.label}</h1>
-            <p className="mt-1.5 max-w-xl text-[13.5px] leading-relaxed text-rog-dim">{repo.blurb || repo.description}</p>
+            <p className="mt-1.5 max-w-2xl text-[13.5px] leading-relaxed text-rog-dim">{repo.blurb || repo.description}</p>
             <div className="mt-3 flex flex-wrap items-center gap-2">
               {repo.topics.slice(0, 5).map((t) => (
                 <span key={t} className="rounded-full border border-rog-line bg-rog-panel/50 px-2.5 py-0.5 text-[11px] text-rog-dim">{t}</span>
@@ -208,7 +208,7 @@ function RepoReader({ repo, pathTail, state }: { repo: RepoEntry; pathTail: stri
         </div>
       </div>
 
-      <div className="flex gap-8">
+      <div className="flex gap-8 xl:gap-12">
         {/* sidebar */}
         <aside className="sticky top-24 hidden h-[calc(100vh-7rem)] w-64 shrink-0 overflow-y-auto pr-1 lg:block">
           <div className="mb-2 flex items-center gap-2 px-2 text-[11px] font-semibold uppercase tracking-wider text-rog-dim">
@@ -270,7 +270,7 @@ function RepoReader({ repo, pathTail, state }: { repo: RepoEntry; pathTail: stri
               {!page.overview && (
                 <h1 className="mb-1 text-3xl font-extrabold tracking-tight text-rog-ghost">{page.title}</h1>
               )}
-              <MdHtml html={page.html} className="max-w-3xl" />
+              <DocBlocks blocks={page.blocks} />
               {/* prev / next */}
               <div className="mt-14 flex items-stretch justify-between gap-3">
                 {prev ? (

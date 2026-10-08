@@ -10,9 +10,7 @@ import { AppProvider } from "./app-store";
 import { RouterCtx, useRouter, useRouteParts } from "./router";
 import { setNavigator } from "./nav-bus";
 import { Navbar, Footer } from "./chrome";
-import { EggLayer } from "./eggs";
 import { Deck, useDeckHotkey } from "./deck";
-import { CheatSheet } from "./notfound";
 import { Home } from "./home";
 import { ReposIndex, RepoDoc } from "./repos";
 import { NotFound } from "./notfound";
@@ -50,8 +48,6 @@ function App(): React.ReactElement {
         {isRepoDoc ? <MobileDocBar repo={repoBySlug(parts[1] ?? "")!} /> : null}
         <Footer />
         <Deck />
-        <CheatSheet />
-        <EggLayer />
       </AppProvider>
     </RouterCtx.Provider>
   );

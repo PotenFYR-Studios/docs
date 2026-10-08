@@ -9,7 +9,7 @@ import { RouterCtx, useRouter } from "~/router";
 import { AppProvider } from "~/app-store";
 import { Home } from "~/home";
 import { ReposIndex } from "~/repos";
-import { NotFound, CheatSheet } from "~/notfound";
+import { NotFound } from "~/notfound";
 import { Deck } from "~/deck";
 import { Navbar, Footer } from "~/chrome";
 import { repoBySlug, registry } from "~/data/types";
@@ -29,7 +29,6 @@ const cases: Array<[string, () => React.ReactElement]> = [
   ["NotFound", () => <Shell path="/bogus-route"><NotFound /></Shell>],
   ["Navbar+Footer", () => <Shell path="/"><Navbar /><Footer /></Shell>],
   ["Deck", () => <Shell path="/"><Deck /></Shell>],
-  ["CheatSheet", () => <Shell path="/"><CheatSheet /></Shell>],
 ];
 
 for (const r of ["authcore", "statfyr", "ojaj", "echoingdeaths", "minecraft-eggs", "database-eggs", "shell-eggs", "discord-botlists", "linkfyr", "hbs-tool", "vigilfyr", "fyrwall", "orbynode", "pteroops-mcp", "customdamagenumbers", "potenfyr-nest", "web"]) {

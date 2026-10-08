@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-08T16:48:38.833Z",
+  "generatedAt": "2026-10-08T17:26:11.258Z",
   "categories": [
     "Minecraft Tooling",
     "Hosting Eggs",
@@ -39,28 +39,33 @@
           "title": "26x",
           "headings": [
             {
+              "id": "building-authcore-for-every-version-116x-261-263",
+              "level": 1,
+              "text": "Building AuthCore for every version (1.16.x - 26.1-26.3)"
+            },
+            {
               "id": "source-layout",
-              "level": 3,
+              "level": 2,
               "text": "Source layout"
             },
             {
               "id": "building",
-              "level": 3,
+              "level": 2,
               "text": "Building"
             },
             {
               "id": "version-specific-code-stonecutter-conditionals",
-              "level": 3,
+              "level": 2,
               "text": "Version-specific code (Stonecutter conditionals)"
             },
             {
               "id": "how-to-find-262-api-ground-truth",
-              "level": 4,
+              "level": 3,
               "text": "How to find 26.3 API ground truth"
             },
             {
               "id": "verified-on-real-servers",
-              "level": 3,
+              "level": 2,
               "text": "Verified on real servers"
             }
           ]
@@ -69,7 +74,38 @@
           "path": "README",
           "overview": true,
           "title": "Overview",
-          "headings": []
+          "headings": [
+            {
+              "id": "authcore",
+              "level": 1,
+              "text": "AuthCore"
+            },
+            {
+              "id": "what-it-does",
+              "level": 2,
+              "text": "What it does"
+            },
+            {
+              "id": "who-it-is-for",
+              "level": 2,
+              "text": "Who it is for"
+            },
+            {
+              "id": "getting-started",
+              "level": 2,
+              "text": "Getting started"
+            },
+            {
+              "id": "configuration-and-depth",
+              "level": 2,
+              "text": "Configuration and depth"
+            },
+            {
+              "id": "links",
+              "level": 2,
+              "text": "Links"
+            }
+          ]
         },
         {
           "path": "api.html",
@@ -77,149 +113,154 @@
           "title": "Api",
           "headings": [
             {
+              "id": "authcore-developer-api",
+              "level": 1,
+              "text": "AuthCore Developer API"
+            },
+            {
               "id": "overview",
-              "level": 3,
+              "level": 2,
               "text": "Overview"
             },
             {
               "id": "method-reference",
-              "level": 3,
+              "level": 2,
               "text": "Method Reference"
             },
             {
               "id": "player-list--statistics-api-netded3ecmodelsuser",
-              "level": 4,
-              "text": "🗂️ Player List &amp; Statistics API (in.potenfyr.authcore.models.User)"
+              "level": 3,
+              "text": "🗂️ Player List & Statistics API (in.potenfyr.authcore.models.User)"
             },
             {
               "id": "example",
-              "level": 3,
+              "level": 2,
               "text": "Example"
             },
             {
               "id": "integration-notes",
-              "level": 3,
+              "level": 2,
               "text": "Integration Notes"
             },
             {
               "id": "threading",
-              "level": 4,
+              "level": 3,
               "text": "Threading"
             },
             {
               "id": "lazy-loading-for-100k-users",
-              "level": 4,
+              "level": 3,
               "text": "Lazy Loading for 100k+ Users"
             },
             {
               "id": "database-migration-suspension-databasemigrationblocked",
-              "level": 4,
+              "level": 3,
               "text": "🛑 Database Migration Suspension (Database.migrationBlocked)"
             },
             {
               "id": "encrypter--argon2id-fallback-behavior",
-              "level": 4,
+              "level": 3,
               "text": "Encrypter, Argon2id Fallback Behavior"
             },
             {
               "id": "null-safety",
-              "level": 4,
+              "level": 3,
               "text": "Null Safety"
             },
             {
               "id": "version-compatibility",
-              "level": 4,
+              "level": 3,
               "text": "Version Compatibility"
             },
             {
               "id": "internal-packages",
-              "level": 3,
+              "level": 2,
               "text": "Internal Packages"
             },
             {
               "id": "database-schema-reference",
-              "level": 3,
+              "level": 2,
               "text": "Database Schema Reference"
             },
             {
               "id": "users-table",
-              "level": 4,
+              "level": 3,
               "text": "USERS table"
             },
             {
               "id": "login_history-table",
-              "level": 4,
+              "level": 3,
               "text": "LOGIN_HISTORY table"
             },
             {
               "id": "placeholder-tokens",
-              "level": 3,
+              "level": 2,
               "text": "Placeholder Tokens"
             },
             {
               "id": "new-admin-commands-100",
-              "level": 3,
+              "level": 2,
               "text": "New Admin Commands (1.0.0)"
             },
             {
               "id": "web-panel-metrics-endpoint",
-              "level": 3,
+              "level": 2,
               "text": "📡 Web Panel /metrics Endpoint"
             },
             {
               "id": "server-side-files",
-              "level": 3,
+              "level": 2,
               "text": "Server-Side Files"
             },
             {
               "id": "discord-account-linking",
-              "level": 3,
+              "level": 2,
               "text": "Discord Account Linking"
             },
             {
               "id": "in-game-commands",
-              "level": 4,
+              "level": 3,
               "text": "In-game commands"
             },
             {
               "id": "completing-the-link-discord-bot--web-panel-api",
-              "level": 4,
+              "level": 3,
               "text": "Completing the link (Discord bot → web panel API)"
             },
             {
               "id": "bot-integration-rules",
-              "level": 4,
+              "level": 3,
               "text": "Bot integration rules"
             },
             {
               "id": "cross-server-security-event-bus-redis-pubsub",
-              "level": 3,
+              "level": 2,
               "text": "Cross-Server Security Event Bus (Redis pub/sub)"
             },
             {
               "id": "events",
-              "level": 4,
+              "level": 3,
               "text": "Events"
             },
             {
               "id": "payload",
-              "level": 4,
+              "level": 3,
               "text": "Payload"
             },
             {
               "id": "receiver-behavior",
-              "level": 4,
+              "level": 3,
               "text": "Receiver behavior"
             },
             {
               "id": "security-test-suite",
-              "level": 3,
+              "level": 2,
               "text": "Security Test Suite"
             },
             {
               "id": "interop--network-events",
-              "level": 3,
-              "text": "Interop &amp; Network Events"
+              "level": 2,
+              "text": "Interop & Network Events"
             }
           ]
         },
@@ -229,128 +270,133 @@
           "title": "Changelog",
           "headings": [
             {
+              "id": "authcore-changelog",
+              "level": 1,
+              "text": "AuthCore Changelog"
+            },
+            {
               "id": "100---2026-08-15",
-              "level": 3,
+              "level": 2,
               "text": "[1.0.0] - 2026-08-15"
             },
             {
               "id": "build-mixin-proxy-gate-hardening-latest",
-              "level": 4,
-              "text": "Build, mixin &amp; proxy-gate hardening (2026-09-06, latest)"
+              "level": 3,
+              "text": "Build, mixin & proxy-gate hardening (2026-09-06, latest)"
             },
             {
               "id": "detection-hardening-bypass-resistance-2026-09-05",
-              "level": 4,
-              "text": "Detection hardening &amp; bypass resistance (2026-09-05)"
+              "level": 3,
+              "text": "Detection hardening & bypass resistance (2026-09-05)"
             },
             {
               "id": "hybrid-mode-per-account-login-style--release-hardening",
-              "level": 4,
-              "text": "Hybrid mode, per-account login style &amp; release hardening"
+              "level": 3,
+              "text": "Hybrid mode, per-account login style & release hardening"
             },
             {
               "id": "limbo-performance--configuration-overhaul",
-              "level": 4,
-              "text": "Limbo, performance &amp; configuration overhaul"
+              "level": 3,
+              "text": "Limbo, performance & configuration overhaul"
             },
             {
               "id": "119-121-backward-compatibility-neoforge-211x",
-              "level": 4,
+              "level": 3,
               "text": "1.19-1.21 backward compatibility (NeoForge 21.1.x)"
             },
             {
               "id": "out-of-the-box-experience--hardening-2026-08-14",
-              "level": 4,
-              "text": "Out-of-the-box experience &amp; hardening (2026-08-14)"
+              "level": 3,
+              "text": "Out-of-the-box experience & hardening (2026-08-14)"
             },
             {
               "id": "universal-single-jar-architecture-116x---261-262-2026-08-11",
-              "level": 4,
+              "level": 3,
               "text": "Universal single-jar architecture (1.16.x - 26.1-26.2) (2026-08-11)"
             },
             {
               "id": "multi-loader--multi-version-workspace-stonecutter--stonecraft",
-              "level": 4,
-              "text": "Multi-loader &amp; multi-version workspace (Stonecutter / Stonecraft)"
+              "level": 3,
+              "text": "Multi-loader & multi-version workspace (Stonecutter / Stonecraft)"
             },
             {
               "id": "modrinth-version-range-fix",
-              "level": 4,
+              "level": 3,
               "text": "Modrinth version range fix"
             },
             {
               "id": "security--anti-bypass",
-              "level": 4,
-              "text": "Security &amp; anti-bypass"
+              "level": 3,
+              "text": "Security & anti-bypass"
             },
             {
               "id": "security-fixes-found-by-the-new-test-suite",
-              "level": 4,
+              "level": 3,
               "text": "Security fixes found by the new test suite"
             },
             {
               "id": "performance-for-100k-users",
-              "level": 4,
+              "level": 3,
               "text": "Performance for 100k+ users"
             },
             {
               "id": "race-condition-hardening",
-              "level": 4,
+              "level": 3,
               "text": "Race-condition hardening"
             },
             {
               "id": "new-features",
-              "level": 4,
+              "level": 3,
               "text": "New features"
             },
             {
               "id": "quality",
-              "level": 4,
+              "level": 3,
               "text": "Quality"
             },
             {
               "id": "bot--backend-separation",
-              "level": 4,
+              "level": 3,
               "text": "Bot / backend separation"
             },
             {
               "id": "tooling",
-              "level": 4,
+              "level": 3,
               "text": "Tooling"
             },
             {
               "id": "cleanup",
-              "level": 4,
+              "level": 3,
               "text": "Cleanup"
             },
             {
               "id": "single-human-verification-map-captcha--gui-removal-intelligence-overhaul-2026-08-16",
-              "level": 4,
-              "text": "Single human verification (map captcha &amp; GUI removal, intelligence overhaul) (2026-08-16)"
+              "level": 3,
+              "text": "Single human verification (map captcha & GUI removal, intelligence overhaul) (2026-08-16)"
             },
             {
               "id": "100-alpha5---2026-08-08",
-              "level": 3,
+              "level": 2,
               "text": "[1.0.0-alpha.5] - 2026-08-08"
             },
             {
               "id": "100-alpha4---2026-08-08",
-              "level": 3,
+              "level": 2,
               "text": "[1.0.0-alpha.4] - 2026-08-08"
             },
             {
               "id": "100-alpha3---2026-08-08",
-              "level": 3,
+              "level": 2,
               "text": "[1.0.0-alpha.3] - 2026-08-08"
             },
             {
               "id": "100-alpha2---2026-08-08",
-              "level": 3,
+              "level": 2,
               "text": "[1.0.0-alpha.2] - 2026-08-08"
             },
             {
               "id": "100-alpha1---2026-01-01",
-              "level": 3,
+              "level": 2,
               "text": "[1.0.0-alpha.1] - 2026-01-01"
             }
           ]
@@ -361,208 +407,213 @@
           "title": "Config",
           "headings": [
             {
+              "id": "authcore-configuration-reference",
+              "level": 1,
+              "text": "AuthCore Configuration Reference"
+            },
+            {
               "id": "root-settings",
-              "level": 3,
+              "level": 2,
               "text": "Root Settings"
             },
             {
               "id": "logging--startup-output",
-              "level": 4,
+              "level": 3,
               "text": "logging 📣 (startup output)"
             },
             {
               "id": "session",
-              "level": 3,
+              "level": 2,
               "text": "🕒 session"
             },
             {
               "id": "core-session-settings",
-              "level": 4,
+              "level": 3,
               "text": "Core Session Settings"
             },
             {
               "id": "combat-log",
-              "level": 4,
+              "level": 3,
               "text": "combat-log ⚔️"
             },
             {
               "id": "progressive-punishment",
-              "level": 4,
+              "level": 3,
               "text": "progressive-punishment 📈"
             },
             {
               "id": "account-lock",
-              "level": 4,
+              "level": 3,
               "text": "account-lock 🔒"
             },
             {
               "id": "intelligence",
-              "level": 4,
+              "level": 3,
               "text": "intelligence 🧠"
             },
             {
               "id": "security",
-              "level": 4,
+              "level": 3,
               "text": "security 🛡️"
             },
             {
               "id": "shadow-ban",
-              "level": 4,
+              "level": 3,
               "text": "shadow-ban 👻"
             },
             {
               "id": "rate-limit",
-              "level": 4,
+              "level": 3,
               "text": "rate-limit 🚦"
             },
             {
               "id": "proxy-support",
-              "level": 4,
+              "level": 3,
               "text": "proxy-support 🌐"
             },
             {
               "id": "web-panel",
-              "level": 4,
+              "level": 3,
               "text": "web-panel 🖥️"
             },
             {
               "id": "email",
-              "level": 4,
+              "level": 3,
               "text": "email 📧"
             },
             {
               "id": "auto-whitelist",
-              "level": 4,
+              "level": 3,
               "text": "auto-whitelist 📜"
             },
             {
               "id": "trusted",
-              "level": 4,
+              "level": 3,
               "text": "trusted ⭐"
             },
             {
               "id": "maintenance",
-              "level": 4,
+              "level": 3,
               "text": "maintenance 🛠️"
             },
             {
               "id": "honeypot",
-              "level": 4,
+              "level": 3,
               "text": "honeypot 🍯"
             },
             {
               "id": "backup",
-              "level": 4,
+              "level": 3,
               "text": "backup 💾"
             },
             {
               "id": "sessionauthentication",
-              "level": 3,
+              "level": 2,
               "text": "🔐 session.authentication"
             },
             {
               "id": "password-rules",
-              "level": 3,
+              "level": 2,
               "text": "🔤 password-rules"
             },
             {
               "id": "database",
-              "level": 3,
+              "level": 2,
               "text": "🗄️ database"
             },
             {
               "id": "databasemysql",
-              "level": 4,
+              "level": 3,
               "text": "database.mysql"
             },
             {
               "id": "databasepostgres",
-              "level": 4,
+              "level": 3,
               "text": "database.postgres"
             },
             {
               "id": "databaseredis",
-              "level": 4,
+              "level": 3,
               "text": "database.redis"
             },
             {
               "id": "lobby-limbo-restrictions",
-              "level": 3,
+              "level": 2,
               "text": "🏠 lobby (limbo restrictions)"
             },
             {
               "id": "limbo-config-teleport",
-              "level": 4,
+              "level": 3,
               "text": "limbo-config (teleport)"
             },
             {
               "id": "timeout-dynamic-login-timeout-by-ping",
-              "level": 4,
+              "level": 3,
               "text": "timeout (dynamic login timeout by ping)"
             },
             {
               "id": "lobby-behavior",
-              "level": 4,
+              "level": 3,
               "text": "Lobby Behavior"
             },
             {
               "id": "announcements--rotating",
-              "level": 4,
+              "level": 3,
               "text": "announcements 📢 (rotating)"
             },
             {
               "id": "announcement--join",
-              "level": 4,
+              "level": 3,
               "text": "announcement 📢 (join)"
             },
             {
               "id": "captcha",
-              "level": 4,
+              "level": 3,
               "text": "captcha 🤖"
             },
             {
               "id": "commands",
-              "level": 3,
+              "level": 2,
               "text": "🧑‍💻 commands"
             },
             {
               "id": "user-commands",
-              "level": 4,
+              "level": 3,
               "text": "User Commands"
             },
             {
               "id": "admin-commands",
-              "level": 4,
+              "level": 3,
               "text": "Admin Commands"
             },
             {
               "id": "discord-account-linking",
-              "level": 3,
+              "level": 2,
               "text": "Discord Account Linking"
             },
             {
               "id": "message-keys",
-              "level": 4,
+              "level": 3,
               "text": "Message keys"
             },
             {
               "id": "custom-locales",
-              "level": 3,
+              "level": 2,
               "text": "Custom Locales"
             },
             {
               "id": "security-testing",
-              "level": 3,
+              "level": 2,
               "text": "Security Testing"
             },
             {
               "id": "proxy-interop--per-role-configs",
-              "level": 4,
-              "text": "Proxy, Interop &amp; per-role configs"
+              "level": 3,
+              "text": "Proxy, Interop & per-role configs"
             },
             {
               "id": "proxy-plugin-full-auth-keys-configauthcore-proxyproperties",
-              "level": 4,
+              "level": 3,
               "text": "🛡️ Proxy plugin full-auth keys (config/authcore-proxy.properties)"
             }
           ]
@@ -573,88 +624,93 @@
           "title": "Development",
           "headings": [
             {
+              "id": "authcore-development-architecture",
+              "level": 1,
+              "text": "AuthCore, Development & Architecture"
+            },
+            {
               "id": "1-overview",
-              "level": 3,
+              "level": 2,
               "text": "1. Overview"
             },
             {
               "id": "2-build-system",
-              "level": 3,
+              "level": 2,
               "text": "2. Build system"
             },
             {
               "id": "key-files",
-              "level": 4,
+              "level": 3,
               "text": "Key files"
             },
             {
               "id": "the-variant-model",
-              "level": 4,
+              "level": 3,
               "text": "The variant model"
             },
             {
               "id": "building",
-              "level": 4,
+              "level": 3,
               "text": "Building"
             },
             {
               "id": "3-source-architecture",
-              "level": 3,
+              "level": 2,
               "text": "3. Source architecture"
             },
             {
               "id": "4-managing-multiple-minecraft-versions",
-              "level": 3,
+              "level": 2,
               "text": "4. Managing multiple Minecraft versions"
             },
             {
               "id": "41-version-groups",
-              "level": 4,
+              "level": 3,
               "text": "4.1 Version groups"
             },
             {
               "id": "42-why-the-ranges-are-where-they-are",
-              "level": 4,
+              "level": 3,
               "text": "4.2 Why the ranges are where they are"
             },
             {
               "id": "43-stonecutter-conditionals",
-              "level": 4,
+              "level": 3,
               "text": "4.3 Stonecutter conditionals"
             },
             {
               "id": "44-discipline-what-keeps-the-promise-alive",
-              "level": 4,
+              "level": 3,
               "text": "4.4 Discipline (what keeps the promise alive)"
             },
             {
               "id": "5-managing-multiple-loaders",
-              "level": 3,
+              "level": 2,
               "text": "5. Managing multiple loaders"
             },
             {
               "id": "6-testing",
-              "level": 3,
+              "level": 2,
               "text": "6. Testing"
             },
             {
               "id": "61-unit--security-tests-test-security",
-              "level": 4,
+              "level": 3,
               "text": "6.1 Unit / security tests (test/)"
             },
             {
               "id": "62-host-compatibility-harness-testdocker",
-              "level": 4,
+              "level": 3,
               "text": "6.2 Host-compatibility harness (test/docker)"
             },
             {
               "id": "63-mfa--sso-verification",
-              "level": 4,
+              "level": 3,
               "text": "6.3 MFA / SSO verification"
             },
             {
               "id": "7-roadmap",
-              "level": 3,
+              "level": 2,
               "text": "7. Roadmap"
             }
           ]
@@ -665,59 +721,64 @@
           "title": "Flows",
           "headings": [
             {
+              "id": "authentication-flows",
+              "level": 1,
+              "text": "Authentication Flows"
+            },
+            {
               "id": "how-to-read-this-page",
-              "level": 3,
+              "level": 2,
               "text": "How to read this page"
             },
             {
               "id": "1-the-join-flow",
-              "level": 3,
+              "level": 2,
               "text": "1. The join flow"
             },
             {
               "id": "2-the-limbo-lockdown-flow",
-              "level": 3,
+              "level": 2,
               "text": "2. The limbo (lockdown) flow"
             },
             {
               "id": "3-the-register-flow",
-              "level": 3,
+              "level": 2,
               "text": "3. The register flow"
             },
             {
               "id": "4-the-login-flow",
-              "level": 3,
+              "level": 2,
               "text": "4. The login flow"
             },
             {
               "id": "5-the-session-resume-flow",
-              "level": 3,
+              "level": 2,
               "text": "5. The session resume flow"
             },
             {
               "id": "6-the-logout-flow",
-              "level": 3,
+              "level": 2,
               "text": "6. The logout flow"
             },
             {
               "id": "7-the-premium-verification-flow",
-              "level": 3,
+              "level": 2,
               "text": "7. The premium verification flow"
             },
             {
               "id": "8-the-auto-migration-flow",
-              "level": 3,
+              "level": 2,
               "text": "8. The auto-migration flow"
             },
             {
               "id": "failure-safety-guarantees",
-              "level": 3,
+              "level": 2,
               "text": "Failure safety guarantees"
             },
             {
               "id": "scale--concurrency-guarantees",
-              "level": 3,
-              "text": "Scale &amp; concurrency guarantees"
+              "level": 2,
+              "text": "Scale & concurrency guarantees"
             }
           ]
         },
@@ -727,153 +788,158 @@
           "title": "Guide",
           "headings": [
             {
+              "id": "authcore-server-admin-guide",
+              "level": 1,
+              "text": "AuthCore Server Admin Guide"
+            },
+            {
               "id": "what-youll-learn-here",
-              "level": 3,
+              "level": 2,
               "text": "What you'll learn here"
             },
             {
               "id": "1-pick-the-right-jar",
-              "level": 3,
+              "level": 2,
               "text": "1. Pick the right jar"
             },
             {
               "id": "2-install",
-              "level": 3,
+              "level": 2,
               "text": "2. Install"
             },
             {
               "id": "3-the-first-player-experience-how-it-works",
-              "level": 3,
+              "level": 2,
               "text": "3. The first player experience (how it works)"
             },
             {
               "id": "4-settingsconf--the-important-parts",
-              "level": 3,
+              "level": 2,
               "text": "4. settings.conf, the important parts"
             },
             {
               "id": "41-server-mode--authentication",
-              "level": 4,
-              "text": "4.1 Server mode &amp; authentication"
+              "level": 3,
+              "text": "4.1 Server mode & authentication"
             },
             {
               "id": "42-lobby-the-waiting-area",
-              "level": 4,
+              "level": 3,
               "text": "4.2 Lobby (the waiting area)"
             },
             {
               "id": "43-clientguard-anti-bot--anti-bypass",
-              "level": 4,
+              "level": 3,
               "text": "4.3 ClientGuard (anti-bot / anti-bypass)"
             },
             {
               "id": "44-network-wide-single-sign-on-sso",
-              "level": 4,
+              "level": 3,
               "text": "4.4 Network-wide single sign-on (SSO)"
             },
             {
               "id": "45-email-for-email-2fa--recovery",
-              "level": 4,
+              "level": 3,
               "text": "4.5 Email (for email 2FA + recovery)"
             },
             {
               "id": "46-web-admin-panel",
-              "level": 4,
+              "level": 3,
               "text": "4.6 Web admin panel"
             },
             {
               "id": "47-databases-all-optional",
-              "level": 4,
+              "level": 3,
               "text": "4.7 Databases (all optional)"
             },
             {
               "id": "48-feature-by-feature-setup",
-              "level": 3,
+              "level": 2,
               "text": "4.8 Feature-by-feature setup (every feature, with scenarios)"
             },
             {
               "id": "481-human-verification-action-captcha",
-              "level": 4,
+              "level": 3,
               "text": "4.8.1 Human verification (action captcha)"
             },
             {
               "id": "482-mfa-two-factor",
-              "level": 4,
+              "level": 3,
               "text": "4.8.2 MFA / 2FA (TOTP, email OTP, recovery codes)"
             },
             {
               "id": "483-brute-force-and-account-lock",
-              "level": 4,
-              "text": "4.8.3 Brute force &amp; account lock"
+              "level": 3,
+              "text": "4.8.3 Brute force & account lock"
             },
             {
               "id": "484-sessions-and-trusted-players",
-              "level": 4,
-              "text": "4.8.4 Sessions &amp; trusted players"
+              "level": 3,
+              "text": "4.8.4 Sessions & trusted players"
             },
             {
               "id": "485-clientguard",
-              "level": 4,
+              "level": 3,
               "text": "4.8.5 ClientGuard (anti-bot / anti-bypass)"
             },
             {
               "id": "486-authintelligence-login-intelligence",
-              "level": 4,
+              "level": 3,
               "text": "4.8.6 AuthIntelligence (login intelligence)"
             },
             {
               "id": "487-rate-limits-and-ip-rules",
-              "level": 4,
-              "text": "4.8.7 Rate limits &amp; IP rules"
+              "level": 3,
+              "text": "4.8.7 Rate limits & IP rules"
             },
             {
               "id": "488-sso-and-redis",
-              "level": 4,
-              "text": "4.8.8 SSO &amp; Redis network features"
+              "level": 3,
+              "text": "4.8.8 SSO & Redis network features"
             },
             {
               "id": "489-web-panel-and-honeypot",
-              "level": 4,
-              "text": "4.8.9 Web panel &amp; honeypot"
+              "level": 3,
+              "text": "4.8.9 Web panel & honeypot"
             },
             {
               "id": "4810-premium-and-proxy-support",
-              "level": 4,
-              "text": "4.8.10 Online-mode accounts &amp; proxy support"
+              "level": 3,
+              "text": "4.8.10 Online-mode accounts & proxy support"
             },
             {
               "id": "4811-maintenance-shadowban-whitelist-announcements",
-              "level": 4,
-              "text": "4.8.11 Maintenance, shadow-ban, auto-whitelist &amp; announcements"
+              "level": 3,
+              "text": "4.8.11 Maintenance, shadow-ban, auto-whitelist & announcements"
             },
             {
               "id": "4812-backups-discord-linking-locales",
-              "level": 4,
-              "text": "4.8.12 Backups, Discord linking &amp; locales"
+              "level": 3,
+              "text": "4.8.12 Backups, Discord linking & locales"
             },
             {
               "id": "5-admin-commands",
-              "level": 3,
+              "level": 2,
               "text": "5. Admin commands"
             },
             {
               "id": "6-security-recommendations-checklist",
-              "level": 3,
+              "level": 2,
               "text": "6. Security recommendations (checklist)"
             },
             {
               "id": "7-troubleshooting",
-              "level": 3,
+              "level": 2,
               "text": "7. Troubleshooting"
             },
             {
               "id": "8-learning-path--go-deeper",
-              "level": 3,
+              "level": 2,
               "text": "8. Learning path, go deeper"
             },
             {
               "id": "9-getting-help",
-              "level": 3,
+              "level": 2,
               "text": "9. Getting help"
             }
           ]
@@ -884,28 +950,33 @@
           "title": "License",
           "headings": [
             {
+              "id": "license",
+              "level": 1,
+              "text": "License"
+            },
+            {
               "id": "in-short",
-              "level": 3,
+              "level": 2,
               "text": "In short"
             },
             {
               "id": "what-you-can-do",
-              "level": 3,
+              "level": 2,
               "text": "What you can do"
             },
             {
               "id": "what-you-cannot-do",
-              "level": 3,
+              "level": 2,
               "text": "What you cannot do"
             },
             {
               "id": "attribution-requirement",
-              "level": 3,
+              "level": 2,
               "text": "Attribution requirement"
             },
             {
               "id": "read-the-full-license",
-              "level": 3,
+              "level": 2,
               "text": "Read the full license"
             }
           ]
@@ -916,98 +987,103 @@
           "title": "Proxy",
           "headings": [
             {
+              "id": "authcore-proxy-support-bungeecord-velocity",
+              "level": 1,
+              "text": "AuthCore Proxy Support (BungeeCord / Velocity)"
+            },
+            {
               "id": "how-ip-forwarding-works",
-              "level": 3,
+              "level": 2,
               "text": "How IP Forwarding Works"
             },
             {
               "id": "configuration",
-              "level": 3,
+              "level": 2,
               "text": "Configuration"
             },
             {
               "id": "how-it-works-server-side",
-              "level": 3,
+              "level": 2,
               "text": "How It Works Server-Side"
             },
             {
               "id": "compatibility-with-other-mods-behind-velocity",
-              "level": 3,
+              "level": 2,
               "text": "Compatibility With Other Mods Behind Velocity"
             },
             {
               "id": "distributed-config-across-a-proxy-network-redis",
-              "level": 3,
+              "level": 2,
               "text": "Distributed Config Across a Proxy Network (Redis)"
             },
             {
               "id": "setup-guide",
-              "level": 3,
+              "level": 2,
               "text": "Setup Guide"
             },
             {
               "id": "bungeecord",
-              "level": 4,
+              "level": 3,
               "text": "BungeeCord"
             },
             {
               "id": "velocity",
-              "level": 4,
+              "level": 3,
               "text": "Velocity"
             },
             {
               "id": "using-protocol--auto",
-              "level": 4,
+              "level": 3,
               "text": "Using protocol = \"auto\""
             },
             {
               "id": "velocity-modern-identity-forwarding-mod-server-all-loaders",
-              "level": 3,
+              "level": 2,
               "text": "Velocity Modern Identity Forwarding (mod server, all loaders)"
             },
             {
               "id": "interop-with-other-mods-different-auth-mod-on-the-backend",
-              "level": 3,
+              "level": 2,
               "text": "Interop with OTHER mods (different auth mod on the backend)"
             },
             {
               "id": "separate-config-files-per-role",
-              "level": 3,
+              "level": 2,
               "text": "Separate config files per role"
             },
             {
               "id": "full-proxy-side-auth-block-before-any-backend",
-              "level": 3,
+              "level": 2,
               "text": "FULL Proxy-Side Auth (block before any backend)"
             },
             {
               "id": "resilience--build-notes",
-              "level": 3,
-              "text": "Resilience &amp; Build Notes"
+              "level": 2,
+              "text": "Resilience & Build Notes"
             },
             {
               "id": "version-fragile-mixins-requiredfalse",
-              "level": 4,
+              "level": 3,
               "text": "🧩 Version-Fragile Mixins (required:false)"
             },
             {
               "id": "database-migration-suspension",
-              "level": 4,
+              "level": 3,
               "text": "Database Migration Suspension"
             },
             {
               "id": "encrypter-argon2-fallback",
-              "level": 4,
+              "level": 3,
               "text": "Encrypter Argon2 Fallback"
             },
             {
               "id": "multi-version-workspace--host-compatibility-matrix",
-              "level": 4,
-              "text": "Multi-Version Workspace &amp; Host-Compatibility Matrix"
+              "level": 3,
+              "text": "Multi-Version Workspace & Host-Compatibility Matrix"
             },
             {
               "id": "troubleshooting-faq",
-              "level": 3,
+              "level": 2,
               "text": "Troubleshooting FAQ"
             }
           ]
@@ -1018,144 +1094,154 @@
           "title": "Security",
           "headings": [
             {
+              "id": "authcore-security-model",
+              "level": 1,
+              "text": "AuthCore Security Model"
+            },
+            {
               "id": "password-hashing",
-              "level": 3,
+              "level": 2,
               "text": "Password Hashing"
             },
             {
               "id": "brute-force-defense-layers",
-              "level": 3,
+              "level": 2,
               "text": "Brute-Force Defense Layers"
             },
             {
               "id": "password-reuse-blocking",
-              "level": 4,
+              "level": 3,
               "text": "Password Reuse Blocking"
             },
             {
               "id": "trusted-players-captcha-bypass",
-              "level": 4,
+              "level": 3,
               "text": "Trusted Players (verification bypass)"
             },
             {
               "id": "network-device-fingerprint",
-              "level": 4,
+              "level": 3,
               "text": "Network Device Fingerprint"
             },
             {
               "id": "ip-allowdeny-rules",
-              "level": 4,
+              "level": 3,
               "text": "IP Allow/Deny Rules"
             },
             {
               "id": "shadow-ban-mode",
-              "level": 4,
+              "level": 3,
               "text": "Shadow-Ban Mode"
             },
             {
               "id": "auto-whitelist",
-              "level": 4,
+              "level": 3,
               "text": "Auto-Whitelist"
             },
             {
               "id": "honeypot-auto-banning-decoy-port",
-              "level": 4,
+              "level": 3,
               "text": "Honeypot (auto-banning decoy port)"
             },
             {
               "id": "maintenance-mode",
-              "level": 4,
+              "level": 3,
               "text": "Maintenance Mode"
             },
             {
               "id": "race-condition-hardening",
-              "level": 4,
+              "level": 3,
               "text": "Race-Condition Hardening"
             },
             {
               "id": "database-migration-safety",
-              "level": 4,
+              "level": 3,
               "text": "Database Migration Safety"
             },
             {
               "id": "session-protection",
-              "level": 3,
+              "level": 2,
               "text": "Session Protection"
             },
             {
               "id": "cross-server-security-event-bus",
-              "level": 3,
+              "level": 2,
               "text": "Cross-Server Security Event Bus"
             },
             {
               "id": "discord-link-codes",
-              "level": 3,
+              "level": 2,
               "text": "Discord Link Codes"
             },
             {
               "id": "automated-test-suite",
-              "level": 3,
+              "level": 2,
               "text": "Automated Test Suite"
             },
             {
               "id": "premium-api-outage-safety",
-              "level": 3,
+              "level": 2,
               "text": "Premium API Outage Safety"
             },
             {
               "id": "account-enumeration-prevention",
-              "level": 3,
+              "level": 2,
               "text": "Account Enumeration Prevention"
             },
             {
               "id": "op-safety",
-              "level": 3,
+              "level": 2,
               "text": "OP Safety"
             },
             {
               "id": "limbo-isolation",
-              "level": 3,
+              "level": 2,
               "text": "Limbo Isolation"
             },
             {
               "id": "ssrf--https-only-outbound",
-              "level": 3,
-              "text": "SSRF &amp; HTTPS-Only Outbound"
+              "level": 2,
+              "text": "SSRF & HTTPS-Only Outbound"
             },
             {
               "id": "resource-safety",
-              "level": 3,
+              "level": 2,
               "text": "Resource Safety"
             },
             {
               "id": "webhook--email-alerting",
-              "level": 3,
-              "text": "Webhook &amp; Email Alerting"
+              "level": 2,
+              "text": "Webhook & Email Alerting"
             },
             {
               "id": "multi-version--build-compatibility",
-              "level": 3,
-              "text": "Multi-Version &amp; Build Compatibility"
+              "level": 2,
+              "text": "Multi-Version & Build Compatibility"
             },
             {
               "id": "threat-model",
-              "level": 3,
+              "level": 2,
               "text": "Threat Model"
             },
             {
               "id": "proxy--forwarding",
-              "level": 4,
-              "text": "Proxy &amp; forwarding"
+              "level": 3,
+              "text": "Proxy & forwarding"
             },
             {
               "id": "proxy-side-full-auth",
-              "level": 4,
+              "level": 3,
               "text": "Proxy-side full auth"
             },
             {
               "id": "detection-bypass-resistance",
-              "level": 3,
+              "level": 2,
               "text": "Detection Bypass Resistance"
+            },
+            {
+              "id": "key-architectural-guarantees",
+              "level": 3,
+              "text": "Key Architectural Guarantees"
             }
           ]
         },
@@ -1165,123 +1251,153 @@
           "title": "Webpanel",
           "headings": [
             {
+              "id": "authcore-web-panel",
+              "level": 1,
+              "text": "AuthCore Web Panel"
+            },
+            {
               "id": "features",
-              "level": 3,
+              "level": 2,
               "text": "Features"
             },
             {
               "id": "overview",
-              "level": 4,
+              "level": 3,
               "text": "Overview"
             },
             {
               "id": "players",
-              "level": 4,
+              "level": 3,
               "text": "Players"
             },
             {
               "id": "history",
-              "level": 4,
+              "level": 3,
               "text": "History"
             },
             {
               "id": "actions",
-              "level": 4,
+              "level": 3,
               "text": "Actions"
             },
             {
               "id": "setup",
-              "level": 3,
+              "level": 2,
               "text": "Setup"
             },
             {
               "id": "1-generate-a-token",
-              "level": 4,
+              "level": 3,
               "text": "1. Generate a token"
             },
             {
               "id": "2-configure-settingsconf",
-              "level": 4,
+              "level": 3,
               "text": "2. Configure settings.conf"
             },
             {
-              "id": "3-reload",
+              "id": "http-local-only",
               "level": 4,
+              "text": "HTTP (local only)"
+            },
+            {
+              "id": "https-self-signed",
+              "level": 4,
+              "text": "HTTPS (self-signed)"
+            },
+            {
+              "id": "optional-token-file",
+              "level": 4,
+              "text": "Optional: token file"
+            },
+            {
+              "id": "3-reload",
+              "level": 3,
               "text": "3. Reload"
             },
             {
+              "id": "optional-read-only-token",
+              "level": 4,
+              "text": "Optional: read-only token"
+            },
+            {
               "id": "security-recommendations",
-              "level": 3,
+              "level": 2,
               "text": "Security Recommendations"
             },
             {
               "id": "api-reference",
-              "level": 3,
+              "level": 2,
               "text": "API Reference"
             },
             {
               "id": "get---dashboard",
-              "level": 4,
+              "level": 3,
               "text": "GET /, Dashboard"
             },
             {
               "id": "get-metrics--prometheus-metrics",
-              "level": 4,
+              "level": 3,
               "text": "GET /metrics, Prometheus Metrics"
             },
             {
               "id": "get-apioverview--overview",
-              "level": 4,
+              "level": 3,
               "text": "GET /api/overview, Overview"
             },
             {
               "id": "get-apiplayers--player-list",
-              "level": 4,
+              "level": 3,
               "text": "GET /api/players, Player List"
             },
             {
               "id": "get-apihistoryuuid--login-history",
-              "level": 4,
-              "text": "GET /api/history?uuid=&lt;uuid&gt;, Login History"
+              "level": 3,
+              "text": "GET /api/history?uuid=<uuid>, Login History"
             },
             {
               "id": "post-apiaction--admin-actions",
-              "level": 4,
+              "level": 3,
               "text": "POST /api/action, Admin Actions"
             },
             {
+              "id": "per-action-curl-examples",
+              "level": 4,
+              "text": "Per-action curl examples"
+            },
+            {
               "id": "behavior-notes--compatibility",
-              "level": 3,
-              "text": "Behavior Notes &amp; Compatibility"
+              "level": 2,
+              "text": "Behavior Notes & Compatibility"
             },
             {
               "id": "database-migration-suspension",
-              "level": 4,
+              "level": 3,
               "text": "Database Migration Suspension"
             },
             {
               "id": "encrypter-argon2-fallback",
-              "level": 4,
+              "level": 3,
               "text": "Encrypter Argon2 Fallback"
             },
             {
               "id": "version-fragile-mixins-requiredfalse",
-              "level": 4,
+              "level": 3,
               "text": "🧩 Version-Fragile Mixins (required:false)"
             },
             {
               "id": "multi-version-workspace--host-compatibility-matrix",
-              "level": 4,
-              "text": "Multi-Version Workspace &amp; Host-Compatibility Matrix"
+              "level": 3,
+              "text": "Multi-Version Workspace & Host-Compatibility Matrix"
             },
             {
               "id": "self-signed-certificate-details",
-              "level": 3,
+              "level": 2,
               "text": "Self-Signed Certificate Details"
             },
             {
               "id": "brute-force-protection",
-              "level": 4,
+              "level": 3,
               "text": "Brute-force protection"
             }
           ]
@@ -1312,25 +1428,264 @@
           "path": "README",
           "overview": true,
           "title": "Overview",
-          "headings": []
+          "headings": [
+            {
+              "id": "customdamagenumbers",
+              "level": 1,
+              "text": "CustomDamageNumbers"
+            },
+            {
+              "id": "what-it-does",
+              "level": 2,
+              "text": "What it does"
+            },
+            {
+              "id": "getting-started",
+              "level": 2,
+              "text": "Getting started"
+            },
+            {
+              "id": "the-deep-dive",
+              "level": 2,
+              "text": "The deep dive"
+            },
+            {
+              "id": "links",
+              "level": 2,
+              "text": "Links"
+            }
+          ]
         },
         {
           "path": "docs.html",
           "overview": false,
           "title": "Docs",
-          "headings": []
+          "headings": [
+            {
+              "id": "documentation",
+              "level": 1,
+              "text": "Documentation"
+            },
+            {
+              "id": "introduction",
+              "level": 2,
+              "text": "Introduction"
+            },
+            {
+              "id": "installation",
+              "level": 2,
+              "text": "Installation"
+            },
+            {
+              "id": "which-jar-do-i-install",
+              "level": 2,
+              "text": "Which jar do I install?"
+            },
+            {
+              "id": "commands",
+              "level": 2,
+              "text": "Commands"
+            },
+            {
+              "id": "permissions",
+              "level": 2,
+              "text": "Permissions"
+            },
+            {
+              "id": "configuration",
+              "level": 2,
+              "text": "Configuration"
+            },
+            {
+              "id": "general",
+              "level": 3,
+              "text": "general"
+            },
+            {
+              "id": "animation",
+              "level": 3,
+              "text": "animation"
+            },
+            {
+              "id": "merging-criticals-styles-particles",
+              "level": 3,
+              "text": "merging, criticals, styles, particles"
+            },
+            {
+              "id": "performance-integrations-permissions-advanced",
+              "level": 3,
+              "text": "performance, integrations, permissions, advanced"
+            },
+            {
+              "id": "the-developer-api",
+              "level": 3,
+              "text": "the developer API"
+            },
+            {
+              "id": "how-the-animation-works",
+              "level": 2,
+              "text": "How the animation works"
+            },
+            {
+              "id": "hit-merging",
+              "level": 2,
+              "text": "Hit merging"
+            },
+            {
+              "id": "player-control",
+              "level": 2,
+              "text": "Player control"
+            },
+            {
+              "id": "performance-and-memory",
+              "level": 2,
+              "text": "Performance and memory"
+            },
+            {
+              "id": "compatibility",
+              "level": 2,
+              "text": "Compatibility"
+            },
+            {
+              "id": "api-reference",
+              "level": 2,
+              "text": "API Reference"
+            },
+            {
+              "id": "commands",
+              "level": 3,
+              "text": "Commands"
+            },
+            {
+              "id": "config-keys",
+              "level": 3,
+              "text": "Config keys"
+            },
+            {
+              "id": "messages",
+              "level": 3,
+              "text": "Messages"
+            },
+            {
+              "id": "troubleshooting",
+              "level": 2,
+              "text": "Troubleshooting"
+            },
+            {
+              "id": "nothing-appears-at-all",
+              "level": 3,
+              "text": "Nothing appears at all"
+            },
+            {
+              "id": "numbers-appear-but-never-move-or-fade",
+              "level": 3,
+              "text": "Numbers appear but never move or fade"
+            },
+            {
+              "id": "numbers-look-noisy-on-a-farm",
+              "level": 3,
+              "text": "Numbers look noisy on a farm"
+            },
+            {
+              "id": "the-plugin-disables-itself-with-a-message-about-the-jar",
+              "level": 3,
+              "text": "The plugin disables itself with a message about the jar"
+            },
+            {
+              "id": "migrating-from-02x",
+              "level": 2,
+              "text": "Migrating from 0.2.x"
+            }
+          ]
         },
         {
           "path": "examples.html",
           "overview": false,
           "title": "Examples",
-          "headings": []
+          "headings": [
+            {
+              "id": "examples",
+              "level": 1,
+              "text": "Examples"
+            },
+            {
+              "id": "install-the-right-jar",
+              "level": 2,
+              "text": "Install the right jar"
+            },
+            {
+              "id": "tune-the-animation",
+              "level": 2,
+              "text": "Tune the animation"
+            },
+            {
+              "id": "keep-numbers-on-the-mob",
+              "level": 2,
+              "text": "Keep numbers on the mob"
+            },
+            {
+              "id": "stop-a-farm-from-flooding-the-screen",
+              "level": 2,
+              "text": "Stop a farm from flooding the screen"
+            },
+            {
+              "id": "give-a-rank-its-own-style",
+              "level": 2,
+              "text": "Give a rank its own style"
+            },
+            {
+              "id": "custom-colours-and-formats",
+              "level": 2,
+              "text": "Custom colours and formats"
+            },
+            {
+              "id": "let-players-turn-it-off",
+              "level": 2,
+              "text": "Let players turn it off"
+            },
+            {
+              "id": "test-without-hitting-anything",
+              "level": 2,
+              "text": "Test without hitting anything"
+            },
+            {
+              "id": "where-to-go-next",
+              "level": 2,
+              "text": "Where to go next"
+            }
+          ]
         },
         {
           "path": "license.html",
           "overview": false,
           "title": "License",
-          "headings": []
+          "headings": [
+            {
+              "id": "license",
+              "level": 1,
+              "text": "License"
+            },
+            {
+              "id": "what-you-can-do",
+              "level": 2,
+              "text": "What you can do"
+            },
+            {
+              "id": "what-you-cannot-do",
+              "level": 2,
+              "text": "What you cannot do"
+            },
+            {
+              "id": "keep-the-notices",
+              "level": 2,
+              "text": "Keep the notices"
+            },
+            {
+              "id": "the-document-that-rules",
+              "level": 2,
+              "text": "The document that rules"
+            }
+          ]
         }
       ]
     },
@@ -1358,7 +1713,38 @@
           "path": "README",
           "overview": true,
           "title": "Overview",
-          "headings": []
+          "headings": [
+            {
+              "id": "database-eggs",
+              "level": 1,
+              "text": "Database-Eggs"
+            },
+            {
+              "id": "the-idea",
+              "level": 2,
+              "text": "The idea"
+            },
+            {
+              "id": "what-it-gives-you",
+              "level": 2,
+              "text": "What it gives you"
+            },
+            {
+              "id": "getting-started",
+              "level": 2,
+              "text": "Getting started"
+            },
+            {
+              "id": "where-the-detail-lives",
+              "level": 2,
+              "text": "Where the detail lives"
+            },
+            {
+              "id": "links",
+              "level": 2,
+              "text": "Links"
+            }
+          ]
         },
         {
           "path": "docs.html",
@@ -1366,33 +1752,38 @@
           "title": "Docs",
           "headings": [
             {
+              "id": "install-an-egg",
+              "level": 1,
+              "text": "Install an egg"
+            },
+            {
               "id": "requirements",
-              "level": 3,
+              "level": 2,
               "text": "Requirements"
             },
             {
               "id": "import",
-              "level": 3,
+              "level": 2,
               "text": "Import the egg"
             },
             {
               "id": "server",
-              "level": 3,
-              "text": "Create a server &amp; set variables"
+              "level": 2,
+              "text": "Create a server & set variables"
             },
             {
               "id": "first-boot",
-              "level": 3,
-              "text": "First boot &amp; credentials"
+              "level": 2,
+              "text": "First boot & credentials"
             },
             {
               "id": "updating",
-              "level": 3,
+              "level": 2,
               "text": "Updating the egg"
             },
             {
               "id": "troubleshooting",
-              "level": 3,
+              "level": 2,
               "text": "Troubleshooting"
             }
           ]
@@ -1403,24 +1794,69 @@
           "title": "Eggs",
           "headings": [
             {
+              "id": "egg-catalog",
+              "level": 1,
+              "text": "Egg catalog"
+            },
+            {
               "id": "multi-database",
-              "level": 3,
+              "level": 2,
               "text": "Multi Database"
             },
             {
               "id": "docker-images",
-              "level": 3,
+              "level": 2,
               "text": "Docker image tags"
             },
             {
               "id": "engines",
-              "level": 3,
+              "level": 2,
               "text": "Databases included"
             },
             {
-              "id": "variables",
+              "id": "sql",
               "level": 3,
+              "text": "SQL"
+            },
+            {
+              "id": "nosql",
+              "level": 3,
+              "text": "NoSQL"
+            },
+            {
+              "id": "in-memorykv",
+              "level": 3,
+              "text": "In-Memory/KV"
+            },
+            {
+              "id": "vectorsearch",
+              "level": 3,
+              "text": "Vector/Search"
+            },
+            {
+              "id": "time-seriesstorage",
+              "level": 3,
+              "text": "Time-Series/Storage"
+            },
+            {
+              "id": "graphledgerevents",
+              "level": 3,
+              "text": "Graph/Ledger/Events"
+            },
+            {
+              "id": "misc",
+              "level": 3,
+              "text": "Misc"
+            },
+            {
+              "id": "variables",
+              "level": 2,
               "text": "All exported variables"
+            },
+            {
+              "id": "startup-command",
+              "level": 3,
+              "text": "Startup command"
             }
           ]
         },
@@ -1430,18 +1866,23 @@
           "title": "Examples",
           "headings": [
             {
+              "id": "examples",
+              "level": 1,
+              "text": "Examples"
+            },
+            {
               "id": "egg-json",
-              "level": 3,
+              "level": 2,
               "text": "1 · Egg JSON excerpt"
             },
             {
               "id": "compose",
-              "level": 3,
+              "level": 2,
               "text": "2 · Docker Compose"
             },
             {
               "id": "panel-import",
-              "level": 3,
+              "level": 2,
               "text": "3 · Panel import"
             }
           ]
@@ -1469,115 +1910,329 @@
           "path": "README",
           "overview": true,
           "title": "Overview",
-          "headings": []
+          "headings": [
+            {
+              "id": "discord-botlists",
+              "level": 1,
+              "text": "discord-botlists"
+            },
+            {
+              "id": "what-it-does",
+              "level": 2,
+              "text": "What it does"
+            },
+            {
+              "id": "the-idea",
+              "level": 2,
+              "text": "The idea"
+            },
+            {
+              "id": "getting-started",
+              "level": 2,
+              "text": "Getting started"
+            },
+            {
+              "id": "where-the-detail-lives",
+              "level": 2,
+              "text": "Where the detail lives"
+            },
+            {
+              "id": "works-everywhere",
+              "level": 2,
+              "text": "Works everywhere"
+            },
+            {
+              "id": "links",
+              "level": 2,
+              "text": "Links"
+            }
+          ]
         },
         {
           "path": "docs-api-reference.html",
           "overview": false,
           "title": "Docs Api Reference",
-          "headings": []
+          "headings": [
+            {
+              "id": "api-reference",
+              "level": 1,
+              "text": "API Reference"
+            },
+            {
+              "id": "class-botlists-extends-eventemitter",
+              "level": 3,
+              "text": "class Botlists extends EventEmitter"
+            },
+            {
+              "id": "class-votewebhookserver-extends-eventemitter",
+              "level": 3,
+              "text": "class VoteWebhookServer extends EventEmitter"
+            },
+            {
+              "id": "class-universalparser",
+              "level": 3,
+              "text": "class UniversalParser"
+            },
+            {
+              "id": "class-consolereport-static",
+              "level": 3,
+              "text": "class ConsoleReport (static)"
+            },
+            {
+              "id": "class-statuschecker-static",
+              "level": 3,
+              "text": "class StatusChecker (static)"
+            },
+            {
+              "id": "errors",
+              "level": 3,
+              "text": "Errors"
+            }
+          ]
         },
         {
           "path": "docs-custom-lists.html",
           "overview": false,
           "title": "Docs Custom Lists",
-          "headings": []
+          "headings": [
+            {
+              "id": "custom-lists",
+              "level": 1,
+              "text": "Custom lists"
+            }
+          ]
         },
         {
           "path": "docs-fetching-data.html",
           "overview": false,
           "title": "Docs Fetching Data",
-          "headings": []
+          "headings": [
+            {
+              "id": "fetching-data",
+              "level": 1,
+              "text": "Fetching data"
+            }
+          ]
         },
         {
           "path": "docs-frameworks.html",
           "overview": false,
           "title": "Docs Frameworks",
-          "headings": []
+          "headings": [
+            {
+              "id": "framework-support",
+              "level": 1,
+              "text": "Framework support"
+            }
+          ]
         },
         {
           "path": "docs-installation.html",
           "overview": false,
           "title": "Docs Installation",
-          "headings": []
+          "headings": [
+            {
+              "id": "installation",
+              "level": 1,
+              "text": "Installation"
+            }
+          ]
         },
         {
           "path": "docs-introduction.html",
           "overview": false,
           "title": "Docs Introduction",
-          "headings": []
+          "headings": [
+            {
+              "id": "introduction",
+              "level": 1,
+              "text": "Introduction"
+            }
+          ]
         },
         {
           "path": "docs-migration-v1.html",
           "overview": false,
           "title": "Docs Migration V1",
-          "headings": []
+          "headings": [
+            {
+              "id": "migrating-from-v1",
+              "level": 1,
+              "text": "Migrating from v1"
+            }
+          ]
         },
         {
           "path": "docs-posting-stats.html",
           "overview": false,
           "title": "Docs Posting Stats",
-          "headings": []
+          "headings": [
+            {
+              "id": "posting-stats",
+              "level": 1,
+              "text": "Posting stats"
+            },
+            {
+              "id": "wire-format-mapping",
+              "level": 3,
+              "text": "Wire format mapping"
+            }
+          ]
         },
         {
           "path": "docs-rate-limits.html",
           "overview": false,
           "title": "Docs Rate Limits",
-          "headings": []
+          "headings": [
+            {
+              "id": "rate-limit-safety",
+              "level": 1,
+              "text": "Rate limit safety"
+            }
+          ]
         },
         {
           "path": "docs-realtime-events.html",
           "overview": false,
           "title": "Docs Realtime Events",
-          "headings": []
+          "headings": [
+            {
+              "id": "realtime-events",
+              "level": 1,
+              "text": "Realtime events"
+            },
+            {
+              "id": "using-your-own-http-framework",
+              "level": 3,
+              "text": "Using your own http framework"
+            }
+          ]
         },
         {
           "path": "docs-setup.html",
           "overview": false,
           "title": "Docs Setup",
-          "headings": []
+          "headings": [
+            {
+              "id": "setup-and-tokens",
+              "level": 1,
+              "text": "Setup and tokens"
+            },
+            {
+              "id": "token-resolution-order",
+              "level": 3,
+              "text": "Token resolution order"
+            }
+          ]
         },
         {
           "path": "docs-status-checking.html",
           "overview": false,
           "title": "Docs Status Checking",
-          "headings": []
+          "headings": [
+            {
+              "id": "status-checking",
+              "level": 1,
+              "text": "Status checking"
+            }
+          ]
         },
         {
           "path": "docs-universal-parser.html",
           "overview": false,
           "title": "Docs Universal Parser",
-          "headings": []
+          "headings": [
+            {
+              "id": "universal-parser",
+              "level": 1,
+              "text": "Universal parser"
+            }
+          ]
         },
         {
           "path": "docs-vote-announcer.html",
           "overview": false,
           "title": "Docs Vote Announcer",
-          "headings": []
+          "headings": [
+            {
+              "id": "vote-announcements",
+              "level": 1,
+              "text": "Vote announcements"
+            }
+          ]
         },
         {
           "path": "docs-webhook-security.html",
           "overview": false,
           "title": "Docs Webhook Security",
-          "headings": []
+          "headings": [
+            {
+              "id": "webhook-security",
+              "level": 1,
+              "text": "Webhook security"
+            },
+            {
+              "id": "topgg-v1-signed-deliveries",
+              "level": 3,
+              "text": "top.gg v1 signed deliveries"
+            }
+          ]
         },
         {
           "path": "docs.html",
           "overview": false,
           "title": "Docs",
-          "headings": []
+          "headings": [
+            {
+              "id": "introduction",
+              "level": 1,
+              "text": "Introduction"
+            }
+          ]
         },
         {
           "path": "license.html",
           "overview": false,
           "title": "License",
-          "headings": []
+          "headings": [
+            {
+              "id": "license",
+              "level": 1,
+              "text": "License"
+            },
+            {
+              "id": "what-you-can-do",
+              "level": 2,
+              "text": "What you can do"
+            },
+            {
+              "id": "what-you-cannot-do",
+              "level": 2,
+              "text": "What you cannot do"
+            },
+            {
+              "id": "keep-the-notices",
+              "level": 2,
+              "text": "Keep the notices"
+            },
+            {
+              "id": "the-document-that-rules",
+              "level": 2,
+              "text": "The document that rules"
+            }
+          ]
         },
         {
           "path": "status.html",
           "overview": false,
           "title": "Status",
-          "headings": []
+          "headings": [
+            {
+              "id": "botlist-status-board",
+              "level": 1,
+              "text": "Botlist status board"
+            }
+          ]
         }
       ]
     },
@@ -1604,7 +2259,38 @@
           "path": "README",
           "overview": true,
           "title": "Overview",
-          "headings": []
+          "headings": [
+            {
+              "id": "echoingdeaths",
+              "level": 1,
+              "text": "EchoingDeaths"
+            },
+            {
+              "id": "what-it-does",
+              "level": 2,
+              "text": "What it does"
+            },
+            {
+              "id": "who-it-is-for",
+              "level": 2,
+              "text": "Who it is for"
+            },
+            {
+              "id": "getting-started",
+              "level": 2,
+              "text": "Getting started"
+            },
+            {
+              "id": "where-the-detail-lives",
+              "level": 2,
+              "text": "Where the detail lives"
+            },
+            {
+              "id": "links",
+              "level": 2,
+              "text": "Links"
+            }
+          ]
         },
         {
           "path": "commandspermissions.html",
@@ -1612,18 +2298,23 @@
           "title": "Commandspermissions",
           "headings": [
             {
+              "id": "commands-permissions",
+              "level": 1,
+              "text": "Commands & Permissions"
+            },
+            {
               "id": "commands",
-              "level": 3,
+              "level": 2,
               "text": "Commands"
             },
             {
               "id": "permissions",
-              "level": 3,
+              "level": 2,
               "text": "Permissions"
             },
             {
               "id": "permission-flow",
-              "level": 3,
+              "level": 2,
               "text": "Permission flow"
             }
           ]
@@ -1634,33 +2325,38 @@
           "title": "Configuration",
           "headings": [
             {
+              "id": "configuration",
+              "level": 1,
+              "text": "Configuration"
+            },
+            {
               "id": "settings",
-              "level": 3,
+              "level": 2,
               "text": "settings"
             },
             {
               "id": "display",
-              "level": 3,
+              "level": 2,
               "text": "display"
             },
             {
               "id": "messages",
-              "level": 3,
+              "level": 2,
               "text": "messages"
             },
             {
               "id": "effects",
-              "level": 3,
+              "level": 2,
               "text": "effects"
             },
             {
               "id": "fallback",
-              "level": 3,
+              "level": 2,
               "text": "fallback"
             },
             {
               "id": "full-default-config",
-              "level": 3,
+              "level": 2,
               "text": "Full default config.yml"
             }
           ]
@@ -1671,23 +2367,108 @@
           "title": "Curses",
           "headings": [
             {
+              "id": "curses",
+              "level": 1,
+              "text": "Curses"
+            },
+            {
               "id": "how-curses-work",
-              "level": 3,
+              "level": 2,
               "text": "How curses work"
             },
             {
               "id": "default-curses",
-              "level": 3,
+              "level": 2,
               "text": "Default curses"
             },
             {
-              "id": "any-damage-cause",
+              "id": "fall",
               "level": 3,
+              "text": "Fall"
+            },
+            {
+              "id": "lava",
+              "level": 3,
+              "text": "Lava"
+            },
+            {
+              "id": "fire",
+              "level": 3,
+              "text": "Fire"
+            },
+            {
+              "id": "drowning",
+              "level": 3,
+              "text": "Drowning"
+            },
+            {
+              "id": "void",
+              "level": 3,
+              "text": "Void"
+            },
+            {
+              "id": "magic",
+              "level": 3,
+              "text": "Magic"
+            },
+            {
+              "id": "wither",
+              "level": 3,
+              "text": "Wither"
+            },
+            {
+              "id": "explosion",
+              "level": 3,
+              "text": "Explosion"
+            },
+            {
+              "id": "freezing",
+              "level": 3,
+              "text": "Freezing"
+            },
+            {
+              "id": "lightning",
+              "level": 3,
+              "text": "Lightning"
+            },
+            {
+              "id": "poison",
+              "level": 3,
+              "text": "Poison"
+            },
+            {
+              "id": "starvation",
+              "level": 3,
+              "text": "Starvation"
+            },
+            {
+              "id": "suffocation",
+              "level": 3,
+              "text": "Suffocation"
+            },
+            {
+              "id": "sonic-boom",
+              "level": 3,
+              "text": "Sonic Boom"
+            },
+            {
+              "id": "thorns",
+              "level": 3,
+              "text": "Thorns"
+            },
+            {
+              "id": "sharp-contact",
+              "level": 3,
+              "text": "Sharp Contact"
+            },
+            {
+              "id": "any-damage-cause",
+              "level": 2,
               "text": "Any damage cause"
             },
             {
               "id": "fallback-curse",
-              "level": 3,
+              "level": 2,
               "text": "The fallback curse"
             }
           ]
@@ -1696,7 +2477,13 @@
           "path": "docsportal.html",
           "overview": false,
           "title": "Docsportal",
-          "headings": []
+          "headings": [
+            {
+              "id": "documentation-hub",
+              "level": 1,
+              "text": "Documentation Hub"
+            }
+          ]
         },
         {
           "path": "examples.html",
@@ -1704,18 +2491,23 @@
           "title": "Examples",
           "headings": [
             {
+              "id": "copy-paste-curse",
+              "level": 1,
+              "text": "Copy, paste, curse."
+            },
+            {
               "id": "curse-block",
-              "level": 3,
+              "level": 2,
               "text": "A curse block"
             },
             {
               "id": "commands",
-              "level": 3,
+              "level": 2,
               "text": "Command usage"
             },
             {
               "id": "messages",
-              "level": 3,
+              "level": 2,
               "text": "Message format"
             }
           ]
@@ -1727,7 +2519,12 @@
           "headings": [
             {
               "id": "faq",
-              "level": 3,
+              "level": 1,
+              "text": "FAQ"
+            },
+            {
+              "id": "faq",
+              "level": 2,
               "text": "Frequently asked questions"
             }
           ]
@@ -1738,23 +2535,28 @@
           "title": "Gettingstarted",
           "headings": [
             {
+              "id": "getting-started",
+              "level": 1,
+              "text": "Getting Started"
+            },
+            {
               "id": "requirements",
-              "level": 3,
+              "level": 2,
               "text": "Requirements"
             },
             {
               "id": "install",
-              "level": 3,
+              "level": 2,
               "text": "Installation"
             },
             {
               "id": "first-steps",
-              "level": 3,
+              "level": 2,
               "text": "First steps in game"
             },
             {
               "id": "troubleshooting",
-              "level": 3,
+              "level": 2,
               "text": "Troubleshooting"
             }
           ]
@@ -1765,23 +2567,28 @@
           "title": "License",
           "headings": [
             {
+              "id": "free-to-use-not-for-sale",
+              "level": 1,
+              "text": "Free to use. Not for sale."
+            },
+            {
               "id": "what-you-can-do",
-              "level": 3,
+              "level": 2,
               "text": "What you can do"
             },
             {
               "id": "what-you-cant-do",
-              "level": 3,
+              "level": 2,
               "text": "What you can't do"
             },
             {
               "id": "attribution",
-              "level": 3,
+              "level": 2,
               "text": "Keep the notices"
             },
             {
               "id": "full-text",
-              "level": 3,
+              "level": 2,
               "text": "The full license text"
             }
           ]
@@ -1812,7 +2619,43 @@
           "path": "README",
           "overview": true,
           "title": "Overview",
-          "headings": []
+          "headings": [
+            {
+              "id": "fyrwall",
+              "level": 1,
+              "text": "FYRwall"
+            },
+            {
+              "id": "what-it-does",
+              "level": 2,
+              "text": "What it does"
+            },
+            {
+              "id": "who-it-is-for",
+              "level": 2,
+              "text": "Who it is for"
+            },
+            {
+              "id": "getting-started",
+              "level": 2,
+              "text": "Getting started"
+            },
+            {
+              "id": "architecture-in-one-minute",
+              "level": 2,
+              "text": "Architecture in one minute"
+            },
+            {
+              "id": "where-the-detail-lives",
+              "level": 2,
+              "text": "Where the detail lives"
+            },
+            {
+              "id": "links",
+              "level": 2,
+              "text": "Links"
+            }
+          ]
         },
         {
           "path": "architecture",
@@ -2001,7 +2844,38 @@
           "path": "README",
           "overview": true,
           "title": "Overview",
-          "headings": []
+          "headings": [
+            {
+              "id": "hbs-tool",
+              "level": 1,
+              "text": "HBS-Tool"
+            },
+            {
+              "id": "what-it-is",
+              "level": 2,
+              "text": "What it is"
+            },
+            {
+              "id": "what-it-does",
+              "level": 2,
+              "text": "What it does"
+            },
+            {
+              "id": "getting-started",
+              "level": 2,
+              "text": "Getting started"
+            },
+            {
+              "id": "where-the-detail-lives",
+              "level": 2,
+              "text": "Where the detail lives"
+            },
+            {
+              "id": "links",
+              "level": 2,
+              "text": "Links"
+            }
+          ]
         },
         {
           "path": "docs-dashboard.html",
@@ -2010,37 +2884,37 @@
           "headings": [
             {
               "id": "install-run",
-              "level": 3,
-              "text": "Install &amp; run"
+              "level": 2,
+              "text": "Install & run"
             },
             {
               "id": "hosting-configuration",
-              "level": 3,
-              "text": "Hosting &amp; configuration"
+              "level": 2,
+              "text": "Hosting & configuration"
             },
             {
               "id": "first-run-users",
-              "level": 3,
-              "text": "First run &amp; users"
+              "level": 2,
+              "text": "First run & users"
             },
             {
               "id": "hardening-endpoint-security",
-              "level": 3,
-              "text": "Hardening &amp; endpoint security"
+              "level": 2,
+              "text": "Hardening & endpoint security"
             },
             {
               "id": "workflow",
-              "level": 3,
+              "level": 2,
               "text": "Workflow"
             },
             {
               "id": "console-pages",
-              "level": 3,
+              "level": 2,
               "text": "Console pages"
             },
             {
               "id": "key-api-endpoints",
-              "level": 3,
+              "level": 2,
               "text": "Key API endpoints"
             }
           ]
@@ -2052,32 +2926,32 @@
           "headings": [
             {
               "id": "build",
-              "level": 3,
+              "level": 2,
               "text": "Build"
             },
             {
               "id": "command-line-flags",
-              "level": 3,
+              "level": 2,
               "text": "Command-line flags"
             },
             {
               "id": "environment-variables",
-              "level": 3,
+              "level": 2,
               "text": "Environment variables"
             },
             {
               "id": "output-exit-codes",
-              "level": 3,
-              "text": "Output &amp; exit codes"
+              "level": 2,
+              "text": "Output & exit codes"
             },
             {
               "id": "least-privilege",
-              "level": 3,
+              "level": 2,
               "text": "Least privilege"
             },
             {
               "id": "strict-read-only-guarantee",
-              "level": 3,
+              "level": 2,
               "text": "Strict read-only guarantee"
             }
           ]
@@ -2089,27 +2963,27 @@
           "headings": [
             {
               "id": "step-1-start-the-dashboard-5-minutes-one-time",
-              "level": 3,
+              "level": 2,
               "text": "Step 1: start the dashboard (5 minutes, one time)"
             },
             {
               "id": "step-2-campaign-location-extractor-2-minutes",
-              "level": 3,
+              "level": 2,
               "text": "Step 2: campaign, location, extractor (2 minutes)"
             },
             {
               "id": "step-3-scan-the-target-server-2-minutes",
-              "level": 3,
+              "level": 2,
               "text": "Step 3: scan the target server (2 minutes)"
             },
             {
               "id": "step-4-upload-and-see-results-1-minute",
-              "level": 3,
+              "level": 2,
               "text": "Step 4: upload and see results (1 minute)"
             },
             {
               "id": "step-5-what-to-do-next",
-              "level": 3,
+              "level": 2,
               "text": "Step 5: what to do next"
             }
           ]
@@ -2121,27 +2995,27 @@
           "headings": [
             {
               "id": "install-and-open-the-dashboard",
-              "level": 3,
+              "level": 2,
               "text": "1. Install and open the dashboard"
             },
             {
               "id": "create-a-campaign-and-generate-an-extractor",
-              "level": 3,
+              "level": 2,
               "text": "2. Create a campaign and generate an extractor"
             },
             {
               "id": "scan-a-server-offline-read-only",
-              "level": 3,
+              "level": 2,
               "text": "3. Scan a server (offline, read-only)"
             },
             {
               "id": "get-the-report-into-the-dashboard",
-              "level": 3,
+              "level": 2,
               "text": "4. Get the report into the dashboard"
             },
             {
               "id": "read-the-results",
-              "level": 3,
+              "level": 2,
               "text": "5. Read the results"
             }
           ]
@@ -2153,27 +3027,27 @@
           "headings": [
             {
               "id": "hbs-v2-envelope-93-byte-header-little-endian",
-              "level": 3,
+              "level": 2,
               "text": ".hbs v2 envelope (93-byte header, little-endian)"
             },
             {
               "id": "keyslot-512-bytes-patched-per-issuance",
-              "level": 3,
+              "level": 2,
               "text": "Keyslot (512 bytes, patched per issuance)"
             },
             {
               "id": "self-diagnosing-report",
-              "level": 3,
+              "level": 2,
               "text": "Self-diagnosing report"
             },
             {
               "id": "sealed-hosting-configuration",
-              "level": 3,
+              "level": 2,
               "text": "Sealed hosting configuration"
             },
             {
               "id": "honest-security-statement",
-              "level": 3,
+              "level": 2,
               "text": "Honest security statement"
             }
           ]
@@ -2191,17 +3065,17 @@
           "headings": [
             {
               "id": "unit-integration",
-              "level": 3,
+              "level": 2,
               "text": "Unit / integration"
             },
             {
               "id": "real-world-matrices",
-              "level": 3,
+              "level": 2,
               "text": "Real-world matrices"
             },
             {
               "id": "harness-reference",
-              "level": 3,
+              "level": 2,
               "text": "Harness reference"
             }
           ]
@@ -2210,13 +3084,50 @@
           "path": "examples.html",
           "overview": false,
           "title": "Examples",
-          "headings": []
+          "headings": [
+            {
+              "id": "linux-non-root-fully-offline",
+              "level": 2,
+              "text": "Linux, non-root, fully offline"
+            },
+            {
+              "id": "air-gapped-push-over-a-jump-host",
+              "level": 2,
+              "text": "Air-gapped push over a jump host"
+            },
+            {
+              "id": "filtered-re-scan-of-one-category",
+              "level": 2,
+              "text": "Filtered re-scan of one category"
+            },
+            {
+              "id": "windows-scripted-ci-run",
+              "level": 2,
+              "text": "Windows scripted / CI run"
+            },
+            {
+              "id": "create-a-campaign-and-issuance-via-api",
+              "level": 2,
+              "text": "Create a campaign and issuance via API"
+            },
+            {
+              "id": "batch-upload-a-fleet-of-reports",
+              "level": 2,
+              "text": "Batch upload a fleet of reports"
+            }
+          ]
         },
         {
           "path": "license.html",
           "overview": false,
           "title": "License",
-          "headings": []
+          "headings": [
+            {
+              "id": "what-that-means-in-practice",
+              "level": 2,
+              "text": "What that means in practice"
+            }
+          ]
         },
         {
           "path": "security/edr-compatibility",
@@ -2261,7 +3172,38 @@
           "path": "README",
           "overview": true,
           "title": "Overview",
-          "headings": []
+          "headings": [
+            {
+              "id": "linkfyr",
+              "level": 1,
+              "text": "LinkFYR"
+            },
+            {
+              "id": "what-it-does",
+              "level": 2,
+              "text": "What it does"
+            },
+            {
+              "id": "who-it-is-for",
+              "level": 2,
+              "text": "Who it is for"
+            },
+            {
+              "id": "getting-started",
+              "level": 2,
+              "text": "Getting started"
+            },
+            {
+              "id": "where-the-detail-lives",
+              "level": 2,
+              "text": "Where the detail lives"
+            },
+            {
+              "id": "links",
+              "level": 2,
+              "text": "Links"
+            }
+          ]
         },
         {
           "path": "docs-adr0001-application-shell.html",
@@ -2273,91 +3215,641 @@
           "path": "docs-architecture.html",
           "overview": false,
           "title": "Docs Architecture",
-          "headings": []
+          "headings": [
+            {
+              "id": "architecture",
+              "level": 1,
+              "text": "Architecture"
+            },
+            {
+              "id": "1-product-thesis",
+              "level": 3,
+              "text": "1. Product thesis"
+            },
+            {
+              "id": "2-process-trust-topology",
+              "level": 3,
+              "text": "2. Process & trust topology"
+            },
+            {
+              "id": "3-crate-map-cargo-workspace",
+              "level": 3,
+              "text": "3. Crate map (Cargo workspace)"
+            },
+            {
+              "id": "4-platform-abstraction-linkfyr-network",
+              "level": 3,
+              "text": "4. Platform abstraction (linkfyr-network)"
+            },
+            {
+              "id": "5-data-flow-phase-1-vertical-slice-shipped-now",
+              "level": 3,
+              "text": "5. Data flow (Phase 1 vertical slice, shipped now)"
+            },
+            {
+              "id": "6-fusion-phase-6-design-sketch",
+              "level": 3,
+              "text": "6. Fusion (Phase 6) design sketch"
+            },
+            {
+              "id": "7-storage",
+              "level": 3,
+              "text": "7. Storage"
+            },
+            {
+              "id": "8-testing-strategy",
+              "level": 3,
+              "text": "8. Testing strategy"
+            },
+            {
+              "id": "9-performance-budgets",
+              "level": 3,
+              "text": "9. Performance budgets"
+            }
+          ]
         },
         {
           "path": "docs-competitors.html",
           "overview": false,
           "title": "Docs Competitors",
-          "headings": []
+          "headings": [
+            {
+              "id": "competitor-matrix",
+              "level": 1,
+              "text": "Competitor matrix"
+            },
+            {
+              "id": "multi-wan-bonding",
+              "level": 3,
+              "text": "Multi-WAN / bonding"
+            },
+            {
+              "id": "speedify",
+              "level": 3,
+              "text": "Speedify"
+            },
+            {
+              "id": "peplinkspeedfusion-openmptcprouter-mwan3",
+              "level": 3,
+              "text": "Peplink/SpeedFusion, OpenMPTCProuter, mwan3"
+            },
+            {
+              "id": "per-app-control-firewall",
+              "level": 3,
+              "text": "Per-app control / firewall"
+            },
+            {
+              "id": "netlimiter-win",
+              "level": 3,
+              "text": "NetLimiter (Win)"
+            },
+            {
+              "id": "netbalancer-win",
+              "level": 3,
+              "text": "NetBalancer (Win)"
+            },
+            {
+              "id": "little-snitch-macos",
+              "level": 3,
+              "text": "Little Snitch (macOS)"
+            },
+            {
+              "id": "portmaster-macoslinux-safing",
+              "level": 3,
+              "text": "Portmaster (macOS/Linux, Safing)"
+            },
+            {
+              "id": "simplewall-opensnitch-lulu",
+              "level": 3,
+              "text": "simplewall / OpenSnitch / LuLu"
+            },
+            {
+              "id": "monitoring",
+              "level": 3,
+              "text": "Monitoring"
+            },
+            {
+              "id": "glasswire",
+              "level": 3,
+              "text": "GlassWire"
+            },
+            {
+              "id": "vpn-identity",
+              "level": 3,
+              "text": "VPN / identity"
+            },
+            {
+              "id": "tailscalezerotier",
+              "level": 3,
+              "text": "Tailscale/ZeroTier"
+            },
+            {
+              "id": "commercial-vpn-clients",
+              "level": 3,
+              "text": "Commercial VPN clients"
+            },
+            {
+              "id": "diagnostics",
+              "level": 3,
+              "text": "Diagnostics"
+            },
+            {
+              "id": "synthesis-validated-product-requirements-evidence-graded",
+              "level": 3,
+              "text": "Synthesis, validated product requirements (evidence-graded)"
+            }
+          ]
         },
         {
           "path": "docs-daemon.html",
           "overview": false,
           "title": "Docs Daemon",
-          "headings": []
+          "headings": [
+            {
+              "id": "linkfyrd-service",
+              "level": 1,
+              "text": "linkfyrd service"
+            },
+            {
+              "id": "windows-service-via-scm",
+              "level": 3,
+              "text": "Windows (service via SCM)"
+            },
+            {
+              "id": "linux-systemd",
+              "level": 3,
+              "text": "Linux (systemd)"
+            },
+            {
+              "id": "macos-launchd",
+              "level": 3,
+              "text": "macOS (launchd)"
+            },
+            {
+              "id": "transport-and-auth-v1",
+              "level": 3,
+              "text": "Transport and auth (v1)"
+            }
+          ]
         },
         {
           "path": "docs-edge.html",
           "overview": false,
           "title": "Docs Edge",
-          "headings": []
+          "headings": [
+            {
+              "id": "edge-node",
+              "level": 1,
+              "text": "Edge node"
+            },
+            {
+              "id": "self-hosted-free-first-class",
+              "level": 3,
+              "text": "Self-hosted (free, first-class)"
+            },
+            {
+              "id": "community-hosted-endpoints-optional-never-gated",
+              "level": 3,
+              "text": "Community-hosted endpoints (optional, never gated)"
+            },
+            {
+              "id": "operations",
+              "level": 3,
+              "text": "Operations"
+            }
+          ]
         },
         {
           "path": "docs-flow-rules.html",
           "overview": false,
           "title": "Docs Flow Rules",
-          "headings": []
+          "headings": [
+            {
+              "id": "flow-rules",
+              "level": 1,
+              "text": "Flow Rules"
+            },
+            {
+              "id": "model",
+              "level": 3,
+              "text": "Model"
+            },
+            {
+              "id": "evaluation-pipeline",
+              "level": 3,
+              "text": "Evaluation pipeline"
+            },
+            {
+              "id": "editors",
+              "level": 3,
+              "text": "Editors"
+            },
+            {
+              "id": "automation-rules",
+              "level": 3,
+              "text": "Automation rules"
+            },
+            {
+              "id": "connection-composer",
+              "level": 3,
+              "text": "Connection Composer"
+            },
+            {
+              "id": "testing",
+              "level": 3,
+              "text": "Testing"
+            }
+          ]
         },
         {
           "path": "docs-mobile.html",
           "overview": false,
           "title": "Docs Mobile",
-          "headings": []
+          "headings": [
+            {
+              "id": "mobile-companion",
+              "level": 1,
+              "text": "Mobile companion"
+            },
+            {
+              "id": "1-start-the-daemon-on-your-pc",
+              "level": 3,
+              "text": "1. Start the daemon on your PC"
+            },
+            {
+              "id": "2-build-the-mobile-app",
+              "level": 3,
+              "text": "2. Build the mobile app"
+            },
+            {
+              "id": "3-first-run-on-the-phone",
+              "level": 3,
+              "text": "3. First run on the phone"
+            },
+            {
+              "id": "security-posture",
+              "level": 3,
+              "text": "Security posture"
+            },
+            {
+              "id": "honest-limits",
+              "level": 3,
+              "text": "Honest limits"
+            }
+          ]
         },
         {
           "path": "docs-platform-support.html",
           "overview": false,
           "title": "Docs Platform Support",
-          "headings": []
+          "headings": [
+            {
+              "id": "platform-support",
+              "level": 1,
+              "text": "Platform support"
+            },
+            {
+              "id": "build-targets",
+              "level": 3,
+              "text": "Build targets"
+            },
+            {
+              "id": "capability-matrix",
+              "level": 3,
+              "text": "Capability matrix"
+            },
+            {
+              "id": "legend-gating-in-ui",
+              "level": 3,
+              "text": "Legend / gating in UI"
+            },
+            {
+              "id": "tier-policy",
+              "level": 3,
+              "text": "Tier policy"
+            }
+          ]
         },
         {
           "path": "docs-protocol.html",
           "overview": false,
           "title": "Docs Protocol",
-          "headings": []
+          "headings": [
+            {
+              "id": "fusion-protocol",
+              "level": 1,
+              "text": "Fusion protocol"
+            },
+            {
+              "id": "goal",
+              "level": 3,
+              "text": "Goal"
+            },
+            {
+              "id": "candidates-to-benchmark-adr-00x-will-record-results",
+              "level": 3,
+              "text": "Candidates to benchmark (ADR-00X will record results)"
+            },
+            {
+              "id": "session-model-transport-agnostic",
+              "level": 3,
+              "text": "Session model (transport-agnostic)"
+            },
+            {
+              "id": "security",
+              "level": 3,
+              "text": "Security"
+            },
+            {
+              "id": "open-items",
+              "level": 3,
+              "text": "Open items"
+            }
+          ]
         },
         {
           "path": "docs-releases.html",
           "overview": false,
           "title": "Docs Releases",
-          "headings": []
+          "headings": [
+            {
+              "id": "release-engineering",
+              "level": 1,
+              "text": "Release engineering"
+            },
+            {
+              "id": "channels",
+              "level": 3,
+              "text": "Channels"
+            },
+            {
+              "id": "pipeline-github-actions-githubworkflows",
+              "level": 3,
+              "text": "Pipeline (GitHub Actions, .github/workflows/)"
+            },
+            {
+              "id": "artifacts-layout-github-releases",
+              "level": 3,
+              "text": "Artifacts layout (GitHub Releases)"
+            },
+            {
+              "id": "install-scripts-defensive-in-scripts-served-from-reporaw-or-cdn",
+              "level": 3,
+              "text": "Install scripts (defensive, in /scripts, served from repo/raw or CDN)"
+            },
+            {
+              "id": "updater-tauri-2",
+              "level": 3,
+              "text": "Updater (Tauri 2)"
+            },
+            {
+              "id": "package-managers-prioritized-not-checklist-driven",
+              "level": 3,
+              "text": "Package managers (prioritized, not checklist-driven)"
+            }
+          ]
         },
         {
           "path": "docs-roadmap.html",
           "overview": false,
           "title": "Docs Roadmap",
-          "headings": []
+          "headings": [
+            {
+              "id": "roadmap",
+              "level": 1,
+              "text": "Roadmap"
+            },
+            {
+              "id": "phase-0-research-architecture-this-repo-start",
+              "level": 3,
+              "text": "Phase 0. Research & Architecture ✅ (this repo start)"
+            },
+            {
+              "id": "phase-1-foundation-shipping-now",
+              "level": 3,
+              "text": "Phase 1. Foundation ✅ shipping now"
+            },
+            {
+              "id": "phase-2-monitoring-deep-dive",
+              "level": 3,
+              "text": "Phase 2. Monitoring deep-dive"
+            },
+            {
+              "id": "phase-26-tool-registry-bridges-daemon-shipped",
+              "level": 3,
+              "text": "Phase 2.6. Tool registry, bridges, daemon (shipped)"
+            },
+            {
+              "id": "phase-25-optimization-toolkit-shipped",
+              "level": 3,
+              "text": "Phase 2.5. Optimization Toolkit (shipped)"
+            },
+            {
+              "id": "phase-3-local-traffic-control",
+              "level": 3,
+              "text": "Phase 3. Local traffic control"
+            },
+            {
+              "id": "phase-4-flow-rules-composer-automation",
+              "level": 3,
+              "text": "Phase 4. Flow Rules + Composer + Automation"
+            },
+            {
+              "id": "phase-5-multi-wan-local",
+              "level": 3,
+              "text": "Phase 5. Multi-WAN (local)"
+            },
+            {
+              "id": "phase-6-fusion-bonding-edge",
+              "level": 3,
+              "text": "Phase 6. Fusion (bonding) + Edge"
+            },
+            {
+              "id": "phase-7-vpn-dns-privacy",
+              "level": 3,
+              "text": "Phase 7. VPN / DNS / Privacy"
+            },
+            {
+              "id": "phase-8-remote-multi-device",
+              "level": 3,
+              "text": "Phase 8. Remote & multi-device"
+            },
+            {
+              "id": "phase-9-router-headless-embedded",
+              "level": 3,
+              "text": "Phase 9. Router / headless / embedded"
+            },
+            {
+              "id": "cross-cutting-commitments-all-phases",
+              "level": 3,
+              "text": "Cross-cutting commitments (all phases)"
+            }
+          ]
         },
         {
           "path": "docs-security.html",
           "overview": false,
           "title": "Docs Security",
-          "headings": []
+          "headings": [
+            {
+              "id": "security-engineering",
+              "level": 1,
+              "text": "Security engineering"
+            },
+            {
+              "id": "principles",
+              "level": 3,
+              "text": "Principles"
+            },
+            {
+              "id": "supply-chain",
+              "level": 3,
+              "text": "Supply chain"
+            },
+            {
+              "id": "runtime-hardening",
+              "level": 3,
+              "text": "Runtime hardening"
+            },
+            {
+              "id": "reporting",
+              "level": 3,
+              "text": "Reporting"
+            }
+          ]
         },
         {
           "path": "docs-threat-model.html",
           "overview": false,
           "title": "Docs Threat Model",
-          "headings": []
+          "headings": [
+            {
+              "id": "threat-model",
+              "level": 1,
+              "text": "Threat model"
+            },
+            {
+              "id": "assets",
+              "level": 3,
+              "text": "Assets"
+            },
+            {
+              "id": "trust-boundaries",
+              "level": 3,
+              "text": "Trust boundaries"
+            },
+            {
+              "id": "threats-mitigations",
+              "level": 3,
+              "text": "Threats & mitigations"
+            },
+            {
+              "id": "fail-open-fail-closed-policy-per-feature",
+              "level": 3,
+              "text": "Fail-open / fail-closed policy per feature"
+            },
+            {
+              "id": "open-risks-tracked",
+              "level": 3,
+              "text": "Open risks (tracked)"
+            }
+          ]
         },
         {
           "path": "docs-user-demand-research.html",
           "overview": false,
           "title": "Docs User Demand Research",
-          "headings": []
+          "headings": [
+            {
+              "id": "user-demand-research",
+              "level": 1,
+              "text": "User demand research"
+            },
+            {
+              "id": "recurring-asks-linkfyr-requirements",
+              "level": 3,
+              "text": "Recurring asks → LinkFYR requirements"
+            },
+            {
+              "id": "anti-patterns-to-avoid-complaint-derived",
+              "level": 3,
+              "text": "Anti-patterns to avoid (complaint-derived)"
+            },
+            {
+              "id": "open-questions-for-continued-research",
+              "level": 3,
+              "text": "Open questions for continued research"
+            }
+          ]
         },
         {
           "path": "docs-ux.html",
           "overview": false,
           "title": "Docs Ux",
-          "headings": []
+          "headings": [
+            {
+              "id": "ux-and-design-system",
+              "level": 1,
+              "text": "UX and design system"
+            },
+            {
+              "id": "feel",
+              "level": 3,
+              "text": "Feel"
+            },
+            {
+              "id": "design-tokens-implemented-in-packagesuitokenscss",
+              "level": 3,
+              "text": "Design tokens (implemented in packages/ui/tokens.css)"
+            },
+            {
+              "id": "components-packagesui-primitives",
+              "level": 3,
+              "text": "Components (packages/ui primitives)"
+            },
+            {
+              "id": "layout",
+              "level": 3,
+              "text": "Layout"
+            },
+            {
+              "id": "accessibility",
+              "level": 3,
+              "text": "Accessibility"
+            },
+            {
+              "id": "performance",
+              "level": 3,
+              "text": "Performance"
+            }
+          ]
         },
         {
           "path": "docs.html",
           "overview": false,
           "title": "Docs",
-          "headings": []
+          "headings": [
+            {
+              "id": "documentation",
+              "level": 1,
+              "text": "Documentation"
+            },
+            {
+              "id": "start-here",
+              "level": 2,
+              "text": "Start here"
+            },
+            {
+              "id": "security",
+              "level": 2,
+              "text": "Security"
+            },
+            {
+              "id": "design-and-background",
+              "level": 2,
+              "text": "Design and background"
+            }
+          ]
         }
       ]
     },
@@ -2385,7 +3877,38 @@
           "path": "README",
           "overview": true,
           "title": "Overview",
-          "headings": []
+          "headings": [
+            {
+              "id": "minecraft-eggs",
+              "level": 1,
+              "text": "Minecraft-Eggs"
+            },
+            {
+              "id": "the-idea",
+              "level": 2,
+              "text": "The idea"
+            },
+            {
+              "id": "what-it-gives-you",
+              "level": 2,
+              "text": "What it gives you"
+            },
+            {
+              "id": "getting-started",
+              "level": 2,
+              "text": "Getting started"
+            },
+            {
+              "id": "where-the-detail-lives",
+              "level": 2,
+              "text": "Where the detail lives"
+            },
+            {
+              "id": "links",
+              "level": 2,
+              "text": "Links"
+            }
+          ]
         },
         {
           "path": "docs.html",
@@ -2394,42 +3917,42 @@
           "headings": [
             {
               "id": "import",
-              "level": 3,
+              "level": 2,
               "text": "Import the egg"
             },
             {
               "id": "create",
-              "level": 3,
+              "level": 2,
               "text": "Create the server"
             },
             {
               "id": "variables",
-              "level": 3,
+              "level": 2,
               "text": "Set the core variables"
             },
             {
               "id": "features",
-              "level": 3,
-              "text": "Panel features &amp; EULA"
+              "level": 2,
+              "text": "Panel features & EULA"
             },
             {
               "id": "java",
-              "level": 3,
-              "text": "Java &amp; memory guidance"
+              "level": 2,
+              "text": "Java & memory guidance"
             },
             {
               "id": "reinstall",
-              "level": 3,
-              "text": "Reinstalls &amp; safe switching"
+              "level": 2,
+              "text": "Reinstalls & safe switching"
             },
             {
               "id": "stop",
-              "level": 3,
+              "level": 2,
               "text": "Stop behavior"
             },
             {
               "id": "troubleshooting",
-              "level": 3,
+              "level": 2,
               "text": "Troubleshooting"
             }
           ]
@@ -2441,72 +3964,72 @@
           "headings": [
             {
               "id": "egg-facts",
-              "level": 3,
+              "level": 2,
               "text": "Egg facts"
             },
             {
               "id": "docker",
-              "level": 3,
+              "level": 2,
               "text": "Docker images"
             },
             {
               "id": "startup",
-              "level": 3,
-              "text": "Startup &amp; stop"
+              "level": 2,
+              "text": "Startup & stop"
             },
             {
               "id": "features",
-              "level": 3,
+              "level": 2,
               "text": "Panel features"
             },
             {
               "id": "egg-self-update",
-              "level": 3,
+              "level": 2,
               "text": "Egg self-update"
             },
             {
               "id": "variables",
-              "level": 3,
+              "level": 2,
               "text": "Variables"
             },
             {
               "id": "var-server-selection",
-              "level": 4,
+              "level": 3,
               "text": "Server Selection"
             },
             {
               "id": "var-github-installs",
-              "level": 4,
+              "level": 3,
               "text": "GitHub Installs"
             },
             {
               "id": "var-java-performance",
-              "level": 4,
-              "text": "Java &amp; Performance"
+              "level": 3,
+              "text": "Java & Performance"
             },
             {
               "id": "var-server-properties",
-              "level": 4,
+              "level": 3,
               "text": "server.properties"
             },
             {
               "id": "var-content-maintenance",
-              "level": 4,
-              "text": "Content &amp; Maintenance"
+              "level": 3,
+              "text": "Content & Maintenance"
             },
             {
               "id": "var-console-panel",
-              "level": 4,
-              "text": "Console &amp; Panel"
+              "level": 3,
+              "text": "Console & Panel"
             },
             {
               "id": "var-custom-engine",
-              "level": 4,
+              "level": 3,
               "text": "Custom Engine"
             },
             {
               "id": "raw",
-              "level": 3,
+              "level": 2,
               "text": "Raw egg JSON"
             }
           ]
@@ -2518,57 +4041,57 @@
           "headings": [
             {
               "id": "how-to-apply",
-              "level": 3,
+              "level": 2,
               "text": "Applying an example"
             },
             {
               "id": "cookbook",
-              "level": 3,
+              "level": 2,
               "text": "Variable cookbook"
             },
             {
               "id": "ex-paper",
-              "level": 4,
+              "level": 3,
               "text": "Modern high-performance Paper"
             },
             {
               "id": "ex-crossplay",
-              "level": 4,
+              "level": 3,
               "text": "Crossplay in one click (Paper + Geyser + Floodgate + ViaVersion)"
             },
             {
               "id": "ex-forge-legacy",
-              "level": 4,
+              "level": 3,
               "text": "Legacy modpack (Forge 1.12.2 / 1.7.10)"
             },
             {
               "id": "ex-neoforge",
-              "level": 4,
+              "level": 3,
               "text": "Modern NeoForge 1.21.x server"
             },
             {
               "id": "ex-velocity",
-              "level": 4,
+              "level": 3,
               "text": "High-throughput proxy network (Velocity)"
             },
             {
               "id": "ex-bedrock",
-              "level": 4,
+              "level": 3,
               "text": "Official Bedrock Dedicated Server (BDS)"
             },
             {
               "id": "ex-github",
-              "level": 4,
+              "level": 3,
               "text": "Custom GitHub release server (Arclight, Purpur forks, …)"
             },
             {
               "id": "ex-custom",
-              "level": 4,
+              "level": 3,
               "text": "Custom engine with your own startup command"
             },
             {
               "id": "raw-excerpt",
-              "level": 3,
+              "level": 2,
               "text": "Real egg JSON excerpt"
             }
           ]
@@ -2580,17 +4103,17 @@
           "headings": [
             {
               "id": "allowed",
-              "level": 3,
+              "level": 2,
               "text": "What you can do"
             },
             {
               "id": "limits",
-              "level": 3,
+              "level": 2,
               "text": "What you cannot do"
             },
             {
               "id": "notice",
-              "level": 3,
+              "level": 2,
               "text": "Attribution and notices"
             }
           ]
@@ -2602,17 +4125,17 @@
           "headings": [
             {
               "id": "catalog",
-              "level": 3,
+              "level": 2,
               "text": "Engine catalog"
             },
             {
               "id": "java-map",
-              "level": 3,
+              "level": 2,
               "text": "Java auto-selection"
             },
             {
               "id": "version-fallback",
-              "level": 3,
+              "level": 2,
               "text": "Version fallback"
             }
           ]
@@ -2642,7 +4165,43 @@
           "path": "README",
           "overview": true,
           "title": "Overview",
-          "headings": []
+          "headings": [
+            {
+              "id": "onejumpalljump-ojaj",
+              "level": 1,
+              "text": "OneJumpAllJump (ojaj)"
+            },
+            {
+              "id": "what-it-does",
+              "level": 2,
+              "text": "What it does"
+            },
+            {
+              "id": "requirements",
+              "level": 2,
+              "text": "Requirements"
+            },
+            {
+              "id": "getting-started",
+              "level": 2,
+              "text": "Getting started"
+            },
+            {
+              "id": "commands",
+              "level": 2,
+              "text": "Commands"
+            },
+            {
+              "id": "where-the-detail-lives",
+              "level": 2,
+              "text": "Where the detail lives"
+            },
+            {
+              "id": "links",
+              "level": 2,
+              "text": "Links"
+            }
+          ]
         },
         {
           "path": "commandspermissions.html",
@@ -2651,17 +4210,17 @@
           "headings": [
             {
               "id": "commands",
-              "level": 3,
+              "level": 2,
               "text": "Commands"
             },
             {
               "id": "permissions",
-              "level": 3,
+              "level": 2,
               "text": "Permissions"
             },
             {
               "id": "notes",
-              "level": 3,
+              "level": 2,
               "text": "Behavior notes"
             }
           ]
@@ -2673,73 +4232,73 @@
           "headings": [
             {
               "id": "example",
-              "level": 3,
+              "level": 2,
               "text": "Full example"
             },
             {
               "id": "master",
-              "level": 3,
+              "level": 2,
               "text": "Master toggle"
             },
             {
               "id": "cooldown",
-              "level": 3,
+              "level": 2,
               "text": "cooldown"
             },
             {
               "id": "velocity",
-              "level": 3,
+              "level": 2,
               "text": "velocity"
             },
             {
               "id": "trigger-chance",
-              "level": 3,
+              "level": 2,
               "text": "trigger-chance"
             },
             {
               "id": "fall-damage",
-              "level": 3,
+              "level": 2,
               "text": "fall-damage"
             },
             {
               "id": "particles",
-              "level": 3,
+              "level": 2,
               "text": "particles"
             },
             {
               "id": "trail",
-              "level": 3,
+              "level": 2,
               "text": "trail"
             },
             {
               "id": "sound",
-              "level": 3,
+              "level": 2,
               "text": "sound"
             },
             {
               "id": "actionbar",
-              "level": 3,
+              "level": 2,
               "text": "actionbar"
             },
             {
               "id": "titles",
-              "level": 3,
+              "level": 2,
               "text": "titles"
             },
             {
               "id": "broadcast",
-              "level": 3,
+              "level": 2,
               "text": "broadcast"
             },
             {
               "id": "worlds",
-              "level": 3,
+              "level": 2,
               "text": "worlds"
             },
             {
               "id": "notes",
-              "level": 3,
-              "text": "Parsing &amp; fallbacks"
+              "level": 2,
+              "text": "Parsing & fallbacks"
             }
           ]
         },
@@ -2750,32 +4309,32 @@
           "headings": [
             {
               "id": "start",
-              "level": 3,
+              "level": 2,
               "text": "Start here: fix your worlds"
             },
             {
               "id": "predictable",
-              "level": 3,
+              "level": 2,
               "text": "Survival-friendly tuning"
             },
             {
               "id": "lobby",
-              "level": 3,
+              "level": 2,
               "text": "Keep lobbies and minigames safe"
             },
             {
               "id": "maximum",
-              "level": 3,
+              "level": 2,
               "text": "Full chaos"
             },
             {
               "id": "messages",
-              "level": 3,
+              "level": 2,
               "text": "Custom messages"
             },
             {
               "id": "commands",
-              "level": 3,
+              "level": 2,
               "text": "Everyday commands"
             }
           ]
@@ -2793,38 +4352,38 @@
           "headings": [
             {
               "id": "trigger",
-              "level": 3,
+              "level": 2,
               "text": "The trigger"
             },
             {
               "id": "checks",
-              "level": 3,
+              "level": 2,
               "text": "The checks, in order"
             },
             {
               "id": "launch",
-              "level": 3,
+              "level": 2,
               "text": "The launch"
             },
             {
               "id": "spectacle",
-              "level": 3,
+              "level": 2,
               "text": "The spectacle"
             },
             {
               "id": "safeguards",
-              "level": 3,
+              "level": 2,
               "text": "Built-in safeguards"
             },
             {
               "id": "stats",
-              "level": 3,
-              "text": "Stats &amp; persistence"
+              "level": 2,
+              "text": "Stats & persistence"
             },
             {
               "id": "formatting",
-              "level": 3,
-              "text": "Colors &amp; placeholders"
+              "level": 2,
+              "text": "Colors & placeholders"
             }
           ]
         },
@@ -2835,27 +4394,27 @@
           "headings": [
             {
               "id": "requirements",
-              "level": 3,
+              "level": 2,
               "text": "Requirements"
             },
             {
               "id": "install",
-              "level": 3,
+              "level": 2,
               "text": "Install from Modrinth"
             },
             {
               "id": "first-jump",
-              "level": 3,
+              "level": 2,
               "text": "Your first global jump"
             },
             {
               "id": "world-gotcha",
-              "level": 3,
+              "level": 2,
               "text": "The world-name gotcha"
             },
             {
               "id": "where-next",
-              "level": 3,
+              "level": 2,
               "text": "Where to next"
             }
           ]
@@ -2867,17 +4426,17 @@
           "headings": [
             {
               "id": "allowed",
-              "level": 3,
+              "level": 2,
               "text": "What you can do"
             },
             {
               "id": "limits",
-              "level": 3,
+              "level": 2,
               "text": "What you cannot do"
             },
             {
               "id": "notice",
-              "level": 3,
+              "level": 2,
               "text": "License notices"
             }
           ]
@@ -2908,7 +4467,43 @@
           "path": "README",
           "overview": true,
           "title": "Overview",
-          "headings": []
+          "headings": [
+            {
+              "id": "orbynode",
+              "level": 1,
+              "text": "OrbyNode"
+            },
+            {
+              "id": "what-it-does",
+              "level": 2,
+              "text": "What it does"
+            },
+            {
+              "id": "who-it-is-for",
+              "level": 2,
+              "text": "Who it is for"
+            },
+            {
+              "id": "core-concepts",
+              "level": 2,
+              "text": "Core concepts"
+            },
+            {
+              "id": "getting-started",
+              "level": 2,
+              "text": "Getting started"
+            },
+            {
+              "id": "where-the-detail-lives",
+              "level": 2,
+              "text": "Where the detail lives"
+            },
+            {
+              "id": "links",
+              "level": 2,
+              "text": "Links"
+            }
+          ]
         },
         {
           "path": "adr/001-daemon-architecture",
@@ -3457,7 +5052,43 @@
           "path": "README",
           "overview": true,
           "title": "Overview",
-          "headings": []
+          "headings": [
+            {
+              "id": "potenfyr-nest",
+              "level": 1,
+              "text": "potenfyr-nest"
+            },
+            {
+              "id": "why-the-nest-exists",
+              "level": 2,
+              "text": "Why the nest exists"
+            },
+            {
+              "id": "what-the-catalog-shows",
+              "level": 2,
+              "text": "What the catalog shows"
+            },
+            {
+              "id": "a-huge-catalog-kept-calm",
+              "level": 2,
+              "text": "A huge catalog, kept calm"
+            },
+            {
+              "id": "getting-started",
+              "level": 2,
+              "text": "Getting started"
+            },
+            {
+              "id": "source-and-contributions",
+              "level": 2,
+              "text": "Source and contributions"
+            },
+            {
+              "id": "layout-reference",
+              "level": 2,
+              "text": "Layout reference"
+            }
+          ]
         }
       ]
     },
@@ -3485,7 +5116,38 @@
           "path": "README",
           "overview": true,
           "title": "Overview",
-          "headings": []
+          "headings": [
+            {
+              "id": "prog-language-eggs",
+              "level": 1,
+              "text": "Prog-Language-Eggs"
+            },
+            {
+              "id": "the-idea",
+              "level": 2,
+              "text": "The idea"
+            },
+            {
+              "id": "what-it-gives-you",
+              "level": 2,
+              "text": "What it gives you"
+            },
+            {
+              "id": "getting-started",
+              "level": 2,
+              "text": "Getting started"
+            },
+            {
+              "id": "where-the-detail-lives",
+              "level": 2,
+              "text": "Where the detail lives"
+            },
+            {
+              "id": "links",
+              "level": 2,
+              "text": "Links"
+            }
+          ]
         }
       ]
     },
@@ -3513,7 +5175,38 @@
           "path": "README",
           "overview": true,
           "title": "Overview",
-          "headings": []
+          "headings": [
+            {
+              "id": "pteroops-mcp",
+              "level": 1,
+              "text": "PteroOps-MCP"
+            },
+            {
+              "id": "what-it-does",
+              "level": 2,
+              "text": "What it does"
+            },
+            {
+              "id": "who-it-is-for",
+              "level": 2,
+              "text": "Who it is for"
+            },
+            {
+              "id": "getting-started",
+              "level": 2,
+              "text": "Getting started"
+            },
+            {
+              "id": "where-the-detail-lives",
+              "level": 2,
+              "text": "Where the detail lives"
+            },
+            {
+              "id": "links",
+              "level": 2,
+              "text": "Links"
+            }
+          ]
         },
         {
           "path": "agent-guide",
@@ -3706,19 +5399,67 @@
           "path": "README",
           "overview": true,
           "title": "Overview",
-          "headings": []
+          "headings": [
+            {
+              "id": "shell-eggs",
+              "level": 1,
+              "text": "Shell-Eggs"
+            },
+            {
+              "id": "the-idea",
+              "level": 2,
+              "text": "The idea"
+            },
+            {
+              "id": "what-it-gives-you",
+              "level": 2,
+              "text": "What it gives you"
+            },
+            {
+              "id": "getting-started",
+              "level": 2,
+              "text": "Getting started"
+            },
+            {
+              "id": "where-the-detail-lives",
+              "level": 2,
+              "text": "Where the detail lives"
+            },
+            {
+              "id": "links",
+              "level": 2,
+              "text": "Links"
+            }
+          ]
         },
         {
           "path": "docs.html",
           "overview": false,
           "title": "Docs",
-          "headings": []
+          "headings": [
+            {
+              "id": "documentation-hub",
+              "level": 1,
+              "text": "Documentation hub"
+            }
+          ]
         },
         {
           "path": "examples.html",
           "overview": false,
           "title": "Examples",
-          "headings": []
+          "headings": [
+            {
+              "id": "which-shell-mode",
+              "level": 1,
+              "text": "Which shell mode?"
+            },
+            {
+              "id": "listener-recipes",
+              "level": 2,
+              "text": "Listener recipes"
+            }
+          ]
         },
         {
           "path": "install.html",
@@ -3726,18 +5467,23 @@
           "title": "Install",
           "headings": [
             {
+              "id": "install-the-egg",
+              "level": 1,
+              "text": "Install the egg"
+            },
+            {
               "id": "docker-images",
-              "level": 3,
+              "level": 2,
               "text": "Docker images"
             },
             {
               "id": "startup-command",
-              "level": 3,
+              "level": 2,
               "text": "Startup command"
             },
             {
               "id": "after-first-boot",
-              "level": 3,
+              "level": 2,
               "text": "After the first boot"
             }
           ]
@@ -3748,28 +5494,33 @@
           "title": "License",
           "headings": [
             {
+              "id": "license",
+              "level": 1,
+              "text": "License"
+            },
+            {
               "id": "short-version",
-              "level": 3,
+              "level": 2,
               "text": "The short version"
             },
             {
               "id": "you-can",
-              "level": 3,
+              "level": 2,
               "text": "What you can do"
             },
             {
               "id": "you-cant",
-              "level": 3,
+              "level": 2,
               "text": "What you can't do"
             },
             {
               "id": "attribution",
-              "level": 3,
+              "level": 2,
               "text": "Attribution"
             },
             {
               "id": "full-text",
-              "level": 3,
+              "level": 2,
               "text": "The full text"
             }
           ]
@@ -3778,7 +5529,13 @@
           "path": "variablespage.html",
           "overview": false,
           "title": "Variablespage",
-          "headings": []
+          "headings": [
+            {
+              "id": "startup-variables",
+              "level": 1,
+              "text": "Startup variables"
+            }
+          ]
         }
       ]
     },
@@ -3806,7 +5563,38 @@
           "path": "README",
           "overview": true,
           "title": "Overview",
-          "headings": []
+          "headings": [
+            {
+              "id": "statfyr",
+              "level": 1,
+              "text": "Statfyr"
+            },
+            {
+              "id": "what-it-does",
+              "level": 2,
+              "text": "What it does"
+            },
+            {
+              "id": "design-goals",
+              "level": 2,
+              "text": "Design goals"
+            },
+            {
+              "id": "getting-started",
+              "level": 2,
+              "text": "Getting started"
+            },
+            {
+              "id": "where-the-detail-lives",
+              "level": 2,
+              "text": "Where the detail lives"
+            },
+            {
+              "id": "links",
+              "level": 2,
+              "text": "Links"
+            }
+          ]
         },
         {
           "path": "analytics.html",
@@ -3814,58 +5602,63 @@
           "title": "Analytics",
           "headings": [
             {
+              "id": "analytics-history",
+              "level": 1,
+              "text": "Analytics & History"
+            },
+            {
               "id": "model",
-              "level": 3,
+              "level": 2,
               "text": "Data model"
             },
             {
               "id": "sessions",
-              "level": 3,
+              "level": 2,
               "text": "Sessions"
             },
             {
               "id": "history",
-              "level": 3,
-              "text": "History &amp; storage"
+              "level": 2,
+              "text": "History & storage"
             },
             {
               "id": "periods",
-              "level": 3,
-              "text": "Periods &amp; archives"
+              "level": 2,
+              "text": "Periods & archives"
             },
             {
               "id": "server",
-              "level": 3,
+              "level": 2,
               "text": "Server analytics"
             },
             {
               "id": "retention",
-              "level": 3,
+              "level": 2,
               "text": "Retention"
             },
             {
               "id": "segments",
-              "level": 3,
+              "level": 2,
               "text": "Segmentation"
             },
             {
               "id": "afk",
-              "level": 3,
-              "text": "AFK &amp; active time"
+              "level": 2,
+              "text": "AFK & active time"
             },
             {
               "id": "heatmaps",
-              "level": 3,
+              "level": 2,
               "text": "Heatmaps"
             },
             {
               "id": "privacy",
-              "level": 3,
+              "level": 2,
               "text": "Privacy"
             },
             {
               "id": "performance",
-              "level": 3,
+              "level": 2,
               "text": "Performance"
             }
           ]
@@ -3876,23 +5669,128 @@
           "title": "Apireference",
           "headings": [
             {
+              "id": "api-reference",
+              "level": 1,
+              "text": "API Reference"
+            },
+            {
               "id": "base-note",
+              "level": 2,
+              "text": "Base URL & auth"
+            },
+            {
+              "id": "health-check",
               "level": 3,
-              "text": "Base URL &amp; auth"
+              "text": "Health check"
+            },
+            {
+              "id": "api-index",
+              "level": 3,
+              "text": "API index"
+            },
+            {
+              "id": "self-hosted-route-index",
+              "level": 3,
+              "text": "Self-hosted route index"
+            },
+            {
+              "id": "list-players",
+              "level": 3,
+              "text": "List players"
+            },
+            {
+              "id": "full-player-statistics",
+              "level": 3,
+              "text": "Full player statistics"
+            },
+            {
+              "id": "player-summary",
+              "level": 3,
+              "text": "Player summary"
+            },
+            {
+              "id": "leaderboard",
+              "level": 3,
+              "text": "Leaderboard"
+            },
+            {
+              "id": "player-history",
+              "level": 3,
+              "text": "Player history"
+            },
+            {
+              "id": "player-activity-timeline",
+              "level": 3,
+              "text": "Player activity timeline"
+            },
+            {
+              "id": "player-sessions",
+              "level": 3,
+              "text": "Player sessions"
+            },
+            {
+              "id": "server-analytics",
+              "level": 3,
+              "text": "Server analytics"
+            },
+            {
+              "id": "server-history",
+              "level": 3,
+              "text": "Server history"
+            },
+            {
+              "id": "activity-heatmap",
+              "level": 3,
+              "text": "Activity heatmap"
+            },
+            {
+              "id": "retention",
+              "level": 3,
+              "text": "Retention"
+            },
+            {
+              "id": "player-segmentation",
+              "level": 3,
+              "text": "Player segmentation"
+            },
+            {
+              "id": "economy-analytics",
+              "level": 3,
+              "text": "Economy analytics"
+            },
+            {
+              "id": "network-aggregation",
+              "level": 3,
+              "text": "Network aggregation"
+            },
+            {
+              "id": "custom-metrics",
+              "level": 3,
+              "text": "Custom metrics"
+            },
+            {
+              "id": "archived-leaderboards",
+              "level": 3,
+              "text": "Archived leaderboards"
+            },
+            {
+              "id": "prometheus-metrics",
+              "level": 3,
+              "text": "Prometheus metrics"
             },
             {
               "id": "leaderboard-stats",
-              "level": 3,
+              "level": 2,
               "text": "Leaderboard stat keys"
             },
             {
               "id": "error-shape",
-              "level": 3,
+              "level": 2,
               "text": "Error shape"
             },
             {
               "id": "status-codes",
-              "level": 3,
+              "level": 2,
               "text": "Status codes"
             }
           ]
@@ -3903,33 +5801,38 @@
           "title": "Commands",
           "headings": [
             {
+              "id": "commands-permissions",
+              "level": 1,
+              "text": "Commands & Permissions"
+            },
+            {
               "id": "player-commands",
-              "level": 3,
+              "level": 2,
               "text": "Player commands"
             },
             {
               "id": "admin-commands",
-              "level": 3,
+              "level": 2,
               "text": "Admin commands"
             },
             {
               "id": "permissions",
-              "level": 3,
+              "level": 2,
               "text": "Permissions"
             },
             {
               "id": "luckperms",
-              "level": 3,
+              "level": 2,
               "text": "LuckPerms"
             },
             {
               "id": "tab-completion",
-              "level": 3,
+              "level": 2,
               "text": "Tab completion"
             },
             {
               "id": "aliases",
-              "level": 3,
+              "level": 2,
               "text": "Aliases"
             }
           ]
@@ -3940,43 +5843,48 @@
           "title": "Configuration",
           "headings": [
             {
+              "id": "configuration-reference",
+              "level": 1,
+              "text": "Configuration Reference"
+            },
+            {
               "id": "file-location",
-              "level": 3,
+              "level": 2,
               "text": "File location"
             },
             {
               "id": "full-example",
-              "level": 3,
+              "level": 2,
               "text": "Full example"
             },
             {
               "id": "key-reference",
-              "level": 3,
+              "level": 2,
               "text": "Key reference"
             },
             {
               "id": "analytics",
-              "level": 3,
-              "text": "Analytics &amp; integrations"
+              "level": 2,
+              "text": "Analytics & integrations"
             },
             {
               "id": "environment-overrides",
-              "level": 3,
+              "level": 2,
               "text": "Environment overrides"
             },
             {
               "id": "https-setup",
-              "level": 3,
+              "level": 2,
               "text": "HTTPS setup"
             },
             {
               "id": "pending-keys",
-              "level": 3,
+              "level": 2,
               "text": "Reserved keys"
             },
             {
               "id": "applying-changes",
-              "level": 3,
+              "level": 2,
               "text": "Applying changes"
             }
           ]
@@ -3987,28 +5895,33 @@
           "title": "Examples",
           "headings": [
             {
+              "id": "integration-examples",
+              "level": 1,
+              "text": "Integration Examples"
+            },
+            {
               "id": "client-setup",
-              "level": 3,
+              "level": 2,
               "text": "A tiny API client"
             },
             {
               "id": "dashboard",
-              "level": 3,
+              "level": 2,
               "text": "Live dashboard"
             },
             {
               "id": "leaderboard",
-              "level": 3,
+              "level": 2,
               "text": "Leaderboard page"
             },
             {
               "id": "discord-bot",
-              "level": 3,
+              "level": 2,
               "text": "Discord bot"
             },
             {
               "id": "polling-tips",
-              "level": 3,
+              "level": 2,
               "text": "Polling tips"
             }
           ]
@@ -4019,28 +5932,33 @@
           "title": "Examplessetup",
           "headings": [
             {
+              "id": "examples",
+              "level": 1,
+              "text": "Examples"
+            },
+            {
               "id": "config",
-              "level": 3,
+              "level": 2,
               "text": "The config.yml"
             },
             {
               "id": "endpoints",
-              "level": 3,
+              "level": 2,
               "text": "Endpoint walkthrough"
             },
             {
               "id": "fetch",
-              "level": 3,
+              "level": 2,
               "text": "Fetch it from JavaScript"
             },
             {
               "id": "commands",
-              "level": 3,
+              "level": 2,
               "text": "Manage it in game"
             },
             {
               "id": "next",
-              "level": 3,
+              "level": 2,
               "text": "Go deeper"
             }
           ]
@@ -4051,13 +5969,18 @@
           "title": "Faq",
           "headings": [
             {
+              "id": "frequently-asked-questions",
+              "level": 1,
+              "text": "Frequently Asked Questions"
+            },
+            {
               "id": "answers",
-              "level": 3,
+              "level": 2,
               "text": "Answers"
             },
             {
               "id": "still-stuck",
-              "level": 3,
+              "level": 2,
               "text": "Still stuck?"
             }
           ]
@@ -4068,28 +5991,33 @@
           "title": "Gettingstarted",
           "headings": [
             {
+              "id": "getting-started",
+              "level": 1,
+              "text": "Getting Started"
+            },
+            {
               "id": "requirements",
-              "level": 3,
+              "level": 2,
               "text": "Requirements"
             },
             {
               "id": "install",
-              "level": 3,
+              "level": 2,
               "text": "Install"
             },
             {
               "id": "secure",
-              "level": 3,
+              "level": 2,
               "text": "Secure the API"
             },
             {
               "id": "verify",
-              "level": 3,
+              "level": 2,
               "text": "Verify"
             },
             {
               "id": "whats-next",
-              "level": 3,
+              "level": 2,
               "text": "What's next"
             }
           ]
@@ -4100,43 +6028,48 @@
           "title": "Integrations",
           "headings": [
             {
+              "id": "integrations",
+              "level": 1,
+              "text": "Integrations"
+            },
+            {
               "id": "optional",
-              "level": 3,
+              "level": 2,
               "text": "All optional"
             },
             {
               "id": "placeholderapi",
-              "level": 3,
+              "level": 2,
               "text": "PlaceholderAPI"
             },
             {
               "id": "vault",
-              "level": 3,
+              "level": 2,
               "text": "Vault"
             },
             {
               "id": "discord",
-              "level": 3,
+              "level": 2,
               "text": "Discord"
             },
             {
               "id": "prometheus",
-              "level": 3,
+              "level": 2,
               "text": "Prometheus"
             },
             {
               "id": "dashboard",
-              "level": 3,
+              "level": 2,
               "text": "Web dashboard"
             },
             {
               "id": "network",
-              "level": 3,
+              "level": 2,
               "text": "Multi-server"
             },
             {
               "id": "custom-metrics",
-              "level": 3,
+              "level": 2,
               "text": "Custom metrics API"
             }
           ]
@@ -4145,7 +6078,33 @@
           "path": "license.html",
           "overview": false,
           "title": "License",
-          "headings": []
+          "headings": [
+            {
+              "id": "free-to-build-on-not-for-resale",
+              "level": 1,
+              "text": "Free to build on. Not for resale."
+            },
+            {
+              "id": "what-you-can-do",
+              "level": 2,
+              "text": "What you can do"
+            },
+            {
+              "id": "what-you-cant-do",
+              "level": 2,
+              "text": "What you can't do"
+            },
+            {
+              "id": "attribution-requirement",
+              "level": 2,
+              "text": "Attribution requirement"
+            },
+            {
+              "id": "the-fine-print",
+              "level": 2,
+              "text": "The fine print"
+            }
+          ]
         },
         {
           "path": "placeholders.html",
@@ -4153,28 +6112,33 @@
           "title": "Placeholders",
           "headings": [
             {
+              "id": "placeholderapi",
+              "level": 1,
+              "text": "PlaceholderAPI"
+            },
+            {
               "id": "overview",
-              "level": 3,
+              "level": 2,
               "text": "Overview"
             },
             {
               "id": "player",
-              "level": 3,
+              "level": 2,
               "text": "Player placeholders"
             },
             {
               "id": "parameterised",
-              "level": 3,
+              "level": 2,
               "text": "Other players"
             },
             {
               "id": "server",
-              "level": 3,
+              "level": 2,
               "text": "Server placeholders"
             },
             {
               "id": "examples",
-              "level": 3,
+              "level": 2,
               "text": "Examples"
             }
           ]
@@ -4205,7 +6169,38 @@
           "path": "README",
           "overview": true,
           "title": "Overview",
-          "headings": []
+          "headings": [
+            {
+              "id": "vigilfyr",
+              "level": 1,
+              "text": "VigilFYR"
+            },
+            {
+              "id": "what-it-does",
+              "level": 2,
+              "text": "What it does"
+            },
+            {
+              "id": "why-a-guard-at-all",
+              "level": 2,
+              "text": "Why a guard at all?"
+            },
+            {
+              "id": "getting-started",
+              "level": 2,
+              "text": "Getting started"
+            },
+            {
+              "id": "where-the-detail-lives",
+              "level": 2,
+              "text": "Where the detail lives"
+            },
+            {
+              "id": "links",
+              "level": 2,
+              "text": "Links"
+            }
+          ]
         },
         {
           "path": "agents",
@@ -4342,7 +6337,33 @@
           "path": "README",
           "overview": true,
           "title": "Overview",
-          "headings": []
+          "headings": [
+            {
+              "id": "potenfyr-studios-website",
+              "level": 1,
+              "text": "PotenFYR Studios Website"
+            },
+            {
+              "id": "what-the-site-delivers",
+              "level": 2,
+              "text": "What the site delivers"
+            },
+            {
+              "id": "built-with",
+              "level": 2,
+              "text": "Built with"
+            },
+            {
+              "id": "development-workflow",
+              "level": 2,
+              "text": "Development workflow"
+            },
+            {
+              "id": "where-things-live",
+              "level": 2,
+              "text": "Where things live"
+            }
+          ]
         }
       ]
     }

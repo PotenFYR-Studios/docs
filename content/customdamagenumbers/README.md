@@ -1,76 +1,27 @@
-<!-- markdownlint-disable -->
-<div align="center"> <img src="https://capsule-render.vercel.app/api?type=waving&color=0:8b5cf6,50:ec4899,100:f97316&height=220&section=header&text=CustomDamageNumbers&fontSize=52&fontColor=ffffff&fontAlignY=34&desc=Packet-level%20floating%20damage%20numbers%20%C2%B7%201.17.x%20%E2%86%92%2026.x&descSize=18&descAlignY=55&animation=twinkling" width="100%" alt="CustomDamageNumbers banner"/> [![Release](https://img.shields.io/github/v/release/PotenFYR-Studios/CustomDamageNumbers?style=for-the-badge&logo=github&logoColor=white&labelColor=1c1e26&color=8b5cf6)](https://github.com/PotenFYR-Studios/CustomDamageNumbers/releases)
-[![Docs](https://img.shields.io/badge/docs-/customdamagenumbers-8b5cf6?style=for-the-badge&logo=googlechrome&logoColor=white&labelColor=1c1e26)](/customdamagenumbers)
-[![Discord](https://img.shields.io/badge/Discord-Join%20us-5865F2?style=for-the-badge&logo=discord&logoColor=white&labelColor=1c1e26)](https://discord.com/invite/zUaN2FPBec)
-[![GitHub](https://img.shields.io/badge/GitHub-PotenFYR--Studios-181717?style=for-the-badge&logo=github&logoColor=white&labelColor=1c1e26)](https://github.com/PotenFYR-Studios/CustomDamageNumbers)
-[![View](https://komarev.com/ghpvc/?username=PotenFYR-Studios-CustomDamageNumbers&color=ec4899&style=for-the-badge&label=VIEW&labelColor=1c1e26)](https://github.com/PotenFYR-Studios/CustomDamageNumbers) [![CI](https://img.shields.io/github/actions/workflow/status/PotenFYR-Studios/CustomDamageNumbers/ci.yml?branch=master&style=flat-square&logo=githubactions&label=CI&color=2ea043&labelColor=1c1e26)](https://github.com/PotenFYR-Studios/CustomDamageNumbers/actions/workflows/ci.yml)
-[![license](https://img.shields.io/badge/license-Apache--2.0%20%2B%20Commons%20Clause-8b5cf6.svg?style=flat-square&labelColor=1c1e26)](LICENSE)
-[![versions](https://img.shields.io/badge/Minecraft-1.17.x%20%E2%80%93%2026.x-ec4899.svg?style=flat-square&labelColor=1c1e26)](#-which-jar-do-i-install) [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pause=1200&color=8B5CF6&center=true&vCenter=true&width=800&lines=Packet-level+floating+damage+numbers+%F0%9F%92%A5;No+entities+spawned+%C2%B7+nothing+left+behind;Anchored+to+the+entity+that+took+the+hit;Config-driven+animation+%C2%B7+hit+merging;1.17.x+%E2%86%92+26.x+from+one+codebase)](https://github.com/PotenFYR-Studios/CustomDamageNumbers) **`CustomDamageNumbers`**: floating damage numbers drawn entirely with packets. Nothing is spawned into the world, the numbers follow the entity that took the hit, and every part of the animation is a value in `config.yml`. [Docs](/customdamagenumbers) · [Examples](/customdamagenumbers/examples) · [Releases](https://github.com/PotenFYR-Studios/CustomDamageNumbers/releases) · [Issues](https://github.com/PotenFYR-Studios/CustomDamageNumbers/issues) </div> --- ## Why CustomDamageNumbers Every damage-indicator plugin eventually leaves something behind: an armour stand that survived a chunk save, an entity that the plugin forgot to remove, a number frozen in the air after a mob walked away. This one does not, because it never puts anything in the world. - **Packet-only rendering.** Each number is a client-side display entity sent over the protocol with PacketEvents. No world state changes, so uninstalling leaves nothing behind - and there is no entity count to explain to your players.
-- **Anchored to the victim.** The number belongs to the entity that took the hit and is re-positioned every animation step, so a mob knocked backwards drags its number with it. `follow-smoothing` blends the anchor instead of snapping, which removes the jitter on fast targets.
-- **Config-driven animation.** Duration, rise, fall, bounce, orbit, scale, fade, spawn spread and anchor height are all live values. Edit, `/cdn reload`, watch it move - no restart.
-- **Hit merging.** Ten hits in half a second grow one number instead of stacking ten, with a configurable window, cap and attacker rule.
-- **Player-dealt hits only.** A number appears for damage a player dealt - melee, or their arrows and other projectiles. A mob hitting you, fall damage or a fire tick is deliberately not a damage number, which is what keeps a mob farm readable.
-- **Players choose.** `/cdn toggle` switches numbers off for one player and persists across restarts; `/cdn style` picks a profile when their rank allows one.
-- **Two jars, one codebase.** A modern text-display renderer for 1.20.2 - 26.x and a legacy armour-stand renderer for 1.17.x - 1.20.1, behind a single `RenderBackend` interface. Compiled against the oldest supported API so a Paper-only class cannot leak in. > Full documentation lives at **[/customdamagenumbers](/customdamagenumbers)**: the [config reference](/customdamagenumbers/docs#configuration), [examples](/customdamagenumbers/examples) and [troubleshooting](/customdamagenumbers/docs#troubleshooting). This README mirrors the same content. ## 📦 Which jar do I install? | Jar | Server versions | Renderer | Fade / scale animation |
-|-----|-----------------|----------|------------------------|
-| `CustomDamageNumbers-1.0.0.jar` | **1.20.2 - 26.x** | Client-side TextDisplay | ✅ yes |
-| `CustomDamageNumbers-Legacy-1.0.0.jar` | **1.17.x - 1.20.1** | Client-side armour stand nametag | ❌ position-only | The modern jar refuses to enable on an older server and tells you which jar to use instead, rather than rendering nothing. The legacy jar also runs on modern servers, but the modern jar is better there (only TextDisplay can fade and scale per entity); its startup log says so. Run `/cdn backend` on a live server to see which one is active and what it supports. ## 📋 Requirements | Requirement | Minimum | Notes |
-|-------------|---------|-------|
-| Minecraft server | **1.17.1** | Spigot, Paper, Purpur, Pufferfish, Folia and their forks |
-| Java | **17** | the jars are Java 17 bytecode |
-| [PacketEvents](https://github.com/retrooper/packetevents) | **2.14** | the one hard dependency |
-| LuckPerms | optional | style profiles and permission routing |
-| PlaceholderAPI | optional | damage placeholders in other plugins | ## 🔧 Install ```
-plugins/ PacketEvents-2.14.0.jar CustomDamageNumbers-1.0.0.jar # 1.20.2 - 26.x # or CustomDamageNumbers-Legacy-1.0.0.jar # 1.17.x - 1.20.1
-``` Restart, then check the console banner and `/cdn version`. Every config value is read on `/cdn reload`, so nothing below needs a restart. ## ⌨️ Commands & Permissions | Command | What it does | Permission | Default |
-|---------|--------------|------------|---------|
-| `/cdn help` | Framed command list, filtered to what you may use | - | - |
-| `/cdn version` | Plugin, renderer and server panel | - | - |
-| `/cdn backend` | Active renderer and its capabilities | - | - |
-| `/cdn stats` | Live counters, viewer slots, tick cost | `cdn.stats` | op |
-| `/cdn toggle [on\|off] [player]` | Turn numbers on or off for yourself or another player | `cdn.toggle` / `cdn.toggle.others` | true / op |
-| `/cdn style [player] <profile\|default>` | Pick a style profile | `cdn.style` / `cdn.style.others` | true / op |
-| `/cdn test [type] [amount]` | Spawn a test display, no damage needed | `cdn.test` | op |
-| `/cdn clear [player\|all]` | Remove live displays immediately | `cdn.clear` | op |
-| `/cdn reload [config\|messages\|all]` | Reload configuration and/or messages | `cdn.reload` | op |
-| `/cdn debug [on\|off]` | Verbose logging | `cdn.debug` | op | Aliases: `/damagedisplay` on both jars, plus `/damage` on the legacy jar - the modern jar deliberately leaves `/damage` to vanilla, which gained its own command in 1.20.5. Style profiles are granted per player (`cdn.style.fortnite` defaults to true, `cdn.style.mmo` to false), so LuckPerms can hand one to a rank. `cdn.view` is only enforced when `permissions.require-view-permission` is true. Every panel adapts to where it runs: players get the box-drawing frame, the console and RCON get an ASCII frame with colour codes stripped. ## ⚙️ Configuration The shipped `config.yml` is commented in full. The parts people actually change: ```yaml
-general: enabled: true # master switch view-distance: 32 # max distance a player receives numbers from disabled-worlds: [example_world] entities: { mobs: true, players: true, animals: true } max-active-displays: 2000 # flood protection for mob farms default-view-enabled: true # what a player sees before /cdn toggle animation: preset: default # animation preset from presets.yml # any key below overrides that single value of the chosen preset #duration-ticks: 30 # total lifetime (20 ticks = 1s) #rise-ticks: 10 # ticks rising before the sink starts #vertical-speed: 0.08 # blocks per tick while rising #scale-animation: true #start-scale: 1.3 #end-scale: 0.8 #fade-out: true # modern jar only #bounce: true #follow-entity: true # the number stays on the damaged entity #follow-smoothing: 0.35 # 0 = snap each tick, higher = softer #position: { x: 0.0, y: 1.8, z: 0.0 } #offset: { random: true, spread: 0.20 } merge-system: enabled: true merge-window-ms: 150 # a follow-up hit inside this window grows the number styles: normal: { format: "{damage}", color: "#FFFFFF", bold: true, shadow: true } critical: { format: "✧ {damage}", color: "#FF3333", bold: true, shadow: true } healing: { format: "+{damage}", color: "#00FF99", bold: true, shadow: true } style-profiles: # handed out with cdn.style.<name> fortnite: { critical: { format: "{damage}", color: "#FFFF00" } } mmo: { normal: { format: "{damage} DMG" }, critical: { format: "{damage} CRIT", color: "#FF5555" } } critical-hits: sound-type: entity.player.attack.crit # vanilla keys and Bukkit-style names both work
-``` ## 🧩 API for developers Other plugins can spawn damage numbers, restyle everything the plugin renders,
-or manage per-player state. Add `in.potenfyr:cdn-api:1.0.0` (built with
-`./gradlew :cdn-api:publishToMavenLocal`) as a `compileOnly` dependency,
-`softdepend: [CustomDamageNumbers]` in your plugin.yml, then: ```java
-CustomDamageNumbersApi api = CustomDamageNumbersApi.get().orElse(null);
-if (api != null) { api.spawn(api.numberBuilder() .at(victim) // or .at(location) for a fixed anchor .value(42.5) .type("fire") // styles.<key>, or set .format(...) .format("<gold>✦ {damage}") // MiniMessage or legacy codes .preset("explosive") // animation preset from presets.yml .critical(true));
-}
-``` Every builder option is optional: unspecified values fall back to the plugin
-configuration, a `preset` overrides those per key, and explicit builder
-settings win over everything. Listen to `DamageNumberSpawnEvent` to cancel or
-restyle every number the plugin renders, including your own. See
-`cdn-api/src/main/java/in/potenfyr/cdn/api` for the full surface. Every string the plugin prints lives in `messages.yml`, including the `frame:` block (width, border, title, subtitle, label, value, accent, footer, glyph, bullet) - edit it once and both the chat panels and the console panels change. ## 🧩 Compatibility Notes | Server | Jar | Status |
-|--------|-----|--------|
-| 1.17.x - 1.19.x | Legacy | verified end to end |
-| 1.20.1 | Legacy | verified end to end |
-| 1.20.2 - 1.21.x | Modern | verified, including fade and scale |
-| 26.x (Paper) | Modern | verified; older clients connect through ViaVersion |
-| Folia | either | `folia-mode: auto` selects the region scheduler | - **1.16.x is out of reach.** Paper 1.16.5 refuses to run on Java 17 (`Unsupported Java detected (61.0)`), and the jars are Java 17 bytecode. The practical floor is 1.17.1.
-- ViaVersion, ViaBackwards, ViaRewind, Geyser, ProtocolLib and ProtocolSupport are soft dependencies: detected, never required.
-- Fade and per-entity scale need a TextDisplay. The legacy jar positions and drifts numbers but cannot fade them - that is the one behavioural difference between the jars. ## 🔨 Building The build is Gradle (`cdn-core`, `cdn-modern`, `cdn-legacy`) and runs in Docker, so no host toolchain is required: ```bash
-docker run --rm -v "$PWD:/app" -v "cdn-gradle:/home/gradle/.gradle" -w /app \ gradle:jdk17 gradle build --no-daemon
-``` That produces `cdn-modern/build/libs/CustomDamageNumbers-<version>.jar` (with kyori and bStats relocated) and `cdn-legacy/build/libs/CustomDamageNumbers-Legacy-<version>.jar`. ## 🧪 Testing ```bash
-docker run --rm -v "$PWD:/app" -w /app gradle:jdk17 gradle test --no-daemon
-bash docker/e2e/run.sh # full matrix: 1.17.1, 1.20.1, 1.21.8, 26.3
-bash docker/e2e/run.sh 1.21.8 # one version, for a fast loop
-``` The unit suite (108 tests) covers config parsing, damage classification, merging, the preference store, the frame renderer and both renderers. The end-to-end harness boots a real Paper server per version in Docker, installs the built jar plus PacketEvents, and asserts the display is created, positioned, moved across the animation and destroyed - and that the plugin disables cleanly with no errors in the server log. Evidence lands in `docker/e2e/evidence/`. ## 📦 Releases The plugin version is **fixed at `1.0.0`** and does not move per change. `.github/workflows/release.yml` publishes on every push to `master`: it builds and tests, reads the version from `gradle.properties`, merges a new **Build N** section (the commits since the previous build) into the release notes for that version, re-uploads both jars with `--clobber` and moves the `v1.0.0` tag to the newest build. So `v1.0.0` always carries the latest jar and an accumulating changelog, one entry per push. ## 🤝 Contributing PRs are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md) for setup, commands and the non-negotiables. In short: 1. Packets, never entities - no code path may spawn a real entity into the world.
-2. Compile against the oldest supported API; version-specific code belongs in a renderer, not core.
-3. Behaviour changes come with a test; run the build and the relevant end-to-end version before pushing. Found a vulnerability? Please report it privately: see [SECURITY.md](SECURITY.md). <a href="https://github.com/PotenFYR-Studios/CustomDamageNumbers/graphs/contributors"> <img src="https://contrib.rocks/image?repo=PotenFYR-Studios/CustomDamageNumbers" alt="CustomDamageNumbers contributors" />
-</a>
-<a href="https://github.com/PotenFYR-Studios/CustomDamageNumbers/stargazers"> <img src="https://img.shields.io/github/stars/PotenFYR-Studios/CustomDamageNumbers?style=social&label=Stars" alt="Live star count" />
-</a>
-<a href="https://github.com/PotenFYR-Studios/CustomDamageNumbers/network/members"> <img src="https://img.shields.io/github/forks/PotenFYR-Studios/CustomDamageNumbers?style=social&label=Forks" alt="Live fork count" />
-</a> ## 📚 Docs & links - [Documentation site](/customdamagenumbers) (this repo's `docs/`, deployed via GitHub Pages)
-- [Config reference](/customdamagenumbers/docs#configuration) · [Examples](/customdamagenumbers/examples) · [Troubleshooting](/customdamagenumbers/docs#troubleshooting)
-- [Releases](https://github.com/PotenFYR-Studios/CustomDamageNumbers/releases) · [Issues](https://github.com/PotenFYR-Studios/CustomDamageNumbers/issues)
-- [PotenFYR Studios](https://github.com/PotenFYR-Studios) | [Website](https://potenfyr.in) | [Discord](https://discord.com/invite/zUaN2FPBec) ## 📜 License Licensed under the **Apache License 2.0 with the Commons Clause**: free to run, fork, modify and build on, including on a commercial server; not to be sold as a product. See [LICENSE](LICENSE); the LICENSE file is authoritative. Minecraft and Mojang trademarks belong to Mojang; see [NOTICE.md](NOTICE.md). --- Built by **[PotenFYR Studios](https://github.com/PotenFYR-Studios)** · [potenfyr.in](https://potenfyr.in) · Part of the PotenFYR Studios open-source ecosystem. --- ## ⭐ Star History <picture> <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=potenfyr-studios/.github,potenfyr-studios/.web,potenfyr-studios/AuthCore,potenfyr-studios/CustomDamageNumbers,potenfyr-studios/Database-Eggs,potenfyr-studios/EchoingDeaths,potenfyr-studios/FYRwall,potenfyr-studios/HBS-Tool,potenfyr-studios/LinkFYR,potenfyr-studios/Minecraft-Eggs,potenfyr-studios/OrbyNode,potenfyr-studios/PteroOps-MCP,potenfyr-studios/Prog-Language-Eggs,potenfyr-studios/Shell-Eggs,potenfyr-studios/VigilFYR,potenfyr-studios/discord-botlists,potenfyr-studios/ojaj,potenfyr-studios/potenfyr-nest,potenfyr-studios/statfyr&type=Date&theme=dark" /> <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=potenfyr-studios/.github,potenfyr-studios/.web,potenfyr-studios/AuthCore,potenfyr-studios/CustomDamageNumbers,potenfyr-studios/Database-Eggs,potenfyr-studios/EchoingDeaths,potenfyr-studios/FYRwall,potenfyr-studios/HBS-Tool,potenfyr-studios/LinkFYR,potenfyr-studios/Minecraft-Eggs,potenfyr-studios/OrbyNode,potenfyr-studios/PteroOps-MCP,potenfyr-studios/Prog-Language-Eggs,potenfyr-studios/Shell-Eggs,potenfyr-studios/VigilFYR,potenfyr-studios/discord-botlists,potenfyr-studios/ojaj,potenfyr-studios/potenfyr-nest,potenfyr-studios/statfyr&type=Date" /> <img alt="Star history chart for all PotenFYR Studios public repositories" src="https://api.star-history.com/svg?repos=potenfyr-studios/.github,potenfyr-studios/.web,potenfyr-studios/AuthCore,potenfyr-studios/CustomDamageNumbers,potenfyr-studios/Database-Eggs,potenfyr-studios/EchoingDeaths,potenfyr-studios/FYRwall,potenfyr-studios/HBS-Tool,potenfyr-studios/LinkFYR,potenfyr-studios/Minecraft-Eggs,potenfyr-studios/OrbyNode,potenfyr-studios/PteroOps-MCP,potenfyr-studios/Prog-Language-Eggs,potenfyr-studios/Shell-Eggs,potenfyr-studios/VigilFYR,potenfyr-studios/discord-botlists,potenfyr-studios/ojaj,potenfyr-studios/potenfyr-nest,potenfyr-studios/statfyr&type=Date" width="80%" />
-</picture> Every public PotenFYR Studios repository on one live chart, served by [star-history.com](https://star-history.com). <picture> <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/PotenFYR-Studios/FYRwall/output/github-snake-dark.svg" /> <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/PotenFYR-Studios/FYRwall/output/github-snake.svg" /> <img alt="Contribution snake animation" src="https://raw.githubusercontent.com/PotenFYR-Studios/FYRwall/output/github-snake.svg" width="100%" />
-</picture> --- <!-- markdownlint-disable --> <div align="center"> <img src="https://capsule-render.vercel.app/api?type=waving&color=0:f97316,50:ec4899,100:8b5cf6&height=120&section=footer&text=Made%20with%20%E2%9D%A4%EF%B8%8F%20by%20PotenFYR%20Studios&fontSize=22&fontColor=ffffff&animation=twinkling" width="100%" alt="footer"/> </div>
-<!-- markdownlint-enable -->
+# CustomDamageNumbers
+
+Custom damage numbers, animated and packet-only, for your Minecraft server. Critical hits pop in hand-tuned styles, hits merge into cleaner stacks, numbers follow entities, and players can tune their own display - all carried over vanilla packets so no client mod is required.
+
+## What it does
+
+- **Animated damage indicators** - clean numbers with configurable fonts, colors, shapes and per-type styling (normal, critical, fire, explosive, magic).
+- **Hit merging** - multiple rapid hits on the same target merge into one readable number instead of an unreadable number storm.
+- **Entity-following animations** - numbers ride the target so the display tracks the hit cleanly.
+- **Style profiles** - named styles players or admins can switch (`/cdn style <player> <profile|default>`), plus per-player toggles.
+- **Packet-only** - uses vanilla display entities and packets, so the vanilla client renders everything with no resource pack and no client mod.
+
+## Getting started
+
+1. Drop the jar into `plugins/` (Paper/Spigot) and restart.
+2. Run `/cdn stats` to see active counters and viewer slots, `/cdn test <type> <amount>` to preview a display.
+3. Tune the generated config: styles per damage type, merge window, animation lifetime, and the per-player default.
+4. `grant` or `revoke` the style permission from your permission plugin for player choice.
+
+## The deep dive
+
+The docs page in the sidebar documents every config key style-by-style, the examples page shows ready-made profiles (PvP numbers, event champions, MMO crits) and the license page covers what you may do with the jar.
+
+## Links
+
+- Source: [github.com/PotenFYR-Studios/CustomDamageNumbers](https://github.com/PotenFYR-Studios/CustomDamageNumbers)
+- Releases: [github.com/PotenFYR-Studios/CustomDamageNumbers/releases](https://github.com/PotenFYR-Studios/CustomDamageNumbers/releases)

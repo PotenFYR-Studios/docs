@@ -11,7 +11,6 @@ import { WordRotate } from "./magicui";
 import { Home, Compass, Terminal, FlipVertical2, Heart } from "lucide-react";
 import { GithubMark } from "~/lib/icons";
 import { cn } from "~/lib/utils";
-import { meow } from "./eggs";
 
 export function Navbar() {
   const parts = useRouteParts();
@@ -89,10 +88,6 @@ export function Footer() {
           <a href="https://potenfyr.in" className="hover:text-rog-frost">potenfyr.in</a>
           <a href="https://github.com/PotenFYR-Studios/docs" className="hover:text-rog-frost">hub source</a>
           <button className="hover:text-rog-frost" onClick={() => setDeckOpen(true)}>command deck ⌘K</button>
-          <button className="hover:text-rog-frost" onClick={() => (window.dispatchEvent(new KeyboardEvent("keydown", { key: "?" })))}>? shortcuts</button>
-          <span className="ml-auto select-none text-rog-sky/80" title="meow" onClick={meow}>
-            =^.^=
-          </span>
         </div>
       </div>
     </footer>

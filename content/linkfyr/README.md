@@ -1,82 +1,33 @@
-<div align="center"> <img src="https://capsule-render.vercel.app/api?type=waving&color=0:6b97ff,50:9b8cff,100:3ddc97&height=220&section=header&text=LinkFYR&fontSize=52&fontColor=ffffff&fontAlignY=34&desc=Monitor%20%C2%B7%20Optimize%20%C2%B7%20Bridge%20%C2%B7%20Control%20%E2%80%94%20every%20connection%2C%20one%20command%20center&descSize=18&descAlignY=55&animation=twinkling" width="100%" alt="LinkFYR banner"/> [![GitHub](https://img.shields.io/badge/GitHub-PotenFYR--Studios-181717?style=for-the-badge&logo=github&logoColor=white&labelColor=1c1e26)](https://github.com/PotenFYR-Studios/LinkFYR)
-[![Discord](https://img.shields.io/badge/Discord-Join%20us-5865F2?style=for-the-badge&logo=discord&logoColor=white&labelColor=1c1e26)](https://discord.com/invite/zUaN2FPBec)
-[![Docs](https://img.shields.io/badge/docs-/linkfyr-6b97ff?style=for-the-badge&logo=readthedocs&logoColor=white&labelColor=1c1e26)](/linkfyr)
-[![Releases](https://img.shields.io/github/v/release/PotenFYR-Studios/LinkFYR?style=for-the-badge&logo=github&logoColor=white&labelColor=1c1e26&color=6b97ff)](https://github.com/PotenFYR-Studios/LinkFYR/releases)
-[![View](https://komarev.com/ghpvc/?username=PotenFYR-Studios-LinkFYR&color=3ddc97&style=for-the-badge&label=VIEW&labelColor=1c1e26)](https://github.com/PotenFYR-Studios/LinkFYR) [![CI](https://img.shields.io/github/actions/workflow/status/PotenFYR-Studios/LinkFYR/ci.yml?branch=main&style=flat-square&logo=githubactions&label=CI&color=2ea043&labelColor=1c1e26)](https://github.com/PotenFYR-Studios/LinkFYR/actions/workflows/ci.yml)
-[![Platforms](https://img.shields.io/badge/platforms-Windows%20%C2%B7%20macOS%20%C2%B7%20Linux%20%C2%B7%20x64%2Farm64%2Funiversal-9b8cff?style=flat-square&labelColor=1c1e26)](#platforms)
-[![Tools](https://img.shields.io/badge/registry-105%20live%20tools%20%2F%20107%20named-6b97ff?style=flat-square&labelColor=1c1e26)](#optimization-toolkit)
-[![license](https://img.shields.io/badge/license-Apache--2.0%20%2B%20Commons%20Clause-6b97ff.svg?style=flat-square&labelColor=1c1e26)](LICENSE) [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pause=1200&color=6B97FF&center=true&vCenter=true&width=800&lines=95+real+network+tools+in+one+registry;Reduce+ping%2C+jitter+and+bufferbloat+with+measurements;Tiered+bridging+where+Windows+removed+it;Background+service+%2B+tray%2C+exam-safe;Free+and+open%2C+local-only+by+default)](https://github.com/PotenFYR-Studios/LinkFYR) **LinkFYR**: the operating system for your Internet connections. One control layer for what your apps do on the network: which interface carries them, how much bandwidth they get, which VPN or DNS they use, how traffic behaves when quality changes - and a full, explainable history of why. [Releases](https://github.com/PotenFYR-Studios/LinkFYR/releases) � [Documentation](docs/) � [Roadmap](/linkfyr/docs/roadmap/) � [Daemon install](/linkfyr/docs/daemon/) � [Contributing](CONTRIBUTING.md) � [Security](SECURITY.md) </div> --- ## Why LinkFYR Every network tool does one slice: a speed test here, a Wi-Fi scanner there, a latency monitor somewhere else - and the enterprise ones paywall the useful half. LinkFYR is one free, open control layer that measures, explains, and (where the OS allows) fixes your connectivity: - **105 live tools, one registry** - DNS benchmarking and DoH fallback, route scanning with IPv6-penalty detection, bufferbloat grading (A+ to F), MTU black-hole discovery, per-app connection tables, UPnP mapping audits, TLS certificate expiry, DNSSEC posture, DNS-leak interception tests, Wake-on-LAN, NTP clock skew, captive-portal detection, VoIP MOS estimation and much more. Every measurement is real; nothing is simulated or estimated.
-- **Tiered network bridging** - Windows removed its bridge UI; LinkFYR drives the supported alternatives (Hyper-V virtual switch with teaming, then a clearly-labeled NetNat fallback) and true L2 bridges on Linux and macOS. Unelevated runs list the exact commands instead of pretending.
-- **Exam-safe background service** - `linkfyrd` keeps monitoring, optimization jobs and bridges alive with the app closed (Windows service, systemd, launchd), behind an authenticated loopback transport.
-- **Desktop + CLI parity** - a polished Tauri 2 app (live dashboard, registry-driven Optimize view, bridges, alerts, tray with close-to-tray preference) and a first-class `linkfyr` CLI speaking the same versioned IPC. Same engine, same answers, zero drift.
-- **Honest by design** - every tool reports its real capability state (available / needs elevation / unavailable / platform-limited), failed probes stay visible, and any capability the OS does not offer is documented rather than faked. Local-only by default: no account, no cloud, no telemetry upload path.
-- **Free and open** - every feature ships to everyone. No tiers, no entitlement gates, no locked controls. > The architecture lives in [Architecture](/linkfyr/docs/architecture/); every feature ever specified is preserved and classified in [Roadmap](/linkfyr/docs/roadmap/). The registry contains **108 implemented modules**; every entry runs for real on at least one platform, and unshipped ideas stay preserved by name in the roadmap instead of being faked. ## Quick start (development) Prerequisites: Rust stable, Node 22+, pnpm (`npm i -g pnpm`), and the
-[Tauri 2 prerequisites](https://tauri.app/start/prerequisites/) for your OS. ```bash
-pnpm install
-pnpm build # frontend -> apps/desktop/dist
-cargo run -p linkfyr-cli -- status # CLI against real interfaces
-cargo run -p linkfyr-cli -- --simulated status # deterministic simulator
-cargo tauri dev # desktop app (hot reload)
-# LINKFYR_SIM=1 cargo tauri dev # app against the simulator
-``` ## CLI ```
-linkfyr status # totals, Internet quality, interface table
-linkfyr interfaces [--json] # full interface inventory
-linkfyr traffic --seconds 10 # live per-second sampling
-linkfyr optimize list # the full 101-module registry
-linkfyr optimize run latency_monitor target=1.1.1.1 samples=30
-linkfyr bridge list|create|remove # tiered bridging (elevated)
-linkfyr alerts / watch # interface + health transition events
-linkfyr daemon status # ping a running linkfyrd service
-``` Everything accepts `--json`; the desktop app and CLI are interchangeable clients of the same engine. ## Optimization toolkit The registry is the single catalog powering capabilities, CLI and UI. Highlights: | Tool | What it really does |
-|---|---|
-| `dns_benchmark` / `apply` | Real UDP DNS queries, cached + fresh-path scoring; applies via netsh/networksetup/resolvectl/nmcli with captured-previous restore |
-| `doh_benchmark` | DNS-over-HTTPS ranking - the fallback when UDP 53 is blocked |
-| `route_scan` | IPv4 vs IPv6 TCP-connect comparison, flags the slow family |
-| `bloat` | Saturates the link while probing latency; grades added lag A+ to F |
-| `speedtest` | Real transfers; Cloudflare-compatible or self-hosted endpoints |
-| `mtu` | DF-ping binary search; finds VPN/PPPoE black holes |
-| `wifi_scan` | OS Wi-Fi scan, congestion scoring, best-channel recommendation |
-| `connections` | Per-app socket table (which process talks where, right now) |
-| `upnp_map` | SSDP discovery + SOAP enumeration of router port mappings |
-| `cert_expiry` | Manual rustls handshake + x509 parse for certificate lifetime |
-| `dnssec_check` / `dns_leak` | AD-bit validation posture; UDP-53 interception detection |
-| `clock_skew` / `wake_on_lan` | Real NTP client; broadcast magic packets |
-| `latency_race` / `speed_compare` | Per-interface races via SO_BINDTODEVICE (Linux) |
-| `net_time_machine` | Timeline backend over the connection/destination journals | Run any of them with `linkfyr optimize run <id> key=value ...` or from the Optimize view (`Alt+5`). `linkfyr optimize list` prints the implemented set plus the designed-but-blocked slots, each naming its blocker. ## Verification ```bash
-cargo fmt --all -- --check
-cargo clippy --workspace --all-targets -- -D warnings
-cargo test --workspace # 200+ engine/tool/IPC tests
-pnpm typecheck && pnpm lint && pnpm test && pnpm build # 40 UI tests
-``` ### Fully in Docker (no host toolchain, nothing runs on your machine) ```bash
-# Windows
-powershell -File scripts/test/test-docker.ps1
-# Linux / macOS
-./scripts/test/test-docker.sh
-``` Builds `docker/test.Dockerfile` (Rust stable + Tauri system deps + the
-Windows cross-target so even `cfg(windows)` service code is compile-checked)
-and `docker/frontend.Dockerfile`, then runs the complete gate. Test traffic
-in containers is real: live sockets against local servers, real `ping` DF
-probes, real UDP DNS exchanges, a real rustls handshake. ## Platforms Windows, macOS and Linux; x64, ARM64 and universal builds per release. Per-OS capability is documented honestly in [Platform support](/linkfyr/docs/platform-support/) - where an OS does not offer an API, LinkFYR says so and picks the nearest supported alternative. ## Repository layout ```
-crates/ linkfyr-model wire contract types (Rust <-> TS), versioned, camelCase JSON linkfyr-network platform abstraction: interface discovery, counters, simulator linkfyr-telemetry sampling engine, probes, ring buffers, health engine linkfyr-rules Flow Rules AST + evaluation (IF/THEN/UNLESS, priorities) linkfyr-optimize the tool registry: 95 real measurement/control modules linkfyr-bridge tiered network bridge manager linkfyr-daemon linkfyrd background service (loopback auth transport) linkfyr-core engine orchestrator + config store (backups, safe mode) linkfyr-ipc stable IPC API surface (request/response/event envelope) linkfyr-cli the `linkfyr` binary linkfyr-protocol Fusion tunnel protocol (Phase 6 skeleton) linkfyr-edge Edge node (Phase 6 skeleton)
-apps/desktop Tauri 2 desktop shell - the only crate allowed to import Tauri
-apps/mobile Tauri 2 mobile companion (remote client for linkfyrd)
-deploy/ systemd unit, launchd plist for linkfyrd
-packages/types TypeScript mirror of the wire contract
-deploy/ systemd unit, launchd plist for linkfyrd
-docker/ Dockerfiles, compose file, verification gate scripts
-docs/ markdown sources + Vite/React docs site
-scripts/ install/, test/, dev/ helpers
-``` Architecture rule (ADR-0001): all capability lives in Rust behind `linkfyr-ipc`; the GUI, CLI, daemon and future remote/mobile clients are interchangeable frontends over the same versioned API. ## Documentation | Doc | Contents |
-|---|---|
-| [Architecture](/linkfyr/docs/architecture/) | process topology, crate map, data flow, budgets |
-| [Platform support](/linkfyr/docs/platform-support/) | per-OS capability matrix (never fakes parity) |
-| [Roadmap](/linkfyr/docs/roadmap/) | every spec feature, classified Now/Next/Later, nothing dropped |
-| [linkfyrd service](/linkfyr/docs/daemon/) | installing linkfyrd (Windows service, systemd, launchd) |
-| [Mobile companion](/linkfyr/docs/mobile/) | building the Tauri 2 mobile companion (Android/iOS) |
-| [Threat model](/linkfyr/docs/threat-model/) | STRIDE model + fail-open/fail-closed policy table |
-| [Security engineering](/linkfyr/docs/security/) | IPC hardening, supply chain, signing, secrets |
-| [Competitor matrix](/linkfyr/docs/competitors/) | living competitor matrix with evidence grades |
-| [User demand research](/linkfyr/docs/user-demand-research/) | community demand to requirements, evidence-graded |
-| [Fusion protocol](/linkfyr/docs/protocol/) | Fusion bonding protocol design (pre-benchmark) |
-| [UX and design system](/linkfyr/docs/ux/) | design system, motion dials, accessibility standard | ## Privacy Local-only by default. Measurements never leave the device unless you explicitly run an opt-in external tool (public IP, geolocation, RDAP); there is no account, no cloud dependency and no telemetry upload path. See [Security engineering](/linkfyr/docs/security/). ## Contributing PRs welcome - see [CONTRIBUTING.md](CONTRIBUTING.md). The verification gate runs entirely in Docker, so contributors never need a host toolchain. Security reports follow [SECURITY.md](SECURITY.md). ## License Apache-2.0 with the Commons Clause condition - free to use, fork and build on, including commercially; you may not sell the software itself as a paid product. See [LICENSE](LICENSE). ## Contribution Graph <picture> <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/PotenFYR-Studios/LinkFYR/output/github-snake-dark.svg" /> <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/PotenFYR-Studios/LinkFYR/output/github-snake.svg" /> <img alt="LinkFYR contribution graph" src="https://raw.githubusercontent.com/PotenFYR-Studios/LinkFYR/output/github-snake.svg" width="100%" />
-</picture> ## Star History [![Star History Chart](https://api.star-history.com/svg?repos=PotenFYR-Studios/LinkFYR&type=Date)](https://star-history.com/#PotenFYR-Studios/LinkFYR&Date)
+# LinkFYR
+
+One control layer for what your apps do on the network: which interface carries each app, how much bandwidth it gets, which VPN or DNS it uses, how traffic behaves when quality changes, and a full, explainable history of why. Written in Rust for macOS, Linux, Windows, desktop and mobile clients, with one deterministic account-level contract.
+
+## What it does
+
+- **Per-app interface routing** - route specific apps over Wi-Fi, Ethernet, hotspot, VPN or cellular per policy; everything else stays default.
+- **Bandwidth shaping** - rate limits per app or per group, scheduled bursts, and a clean curve when the link degrades.
+- **VPN and DNS policy** - split DNS, per-app VPN pinning, leak prevention, and an explicit per-rule "why did this happen" trail.
+- **Explainable behavior** - every rule decision is logged with a reason, so a surprising route has a cause you can read.
+- **One consistent model** - 108 real tools grouped into one registry, versioned IPC contract, and typed clients for daemon, desktop and CLI.
+
+## Who it is for
+
+Developers juggling hotspot vs VPN routing, teams enforcing "this tool always goes through the VPN", homelab admins shaping bandwidth per container, and anyone who wants their traffic behavior logged and explainable instead of mysterious.
+
+## Getting started
+
+1. Download a signed release for your platform (x64, ARM64 and universal builds) from the releases page.
+2. Run the daemon (`linkfyrd`); it owns state, policy, scheduling and the IPC surface.
+3. Use the desktop app or CLI to author rules: `linkfyr rule add <app> --interface <name> --bw <kbit/s>`.
+4. Check `linkfyr status` for a live view of every active decision and its reason.
+
+The daemon runs per-user (no admin escalation) or as a system service; the security model and threat model pages explain the boundaries that keep this safe.
+
+## Where the detail lives
+
+The sidebar carries the architecture page, per-section rule kinds (network, bandwidth, VPN/DNS), platform capability matrix with an honest "not supported here's what we do instead" list, protocol spec for the IPC bridge, and the full roadmap including the competitive survey and user-demand research.
+
+## Links
+
+- Source: [github.com/PotenFYR-Studios/LinkFYR](https://github.com/PotenFYR-Studios/LinkFYR)
+- Releases: [github.com/PotenFYR-Studios/LinkFYR/releases](https://github.com/PotenFYR-Studios/LinkFYR/releases)
