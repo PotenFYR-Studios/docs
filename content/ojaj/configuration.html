@@ -1,0 +1,58 @@
+<p>Everything lives in <code>plugins/OneJumpAllJump/config.yml</code>. Reload from disk with <code>/onejump reload</code>; the plugin caches all values on load, so there is no per-jump config lookup.</p><h2 id="example">Full example</h2><div class="doc-content"><pre class="codeblock" data-lang="yaml"><button type="button" class="copy-btn">Copy</button><code># OneJumpAllJump: default config.yml (generated on first run)
+enabled: true            # master toggle
+
+cooldown:
+  seconds: 2             # per-player trigger cooldown
+
+velocity:
+  y: 0.42                # vanilla jump ≈ 0.42
+  random:
+    enabled: true
+    min: 0.35
+    max: 1.10            # upper bound is exclusive
+
+trigger-chance:
+  enabled: false
+  chance: 100            # percent (1-100)
+
+fall-damage:
+  cancel: true           # cancels fall damage while enabled
+
+particles:
+  enabled: true
+  type: end_rod          # any Minecraft particle ID
+  amount: 25
+
+trail:
+  enabled: true
+  particle: happy_villager
+  amount: 5              # particles per tick
+  duration-ticks: 10     # 20 ticks = 1 second
+
+sound:
+  enabled: true
+  type: entity_firework_rocket_launch
+  volume: 1.0
+  pitch: 1.2
+
+actionbar:
+  enabled: true
+  message: &#x27;&amp;e%player% made everybody jump!&#x27;
+
+titles:
+  enabled: true
+  title: &#x27;&amp;6GLOBAL JUMP&#x27;
+  subtitle: &#x27;&amp;eTriggered by %player%&#x27;
+  fadein: 5
+  stay: 30
+  fadeout: 10
+
+broadcast:
+  enabled: true
+  message: &#x27;&amp;e%player% triggered a global jump!&#x27;
+
+worlds:
+  mode: whitelist        # whitelist or blacklist
+  list:
+    - world
+    - spawn</code></pre></div><h2 id="master">Master toggle</h2><div class="doc-content"><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td class="config-key">enabled</td><td class="config-key">boolean</td><td class="config-key">true</td><td>Master switch. When false, no jumps trigger at all. /onejump toggle flips and saves this key.</td></tr></tbody></table></div><h2 id="cooldown">cooldown</h2><div class="doc-content"><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td class="config-key">cooldown.seconds</td><td class="config-key">int</td><td class="config-key">2</td><td>Minimum seconds between trigger attempts per player. Starts even if the odds roll fails.</td></tr></tbody></table></div><h2 id="velocity">velocity</h2><div class="doc-content"><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td class="config-key">velocity.y</td><td class="config-key">double</td><td class="config-key">0.42</td><td>Fixed vertical velocity applied to every player. Vanilla jump ≈ 0.42.</td></tr><tr><td class="config-key">velocity.random.enabled</td><td class="config-key">boolean</td><td class="config-key">true</td><td>Give each player an independent random launch power instead of the fixed value.</td></tr><tr><td class="config-key">velocity.random.min</td><td class="config-key">double</td><td class="config-key">0.35</td><td>Minimum launch power.</td></tr><tr><td class="config-key">velocity.random.max</td><td class="config-key">double</td><td class="config-key">1.10</td><td>Upper bound: exclusive. Values above ~0.9 launch players well above jump height.</td></tr></tbody></table></div><h2 id="trigger-chance">trigger-chance</h2><div class="doc-content"><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td class="config-key">trigger-chance.enabled</td><td class="config-key">boolean</td><td class="config-key">false</td><td>Enable probability-based triggering.</td></tr><tr><td class="config-key">trigger-chance.chance</td><td class="config-key">int (1–100)</td><td class="config-key">100</td><td>Percent chance a passing jump actually launches the server.</td></tr></tbody></table></div><h2 id="fall-damage">fall-damage</h2><div class="doc-content"><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td class="config-key">fall-damage.cancel</td><td class="config-key">boolean</td><td class="config-key">true</td><td>Cancels fall damage events server-wide (every entity) while enabled, not only plugin-caused falls.</td></tr></tbody></table></div><h2 id="particles">particles</h2><div class="doc-content"><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td class="config-key">particles.enabled</td><td class="config-key">boolean</td><td class="config-key">true</td><td>Spawn a burst on every launched player.</td></tr><tr><td class="config-key">particles.type</td><td class="config-key">particle ID</td><td class="config-key">end_rod</td><td>Any Minecraft particle ID (end_rod, flame, cloud, explosion…). Invalid IDs fall back to end_rod.</td></tr><tr><td class="config-key">particles.amount</td><td class="config-key">int</td><td class="config-key">25</td><td>Particles per burst.</td></tr></tbody></table></div><h2 id="trail">trail</h2><div class="doc-content"><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td class="config-key">trail.enabled</td><td class="config-key">boolean</td><td class="config-key">true</td><td>Leave a particle trail behind launched players.</td></tr><tr><td class="config-key">trail.particle</td><td class="config-key">particle ID</td><td class="config-key">happy_villager</td><td>Trail particle; invalid IDs fall back to happy_villager.</td></tr><tr><td class="config-key">trail.amount</td><td class="config-key">int</td><td class="config-key">5</td><td>Particles spawned every tick.</td></tr><tr><td class="config-key">trail.duration-ticks</td><td class="config-key">int</td><td class="config-key">10</td><td>Trail length in ticks (20 ticks = 1 second).</td></tr></tbody></table></div><h2 id="sound">sound</h2><div class="doc-content"><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td class="config-key">sound.enabled</td><td class="config-key">boolean</td><td class="config-key">true</td><td>Play the synchronized jump sound.</td></tr><tr><td class="config-key">sound.type</td><td class="config-key">sound ID</td><td class="config-key">entity_firework_rocket_launch</td><td>Any Minecraft sound ID; invalid IDs fall back to the firework launch.</td></tr><tr><td class="config-key">sound.volume</td><td class="config-key">float</td><td class="config-key">1.0</td><td>Playback volume.</td></tr><tr><td class="config-key">sound.pitch</td><td class="config-key">float</td><td class="config-key">1.2</td><td>Playback pitch.</td></tr></tbody></table></div><h2 id="actionbar">actionbar</h2><div class="doc-content"><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td class="config-key">actionbar.enabled</td><td class="config-key">boolean</td><td class="config-key">true</td><td>Show the hotbar message on every launch.</td></tr><tr><td class="config-key">actionbar.message</td><td class="config-key">string</td><td class="config-key">&#x27;&amp;e%player% made everybody jump!&#x27;</td><td>Supports &amp; color codes and %player%.</td></tr></tbody></table></div><h2 id="titles">titles</h2><div class="doc-content"><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td class="config-key">titles.enabled</td><td class="config-key">boolean</td><td class="config-key">true</td><td>Show the fullscreen title + subtitle.</td></tr><tr><td class="config-key">titles.title</td><td class="config-key">string</td><td class="config-key">&#x27;&amp;6GLOBAL JUMP&#x27;</td><td>Main title line.</td></tr><tr><td class="config-key">titles.subtitle</td><td class="config-key">string</td><td class="config-key">&#x27;&amp;eTriggered by %player%&#x27;</td><td>Subtitle line.</td></tr><tr><td class="config-key">titles.fadein</td><td class="config-key">int</td><td class="config-key">5</td><td>Fade-in duration in ticks.</td></tr><tr><td class="config-key">titles.stay</td><td class="config-key">int</td><td class="config-key">30</td><td>Time on screen in ticks.</td></tr><tr><td class="config-key">titles.fadeout</td><td class="config-key">int</td><td class="config-key">10</td><td>Fade-out duration in ticks.</td></tr></tbody></table></div><h2 id="broadcast">broadcast</h2><div class="doc-content"><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td class="config-key">broadcast.enabled</td><td class="config-key">boolean</td><td class="config-key">true</td><td>Announce the trigger in chat.</td></tr><tr><td class="config-key">broadcast.message</td><td class="config-key">string</td><td class="config-key">&#x27;&amp;e%player% triggered a global jump!&#x27;</td><td>Supports &amp; color codes and %player%.</td></tr></tbody></table></div><h2 id="worlds">worlds</h2><div class="doc-content"><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td class="config-key">worlds.mode</td><td class="config-key">whitelist | blacklist</td><td class="config-key">whitelist</td><td>whitelist: jumps only count in listed worlds. blacklist: jumps count everywhere except listed worlds.</td></tr><tr><td class="config-key">worlds.list</td><td class="config-key">string list</td><td class="config-key">[world, spawn]</td><td>World names as they appear on disk. If your main world is named differently, add it; this is the #1 &#x27;nothing happens&#x27; cause.</td></tr></tbody></table></div><h2 id="notes">Parsing &amp; fallbacks</h2><ul><li>Particle and sound IDs are matched against the Minecraft registry (<code>NamespacedKey.minecraft(...)</code>, lowercase). Unknown names fall back silently; check the server log-free behavior by testing a jump after edits.</li><li><code>/onejump toggle</code> writes the new <code>enabled</code> value back to <code>config.yml</code>, so toggling survives restarts.</li><li>Alpha caveat: keys may be added or renamed between versions; keep a backup of your tuned <code>config.yml</code>.</li></ul>

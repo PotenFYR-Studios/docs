@@ -1,0 +1,384 @@
+<div class="docs-grid mx-auto w-full max-w-[1748px] px-7 pt-9 pb-20"><aside class="docs-side sticky top-14 h-[calc(100vh-56px)] overflow-y-auto border-r border-line-light/60 pr-4" style="grid-area:side" aria-label="Docs navigation"><div class="mb-6"><button type="button" class="flex w-full cursor-pointer items-center justify-between rounded-md px-1 py-1 text-left text-[10px] font-bold uppercase tracking-[0.15em] transition-colors hover:text-white" style="color:var(--faint)" aria-expanded="true">Get started<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-3.5 w-3.5 transition-transform" style="transform:none" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button><a href="#/repo/echoingdeaths/getting-started" class="block rounded-lg px-3 py-1.5 text-[13px] no-underline transition-colors text-[#9aa0b4] hover:bg-white/5 hover:text-white">Getting Started</a></div><div class="mb-6"><button type="button" class="flex w-full cursor-pointer items-center justify-between rounded-md px-1 py-1 text-left text-[10px] font-bold uppercase tracking-[0.15em] transition-colors hover:text-white" style="color:var(--faint)" aria-expanded="true">Core reference<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-3.5 w-3.5 transition-transform" style="transform:none" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button><a href="#/repo/echoingdeaths/curses" class="block rounded-lg px-3 py-1.5 text-[13px] no-underline transition-colors text-[#9aa0b4] hover:bg-white/5 hover:text-white">Curses</a><a href="#/repo/echoingdeaths/configuration" aria-current="page" class="block rounded-lg px-3 py-1.5 text-[13px] no-underline transition-colors bg-brand-violet/15 text-white shadow-[inset_0_0_0_1px_rgba(139,92,246,.4)]">Configuration</a><a href="#/repo/echoingdeaths/commands-permissions" class="block rounded-lg px-3 py-1.5 text-[13px] no-underline transition-colors text-[#9aa0b4] hover:bg-white/5 hover:text-white">Commands &amp; Permissions</a></div><div class="mb-6"><button type="button" class="flex w-full cursor-pointer items-center justify-between rounded-md px-1 py-1 text-left text-[10px] font-bold uppercase tracking-[0.15em] transition-colors hover:text-white" style="color:var(--faint)" aria-expanded="true">Community<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-3.5 w-3.5 transition-transform" style="transform:none" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button><a href="#/repo/echoingdeaths/faq" class="block rounded-lg px-3 py-1.5 text-[13px] no-underline transition-colors text-[#9aa0b4] hover:bg-white/5 hover:text-white">FAQ</a></div></aside><main style="grid-area:main" class="max-w-6xl min-w-0"><button type="button" class="docs-mobile-btn mb-4 cursor-pointer items-center gap-2 rounded-lg border border-line-light bg-white/[0.03] px-3 py-1.5 text-xs text-[#9aa0b4]" aria-expanded="false" aria-label="Open docs navigation"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-4 w-4"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg> Browse docs</button><nav aria-label="Breadcrumb" class="mono-label mb-3"><a href="/docs/" class="transition-colors hover:text-white">Docs</a><span class="mx-1.5" aria-hidden="true">/</span><span style="color:#d8ccfe">Configuration</span></nav><article class="doc-content"><h1 class="grad-text">Configuration</h1><p>EchoingDeaths generates <code>plugins/EchoingDeaths/config.yml</code> on first boot with every setting below. Edit the file, then run <code>/echoingdeaths reload</code>, no restart needed. Color codes use the classic <code>&amp;a</code>–<code>&amp;f</code> style, and messages accept <code>%player%</code> / <code>%cause%</code> placeholders.</p><h2 id="settings">settings</h2><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td><code>settings.enabled</code></td><td>boolean</td><td><code>true</code></td><td>Master toggle for the whole plugin.</td></tr><tr><td><code>settings.radius</code></td><td>number</td><td><code>14</code></td><td>Radius (blocks) around the dead player in which nearby players get cursed.</td></tr><tr><td><code>settings.affect-creative</code></td><td>boolean</td><td><code>false</code></td><td>Whether creative-mode players receive curse effects.</td></tr><tr><td><code>settings.affect-spectator</code></td><td>boolean</td><td><code>false</code></td><td>Whether spectator-mode players receive curse effects.</td></tr><tr><td><code>settings.ignored-worlds</code></td><td>string list</td><td><code>[&quot;example_world&quot;]</code></td><td>Worlds where the plugin does nothing.</td></tr></tbody></table><h2 id="display">display</h2><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td><code>display.chat-message</code></td><td>boolean</td><td><code>true</code></td><td>Send the <code>messages.chat</code> lines.</td></tr><tr><td><code>display.actionbar-message</code></td><td>boolean</td><td><code>true</code></td><td>Send the <code>messages.actionbar</code> lines.</td></tr><tr><td><code>display.title-message</code></td><td>boolean</td><td><code>true</code></td><td>Send the title + subtitle.</td></tr><tr><td><code>display.sound-enabled</code></td><td>boolean</td><td><code>true</code></td><td>Play the curse sound.</td></tr><tr><td><code>display.sound.type</code></td><td>Sound enum</td><td><code>ENTITY_WARDEN_HEARTBEAT</code></td><td>Bukkit <code>Sound</code> enum name; invalid names are ignored.</td></tr><tr><td><code>display.sound.volume</code></td><td>number</td><td><code>1.0</code></td><td>Sound volume.</td></tr><tr><td><code>display.sound.pitch</code></td><td>number</td><td><code>0.8</code></td><td>Sound pitch.</td></tr></tbody></table><h2 id="messages">messages</h2><table><thead><tr><th>Key</th><th>Type</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td><code>messages.chat</code></td><td>string list</td><td>3 lines</td><td>Chat lines sent to each cursed player, in order. Supports <code>%player%</code>, <code>%cause%</code>, color codes.</td></tr><tr><td><code>messages.actionbar</code></td><td>string list</td><td>1 line</td><td>Actionbar lines sent to each cursed player.</td></tr><tr><td><code>messages.title.title</code></td><td>string</td><td><code>&amp;4Echoing Death</code></td><td>Title text.</td></tr><tr><td><code>messages.title.subtitle</code></td><td>string</td><td><code>&amp;cYou feel a lingering curse...</code></td><td>Subtitle text.</td></tr><tr><td><code>messages.title.fade-in</code></td><td>int (ticks)</td><td><code>10</code></td><td>Title fade-in time.</td></tr><tr><td><code>messages.title.stay</code></td><td>int (ticks)</td><td><code>50</code></td><td>Title stay time.</td></tr><tr><td><code>messages.title.fade-out</code></td><td>int (ticks)</td><td><code>20</code></td><td>Title fade-out time.</td></tr></tbody></table><h2 id="effects">effects</h2><p>Each key under <code>effects</code> is a Bukkit <code>DamageCause</code> enum name; each value is a curse with this schema:</p><table><thead><tr><th>Key</th><th>Type</th><th>Description</th></tr></thead><tbody><tr><td><code>display-name</code></td><td>string</td><td>Readable curse name, substituted into <code>%cause%</code>.</td></tr><tr><td><code>duration-seconds</code></td><td>int</td><td>How long each potion effect lasts (converted to ticks server-side).</td></tr><tr><td><code>amplifier</code></td><td>int</td><td>Potion amplifier: 0 = Level I, 1 = Level II, 2 = Level III.</td></tr><tr><td><code>potion-effects</code></td><td>string list</td><td>Bukkit <code>PotionEffectType</code> enum names; invalid entries are skipped.</td></tr></tbody></table><p>The sixteen default curses and their values are catalogued on the <a href="#/repo/echoingdeaths/curses">Curses page</a>.</p><h2 id="fallback">fallback</h2><p>Uses the same schema as an <code>effects</code> entry and applies to any death whose cause has no mapping (default: <code>WEAKNESS</code> I for 5 seconds, displayed as &quot;Unknown&quot;).</p><h2 id="full-default-config">Full default config.yml</h2><p>The complete file generated on first boot. Copy it as a starting point:</p><pre data-lang="yaml" class="relative" tabindex="-1"><code># ============================================================
+#                       EchoingDeaths
+# ============================================================
+#
+# A lightweight Spigot/Paper/Purpur plugin that applies
+# temporary curse-like debuffs to nearby players whenever
+# someone dies.
+#
+# Designed for:
+# - Spigot
+# - Paper
+# - Purpur
+# - 1.21.x+
+#
+# ============================================================
+#                        SETTINGS
+# ============================================================
+#
+
+settings:
+
+  # Master toggle for the plugin.
+  enabled: true
+
+  # Radius around the dead player where nearby
+  # players will be affected.
+  radius: 14
+
+  # Whether players in creative mode should
+  # receive curse effects.
+  affect-creative: false
+
+  # Whether players in spectator mode should
+  # receive curse effects.
+  affect-spectator: false
+
+  # Worlds where the plugin should not work.
+  ignored-worlds:
+    - &quot;example_world&quot;
+
+#
+# ============================================================
+#                       DISPLAY SETTINGS
+# ============================================================
+#
+
+display:
+
+  # Send normal chat messages.
+  chat-message: true
+
+  # Send actionbar messages.
+  actionbar-message: true
+
+  # Send title/subtitle messages.
+  title-message: true
+
+  # Play sound effects.
+  sound-enabled: true
+
+  sound:
+
+    # Bukkit sound enum.
+    #
+    # You can find valid sounds here:
+    # https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
+    #
+    type: ENTITY_WARDEN_HEARTBEAT
+
+    volume: 1.0
+
+    pitch: 0.8
+
+#
+# ============================================================
+#                         MESSAGES
+# ============================================================
+#
+# Color Codes:
+#
+# &amp;0 = Black
+# &amp;1 = Dark Blue
+# &amp;2 = Dark Green
+# &amp;3 = Dark Aqua
+# &amp;4 = Dark Red
+# &amp;5 = Purple
+# &amp;6 = Gold
+# &amp;7 = Gray
+# &amp;8 = Dark Gray
+# &amp;9 = Blue
+# &amp;a = Green
+# &amp;b = Aqua
+# &amp;c = Red
+# &amp;d = Pink
+# &amp;e = Yellow
+# &amp;f = White
+#
+# Placeholders:
+#
+# %player% = Dead player
+# %cause%  = Death cause display name
+#
+# ============================================================
+#
+
+messages:
+
+  #
+  # Chat messages sent to affected players.
+  #
+  chat:
+    - &quot;&amp;4%player% died.&quot;
+    - &quot;&amp;cYou were cursed by the echo of their death.&quot;
+    - &quot;&amp;7Cause: &amp;e%cause%&quot;
+
+  #
+  # Actionbar message.
+  #
+  actionbar:
+    - &quot;&amp;cCursed by %player%&#x27;s death&quot;
+
+  #
+  # Title settings.
+  #
+  title:
+
+    title: &quot;&amp;4Echoing Death&quot;
+
+    subtitle: &quot;&amp;cYou feel a lingering curse...&quot;
+
+    # Timing in ticks.
+    fade-in: 10
+
+    stay: 50
+
+    fade-out: 20
+
+#
+# ============================================================
+#                     DEATH EFFECTS
+# ============================================================
+#
+# Structure:
+#
+# EFFECT_NAME:
+#
+#   display-name:
+#     Readable cause name.
+#
+#   duration-seconds:
+#     Effect duration.
+#
+#   amplifier:
+#     Potion amplifier level.
+#     0 = Level I
+#     1 = Level II
+#     2 = Level III
+#
+#   potion-effects:
+#     Bukkit potion effect enums.
+#
+# Valid potion effects:
+# https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionEffectType.html
+#
+# ============================================================
+#
+#
+# Valid damage causes:
+# https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/entity/EntityDamageEvent.DamageCause.html
+
+
+effects:
+
+  FALL:
+
+    display-name: &quot;Fall&quot;
+
+    duration-seconds: 10
+
+    amplifier: 1
+
+    potion-effects:
+      - SLOWNESS
+      - WEAKNESS
+
+  LAVA:
+
+    display-name: &quot;Lava&quot;
+
+    duration-seconds: 12
+
+    amplifier: 1
+
+    potion-effects:
+      - WEAKNESS
+      - NAUSEA
+      - HUNGER
+
+  FIRE:
+
+    display-name: &quot;Fire&quot;
+
+    duration-seconds: 8
+
+    amplifier: 1
+
+    potion-effects:
+      - WEAKNESS
+      - HUNGER
+
+  DROWNING:
+
+    display-name: &quot;Drowning&quot;
+
+    duration-seconds: 10
+
+    amplifier: 1
+
+    potion-effects:
+      - MINING_FATIGUE
+      - SLOWNESS
+
+  VOID:
+
+    display-name: &quot;Void&quot;
+
+    duration-seconds: 8
+
+    amplifier: 0
+
+    potion-effects:
+      - DARKNESS
+      - BLINDNESS
+
+  MAGIC:
+
+    display-name: &quot;Magic&quot;
+
+    duration-seconds: 12
+
+    amplifier: 1
+
+    potion-effects:
+      - BLINDNESS
+      - WEAKNESS
+
+  WITHER:
+
+    display-name: &quot;Wither&quot;
+
+    duration-seconds: 10
+
+    amplifier: 1
+
+    potion-effects:
+      - WITHER
+      - HUNGER
+
+  EXPLOSION:
+
+    display-name: &quot;Explosion&quot;
+
+    duration-seconds: 8
+
+    amplifier: 1
+
+    potion-effects:
+      - NAUSEA
+      - WEAKNESS
+
+  FREEZE:
+
+    display-name: &quot;Freezing&quot;
+
+    duration-seconds: 12
+
+    amplifier: 1
+
+    potion-effects:
+      - SLOWNESS
+      - WEAKNESS
+
+  LIGHTNING:
+
+    display-name: &quot;Lightning&quot;
+
+    duration-seconds: 8
+
+    amplifier: 1
+
+    potion-effects:
+      - GLOWING
+      - NAUSEA
+
+  POISON:
+
+    display-name: &quot;Poison&quot;
+
+    duration-seconds: 12
+
+    amplifier: 1
+
+    potion-effects:
+      - POISON
+      - HUNGER
+
+  STARVATION:
+
+    display-name: &quot;Starvation&quot;
+
+    duration-seconds: 15
+
+    amplifier: 0
+
+    potion-effects:
+      - HUNGER
+      - WEAKNESS
+
+  SUFFOCATION:
+
+    display-name: &quot;Suffocation&quot;
+
+    duration-seconds: 10
+
+    amplifier: 1
+
+    potion-effects:
+      - BLINDNESS
+      - SLOWNESS
+
+  SONIC_BOOM:
+
+    display-name: &quot;Sonic Boom&quot;
+
+    duration-seconds: 8
+
+    amplifier: 1
+
+    potion-effects:
+      - DARKNESS
+      - WEAKNESS
+
+  THORNS:
+
+    display-name: &quot;Thorns&quot;
+
+    duration-seconds: 6
+
+    amplifier: 0
+
+    potion-effects:
+      - WEAKNESS
+
+  CONTACT:
+
+    display-name: &quot;Sharp Contact&quot;
+
+    duration-seconds: 6
+
+    amplifier: 0
+
+    potion-effects:
+      - POISON
+
+#
+# ============================================================
+#                       FALLBACK EFFECT
+# ============================================================
+#
+# Used when no mapped death cause exists.
+#
+# ============================================================
+#
+
+fallback:
+
+  display-name: &quot;Unknown&quot;
+
+  duration-seconds: 5
+
+  amplifier: 0
+
+  potion-effects:
+    - WEAKNESS</code><button type="button" class="copy-btn" aria-label="Copy yaml code">Copy</button></pre></article><nav class="mt-12 flex justify-between gap-4" aria-label="Pagination"><a href="#/repo/echoingdeaths/curses" class="flex-1 rounded-xl border border-line-light bg-white/[0.02] p-4 no-underline transition-all hover:-translate-y-0.5 hover:border-brand-violet/50"><div class="text-[10px] font-bold tracking-widest uppercase" style="color:var(--faint)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left mr-1 inline h-3 w-3"><path d="m15 18-6-6 6-6"></path></svg>Previous</div><div class="mt-1 text-sm text-[#b9bfd4]">Curses</div></a><a href="#/repo/echoingdeaths/commands-permissions" class="flex-1 rounded-xl border border-line-light bg-white/[0.02] p-4 text-right no-underline transition-all hover:-translate-y-0.5 hover:border-brand-pink/50"><div class="text-[10px] font-bold tracking-widest uppercase" style="color:var(--faint)">Next<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right ml-1 inline h-3 w-3"><path d="m9 18 6-6-6-6"></path></svg></div><div class="mt-1 text-sm text-[#b9bfd4]">Commands &amp; Permissions</div></a></nav></main><aside class="docs-toc sticky h-fit overflow-y-auto" style="grid-area:toc;top:calc(var(--header-h) + 28px);max-height:calc(100vh - var(--header-h) - 56px)" aria-label="On this page"><div><div class="mb-2 flex items-center gap-2"><span class="grad-text text-[0.68em] font-bold uppercase tracking-[0.14em]">On this page</span><span class="rounded-full border border-line-light px-1.5 font-mono text-[10px] text-[#6a7089]">7</span></div><a href="#overview" aria-current="location" class="block border-l-2 py-1 pl-3 text-[0.82em] no-underline transition-colors border-brand-violet font-semibold text-[#d8ccfe]">Overview</a><a href="#settings" class="block border-l-2 py-1 pl-3 text-[0.82em] no-underline transition-colors border-line text-[#9aa0b4] hover:text-white">settings</a><a href="#display" class="block border-l-2 py-1 pl-3 text-[0.82em] no-underline transition-colors border-line text-[#9aa0b4] hover:text-white">display</a><a href="#messages" class="block border-l-2 py-1 pl-3 text-[0.82em] no-underline transition-colors border-line text-[#9aa0b4] hover:text-white">messages</a><a href="#effects" class="block border-l-2 py-1 pl-3 text-[0.82em] no-underline transition-colors border-line text-[#9aa0b4] hover:text-white">effects</a><a href="#fallback" class="block border-l-2 py-1 pl-3 text-[0.82em] no-underline transition-colors border-line text-[#9aa0b4] hover:text-white">fallback</a><a href="#full-default-config" class="block border-l-2 py-1 pl-3 text-[0.82em] no-underline transition-colors border-line text-[#9aa0b4] hover:text-white">Full default config.yml</a><div class="mt-6 border-t border-line-light pt-4"><button type="button" class="flex w-full cursor-pointer items-center gap-2 rounded-lg border border-line-light bg-white/[0.03] px-3 py-1.5 text-xs text-[#9aa0b4] transition-colors hover:border-brand-violet/50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search h-3.5 w-3.5"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>Search docs<kbd class="ml-auto font-mono text-[10px] text-[#6a7089]">⌘K</kbd></button><a href="https://github.com/PotenFYR-Studios/EchoingDeaths/issues" target="_blank" rel="noopener" class="mt-2 block rounded-lg px-3 py-1.5 text-xs text-[#9aa0b4] no-underline transition-colors hover:text-white">Report an issue →</a></div></div></aside></div>

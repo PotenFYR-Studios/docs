@@ -1,0 +1,46 @@
+<section class="relative overflow-hidden" style="padding:64px 0 8px"><div class="pointer-events-none absolute inset-0" aria-hidden="true"><div aria-hidden="true" class="pointer-events-none absolute rounded-full blur-[140px] will-change-transform -top-32 left-[20%]" style="width:460px;height:460px;background:rgba(139,92,246,.16)"></div><svg aria-hidden="true" class="pointer-events-none absolute inset-0 h-full w-full opacity-50"><defs><pattern id="ed-dots" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="rgba(139,92,246,0.18)"></circle></pattern></defs><rect width="100%" height="100%" fill="url(#ed-dots)"></rect></svg></div><div class="relative mx-auto max-w-6xl px-6 text-center"><div class="mono-label">EchoingDeaths examples</div><h1 class="grad-text mt-3 font-extrabold tracking-tight" style="font-size:clamp(2.2em, 5vw, 3.2em);line-height:1.1">Copy, paste, curse.</h1><p class="mx-auto mt-4 max-w-[640px] text-[1.02em]" style="color:var(--muted)">Real snippets from the default <code>config.yml</code> and command set. Drop them straight into your server setup.</p></div></section><section class="mx-auto max-w-6xl px-6 pt-10 pb-20"><div class="doc-content"><h2 id="curse-block">A curse block</h2><p>Two curses exactly as they ship in <code>config.yml</code>: the cause key is a Bukkit <code>DamageCause</code> name, and everything under it (display name, duration, amplifier, effect list) is yours to edit. Run <code>/echoingdeaths reload</code> after changing anything.</p><pre data-lang="yaml" class="relative" tabindex="-1"><span class="mono-label absolute top-2 left-4 normal-case tracking-normal" aria-hidden="true">plugins/EchoingDeaths/config.yml</span><code>effects:
+  FALL:
+
+    display-name: &quot;Fall&quot;
+
+    duration-seconds: 10
+
+    amplifier: 1
+
+    potion-effects:
+      - SLOWNESS
+      - WEAKNESS
+
+  THORNS:
+
+    display-name: &quot;Thorns&quot;
+
+    duration-seconds: 6
+
+    amplifier: 0
+
+    potion-effects:
+      - WEAKNESS</code><button type="button" class="copy-btn" aria-label="Copy yaml code">Copy</button></pre><h2 id="commands">Command usage</h2><p>Every subcommand and the permission it needs; all three nodes default to server operators.</p><pre data-lang="text" class="relative" tabindex="-1"><span class="mono-label absolute top-2 left-4 normal-case tracking-normal" aria-hidden="true">in game, as op or with the listed permission</span><code># Print the help menu            (echoingdeaths.admin)
+/echoingdeaths
+
+# Apply config.yml edits live    (echoingdeaths.reload)
+/echoingdeaths reload
+
+# Show version + author          (echoingdeaths.admin)
+/echoingdeaths info
+
+# Preview the Lava curse on yourself
+# (echoingdeaths.admin, players only)
+/echoingdeaths test LAVA</code><button type="button" class="copy-btn" aria-label="Copy text code">Copy</button></pre><h2 id="messages">Message format</h2><p>Messages support classic color codes and two placeholders: <code>%player%</code> for the player who died and <code>%cause%</code> for the curse&#x27;s <code>display-name</code>.</p><pre data-lang="yaml" class="relative" tabindex="-1"><span class="mono-label absolute top-2 left-4 normal-case tracking-normal" aria-hidden="true">config.yml: messages section (defaults)</span><code>messages:
+  chat:
+    - &quot;&amp;4%player% died.&quot;
+    - &quot;&amp;cYou were cursed by the echo of their death.&quot;
+    - &quot;&amp;7Cause: &amp;e%cause%&quot;
+  actionbar:
+    - &quot;&amp;cCursed by %player%&#x27;s death&quot;
+  title:
+    title: &quot;&amp;4Echoing Death&quot;
+    subtitle: &quot;&amp;cYou feel a lingering curse...&quot;
+    fade-in: 10
+    stay: 50
+    fade-out: 20</code><button type="button" class="copy-btn" aria-label="Copy yaml code">Copy</button></pre><p>More in the <a href="#/repo/echoingdeaths/configuration">configuration reference</a> and the <a href="#/repo/echoingdeaths/commands-permissions">commands &amp; permissions</a> page, or grab the jar from <a href="https://modrinth.com/plugin/echoing-deaths" target="_blank" rel="noopener">Modrinth</a>.</p></div></section>

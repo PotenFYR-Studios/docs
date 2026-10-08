@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PotenFYR Studios — Documentation Hub</title>
+    <meta name="description" content="Unified documentation for every public PotenFYR-Studios repository: hosting eggs, Minecraft tooling, security & dev tools." />
+    <meta property="og:title" content="PotenFYR Studios — Documentation Hub" />
+    <meta property="og:description" content="All PotenFYR documentation, one engine. AuthCore, Statfyr, FYRwall, Vigil, OrbyNode, PteroOps-MCP and more." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="./rog.png" />
+    <link rel="icon" type="image/png" href="./rog.png" />
+    <script type="module" src="./src/main.tsx"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Persist a 404.html redirect target if one is pending.
+      if (location.hash.startsWith("#/") === false && sessionStorage.getItem("pp-404-path")) {
+        location.replace("#" + sessionStorage.getItem("pp-404-path"));
+        sessionStorage.removeItem("pp-404-path");
+      }
+    </script>
+  </body>
+</html>

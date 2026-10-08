@@ -1,0 +1,48 @@
+<div class="layout"><aside class="sidebar-rail"><div class="side-group"><button type="button" class="side-group-btn" aria-expanded="true"><span class="side-section">Get started</span><span class="side-chevron open" aria-hidden="true">›</span></button><div class="side-group-body"><a href="#/repo/statfyr/getting-started" class="side-link ">Getting started</a><a href="#/repo/statfyr/configuration" class="side-link ">Configuration</a><a href="#/repo/statfyr/commands" class="side-link ">Commands &amp; permissions</a></div></div><div class="side-group"><button type="button" class="side-group-btn" aria-expanded="true"><span class="side-section">Reference</span><span class="side-chevron open" aria-hidden="true">›</span></button><div class="side-group-body"><a href="#/repo/statfyr/placeholders" class="side-link ">Placeholders</a><a href="#/repo/statfyr/integrations" class="side-link ">Integrations</a><a href="#/repo/statfyr/analytics" class="side-link ">Analytics &amp; history</a><a href="#/repo/statfyr/api" class="side-link ">API reference</a><a href="#/repo/statfyr/examples" class="side-link ">Examples</a></div></div><div class="side-group"><button type="button" class="side-group-btn" aria-expanded="true"><span class="side-section">Project</span><span class="side-chevron open" aria-hidden="true">›</span></button><div class="side-group-body"><a href="#/repo/statfyr/faq" class="side-link ">FAQ</a></div></div><p class="side-section">Resources</p><a class="side-link" href="https://modrinth.com/plugin/statfyr" target="_blank" rel="noopener noreferrer">Modrinth ↗</a><a class="side-link" href="https://github.com/PotenFYR-Studios/statfyr" target="_blank" rel="noopener noreferrer">GitHub ↗</a></aside><article class="doc-article min-w-0"><nav class="crumb-trail" aria-label="Breadcrumb"><span class="crumb-item"><a href="#/repo/statfyr/docs" class="breadcrumb">Docs</a><span class="breadcrumb" aria-hidden="true"> / </span></span><span class="crumb-item"><span class="breadcrumb">v1.0.0-BETA</span><span class="breadcrumb" aria-hidden="true"> / </span></span><span class="crumb-item"><span class="breadcrumb">Integrations</span></span></nav><h1 class="mt-3">Integrations</h1><p class="mt-4 !text-[1.02em] leading-relaxed text-[#b9bfd4]">Every integration is optional and independently toggleable. StatFYR starts and runs normally with all of them absent.</p><div class="mt-6"><h2 id="optional">All optional</h2><p>Integrations are configured under <code>integrations:</code> in <code>plugins/statfyr/config.yml</code>. None of them are hard dependencies, and none add a bundled runtime dependency.</p><div class="relative my-4"><pre data-lang="yaml"><button type="button" class="copy-btn" aria-label="Copy code to clipboard">Copy</button><code>integrations:
+  placeholderapi:
+    enabled: true
+  vault:
+    enabled: true
+  discord:
+    enabled: false
+    webhook-url: &quot;&quot;
+    peak-milestone: 100
+    events:
+      weekly-leaderboard: true
+      monthly-leaderboard: true
+      peak-milestone: true
+      new-player: false
+      server-status: false
+  prometheus:
+    enabled: false
+  dashboard:
+    enabled: false</code></pre></div><h2 id="placeholderapi">PlaceholderAPI</h2><p>When PlaceholderAPI is installed the <code>statfyr</code> expansion registers automatically. See the <a href="#/repo/statfyr/placeholders">Placeholders</a> page for the full list.</p><h2 id="vault">Vault</h2><p>With Vault and a compatible economy provider, StatFYR reads balances for analytics — player balance, and server aggregates at <code>/api/server/economy</code> (total in circulation, average, median, highest, lowest). It also exposes a <code>balance</code> leaderboard.</p><aside class="callout callout-warn"><div class="callout-head"><span aria-hidden="true">▲</span><span class="mono-label">Heads up</span></div><div class="[&amp;_code]:text-[#d8ccfe]">StatFYR never implements an economy. It only reads from the existing Vault provider. When Vault is absent, economy endpoints return <code>{ &quot;enabled&quot;: false }</code>.</div></aside><h2 id="discord">Discord</h2><p>Optional Discord webhook notifications, sent asynchronously over plain <code>HttpURLConnection</code>. Configure the webhook URL and enable the events you want:</p><div class="table-scroll"><table class="doc-table"><thead><tr><th>Event</th><th>Trigger</th></tr></thead><tbody><tr><td><code>weekly-leaderboard</code></td><td>Shortly after the configured weekly reset.</td></tr><tr><td><code>monthly-leaderboard</code></td><td>Shortly after the monthly reset.</td></tr><tr><td><code>peak-milestone</code></td><td>When concurrency reaches <code>peak-milestone</code>.</td></tr><tr><td><code>new-player</code></td><td>A player joins for the first time.</td></tr><tr><td><code>server-status</code></td><td>Reserved for periodic status posts.</td></tr></tbody></table></div><h2 id="prometheus">Prometheus</h2><p>Set <code>integrations.prometheus.enabled: true</code> to expose <code>/metrics</code> in Prometheus text exposition format. No Prometheus dependency is required — scrape it directly:</p><div class="relative my-4"><div class="flex items-center justify-between rounded-t-[10px] border border-b-0 border-line bg-[#12152a] px-4 py-1.5 font-mono text-xs text-[#9aa0b4]"><span>prometheus.yml</span><span class="text-[10px] uppercase tracking-wider text-[#6a7089]">yaml</span></div><pre data-lang="yaml" class="!mt-0 !rounded-t-none"><button type="button" class="copy-btn" aria-label="Copy code to clipboard">Copy</button><code>scrape_configs:
+  - job_name: statfyr
+    static_configs:
+      - targets: [&quot;your-server:8080&quot;]</code></pre></div><p>Exported metrics include:</p><div class="relative my-4"><pre data-lang="text"><button type="button" class="copy-btn" aria-label="Copy code to clipboard">Copy</button><code>statfyr_online_players
+statfyr_unique_players_today
+statfyr_peak_players_today
+statfyr_peak_players_all_time
+statfyr_player_sessions
+statfyr_server_playtime_seconds
+statfyr_new_players_today
+statfyr_returning_players_today
+statfyr_profiles_total</code></pre></div><h2 id="dashboard">Web dashboard</h2><p>Set <code>integrations.dashboard.enabled: true</code> to serve a lightweight, API-first dashboard at <code>/dashboard</code>. It consumes the same public REST API — enter your API key in the page. There is no separate analytics implementation.</p><h2 id="network">Multi-server</h2><p>StatFYR can aggregate a whole BungeeCord/Velocity network without a shared database. Point each server at a hub and it will push its summary every interval; the hub stores reports (expiring after a TTL) and aggregates them at <code>/api/network</code>.</p><div class="relative my-4"><pre data-lang="yaml"><button type="button" class="copy-btn" aria-label="Copy code to clipboard">Copy</button><code>network:
+  server-id: &quot;survival&quot;
+  server-name: &quot;Survival&quot;
+  hub-url: &quot;http://hub.example.com:8080&quot;   # blank = don&#x27;t push
+  report-key: &quot;shared-secret&quot;              # X-StatFYR-Key
+  accept-reports: true                     # accept POST /api/network/report
+  report-interval-seconds: 60
+  report-ttl-seconds: 180</code></pre></div><aside class="callout callout-note"><div class="callout-head"><span aria-hidden="true">✦</span><span class="mono-label">Note</span></div><div class="[&amp;_code]:text-[#d8ccfe]">Multi-server support is optional. A single-server install simply returns itself from <code>/api/network</code> and needs no extra configuration.</div></aside><h2 id="custom-metrics">Custom metrics API</h2><p>Other plugins can register arbitrary metrics (economy, quests, minigame wins, votes, jobs, skills, …). They are stored per player and exposed at <code>/api/custom/&lt;metric&gt;</code>.</p><div class="relative my-4"><div class="flex items-center justify-between rounded-t-[10px] border border-b-0 border-line bg-[#12152a] px-4 py-1.5 font-mono text-xs text-[#9aa0b4]"><span>AnotherPlugin.java</span><span class="text-[10px] uppercase tracking-wider text-[#6a7089]">java</span></div><pre data-lang="java" class="!mt-0 !rounded-t-none"><button type="button" class="copy-btn" aria-label="Copy code to clipboard">Copy</button><code>Statfyr.getInstance().getAnalytics().setCustomMetric(
+    &quot;economy.balance&quot;,
+    player.getUniqueId(),
+    12500.0
+);
+
+// Optional: register a metric for offline players by UUID
+Statfyr.getInstance().getAnalytics().setCustomMetric(
+    &quot;quests.completed&quot;,
+    uuid,
+    42.0
+);</code></pre></div><aside class="callout callout-note"><div class="callout-head"><span aria-hidden="true">✦</span><span class="mono-label">Note</span></div><div class="[&amp;_code]:text-[#d8ccfe]">Custom metrics are only meaningful if your plugin pushes them; StatFYR does not tightly couple to any third-party plugin.</div></aside></div></article><nav class="toc-rail" aria-label="On this page"><p class="toc-title mb-2 text-[#6a7089]">On this page</p><a href="#optional" class="toc-item  active">All optional</a><a href="#placeholderapi" class="toc-item  ">PlaceholderAPI</a><a href="#vault" class="toc-item  ">Vault</a><a href="#discord" class="toc-item  ">Discord</a><a href="#prometheus" class="toc-item  ">Prometheus</a><a href="#dashboard" class="toc-item  ">Web dashboard</a><a href="#network" class="toc-item  ">Multi-server</a><a href="#custom-metrics" class="toc-item  ">Custom metrics API</a></nav></div>

@@ -1,0 +1,79 @@
+name: Deploy docs hub to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.event.repository.private != true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Configure Pages (picks up docs.potenfyr.in from repo settings / CNAME)
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Compile docs content (markdown -> highlighted JSON)
+        run: bun run build:content
+
+      - name: Typecheck
+        run: bun run typecheck
+
+      - name: Build SPA
+        run: bun run build:offline
+
+      - name: Generate 404.html (SPA deep-link redirector)
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          src = Path("dist/index.html").read_text()
+          redirect = """<script>
+            (function () {
+              var p = location.pathname;
+              if (/^\\/docs(?=\\/)/.test(p)) p = p.replace(/^\\/docs/, "");
+              history.replaceState(null, "", "/#" + p);
+              location.replace(location.origin + "/#" + p);
+            })();
+          </script>"""
+          src = src.replace("</head>", redirect + "\\n</head>")
+          # strip module bootstrap to keep the redirect stub tiny
+          Path("dist/404.html").write_text(src)
+          print("404.html written")
+          PY
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    if: github.event.repository.private != true
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

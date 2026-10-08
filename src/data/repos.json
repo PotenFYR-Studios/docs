@@ -1,0 +1,420 @@
+{
+  "discord-botlists": {
+    "name": "discord-botlists",
+    "label": "discord-botlists",
+    "repo": "https://github.com/PotenFYR-Studios/discord-botlists",
+    "description": "Universal multi-botlist SDK for Discord bots: post stats to 27 verified live lists, get votes in realtime, parse every API into one shape.",
+    "stars": 3,
+    "language": "TypeScript",
+    "topics": [
+      "botlists",
+      "discord",
+      "discord-botlists"
+    ],
+    "pushedAt": "2026-10-08T16:07:04Z",
+    "defaultBranch": "master"
+  },
+  "lootifyr": {
+    "name": "lootifyr",
+    "label": "Lootifyr",
+    "repo": "https://github.com/PotenFYR-Studios/Lootifyr",
+    "description": "Ded3ec-Store streamlines offer distribution across major e-commerce platforms including Amazon and Flipkart. Sellers, affiliates, and automated systems dispatch promotional offers (discounts, deals, custom listings) to multiple marketplaces from a unified interface or API.",
+    "stars": 0,
+    "language": "Python",
+    "topics": [
+      "amazon",
+      "ded3ec",
+      "flipkart"
+    ],
+    "pushedAt": "2026-10-07T16:21:35Z",
+    "defaultBranch": "master"
+  },
+  "pyrlune": {
+    "name": "pyrlune",
+    "label": "Pyrlune",
+    "repo": "https://github.com/PotenFYR-Studios/Pyrlune",
+    "description": "Jericho is a powerful, customizable Discord bot built to make your server smarter, smoother, and way more fun. Designed with modularity and performance in mind, it delivers fast responses, handy utilities, and a growing suite of features for community management and entertainment.",
+    "stars": 1,
+    "language": "TypeScript",
+    "topics": [],
+    "pushedAt": "2026-10-07T16:20:27Z",
+    "defaultBranch": "master"
+  },
+  "authcore": {
+    "name": "authcore",
+    "label": "AuthCore",
+    "repo": "https://github.com/PotenFYR-Studios/AuthCore",
+    "description": "AuthCore is a lightweight, server-side authentication framework for Fabric servers, enabling secure player registration and login workflows on offline-mode servers with modular, configurable, and version-safe design.",
+    "stars": 5,
+    "language": "Java",
+    "topics": [
+      "authentication",
+      "fabric",
+      "fabric-mod",
+      "forge",
+      "minecraft",
+      "modrinth"
+    ],
+    "pushedAt": "2026-10-08T16:04:08Z",
+    "defaultBranch": "master"
+  },
+  "statfyr": {
+    "name": "statfyr",
+    "label": "statfyr",
+    "repo": "https://github.com/PotenFYR-Studios/statfyr",
+    "description": "Statfyr is a fast REST API plugin for Minecraft that exposes player statistics through a clean, documented interface. It enables developers to build dashboards, leaderboards, Discord integrations, and bots on real-time player data: kills, deaths, playtime, blocks mined, items crafted, and movement analytics.",
+    "stars": 2,
+    "language": "Java",
+    "topics": [
+      "api",
+      "java",
+      "leaderboard",
+      "minecraft",
+      "minecraft-plugin",
+      "minecraft-server"
+    ],
+    "pushedAt": "2026-10-08T16:05:47Z",
+    "defaultBranch": "master"
+  },
+  "web": {
+    "name": "web",
+    "label": "PotenFYR Studio Website",
+    "repo": "https://github.com/PotenFYR-Studios/.web",
+    "description": "Official Website for PotenFYR Studios",
+    "stars": 1,
+    "language": "TypeScript",
+    "topics": [
+      "donations",
+      "donations-website",
+      "potenfyr",
+      "website"
+    ],
+    "pushedAt": "2026-10-08T12:20:20Z",
+    "defaultBranch": "master"
+  },
+  "ojaj": {
+    "name": "ojaj",
+    "label": "ojaj",
+    "repo": "https://github.com/PotenFYR-Studios/ojaj",
+    "description": "A chaotic Spigot plugin where a single jump launches the entire server.",
+    "stars": 1,
+    "language": "Java",
+    "topics": [
+      "minecraft",
+      "minecraft-plugin",
+      "modrinth-plugin",
+      "plugin-development",
+      "potenfyr"
+    ],
+    "pushedAt": "2026-10-08T16:04:00Z",
+    "defaultBranch": "master"
+  },
+  "echoingdeaths": {
+    "name": "echoingdeaths",
+    "label": "EchoingDeaths",
+    "repo": "https://github.com/PotenFYR-Studios/EchoingDeaths",
+    "description": "EchoingDeaths adds immersive death-based curses to nearby players.  Whenever a player dies, nearby players receive temporary debuffs themed around the cause of death.",
+    "stars": 1,
+    "language": "Java",
+    "topics": [
+      "cursedplugin",
+      "minecraft-plugin",
+      "modrinth",
+      "plugin",
+      "potenfyr"
+    ],
+    "pushedAt": "2026-10-08T16:04:14Z",
+    "defaultBranch": "master"
+  },
+  "customdamagenumbers": {
+    "name": "customdamagenumbers",
+    "label": "CustomDamageNumbers",
+    "repo": "https://github.com/PotenFYR-Studios/CustomDamageNumbers",
+    "description": "Custom Damage Numbers adds clean, animated, packet-only damage indicators to your Minecraft server. Fully configurable with hit merging, entity-following animations, styles, player toggles, and support for modern and legacy server versions.",
+    "stars": 1,
+    "language": "Java",
+    "topics": [
+      "minecraft",
+      "minecraft-mod-suite",
+      "minecraft-modded-server",
+      "minecraft-plugin-dev",
+      "minecraft-serverside",
+      "plguin"
+    ],
+    "pushedAt": "2026-10-08T16:05:24Z",
+    "defaultBranch": "master"
+  },
+  "minecraft-eggs": {
+    "name": "minecraft-eggs",
+    "label": "Minecraft-Eggs",
+    "repo": "https://github.com/PotenFYR-Studios/Minecraft-Eggs",
+    "description": "Universal Minecraft egg for Pterodactyl, Pelican, and Feather Panel. Supports Vanilla, Paper, Purpur, Fabric, Forge, NeoForge, Velocity, Bedrock, and all 18+ server types.",
+    "stars": 1,
+    "language": "Shell",
+    "topics": [
+      "bedrock",
+      "docker",
+      "fabric",
+      "feather-panel",
+      "forge",
+      "minecraft"
+    ],
+    "pushedAt": "2026-10-08T16:03:57Z",
+    "defaultBranch": "master"
+  },
+  "prog-language-eggs": {
+    "name": "prog-language-eggs",
+    "label": "Prog-Language-Eggs",
+    "repo": "https://github.com/PotenFYR-Studios/Prog-Language-Eggs",
+    "description": "One egg. One image. Every language. A production-grade hosting platform that installs, updates, compiles and runs 50+ programming languages inside your container - across Pterodactyl, Pelican, Feather Panel, PufferPanel, Jexactyl, Wisp, Emerald, Kubernetes, Fly.io, Railway, Render",
+    "stars": 1,
+    "language": "Shell",
+    "topics": [
+      "amd",
+      "arm",
+      "docker",
+      "docker-image",
+      "featherpanel",
+      "multi-egg"
+    ],
+    "pushedAt": "2026-10-07T16:13:31Z",
+    "defaultBranch": "master"
+  },
+  "database-eggs": {
+    "name": "database-eggs",
+    "label": "Database-Eggs",
+    "repo": "https://github.com/PotenFYR-Studios/Database-Eggs",
+    "description": "One egg. Every database. Every version. Every panel. Production-ready multi-database eggs for Pterodactyl, Pelican, Feather, Wisp, and Docker.",
+    "stars": 1,
+    "language": "Shell",
+    "topics": [
+      "docker",
+      "docker-image",
+      "egg",
+      "mariadb-egg",
+      "mongo-db-egg",
+      "nest"
+    ],
+    "pushedAt": "2026-10-08T16:03:53Z",
+    "defaultBranch": "master"
+  },
+  "potenutils": {
+    "name": "potenutils",
+    "label": "PotenUtils",
+    "repo": "https://github.com/PotenFYR-Studios/PotenUtils",
+    "description": "",
+    "stars": 1,
+    "language": "TypeScript",
+    "topics": [],
+    "pushedAt": "2026-10-07T16:21:38Z",
+    "defaultBranch": "master"
+  },
+  "potenfyr-nest": {
+    "name": "potenfyr-nest",
+    "label": "potenfyr-nest",
+    "repo": "https://github.com/PotenFYR-Studios/potenfyr-nest",
+    "description": "Central mirror of every egg collection published by PotenFYR-Studios, kept in sync automatically from the org.",
+    "stars": 1,
+    "language": "TypeScript",
+    "topics": [
+      "eggs",
+      "multi-eggs",
+      "nests",
+      "potenfyr",
+      "pterodactyl",
+      "pterodactyl-egg"
+    ],
+    "pushedAt": "2026-10-07T16:24:03Z",
+    "defaultBranch": "master"
+  },
+  "shell-eggs": {
+    "name": "shell-eggs",
+    "label": "Shell-Eggs",
+    "repo": "https://github.com/PotenFYR-Studios/Shell-Eggs",
+    "description": "Host any shell - incoming, tunneled, reversed, encrypted, covert, web or debug - from one panel egg. Credentials are the only mandatory input. Everything else is optional.",
+    "stars": 1,
+    "language": "Shell",
+    "topics": [
+      "bash",
+      "eggs",
+      "nest",
+      "potenfyr",
+      "pterdoactyl",
+      "reverse-shell"
+    ],
+    "pushedAt": "2026-10-08T16:03:55Z",
+    "defaultBranch": "master"
+  },
+  "vigilfyr": {
+    "name": "vigilfyr",
+    "label": "VigilFYR",
+    "repo": "https://github.com/PotenFYR-Studios/VigilFYR",
+    "description": "Vigil is a local guard for AI coding agents: it sits between your agent and your filesystem and blocks reads, writes, searches, and commands that touch sensitive areas",
+    "stars": 1,
+    "language": "Rust",
+    "topics": [
+      "agent-safety",
+      "ai-agent",
+      "ai-agents",
+      "ai-agents-automation",
+      "ai-security",
+      "ai-security-tool"
+    ],
+    "pushedAt": "2026-10-08T14:55:27Z",
+    "defaultBranch": "master"
+  },
+  "fyrwall": {
+    "name": "fyrwall",
+    "label": "FYRwall",
+    "repo": "https://github.com/PotenFYR-Studios/FYRwall",
+    "description": "FYRwall gives administrators a clean GUI over UFW and iptables without ever running the web server as root, without shell interpolation anywhere, and without a single firewall mutation that lacks a restore point and rollback path.",
+    "stars": 1,
+    "language": "Go",
+    "topics": [
+      "firewall",
+      "firewall-management",
+      "firewall-manager",
+      "linux",
+      "linux-app",
+      "linux-distribution"
+    ],
+    "pushedAt": "2026-10-08T14:51:11Z",
+    "defaultBranch": "master"
+  },
+  "orbynode": {
+    "name": "orbynode",
+    "label": "OrbyNode",
+    "repo": "https://github.com/PotenFYR-Studios/OrbyNode",
+    "description": "OrbyNode is the self-hosted control plane for coding agents. It runs persistent terminal agents, owns their PTYs, files, tasks, Git workflows, services and machine state in one daemon, and reconnects your browser without interrupting the work.",
+    "stars": 1,
+    "language": "Rust",
+    "topics": [
+      "agentic-ai",
+      "cli",
+      "daemon",
+      "orbynode",
+      "web",
+      "webapp"
+    ],
+    "pushedAt": "2026-10-08T16:04:16Z",
+    "defaultBranch": "main"
+  },
+  "readmefx": {
+    "name": "readmefx",
+    "label": "ReadmeFX",
+    "repo": "https://github.com/PotenFYR-Studios/ReadmeFX",
+    "description": "ReadmeFX is an open-source image generation API for GitHub READMEs, developer profiles, portfolios, and Markdown documentation.",
+    "stars": 1,
+    "language": "TypeScript",
+    "topics": [
+      "github",
+      "github-profile",
+      "potenfyr",
+      "readme"
+    ],
+    "pushedAt": "2026-10-07T16:20:28Z",
+    "defaultBranch": "main"
+  },
+  "hbs-tool": {
+    "name": "hbs-tool",
+    "label": "HBS-Tool",
+    "repo": "https://github.com/PotenFYR-Studios/HBS-Tool",
+    "description": "HBS - an offline-first, strictly read-only configuration-security review platform for enterprise servers, with a sealed-report security model.",
+    "stars": 1,
+    "language": "TypeScript",
+    "topics": [],
+    "pushedAt": "2026-10-08T16:04:11Z",
+    "defaultBranch": "main"
+  },
+  "pteroops-mcp": {
+    "name": "pteroops-mcp",
+    "label": "PteroOps-MCP",
+    "repo": "https://github.com/PotenFYR-Studios/PteroOps-MCP",
+    "description": "AI-powered server management and monitoring for Pterodactyl panels using MCP.",
+    "stars": 1,
+    "language": "TypeScript",
+    "topics": [
+      "ai",
+      "automation",
+      "devops",
+      "mcp",
+      "mcp-server",
+      "mcp-tools"
+    ],
+    "pushedAt": "2026-10-08T14:52:16Z",
+    "defaultBranch": "main"
+  },
+  "conviqo": {
+    "name": "conviqo",
+    "label": "Conviqo",
+    "repo": "https://github.com/PotenFYR-Studios/Conviqo",
+    "description": "",
+    "stars": 1,
+    "language": "TypeScript",
+    "topics": [],
+    "pushedAt": "2026-10-07T18:14:59Z",
+    "defaultBranch": "main"
+  },
+  "linkfyr": {
+    "name": "linkfyr",
+    "label": "LinkFYR",
+    "repo": "https://github.com/PotenFYR-Studios/LinkFYR",
+    "description": "One control layer for what your apps do on the network: which interface carries them, how much bandwidth they get, which VPN or DNS they use, how traffic behaves when quality changes - and a full, explainable history of why.",
+    "stars": 1,
+    "language": "Rust",
+    "topics": [
+      "bandwidth",
+      "dns",
+      "network",
+      "routing",
+      "traffic",
+      "vpn"
+    ],
+    "pushedAt": "2026-10-08T16:04:33Z",
+    "defaultBranch": "main"
+  },
+  "n8n-workflows": {
+    "name": "n8n-workflows",
+    "label": "n8n-workflows",
+    "repo": "https://github.com/PotenFYR-Studios/n8n-workflows",
+    "description": "",
+    "stars": 0,
+    "language": "JavaScript",
+    "topics": [],
+    "pushedAt": "2026-10-08T13:42:18Z",
+    "defaultBranch": "main"
+  },
+  "fyrpay": {
+    "name": "fyrpay",
+    "label": "FYRpay",
+    "repo": "https://github.com/PotenFYR-Studios/FYRpay",
+    "description": "FYRpay is an all-in-one business platform for freelancers and agencies to manage clients, proposals, projects, invoices, payments, expenses, and profitability.",
+    "stars": 0,
+    "language": "TypeScript",
+    "topics": [],
+    "pushedAt": "2026-10-07T16:20:09Z",
+    "defaultBranch": "main"
+  },
+  "debloater": {
+    "name": "debloater",
+    "label": "Debloater",
+    "repo": "https://github.com/PotenFYR-Studios/Debloater",
+    "description": "",
+    "stars": 0,
+    "language": "Rust",
+    "topics": [],
+    "pushedAt": "2026-10-07T18:10:16Z",
+    "defaultBranch": "main"
+  },
+  "assets": {
+    "name": "assets",
+    "label": ".assets",
+    "repo": "https://github.com/PotenFYR-Studios/.assets",
+    "description": "PotenFYR's digital asset collection including logos, images and banners ",
+    "stars": 0,
+    "language": "Python",
+    "topics": [],
+    "pushedAt": "2026-10-06T21:58:54Z",
+    "defaultBranch": "main"
+  }
+}

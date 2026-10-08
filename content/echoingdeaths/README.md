@@ -1,0 +1,149 @@
+<!-- markdownlint-disable -->
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:8b5cf6,50:ec4899,100:f97316&height=220&section=header&text=EchoingDeaths&fontSize=52&fontColor=ffffff&fontAlignY=34&animation=twinkling" width="100%" alt="EchoingDeaths Banner"/>
+
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pause=1200&color=8B5CF6&center=true&vCenter=true&width=800&lines=Death+leaves+a+curse+behind.;Every+death+echoes+to+nearby+players.;Spigot+%C2%B7+Paper+%C2%B7+Purpur+%C2%B7+MC+1.21%2B)](https://github.com/PotenFYR-Studios/EchoingDeaths)
+
+<p align="center">
+  <a href="https://modrinth.com/plugin/echoing-deaths"><img src="https://img.shields.io/badge/Modrinth-echoing--deaths-1bd96a?style=for-the-badge&logo=modrinth&logoColor=white&labelColor=1c1e26" alt="Modrinth"/></a>
+  <a href="/echoingdeaths"><img src="https://img.shields.io/badge/Docs-/echoingdeaths-8b5cf6?style=for-the-badge&logo=readme&logoColor=white&labelColor=1c1e26" alt="Docs"/></a>
+  <a href="https://discord.com/invite/zUaN2FPBec"><img src="https://img.shields.io/badge/Discord-Join%20us-5865F2?style=for-the-badge&logo=discord&logoColor=white&labelColor=1c1e26" alt="Discord"/></a>
+  <a href="https://github.com/PotenFYR-Studios/EchoingDeaths"><img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white&labelColor=1c1e26" alt="GitHub"/></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache--2.0%20%2B%20Commons%20Clause-f97316?style=for-the-badge&logo=apache&logoColor=white&labelColor=1c1e26" alt="License"/></a>
+  <a href="https://github.com/PotenFYR-Studios/EchoingDeaths"><img src="https://komarev.com/ghpvc/?username=PotenFYR-Studios-EchoingDeaths&color=ec4899&style=for-the-badge&label=VIEW&labelColor=1c1e26" alt="View" /></a>
+</p>
+
+</div>
+
+---
+
+**EchoingDeaths** is a Minecraft death plugin that adds immersive death-based curses to nearby players. Whenever a player dies, everyone standing close by receives temporary debuffs themed by the cause of death: a lava death nauseates witnesses, a void death blinds them, the Warden's sonic boom leaves them in darkness. Lightweight, Bukkit-only, NMS-free, fully configurable.
+
+## ✨ Features
+
+- 🔮 **16 curses out of the box**: falls, lava, fire, drowning, void, magic, wither, explosions, freezing, lightning, poison, starvation, suffocation, sonic boom, thorns and contact
+- 🧭 **Any damage cause**: curse mapping is dynamic, add a section for *any* Bukkit `DamageCause` (e.g. `HOT_FLOOR`, `DRAGON_BREATH`, `PROJECTILE`) and it just works
+- 📣 **Rich feedback**: configurable chat, actionbar and title messages with `%player%` / `%cause%` placeholders and color codes, plus a configurable sound
+- 🌍 **World & mode aware**: per-world disabling, creative/spectator handling, permission bypass
+- ⚡ **Performance-friendly**: Bukkit-only, no NMS, no reflection, no packet manipulation
+
+## 📦 Installation
+
+1. Download the jar from [Modrinth](https://modrinth.com/plugin/echoing-deaths)
+2. Drop it into your server's `/plugins/` folder
+3. Restart the server: `plugins/EchoingDeaths/config.yml` is generated on first boot
+4. Tune the config, then run `/echoingdeaths reload`
+
+Works on **Spigot**, **Paper** and **Purpur**, Minecraft **1.21+** (`api-version: '1.21'`, built against the Spigot 1.21.8 API, Java 21). Full guide: [Getting Started](/echoingdeaths/docs/getting-started/).
+
+## 📖 Documentation
+
+Full documentation lives at **[/echoingdeaths](/echoingdeaths)**:
+
+| Page | Contents |
+| --- | --- |
+| [Curses](/echoingdeaths/docs/curses/) | Every curse: trigger cause, effects, duration, amplifier |
+| [Configuration](/echoingdeaths/docs/configuration/) | Complete `config.yml` reference |
+| [Commands & Permissions](/echoingdeaths/docs/commands-permissions/) | `/echoingdeaths` usage and permission nodes |
+| [FAQ](/echoingdeaths/docs/faq/) | Common questions and troubleshooting |
+
+## 🛠 Commands
+
+| Command | Description |
+| --- | --- |
+| `/echoingdeaths` · `/ed` | Base command, prints the help menu |
+| `/echoingdeaths reload` | Reload `config.yml` |
+| `/echoingdeaths info` | Show plugin information |
+| `/echoingdeaths test <cause>` | Apply a curse to yourself to preview it |
+
+## 🔐 Permissions
+
+| Permission | Default | Description |
+| --- | --- | --- |
+| `echoingdeaths.admin` | `op` | Access to `/echoingdeaths` |
+| `echoingdeaths.reload` | `op` | Reload the plugin config |
+| `echoingdeaths.bypass` | `op` | Immune to curse effects |
+
+## ⚙️ Configuration
+
+Everything lives in one `config.yml`: radius, ignored worlds, display channels, messages, sounds and each curse's potion effects, duration and amplifier:
+
+```yaml
+FIRE:
+  display-name: "Fire"
+  duration-seconds: 8
+  amplifier: 1          # 0 = Level I, 1 = Level II, 2 = Level III
+  potion-effects:
+    - WEAKNESS
+    - HUNGER
+```
+
+See the [Configuration Reference](/echoingdeaths/docs/configuration/) for every key and the [Curses page](/echoingdeaths/docs/curses/) for all default values.
+
+## 🏗 Building from source
+
+The project is plain Maven with no codegen steps:
+
+```bash
+git clone https://github.com/PotenFYR-Studios/EchoingDeaths.git
+cd EchoingDeaths
+mvn clean package   # requires JDK 21+; jar lands in target/
+```
+
+## 🤝 Contributing
+
+Issues and pull requests are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for build instructions, docs development and PR guidelines. Found a bug or have a feature idea? [Open an issue](https://github.com/PotenFYR-Studios/EchoingDeaths/issues/new/choose).
+
+## 🔒 Security
+
+Please report vulnerabilities responsibly; see [SECURITY.md](SECURITY.md). Do not open public issues for security reports.
+
+## 📜 License
+
+Licensed under the **Apache License 2.0 with the Commons Clause**: free to fork, modify, use and build products or services around it, but the software itself may not be sold as a paid product. See the [LICENSE](https://github.com/PotenFYR-Studios/EchoingDeaths/blob/master/LICENSE) file for details; the LICENSE file is authoritative for this repository.
+
+<!-- markdownlint-enable -->
+
+## 🌍 PotenFYR Studios Community
+
+Contributions make the open-source community such an amazing place to learn, inspire and create. Any contributions you make are **greatly appreciated** - see [CONTRIBUTING.md](CONTRIBUTING.md) and the [good first issues](https://github.com/PotenFYR-Studios/EchoingDeaths/labels/good%20first%20issue). Security concerns: please use [SECURITY.md](SECURITY.md) (private vulnerability reporting), not public issues.
+
+<a href="https://github.com/PotenFYR-Studios/EchoingDeaths/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=PotenFYR-Studios/EchoingDeaths" alt="EchoingDeaths contributors" />
+</a>
+<a href="https://github.com/PotenFYR-Studios/EchoingDeaths/stargazers">
+  <img src="https://img.shields.io/github/stars/PotenFYR-Studios/EchoingDeaths?style=social&label=Stars" alt="Live star count" />
+</a>
+<a href="https://github.com/PotenFYR-Studios/EchoingDeaths/network/members">
+  <img src="https://img.shields.io/github/forks/PotenFYR-Studios/EchoingDeaths?style=social&label=Forks" alt="Live fork count" />
+</a>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/PotenFYR-Studios/FYRwall/output/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/PotenFYR-Studios/FYRwall/output/github-snake.svg" />
+  <img alt="Contribution snake animation" src="https://raw.githubusercontent.com/PotenFYR-Studios/FYRwall/output/github-snake.svg" width="100%" />
+</picture>
+
+---
+
+## ⭐ Star History
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=potenfyr-studios/.github,potenfyr-studios/.web,potenfyr-studios/AuthCore,potenfyr-studios/CustomDamageNumbers,potenfyr-studios/Database-Eggs,potenfyr-studios/EchoingDeaths,potenfyr-studios/FYRwall,potenfyr-studios/HBS-Tool,potenfyr-studios/LinkFYR,potenfyr-studios/Minecraft-Eggs,potenfyr-studios/OrbyNode,potenfyr-studios/PteroOps-MCP,potenfyr-studios/Prog-Language-Eggs,potenfyr-studios/Shell-Eggs,potenfyr-studios/VigilFYR,potenfyr-studios/discord-botlists,potenfyr-studios/ojaj,potenfyr-studios/potenfyr-nest,potenfyr-studios/statfyr&type=Date&theme=dark" />
+  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=potenfyr-studios/.github,potenfyr-studios/.web,potenfyr-studios/AuthCore,potenfyr-studios/CustomDamageNumbers,potenfyr-studios/Database-Eggs,potenfyr-studios/EchoingDeaths,potenfyr-studios/FYRwall,potenfyr-studios/HBS-Tool,potenfyr-studios/LinkFYR,potenfyr-studios/Minecraft-Eggs,potenfyr-studios/OrbyNode,potenfyr-studios/PteroOps-MCP,potenfyr-studios/Prog-Language-Eggs,potenfyr-studios/Shell-Eggs,potenfyr-studios/VigilFYR,potenfyr-studios/discord-botlists,potenfyr-studios/ojaj,potenfyr-studios/potenfyr-nest,potenfyr-studios/statfyr&type=Date" />
+  <img alt="Star history chart for all PotenFYR Studios public repositories" src="https://api.star-history.com/svg?repos=potenfyr-studios/.github,potenfyr-studios/.web,potenfyr-studios/AuthCore,potenfyr-studios/CustomDamageNumbers,potenfyr-studios/Database-Eggs,potenfyr-studios/EchoingDeaths,potenfyr-studios/FYRwall,potenfyr-studios/HBS-Tool,potenfyr-studios/LinkFYR,potenfyr-studios/Minecraft-Eggs,potenfyr-studios/OrbyNode,potenfyr-studios/PteroOps-MCP,potenfyr-studios/Prog-Language-Eggs,potenfyr-studios/Shell-Eggs,potenfyr-studios/VigilFYR,potenfyr-studios/discord-botlists,potenfyr-studios/ojaj,potenfyr-studios/potenfyr-nest,potenfyr-studios/statfyr&type=Date" width="80%" />
+</picture>
+
+Every public PotenFYR Studios repository on one live chart, served by [star-history.com](https://star-history.com).
+
+---
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:f97316,50:ec4899,100:8b5cf6&height=120&section=footer&text=Made%20with%20%E2%9D%A4%EF%B8%8F%20by%20PotenFYR%20Studios&fontSize=22&fontColor=ffffff&animation=twinkling" width="100%" alt="footer"/>
+
+</div>
+
+<!-- markdownlint-enable -->

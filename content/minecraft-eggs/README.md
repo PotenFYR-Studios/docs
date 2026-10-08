@@ -1,0 +1,191 @@
+<!-- markdownlint-disable -->
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:8b5cf6,50:ec4899,100:f97316&height=220&section=header&text=Minecraft%20Eggs&fontSize=52&fontColor=ffffff&fontAlignY=34&desc=One%20universal%20egg%20%C2%B7%2019%20engines%20%C2%B7%20Java%208%20to%2026&descSize=18&descAlignY=55&animation=twinkling" width="100%" alt="Minecraft Eggs banner"/>
+
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pause=1200&color=8B5CF6&center=true&vCenter=true&width=800&lines=One+universal+egg+for+every+Minecraft+server;Pterodactyl+%C2%B7+Pelican+%C2%B7+Feather+Panel;19+engines+%C2%B7+Alpha+to+26.x;Automatic+Java+%C2%B7+safe+switching)](https://github.com/PotenFYR-Studios/Minecraft-Eggs)
+
+<p align="center">
+  <a href="/minecraft-eggs"><img src="https://img.shields.io/badge/Docs-minecraft--eggs-10b981?style=for-the-badge&logo=gitbook&logoColor=white&labelColor=1c1e26" alt="Docs" /></a>
+  <a href="https://potenfyr.in"><img src="https://img.shields.io/badge/Website-potenfyr.in-8b5cf6?style=for-the-badge&logo=googlechrome&logoColor=white&labelColor=1c1e26" alt="Website" /></a>
+  <a href="https://discord.com/invite/zUaN2FPBec"><img src="https://img.shields.io/badge/Discord-Join%20us-5865F2?style=for-the-badge&logo=discord&logoColor=white&labelColor=1c1e26" alt="Discord" /></a>
+  <a href="https://modrinth.com/organization/potenfyr"><img src="https://img.shields.io/badge/Modrinth-potenfyr-1bd96a?style=for-the-badge&logo=modrinth&logoColor=white&labelColor=1c1e26" alt="Modrinth" /></a>
+  <a href="mailto:support@potenfyr.in"><img src="https://img.shields.io/badge/Email-support%40potenfyr.in-f97316?style=for-the-badge&logo=gmail&logoColor=white&labelColor=1c1e26" alt="Email" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache--2.0%20%2B%20Commons%20Clause-3b82f6?style=for-the-badge&logo=apache&logoColor=white&labelColor=1c1e26" alt="License" /></a>
+  <a href="https://github.com/PotenFYR-Studios/Minecraft-Eggs"><img src="https://komarev.com/ghpvc/?username=PotenFYR-Studios-Minecraft-Eggs&color=ec4899&style=for-the-badge&label=VIEW&labelColor=1c1e26" alt="View" /></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/PotenFYR-Studios/Minecraft-Eggs/actions/workflows/docker-image.yml"><img src="https://img.shields.io/github/actions/workflow/status/PotenFYR-Studios/Minecraft-Eggs/docker-image.yml?style=flat-square&logo=githubactions&label=Image%20CI&labelColor=1c1e26&color=2ea043" alt="Image CI" /></a>
+  <a href="https://github.com/PotenFYR-Studios/Minecraft-Eggs/actions/workflows/docs-pages.yml"><img src="https://img.shields.io/github/actions/workflow/status/PotenFYR-Studios/Minecraft-Eggs/docs-pages.yml?style=flat-square&logo=githubactions&label=Docs%20Deploy&labelColor=1c1e26&color=2ea043" alt="Docs Deploy" /></a>
+  <a href="https://github.com/PotenFYR-Studios/Minecraft-Eggs#-supported-server-types"><img src="https://img.shields.io/badge/Server%20Types-19%20Supported-10b981?style=flat-square&logo=curseforge&logoColor=white&labelColor=1c1e26" alt="Server types" /></a>
+  <a href="https://github.com/PotenFYR-Studios/Minecraft-Eggs#-java-auto%E2%80%90selection"><img src="https://img.shields.io/badge/Java-8%20%7C%2011%20%7C%2017%20%7C%2021%20%7C%2025%20%7C%2026-f97316?style=flat-square&logo=openjdk&logoColor=white&labelColor=1c1e26" alt="Java runtimes" /></a>
+  <a href="https://github.com/PotenFYR-Studios/Minecraft-Eggs/pkgs/container/minecraft-eggs"><img src="https://img.shields.io/badge/Docker%20Image-GHCR-2496ed?style=flat-square&logo=docker&logoColor=white&labelColor=1c1e26" alt="Docker image" /></a>
+  <img src="https://img.shields.io/badge/Architectures-amd64%20%7C%20arm64-8b5cf6?style=flat-square&labelColor=1c1e26" alt="Architectures" />
+  <img src="https://img.shields.io/badge/Panels-Pterodactyl%20%7C%20Pelican%20%7C%20Feather-38bdf8?style=flat-square&labelColor=1c1e26" alt="Panels" />
+</p>
+
+<b>One universal Minecraft egg. One Docker image. Every server. Every version. Any panel.</b><br>
+A production-grade <em>Minecraft Pterodactyl egg</em> (and Pelican / Feather Panel egg) hosting
+Vanilla, Paper, Purpur, Fabric, Forge, NeoForge, Velocity, Bedrock and 11 more engines, every
+version from Alpha to 26.x with automatic Java selection, safe instance switching, Aikar-tuned GC
+flags and a panel stop watcher. Perfect for Minecraft server hosting on any Wings-compatible
+panel.
+
+<p align="center">
+  <a href="#-supported-server-types">Server Types</a> •
+  <a href="#-quick-start">Quick Start</a> •
+  <a href="#%EF%B8%8F-variables-example">Variables</a> •
+  <a href="#-docs--catalog">Docs</a> •
+  <a href="#-contributing">Contributing</a> •
+  <a href="#-license">License</a>
+</p
+
+---
+
+## 🎮 Supported Server Types
+
+Every engine runs from the same universal image (`ghcr.io/potenfyr-studios/minecraft-eggs:latest`),
+so you can switch any server between engines without swapping eggs or rebuilding Docker images.
+
+| Category | Engines (`SERVER_TYPE`) |
+| :--- | :--- |
+| **Plugins & Paper forks** | `vanilla` `paper` `purpur` `folia` `spigot` |
+| **Modded & Hybrid** | `fabric` `neoforge` `forge` `quilt` `mohist` `magma` |
+| **Proxies** | `velocity` `bungeecord` `waterfall` |
+| **Bedrock & Mobile** | `bedrock` `nukkit` `pocketmine` |
+| **Custom** | `github` (any GitHub release) `custom` (bring your own jar/script) |
+
+Full per-engine matrix (versions, default ports, runtimes, minimum settings) lives on the
+[Server Types docs page](/minecraft-eggs/docs/server-types/).
+
+## 🚀 Quick Start
+
+1. **Download the egg**: [`egg-minecraft-multi.json`](egg-minecraft-multi.json)
+2. **Import into your panel**: Pterodactyl/Jexactyl: *Admin → Nests → Import Egg* · Pelican: *Admin → Eggs → Upload Egg* · Feather/Wisp: compatible with Pterodactyl v2 egg specs.
+3. **Create the server**: egg *Multi Minecraft*, image `ghcr.io/potenfyr-studios/minecraft-eggs:latest`, memory **2048 MB** minimum (4096 MB+ for Paper/Purpur, 6144 MB+ for modpacks), port `25565` (or `19132` for Bedrock engines).
+4. **Set two variables** and start:
+
+```text
+SERVER_TYPE        paper
+MINECRAFT_VERSION  1.21.4
+```
+
+5. **Accept the EULA** when the panel prompts; the launcher provisions the right JVM, applies
+   tuned flags, installs the engine and boots. Invalid settings are fixed by an interactive
+   console wizard instead of failing silently.
+
+☕ **Java auto‑selection**: leave `JAVA_VERSION` empty and the container pairs every release with
+the right JVM (26.x → 26, 1.20.5–1.21.x → 21, 1.17–1.20.4 → 17, older → 8; proxies → 21; Bedrock
+runs native, PocketMine runs PHP 8.x), downloading missing runtimes on demand, with no image rebuilds.
+
+## ⚙️ Variables Example
+
+34 variables ship with the egg. The essentials:
+
+| Variable | Default | Purpose |
+| :--- | :--- | :--- |
+| `SERVER_TYPE` | `vanilla` | Engine to install (see table above) |
+| `MINECRAFT_VERSION` | `latest` | Version, or `latest` / `latest-snapshot` |
+| `BUILD_NUMBER` | `latest` | Pin a build (Paper, Purpur, Folia, Velocity, Waterfall, Mohist) |
+| `LOADER_VERSION` | `latest` | Pin a loader (Forge, NeoForge, Fabric, Quilt) |
+| `JAVA_VERSION` | *(auto)* | Override auto-detected Java (`8`–`26`) |
+| `GC_TYPE` | `auto` | `auto` (Aikar G1GC), `zgc` (8 GB+ low-pause), `parallel` |
+| `AUTO_UPDATE` | `1` | Refresh the jar on reinstall |
+| `GIT_REPO_URL` / `GIT_BRANCH` | *(empty)* | Sync plugins/mods/configs from a git repo at boot and on the auto-update poll |
+| `GIT_PRESERVE_ENV` | `1` | Every existing `.env` is restored to its original location after each sync - repo updates can never clobber live credentials (`0` = repo wins) |
+| `GIT_EXCLUDE` | *(empty)* | Glob patterns git sync must never install or overwrite (e.g. `plugins/keep/*`) |
+| `GIT_AUTO_UPDATE` | `1` | Poll for new commits while the server runs; each synced commit is announced in the console (sha + subject + author) (`0` = boot-time sync only) |
+| `GIT_POLL_SECONDS` | `300` | Poll interval in seconds for `GIT_AUTO_UPDATE` (30-86400) |
+
+Full reference with defaults, validation rules and access levels:
+[Egg Catalog](/minecraft-eggs/docs/eggs/) · ready-made setups:
+[Examples](/minecraft-eggs/examples/).
+
+## 📚 Docs & Catalog
+
+- 📖 **Documentation**: </minecraft-eggs>: import guide, server types, variables, examples
+- 🪺 **Unified egg catalog**: <https://nest.potenfyr.in>: every PotenFYR egg collection in one nest
+- 🥚 **Egg file**: [`egg-minecraft-multi.json`](egg-minecraft-multi.json) (PTDL_v2, self-updating)
+- 🐳 **Docker image**: [`ghcr.io/potenfyr-studios/minecraft-eggs`](https://github.com/PotenFYR-Studios/Minecraft-Eggs/pkgs/container/minecraft-eggs)
+
+## 🤝 Contributing
+
+Contributions welcome: new engine tweaks, script hardening, docs and translations.
+
+1. Fork, then create a feature branch off `master`
+2. Test locally: `docker build -t mc-eggs-test -f tests/Dockerfile.test . && bash tests/panel-test.sh`
+3. Open a pull request using the [PR template](.github/pull_request_template.md); CI runs the panel behavior suite on every PR
+4. Egg changes must keep `egg-minecraft-multi.json` as the single source of truth (see [CONTRIBUTING.md](CONTRIBUTING.md))
+
+## 📮 Issues
+
+Please use the [issue templates](.github/ISSUE_TEMPLATE/); bug reports should include the panel
+name/version, `SERVER_TYPE`, `MINECRAFT_VERSION` and the relevant console log. Feature requests
+and questions have their own templates; unsupported third-party forks of the egg are out of scope.
+
+## 🛡️ Security
+
+See [SECURITY.md](SECURITY.md). Do **not** open public issues for security reports; use the
+private advisory channel or email [support@potenfyr.in](mailto:support@potenfyr.in).
+
+## 📜 License
+
+Minecraft-Eggs is licensed under the **Apache License 2.0 with the Commons Clause**: free to
+fork, modify and use (including commercially), but not to sell the software itself as a product.
+See [LICENSE](LICENSE) for the authoritative license text; this summary never overrides it.
+
+---
+
+## ⭐ Star History
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=potenfyr-studios/.github,potenfyr-studios/.web,potenfyr-studios/AuthCore,potenfyr-studios/CustomDamageNumbers,potenfyr-studios/Database-Eggs,potenfyr-studios/EchoingDeaths,potenfyr-studios/FYRwall,potenfyr-studios/HBS-Tool,potenfyr-studios/LinkFYR,potenfyr-studios/Minecraft-Eggs,potenfyr-studios/OrbyNode,potenfyr-studios/PteroOps-MCP,potenfyr-studios/Prog-Language-Eggs,potenfyr-studios/Shell-Eggs,potenfyr-studios/VigilFYR,potenfyr-studios/discord-botlists,potenfyr-studios/ojaj,potenfyr-studios/potenfyr-nest,potenfyr-studios/statfyr&type=Date&theme=dark" />
+  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=potenfyr-studios/.github,potenfyr-studios/.web,potenfyr-studios/AuthCore,potenfyr-studios/CustomDamageNumbers,potenfyr-studios/Database-Eggs,potenfyr-studios/EchoingDeaths,potenfyr-studios/FYRwall,potenfyr-studios/HBS-Tool,potenfyr-studios/LinkFYR,potenfyr-studios/Minecraft-Eggs,potenfyr-studios/OrbyNode,potenfyr-studios/PteroOps-MCP,potenfyr-studios/Prog-Language-Eggs,potenfyr-studios/Shell-Eggs,potenfyr-studios/VigilFYR,potenfyr-studios/discord-botlists,potenfyr-studios/ojaj,potenfyr-studios/potenfyr-nest,potenfyr-studios/statfyr&type=Date" />
+  <img alt="Star history chart for all PotenFYR Studios public repositories" src="https://api.star-history.com/svg?repos=potenfyr-studios/.github,potenfyr-studios/.web,potenfyr-studios/AuthCore,potenfyr-studios/CustomDamageNumbers,potenfyr-studios/Database-Eggs,potenfyr-studios/EchoingDeaths,potenfyr-studios/FYRwall,potenfyr-studios/HBS-Tool,potenfyr-studios/LinkFYR,potenfyr-studios/Minecraft-Eggs,potenfyr-studios/OrbyNode,potenfyr-studios/PteroOps-MCP,potenfyr-studios/Prog-Language-Eggs,potenfyr-studios/Shell-Eggs,potenfyr-studios/VigilFYR,potenfyr-studios/discord-botlists,potenfyr-studios/ojaj,potenfyr-studios/potenfyr-nest,potenfyr-studios/statfyr&type=Date" width="80%" />
+</picture>
+
+Every public PotenFYR Studios repository on one live chart, served by [star-history.com](https://star-history.com).
+
+## 📫 Connect With Us
+
+<div align="center">
+
+[![GitHub](https://img.shields.io/badge/GitHub-PotenFYR--Studios-181717?style=for-the-badge&logo=github&labelColor=1c1e26)](https://github.com/PotenFYR-Studios)
+[![Website](https://img.shields.io/badge/Website-potenfyr.in-8b5cf6?style=for-the-badge&logo=googlechrome&labelColor=1c1e26)](https://potenfyr.in)
+[![Community](https://img.shields.io/badge/Community-Discord-5865F2?style=for-the-badge&logo=discord&labelColor=1c1e26)](https://discord.com/invite/zUaN2FPBec)
+[![Modrinth](https://img.shields.io/badge/Modrinth-Organization-1bd96a?style=for-the-badge&logo=modrinth&labelColor=1c1e26)](https://modrinth.com/organization/potenfyr)
+
+</div>
+
+## 🎯 Vision
+
+✨ **Universal** (19 engines, Java 8–26) · ⚡ **Performant** (industry-tuned GC defaults) · 🔄 **Reliable** (graceful stops, safe version switching) · 🤝 **Community-Focused**
+
+## 👥 Contributors
+
+Contributions are **greatly appreciated** - see [CONTRIBUTING.md](CONTRIBUTING.md) and the [good first issues](https://github.com/PotenFYR-Studios/Minecraft-Eggs/labels/good%20first%20issue). Security concerns: please use [SECURITY.md](SECURITY.md) (private vulnerability reporting), not public issues.
+
+<a href="https://github.com/PotenFYR-Studios/Minecraft-Eggs/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=PotenFYR-Studios/Minecraft-Eggs" alt="Minecraft-Eggs contributors" />
+</a>
+<a href="https://github.com/PotenFYR-Studios/Minecraft-Eggs/stargazers">
+  <img src="https://img.shields.io/github/stars/PotenFYR-Studios/Minecraft-Eggs?style=social&label=Stars" alt="Live star count" />
+</a>
+<a href="https://github.com/PotenFYR-Studios/Minecraft-Eggs/network/members">
+  <img src="https://img.shields.io/github/forks/PotenFYR-Studios/Minecraft-Eggs?style=social&label=Forks" alt="Live fork count" />
+</a>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/PotenFYR-Studios/FYRwall/output/github-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/PotenFYR-Studios/FYRwall/output/github-snake.svg" />
+  <img alt="Contribution snake animation" src="https://raw.githubusercontent.com/PotenFYR-Studios/FYRwall/output/github-snake.svg" width="100%" />
+</picture>
+
+---
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:f97316,50:ec4899,100:8b5cf6&height=120&section=footer&text=Made%20with%20%E2%9D%A4%EF%B8%8F%20by%20PotenFYR%20Studios&fontSize=22&fontColor=ffffff&animation=twinkling" width="100%" alt="footer"/>
+
+</div>
+<!-- markdownlint-enable -->

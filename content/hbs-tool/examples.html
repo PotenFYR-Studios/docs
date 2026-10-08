@@ -1,0 +1,27 @@
+<div class="mx-auto max-w-[1280px] px-6 py-10"><header class="border-b border-hairline pb-6"><p class="mono-label">Examples</p><h1 class="mt-3 text-[clamp(1.7rem,3.4vw,2.4rem)] font-bold">Real workflows, copy and run</h1><p class="mt-3 max-w-[720px] leading-relaxed text-muted">Every recipe below reflects the extractor and dashboard as they actually behave today.</p></header><div class="mt-8 grid gap-4 lg:grid-cols-2"><article class="panel flex flex-col p-5"><div class="flex items-baseline gap-3"><span class="section-num">01</span><h2 class="text-[1rem] font-bold">Linux, non-root, fully offline</h2></div><p class="mt-1.5 text-[0.84rem] leading-relaxed text-muted">The default posture: unprivileged scan, zero network, one sealed report.</p><div class="mt-4"><div class=""><pre class="spec-pre" data-lang="bash"><code># copy the issued extractor to the target any way you like
+./hbs-extractor --no-elevate --quiet
+
+# exit 0; hbs-report-*.hbs sits beside the binary
+# deliver it via USB drop / dashboard upload</code><button type="button" class="copy-btn">Copy</button></pre></div></div></article><article class="panel flex flex-col p-5"><div class="flex items-baseline gap-3"><span class="section-num">02</span><h2 class="text-[1rem] font-bold">Air-gapped push over a jump host</h2></div><p class="mt-1.5 text-[0.84rem] leading-relaxed text-muted">Let the extractor deliver the report itself - the only time it uses the network.</p><div class="mt-4"><div class=""><pre class="spec-pre" data-lang="bash"><code># token comes from the environment…
+HBS_PUSH_TOKEN=&lt;campaignPushToken&gt; ./hbs-extractor \
+  --no-elevate --quiet --push https://dashboard.example/api/ingest
+
+# …or from a read-only token file (mutually exclusive with the env var)
+./hbs-extractor --push https://dashboard.example/api/ingest \
+  --push-token-file /etc/hbs/push.token</code><button type="button" class="copy-btn">Copy</button></pre></div></div></article><article class="panel flex flex-col p-5"><div class="flex items-baseline gap-3"><span class="section-num">03</span><h2 class="text-[1rem] font-bold">Filtered re-scan of one category</h2></div><p class="mt-1.5 text-[0.84rem] leading-relaxed text-muted">Chase a specific finding without re-running the full catalog.</p><div class="mt-4"><div class=""><pre class="spec-pre" data-lang="bash"><code># only the SSH family, written to a fixed path
+./hbs-extractor --category SSH --no-elevate --quiet \
+  --out /tmp/ssh-followup.hbs
+
+# or an explicit ID list
+./hbs-extractor --only LIN-SSH-001,LIN-NET-004 --out /tmp/scan.hbs</code><button type="button" class="copy-btn">Copy</button></pre></div></div></article><article class="panel flex flex-col p-5"><div class="flex items-baseline gap-3"><span class="section-num">04</span><h2 class="text-[1rem] font-bold">Windows scripted / CI run</h2></div><p class="mt-1.5 text-[0.84rem] leading-relaxed text-muted">No prompts, no pause, machine-readable output.</p><div class="mt-4"><div class=""><pre class="spec-pre" data-lang="powershell"><code>hbs-extractor.exe --no-elevate --no-pause --quiet
+# admin-only controls need one consent:
+hbs-extractor.exe --elevate
+# denial still completes: remaining checks fall back read-only
+# and unresolved results become DegradedPartial</code><button type="button" class="copy-btn">Copy</button></pre></div></div></article><article class="panel flex flex-col p-5"><div class="flex items-baseline gap-3"><span class="section-num">05</span><h2 class="text-[1rem] font-bold">Create a campaign and issuance via API</h2></div><p class="mt-1.5 text-[0.84rem] leading-relaxed text-muted">Drive the dashboard programmatically; the session cookie authenticates.</p><div class="mt-4"><div class=""><pre class="spec-pre" data-lang="bash"><code>POST /api/campaigns                         { &quot;name&quot;:&quot;Acme Q3&quot;, &quot;locations&quot;:[{&quot;name&quot;:&quot;DC-East&quot;}] }
+POST /api/campaigns/:id/locations/:loc/issuances   { &quot;platform&quot;:&quot;linux-amd64&quot; }
+GET  /api/issuances/:id/download?token=&lt;downloadToken&gt;</code><button type="button" class="copy-btn">Copy</button></pre></div></div></article><article class="panel flex flex-col p-5"><div class="flex items-baseline gap-3"><span class="section-num">06</span><h2 class="text-[1rem] font-bold">Batch upload a fleet of reports</h2></div><p class="mt-1.5 text-[0.84rem] leading-relaxed text-muted">Collected offline by USB? Drop them all at once.</p><div class="mt-4"><div class=""><pre class="spec-pre" data-lang="text"><code># Campaign → Locations &amp; Hosts → drag up to 32 .hbs files
+# into the drop zone.
+#
+# The dashboard decrypts, verifies, routes each host by
+# machine-id, and auto-resolves findings that now pass on
+# re-scans. SSE /api/events fires report-arrived per file.</code><button type="button" class="copy-btn">Copy</button></pre></div></div></article></div></div>

@@ -1,0 +1,71 @@
+<p>Every snippet below is copy-paste ready for <code>plugins/OneJumpAllJump/config.yml</code>: keys straight from the shipped default, behavior straight from the source. Run <code>/onejump reload</code> after editing; no restart needed.</p><h2 id="start">Start here: fix your worlds</h2><p>The shipped config whitelists only the worlds <code>world</code> and <code>spawn</code>. If your main world is named anything else, jumps silently do nothing; this is the single most common &quot;the plugin is broken&quot; report, and the fix is one line:</p><div class="doc-content"><pre class="codeblock" data-lang="yaml"><button type="button" class="copy-btn">Copy</button><code># The one fix most servers need: name your worlds.
+# The default config only whitelists these two worlds.
+# If yours are named anything else, nothing will happen.
+worlds:
+  mode: whitelist
+  list:
+    - world        # &lt;- your main world&#x27;s exact folder name
+    - spawn</code></pre></div><h2 id="predictable">Survival-friendly tuning</h2><p>For a survival server where people actually built things: turn the random power off, slow the pace down, and make every second jump a coin flip instead of a certainty.</p><div class="doc-content"><pre class="codeblock" data-lang="yaml"><button type="button" class="copy-btn">Copy</button><code># Survival-friendly: fixed launch power, longer cooldown, 50/50 odds
+velocity:
+  random:
+    enabled: false
+  y: 0.65          # a confident hop, not a catapult
+
+cooldown:
+  seconds: 5
+
+trigger-chance:
+  enabled: true
+  chance: 50
+
+trail:
+  amount: 3
+  duration-ticks: 6</code></pre></div><h2 id="lobby">Keep lobbies and minigames safe</h2><p>Switch the world filter to <code>blacklist</code> and the chaos applies everywhere <em>except</em> the listed worlds, the inverse of the whitelist default.</p><div class="doc-content"><pre class="codeblock" data-lang="yaml"><button type="button" class="copy-btn">Copy</button><code># Chaos everywhere EXCEPT the lobby and minigames
+worlds:
+  mode: blacklist
+  list:
+    - lobby
+    - minigames
+    - event
+
+fall-damage:
+  cancel: true     # keep the soft landings in the survival worlds</code></pre></div><h2 id="maximum">Full chaos</h2><p>Every jump triggers, everyone launches hard, and the sky fills with end-rod sparks. One honest detail from the source: sound keys use the registry&#x27;s dotted form. The shipped default <code>entity_firework_rocket_launch</code> matches no key and always resolves through the silent fallback to the same firework sound. The dotted form below is the real key.</p><div class="doc-content"><pre class="codeblock" data-lang="yaml"><button type="button" class="copy-btn">Copy</button><code># The full ojaj experience. We are not responsible for your builds.
+trigger-chance:
+  enabled: true
+  chance: 100
+
+cooldown:
+  seconds: 1
+
+velocity:
+  random:
+    enabled: true
+    min: 0.9
+    max: 1.4       # exclusive, but who is checking
+
+particles:
+  type: end_rod
+  amount: 40
+
+trail:
+  amount: 10
+  duration-ticks: 40
+
+sound:
+  type: entity.firework_rocket.launch   # the real registry key
+  volume: 1.0
+  pitch: 1.4</code></pre></div><h2 id="messages">Custom messages</h2><p>All message keys support legacy <code>&amp;</code> color codes and the <code>%player%</code> placeholder (the trigger player&#x27;s name).</p><div class="doc-content"><pre class="codeblock" data-lang="yaml"><button type="button" class="copy-btn">Copy</button><code># &amp; color codes and %player% work in every message key
+actionbar:
+  message: &#x27;&amp;e%player% made everybody jump!&#x27;
+
+titles:
+  enabled: true
+  title: &#x27;&amp;6GLOBAL JUMP&#x27;
+  subtitle: &#x27;&amp;eTriggered by %player%&#x27;
+  stay: 30
+
+broadcast:
+  message: &#x27;&amp;e%player% triggered a global jump!&#x27;</code></pre></div><h2 id="commands">Everyday commands</h2><p>All of these need <code>onejump.admin</code> (op by default); see <a href="#/repo/ojaj/commands-permissions">commands &amp; permissions</a>.</p><div class="doc-content"><pre class="codeblock" data-lang="text"><button type="button" class="copy-btn">Copy</button><code>/onejump stats    # your personal trigger count (players only, in-memory)
+/onejump toggle   # flip the plugin on/off; written back to config.yml
+/onejump reload   # re-read config.yml without a restart
+/ojaj             # every subcommand also works under the /ojaj alias</code></pre></div>
