@@ -166,7 +166,7 @@ function RepoReader({ repo, pathTail, state }: { repo: RepoEntry; pathTail: stri
   const next = idx !== undefined && idx >= 0 && idx < repo.pageList.length - 1 ? repo.pageList[idx + 1] : null;
 
   return (
-    <main className="relative mx-auto max-w-7xl px-4 pb-16 pt-24 sm:px-6">
+    <main className="relative mx-auto max-w-[1600px] px-4 pb-16 pt-24 sm:px-6">
       <ScrollProgress />
       {/* repo header */}
       <div className="mb-8 border-b border-rog-line/70 pb-6">
