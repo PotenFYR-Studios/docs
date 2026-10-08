@@ -56,7 +56,7 @@ jobs:
               location.replace(location.origin + "/#" + p);
             })();
           </script>"""
-          src = src.replace("</head>", redirect + "\\n</head>")
+          src = src.replace("</head>", redirect + "</head>")
           # strip module bootstrap to keep the redirect stub tiny
           Path("dist/404.html").write_text(src)
           print("404.html written")
