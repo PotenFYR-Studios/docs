@@ -1,72 +1,8 @@
-<div class="layout"><aside class="sidebar-rail"><div class="side-group"><button type="button" class="side-group-btn" aria-expanded="true"><span class="side-section">Get started</span><span class="side-chevron open" aria-hidden="true">›</span></button><div class="side-group-body"><a href="#/repo/statfyr/getting-started" class="side-link ">Getting started</a><a href="#/repo/statfyr/configuration" class="side-link ">Configuration</a><a href="#/repo/statfyr/commands" class="side-link ">Commands &amp; permissions</a></div></div><div class="side-group"><button type="button" class="side-group-btn" aria-expanded="true"><span class="side-section">Reference</span><span class="side-chevron open" aria-hidden="true">›</span></button><div class="side-group-body"><a href="#/repo/statfyr/placeholders" class="side-link ">Placeholders</a><a href="#/repo/statfyr/integrations" class="side-link ">Integrations</a><a href="#/repo/statfyr/analytics" class="side-link ">Analytics &amp; history</a><a href="#/repo/statfyr/api" class="side-link ">API reference</a><a href="#/repo/statfyr/examples" class="side-link ">Examples</a></div></div><div class="side-group"><button type="button" class="side-group-btn" aria-expanded="true"><span class="side-section">Project</span><span class="side-chevron open" aria-hidden="true">›</span></button><div class="side-group-body"><a href="#/repo/statfyr/faq" class="side-link ">FAQ</a></div></div><p class="side-section">Resources</p><a class="side-link" href="https://modrinth.com/plugin/statfyr" target="_blank" rel="noopener noreferrer">Modrinth ↗</a><a class="side-link" href="https://github.com/PotenFYR-Studios/statfyr" target="_blank" rel="noopener noreferrer">GitHub ↗</a></aside><article class="doc-article min-w-0"><nav class="crumb-trail" aria-label="Breadcrumb"><span class="crumb-item"><a href="#/repo/statfyr/docs" class="breadcrumb">Docs</a><span class="breadcrumb" aria-hidden="true"> / </span></span><span class="crumb-item"><span class="breadcrumb">v1.0.0-BETA</span><span class="breadcrumb" aria-hidden="true"> / </span></span><span class="crumb-item"><span class="breadcrumb">Examples</span></span></nav><h1 class="mt-3">Integration Examples</h1><p class="mt-4 !text-[1.02em] leading-relaxed text-[#b9bfd4]">Working recipes against the real API. Swap in your host, port, and Bearer key and each one runs as-is.</p><div class="mt-6"><aside class="callout callout-note"><div class="callout-head"><span aria-hidden="true">✦</span><span class="mono-label">Note</span></div><div class="[&amp;_code]:text-[#d8ccfe]">This page covers full integrations. For the ready-to-paste config.yml and a curl walkthrough of every endpoint, start with the <a href="#/repo/statfyr/examples">setup examples</a>.</div></aside><h2 id="client-setup">A tiny API client</h2><p>One helper covers every recipe below: it prefixes the base URL, attaches the Bearer key, unwraps JSON, and throws on non-2xx.</p><div class="relative my-4"><div class="flex items-center justify-between rounded-t-[10px] border border-b-0 border-line bg-[#12152a] px-4 py-1.5 font-mono text-xs text-[#9aa0b4]"><span>statfyr-client.js</span><span class="text-[10px] uppercase tracking-wider text-[#6a7089]">javascript</span></div><pre data-lang="javascript" class="!mt-0 !rounded-t-none"><button type="button" class="copy-btn" aria-label="Copy code to clipboard">Copy</button><code>export function createClient({ baseUrl = &quot;http://localhost:8080&quot;, apiKey = &quot;&quot; } = {}) {
-  async function get(path) {
-    const res = await fetch(`${baseUrl}${path}`, {
-      headers: apiKey ? { Authorization: `Bearer ${apiKey}` } : {},
-    });
-    if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
-    return res.json();
-  }
-  return {
-    health: () =&gt; get(&quot;/api/health&quot;),
-    players: (q = &quot;&quot;) =&gt; get(`/api/players${q}`),
-    playerStats: (id, q = &quot;&quot;) =&gt; get(`/api/player/${id}${q}`),
-    playerSummary: (id, q = &quot;&quot;) =&gt; get(`/api/player/${id}/summary${q}`),
-    leaderboard: (stat, q = &quot;&quot;) =&gt; get(`/api/leaderboard/${stat}${q}`),
-  };
-}</code></pre></div><h2 id="dashboard">Live dashboard</h2><p>Poll the summary endpoint every 30 seconds, which matches the plugin&#x27;s cache TTL, so no request ever pays for a full statistic re-read.</p><div class="relative my-4"><pre data-lang="javascript"><button type="button" class="copy-btn" aria-label="Copy code to clipboard">Copy</button><code>import { createClient } from &quot;./statfyr-client.js&quot;;
-
-const api = createClient({ baseUrl, apiKey });
-
-async function renderPlayer(uuid) {
-  const s = await api.playerSummary(uuid);
-  document.querySelector(&quot;#playtime&quot;).textContent = s.playtime_formatted;
-  document.querySelector(&quot;#kills&quot;).textContent =
-    `${s.combat.player_kills} players · ${s.combat.mob_kills} mobs`;
-  document.querySelector(&quot;#distance&quot;).textContent =
-    `${s.movement.total_distance_km.toFixed(1)} km walked`;
-  document.querySelector(&quot;#mined&quot;).textContent = s.activity.blocks_mined.toLocaleString();
-}
-
-renderPlayer(&quot;069a79f4-44e9-4726-a5be-fca90e38aaf5&quot;);
-setInterval(() =&gt; renderPlayer(&quot;069a79f4-44e9-4726-a5be-fca90e38aaf5&quot;), 30_000);</code></pre></div><aside class="callout callout-note"><div class="callout-head"><span aria-hidden="true">✦</span><span class="mono-label">Note</span></div><div class="[&amp;_code]:text-[#d8ccfe]">From a browser, the page&#x27;s origin must be allowed by CORS: with <code>security.enable-cors: true</code> statfyr answers with <code>Access-Control-Allow-Origin: *</code>, so any origin works today.</div></aside><h2 id="leaderboard">Leaderboard page</h2><p><code>rank</code> is computed as offset + position, so paging through with <code>limit</code> and <code>page</code> keeps continuous global ranks:</p><div class="relative my-4"><pre data-lang="javascript"><button type="button" class="copy-btn" aria-label="Copy code to clipboard">Copy</button><code>const api = createClient({ baseUrl, apiKey });
-
-async function topPlaytime(page = 0, limit = 10) {
-  const lb = await api.leaderboard(
-    &quot;playtime&quot;,
-    `?limit=${limit}&amp;page=${page}&amp;order=desc`,
-  );
-  for (const e of lb.entries) {
-    console.log(`#${e.rank} ${e.name} · ${e.formatted}`);
-  }
-  console.log(`page ${lb.page} of ${Math.ceil(lb.total / lb.limit)}`);
-}
-
-topPlaytime();</code></pre></div><h2 id="discord-bot">Discord bot</h2><p>A discord.js command that answers <code>/top</code> with the playtime leaderboard and can look up a player&#x27;s summary by name:</p><div class="relative my-4"><div class="flex items-center justify-between rounded-t-[10px] border border-b-0 border-line bg-[#12152a] px-4 py-1.5 font-mono text-xs text-[#9aa0b4]"><span>bot.js</span><span class="text-[10px] uppercase tracking-wider text-[#6a7089]">javascript</span></div><pre data-lang="javascript" class="!mt-0 !rounded-t-none"><button type="button" class="copy-btn" aria-label="Copy code to clipboard">Copy</button><code>import { Client, GatewayIntentBits, EmbedBuilder } from &quot;discord.js&quot;;
-import { createClient } from &quot;./statfyr-client.js&quot;;
-
-const api = createClient({ baseUrl: process.env.STATFYR_URL, apiKey: process.env.STATFYR_API_KEY });
-const discord = new Client({ intents: [GatewayIntentBits.Guilds] });
-
-discord.on(&quot;interactionCreate&quot;, async (interaction) =&gt; {
-  if (!interaction.isChatInputCommand()) return;
-
-  if (interaction.commandName === &quot;top&quot;) {
-    const lb = await api.leaderboard(&quot;playtime&quot;, &quot;?limit=10&quot;);
-    const lines = lb.entries.map((e) =&gt; `**#${e.rank}** ${e.name} · ${e.formatted}`);
-    await interaction.reply({
-      embeds: [new EmbedBuilder()
-        .setTitle(&quot;Playtime leaderboard&quot;)
-        .setDescription(lines.join(&quot;\n&quot;))],
-    });
-  }
-
-  if (interaction.commandName === &quot;stats&quot;) {
-    const name = interaction.options.getString(&quot;player&quot;);
-    const s = await api.playerSummary(name);
-    await interaction.reply(
-      `${s.name}: ${s.playtime_formatted} played, ${s.combat.deaths} deaths, ${s.activity.blocks_mined} blocks mined`,
-    );
-  }
-});
-
-discord.login(process.env.DISCORD_TOKEN);</code></pre></div><aside class="callout callout-warn"><div class="callout-head"><span aria-hidden="true">▲</span><span class="mono-label">Heads up</span></div><div class="[&amp;_code]:text-[#d8ccfe]">Run the bot on a trusted host. The Bearer key grants full read access to every statistic; never embed it in a client-side app or public repo.</div></aside><h2 id="polling-tips">Polling tips</h2><ul><li>Align polling with the 30-second statistic cache: faster cycles burn your rate limit (120 requests / 60 s by default) without fresher data.</li><li>Use <code>/api/health</code> for uptime checks and <code>/api/players?online_only=true</code> for live rosters.</li><li>Need one section? <code>/api/player/&lt;id&gt;/summary?movement=false&amp;combat=false</code> slims the payload to activity only.</li><li>Send <code>Accept-Encoding: gzip</code> (fetch and axios do by default); large raw dumps compress well.</li></ul></div></article><nav class="toc-rail" aria-label="On this page"><p class="toc-title mb-2 text-[#6a7089]">On this page</p><a href="#client-setup" class="toc-item  active">A tiny API client</a><a href="#dashboard" class="toc-item  ">Live dashboard</a><a href="#leaderboard" class="toc-item  ">Leaderboard page</a><a href="#discord-bot" class="toc-item  ">Discord bot</a><a href="#polling-tips" class="toc-item  ">Polling tips</a></nav></div>
+<article class="doc-article min-w-0"><h1 class="mt-3">Integration Examples</h1><p class="mt-4 !text-[1.02em] leading-relaxed text-[#b9bfd4]">Working recipes against the real API. Swap in your host, port, and Bearer key and each one runs as-is.</p><div class="mt-6"><h2 id="client-setup">A tiny API client</h2><p>One helper covers every recipe below: it prefixes the base URL, attaches the Bearer key, unwraps JSON, and throws on non-2xx.</p><div class="relative my-4"><div class="flex items-center justify-between rounded-t-[10px] border border-b-0 border-line bg-[#12152a] px-4 py-1.5 font-mono text-xs text-[#9aa0b4]"><span>statfyr-client.js</span><span class="text-[10px] uppercase tracking-wider text-[#6a7089]">javascript</span></div><pre data-lang="javascript" class="!mt-0 !rounded-t-none"><button type="button" class="copy-btn" aria-label="Copy code to clipboard">Copy</button><code>export function createClient({ baseUrl = "http://localhost:8080", apiKey = "" } = {}) { async function get(path) { const res = await fetch(`${baseUrl}${path}`, { headers: apiKey ? { Authorization: `Bearer ${apiKey}` } : {}, }); if (!res.ok) throw new Error(`${res.status} ${res.statusText}`); return res.json(); } return { health: () =&gt; get("/api/health"), players: (q = "") =&gt; get(`/api/players${q}`), playerStats: (id, q = "") =&gt; get(`/api/player/${id}${q}`), playerSummary: (id, q = "") =&gt; get(`/api/player/${id}/summary${q}`), leaderboard: (stat, q = "") =&gt; get(`/api/leaderboard/${stat}${q}`), };
+}</code></pre></div><h2 id="dashboard">Live dashboard</h2><p>Poll the summary endpoint every 30 seconds, which matches the plugin's cache TTL, so no request ever pays for a full statistic re-read.</p><div class="relative my-4"><pre data-lang="javascript"><button type="button" class="copy-btn" aria-label="Copy code to clipboard">Copy</button><code>import { createClient } from "./statfyr-client.js"; const api = createClient({ baseUrl, apiKey }); async function renderPlayer(uuid) { const s = await api.playerSummary(uuid); document.querySelector("#playtime").textContent = s.playtime_formatted; document.querySelector("#kills").textContent = `${s.combat.player_kills} players · ${s.combat.mob_kills} mobs`; document.querySelector("#distance").textContent = `${s.movement.total_distance_km.toFixed(1)} km walked`; document.querySelector("#mined").textContent = s.activity.blocks_mined.toLocaleString();
+} renderPlayer("069a79f4-44e9-4726-a5be-fca90e38aaf5");
+setInterval(() =&gt; renderPlayer("069a79f4-44e9-4726-a5be-fca90e38aaf5"), 30_000);</code></pre></div><h2 id="leaderboard">Leaderboard page</h2><p><code>rank</code> is computed as offset + position, so paging through with <code>limit</code> and <code>page</code> keeps continuous global ranks:</p><div class="relative my-4"><pre data-lang="javascript"><button type="button" class="copy-btn" aria-label="Copy code to clipboard">Copy</button><code>const api = createClient({ baseUrl, apiKey }); async function topPlaytime(page = 0, limit = 10) { const lb = await api.leaderboard( "playtime", `?limit=${limit}&amp;page=${page}&amp;order=desc`, ); for (const e of lb.entries) { console.log(`#${e.rank} ${e.name} · ${e.formatted}`); } console.log(`page ${lb.page} of ${Math.ceil(lb.total / lb.limit)}`);
+} topPlaytime();</code></pre></div><h2 id="discord-bot">Discord bot</h2><p>A discord.js command that answers <code>/top</code> with the playtime leaderboard and can look up a player's summary by name:</p><div class="relative my-4"><div class="flex items-center justify-between rounded-t-[10px] border border-b-0 border-line bg-[#12152a] px-4 py-1.5 font-mono text-xs text-[#9aa0b4]"><span>bot.js</span><span class="text-[10px] uppercase tracking-wider text-[#6a7089]">javascript</span></div><pre data-lang="javascript" class="!mt-0 !rounded-t-none"><button type="button" class="copy-btn" aria-label="Copy code to clipboard">Copy</button><code>import { Client, GatewayIntentBits, EmbedBuilder } from "discord.js";
+import { createClient } from "./statfyr-client.js"; const api = createClient({ baseUrl: process.env.STATFYR_URL, apiKey: process.env.STATFYR_API_KEY });
+const discord = new Client({ intents: [GatewayIntentBits.Guilds] }); discord.on("interactionCreate", async (interaction) =&gt; { if (!interaction.isChatInputCommand()) return; if (interaction.commandName === "top") { const lb = await api.leaderboard("playtime", "?limit=10"); const lines = lb.entries.map((e) =&gt; `**#${e.rank}** ${e.name} · ${e.formatted}`); await interaction.reply({ embeds: [new EmbedBuilder() .setTitle("Playtime leaderboard") .setDescription(lines.join("\n"))], }); } if (interaction.commandName === "stats") { const name = interaction.options.getString("player"); const s = await api.playerSummary(name); await interaction.reply( `${s.name}: ${s.playtime_formatted} played, ${s.combat.deaths} deaths, ${s.activity.blocks_mined} blocks mined`, ); }
+}); discord.login(process.env.DISCORD_TOKEN);</code></pre></div><h2 id="polling-tips">Polling tips</h2><ul><li>Align polling with the 30-second statistic cache: faster cycles burn your rate limit (120 requests / 60 s by default) without fresher data.</li><li>Use <code>/api/health</code> for uptime checks and <code>/api/players?online_only=true</code> for live rosters.</li><li>Need one section? <code>/api/player/&lt;id&gt;/summary?movement=false&amp;combat=false</code> slims the payload to activity only.</li><li>Send <code>Accept-Encoding: gzip</code> (fetch and axios do by default); large raw dumps compress well.</li></ul></div></article>

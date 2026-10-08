@@ -1,6 +1,6 @@
 /*
- * Magic UI–style components, natively implemented for the PotenFYR palette
- * (black × sky-blue). No external UI deps — pure CSS keyframes + Intersection
+ * Magic UI-style components, natively implemented for the PotenFYR palette
+ * (black × sky-blue). No external UI deps-pure CSS keyframes + Intersection
  * Observer + canvas. Each piece keeps the small, typed API of its Magic UI
  * counterpart so it is familiar to contributors.
  */

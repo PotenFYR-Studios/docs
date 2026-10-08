@@ -1,5 +1,5 @@
 /*
- * router.tsx — tiny history-API router for the SPA (GitHub Pages friendly).
+ * router.tsx-tiny history-API router for the SPA (GitHub Pages friendly).
  * Deep links hit 404.html which redirects to /#/path; on boot the pending
  * hash is promoted to a real route.
  */

@@ -1,5 +1,5 @@
 /*
- * rog-logo.tsx — theary org mascot (potenfyr avatar) as a tappable component.
+ * rog-logo.tsx-theary org mascot (potenfyr avatar) as a tappable component.
  * 7 quick taps trigger the HYPER ORBIT egg (via eggs.triggerLogoTap()).
  */
 import * as React from "react";

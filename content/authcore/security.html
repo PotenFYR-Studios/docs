@@ -1,54 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Security Model - AuthCore Docs</title>
-
-<meta name="description" content="Threat analysis (OWASP + Minecraft) and every defense in depth.">
-<meta property="og:title" content="Security Model - AuthCore Docs">
-<meta property="og:description" content="Threat analysis (OWASP + Minecraft) and every defense in depth.">
-<meta property="og:type" content="website">
-
-
-</head>
-<body>
-
-<div id="progress"></div>
-<div id="top" aria-hidden="true"></div>
-
-  <header class="site-header">
-    <a class="brand" href="../../index.html">
-      <span class="brand-text">AuthCore<span class="brand-dot">.</span>docs</span>
-    </a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="site-nav">
-      <a class="nav-link" href="../../index.html">Home</a>
-      <a class="nav-link" href="../../#/repo/authcore/index">Docs Hub</a>
-      <a class="nav-link" href="../../#/repo/authcore/guide">Admin Guide</a>
-      <a class="nav-link" href="../../#/repo/authcore/flows">Flows</a>
-      <a class="nav-link" href="../../#/repo/authcore/config">Config</a>
-      <a class="nav-link" href="../../#/repo/authcore/proxy">Proxy</a>
-      <a class="nav-link" href="../../#/repo/authcore/webpanel">Web Panel</a>
-      <a class="nav-link active" href="../../#/repo/authcore/security">Security</a>
-      <a class="nav-link" href="../../docs/1.0.0/26x.html">26.x</a>
-      <a class="nav-link" href="../../#/repo/authcore/api">API</a>
-      <a class="nav-link" href="../../#/repo/authcore/development">Dev</a>
-      <a class="nav-link" href="../../#/repo/authcore/changelog">Changelog</a>
-      <a class="nav-link nav-gh" href="https://github.com/PotenFYR-Studios/AuthCore" target="_blank" rel="noopener">GitHub ↗</a>
-    </nav>
-  </header>
-<div class="layout">
-  <aside class="toc" id="toc">
-    <div class="toc-title">On this page</div>
-    <ul><li class="toc-item toc-2"><a href="#password-hashing">🔑 Password Hashing</a></li><li class="toc-item toc-2"><a href="#brute-force-defense-layers">🛡️ Brute-Force Defense Layers</a></li><li class="toc-item toc-3"><a href="#password-reuse-blocking">🔑 Password Reuse Blocking</a></li><li class="toc-item toc-3"><a href="#trusted-players-captcha-bypass">⭐ Trusted Players (captcha bypass)</a></li><li class="toc-item toc-3"><a href="#network-device-fingerprint">🖇️ Network Device Fingerprint</a></li><li class="toc-item toc-3"><a href="#ip-allowdeny-rules">🚫 IP Allow/Deny Rules</a></li><li class="toc-item toc-3"><a href="#shadow-ban-mode">👻 Shadow-Ban Mode</a></li><li class="toc-item toc-3"><a href="#auto-whitelist">📜 Auto-Whitelist</a></li><li class="toc-item toc-3"><a href="#honeypot-auto-banning-decoy-port">🍯 Honeypot (auto-banning decoy port)</a></li><li class="toc-item toc-3"><a href="#maintenance-mode">🛠️ Maintenance Mode</a></li><li class="toc-item toc-3"><a href="#race-condition-hardening">🧵 Race-Condition Hardening</a></li><li class="toc-item toc-3"><a href="#database-migration-safety">🛑 Database Migration Safety</a></li><li class="toc-item toc-2"><a href="#session-protection">🔄 Session Protection</a></li><li class="toc-item toc-2"><a href="#cross-server-security-event-bus">📡 Cross-Server Security Event Bus</a></li><li class="toc-item toc-2"><a href="#discord-link-codes">🔗 Discord Link Codes</a></li><li class="toc-item toc-2"><a href="#automated-test-suite">🧪 Automated Test Suite</a></li><li class="toc-item toc-2"><a href="#premium-api-outage-safety">☁️ Premium API Outage Safety</a></li><li class="toc-item toc-2"><a href="#account-enumeration-prevention">👤 Account Enumeration Prevention</a></li><li class="toc-item toc-2"><a href="#op-safety">👑 OP Safety</a></li><li class="toc-item toc-2"><a href="#limbo-isolation">🏠 Limbo Isolation</a></li><li class="toc-item toc-2"><a href="#ssrf--https-only-outbound">🌍 SSRF & HTTPS-Only Outbound</a></li><li class="toc-item toc-2"><a href="#resource-safety">🧮 Resource Safety</a></li><li class="toc-item toc-2"><a href="#webhook--email-alerting">📣 Webhook & Email Alerting</a></li><li class="toc-item toc-2"><a href="#multi-version--build-compatibility">🔮 Multi-Version & Build Compatibility</a></li><li class="toc-item toc-2"><a href="#threat-model">🧨 Threat Model</a></li><li class="toc-item toc-3"><a href="#proxy--forwarding">Proxy & forwarding</a></li><li class="toc-item toc-3"><a href="#proxy-side-full-auth">Proxy-side full auth</a></li></ul>
-  </aside>
-  <main>
-    <article>
-
-<div align="center" style="font-family: 'Clash of Clans', 'Comic Sans MS', 'Comic Sans', cursive;"><p></p>
+ <main> <article> <div align="center" style="font-family: 'Clash of Clans', 'Comic Sans MS', 'Comic Sans', cursive;"><p></p>
 </div><hr>
 <hr>
 <h1>AuthCore Security Model</h1>
@@ -98,12 +48,12 @@ works across restarts without storing the salt separately.</li>
 </tr>
 </tbody></table>
 <ul>
-<li><strong>Weak-algorithm warnings:</strong> the risk scorer adds points when an account&#39;s stored hash uses
+<li><strong>Weak-algorithm warnings:</strong> the risk scorer adds points when an account's stored hash uses
 <code>md5</code>/<code>sha-256</code>/<code>sha-512</code> (weak or non-memory-hard), and the console/security log flags such
 accounts so admins can force re-hashing.</li>
 <li><strong>PBKDF2 is self-contained (JDK only).</strong> <code>pbkdf2</code> is implemented as a pure JDK
 <code>SecretKeyFactory</code> (format <code>$pbkdf2-sha256$&lt;iter&gt;$&lt;salt&gt;$&lt;hash&gt;</code>) instead of going through
-password4j, the test suite caught that password4j&#39;s PBKDF2 check could <strong>hang the server
+password4j, the test suite caught that password4j's PBKDF2 check could <strong>hang the server
 thread</strong> on some inputs; the JDK implementation is predictable, interruptible and behaves
 identically on every supported Minecraft version.</li>
 <li><strong>Argon2id fallback.</strong> <code>Encrypter.hash(...)</code> <strong>never stores an unusable hash</strong>: an unknown
@@ -150,18 +100,18 @@ automated clients without punishing legitimate laggy players.</li>
 old password, so a leaked old hash can never become the current one again. Set to <code>0</code> to disable
 the history.</p>
 <h3 id="trusted-players-captcha-bypass">Trusted Players (verification bypass)</h3>
-<p>After a <strong>successful login</strong> the account is marked &quot;trusted&quot; for <code>bypass-captcha-hours</code>
+<p>After a <strong>successful login</strong> the account is marked "trusted" for <code>bypass-captcha-hours</code>
 (default 24 h) and <strong>skips the human-verification challenge</strong> on rejoins (<code>session.trusted</code>).
 This keeps repeat, already-verified players friction-free while guests still prove they are
 not bots. Trust status is stored in the database (<code>trustedUntilMs</code>), so it survives
 restarts.</p>
 <h3 id="network-device-fingerprint">Network Device Fingerprint</h3>
 <p>On every login AuthCore computes a <strong>SHA-256 fingerprint of the login origin (IP + country)</strong> -
-a strong &quot;same network/device&quot; signal, not a hardware fingerprint (impossible server-side). It
+a strong "same network/device" signal, not a hardware fingerprint (impossible server-side). It
 is stored per account in the <code>deviceFingerprint</code> DB column.</p>
 <ul>
 <li>A login from a <strong>changed fingerprint</strong> adds <strong>+15</strong> to the risk score.</li>
-<li>A <strong>&quot;Possible Account Sharing&quot;</strong> webhook alert fires (account sharing/trading detection) -
+<li>A <strong>"Possible Account Sharing"</strong> webhook alert fires (account sharing/trading detection) -
 the same signal that backs optional <code>block-on-new-country</code>.</li>
 <li>New logins just record the fingerprint; only <em>changes</em> are flagged, so legitimate roaming
 across IPs is noticed but not punished automatically.</li>
@@ -182,7 +132,7 @@ allow 1.2.3.4
 <h3 id="shadow-ban-mode">Shadow-Ban Mode</h3>
 <p><code>session.shadow-ban</code> (default off) hides <em>why</em> players are blocked. When enabled, security
 blocks (e.g. <code>block-on-new-country</code>) disconnect the player with a generic
-<code>disconnect-reason</code> (&quot;Connection lost&quot;) instead of the revealing security message, while the
+<code>disconnect-reason</code> ("Connection lost") instead of the revealing security message, while the
 <strong>webhook alert still fires</strong>, so admins keep full visibility without tipping off the blocked
 player (useful against account sharers who adapt to specific block messages).</p>
 <h3 id="auto-whitelist">Auto-Whitelist</h3>
@@ -235,11 +185,11 @@ the schema is fixed, AuthCore never writes to a half-migrated database.</li>
 <li><code>Database.printMigrationGuidance()</code> prints a <strong>clear banner</strong> with fix steps: back up + delete
 the DB file to let AuthCore recreate it, run the missing <code>ALTER TABLE</code> statements manually
 (shown in the log), or restore a backup from <code>config/authcore/backups/</code>.</li>
-<li>API lookups short-circuit to &quot;unknown account&quot; results while blocked, so no endpoint exposes
+<li>API lookups short-circuit to "unknown account" results while blocked, so no endpoint exposes
 schema errors; security-log/webhook alerts keep working.</li>
 </ul>
 <blockquote>
-<p>🎬 <strong>Scenario:</strong> <em>corrupt hand-edited schema</em>, an admin&#39;s manual column change breaks the
+<p>🎬 <strong>Scenario:</strong> <em>corrupt hand-edited schema</em>, an admin's manual column change breaks the
 migration; the server refuses new registrations, prints exact fix instructions, and only
 resumes after the admin repairs or restores the database.</p>
 </blockquote>
@@ -249,7 +199,7 @@ resumes after the admin repairs or restores the database.</p>
 accepted from the IP that originally logged in, protecting against session hijacking.</li>
 <li><strong>Timeout</strong>, sessions expire after <code>timeout-ms</code> (default 60 min); with
 <code>kick-after-session-timeout</code> the player is kicked on expiry.</li>
-<li><strong>Remote logout</strong>, <code>/account logout</code>, the web panel&#39;s <code>logout</code> action, and
+<li><strong>Remote logout</strong>, <code>/account logout</code>, the web panel's <code>logout</code> action, and
 <code>AuthCoreApi.logout(UUID)</code> all end a session instantly (and propagate network-wide when
 Redis is enabled).</li>
 <li><strong>Duplicate session protection</strong>, <code>block-duplicate-session</code> prevents the same account from
@@ -264,7 +214,7 @@ pub/sub security event bus</strong> (channel <code>authcore:events</code>), no e
 <li>Events: <code>login</code>, <code>logout</code>, <code>register</code>, <code>brute-force</code>, <code>account-locked</code>, <code>kick</code>, each
 carrying <code>{type, username, detail, server, ts}</code>.</li>
 <li><strong>Receivers act locally:</strong> the event is written to <code>security.log</code> with an <code>EVENT_BUS_*</code> tag,
-forwarded to the local Discord webhook as a &quot;Cross-Server Event&quot; embed, and executed locally
+forwarded to the local Discord webhook as a "Cross-Server Event" embed, and executed locally
 (<code>kick</code> / <code>logout</code> events kick the matching player on that backend).</li>
 <li><strong>Attack propagation:</strong> a brute-force lock or admin kick on one backend takes effect on
 <strong>every</strong> backend immediately, there is no window where a locked/compromised account can
@@ -295,7 +245,7 @@ vulnerability, the PBKDF2 server-thread hang (see <a href="#password-hashing">Pa
 and any regression in these paths fails the suite.</p>
 <h2 id="premium-api-outage-safety">Premium API Outage Safety</h2>
 <ul>
-<li>Premium verification is done by the <strong>server&#39;s own Mojang session service</strong> (the same call
+<li>Premium verification is done by the <strong>server's own Mojang session service</strong> (the same call
 vanilla makes) - no external API calls from AuthCore, so there is no external dependency to
 outage: on offline-mode servers the vanilla encryption handshake is re-run during login and
 failures fall back to offline register/login (players are never blocked or kicked).</li>
@@ -315,7 +265,7 @@ visible in the web panel and security log.</li>
 </ul>
 <h2 id="op-safety">OP Safety</h2>
 <ul>
-<li><code>lobby.safe-operators</code> (default true): a player&#39;s OP status is <strong>temporarily removed</strong> while
+<li><code>lobby.safe-operators</code> (default true): a player's OP status is <strong>temporarily removed</strong> while
 unauthenticated and restored only after a successful login (and only if they were originally
 OP). Combined with lobby restrictions, an unauthenticated player with a known UUID cannot
 execute operator commands.</li>
@@ -338,7 +288,7 @@ connection floods.</li>
 <ul>
 <li>Webhook and email endpoints accept only <code>https://</code> URLs in their documented configuration
 (Discord webhook, SMTP over STARTTLS/SSL).</li>
-<li>The web panel&#39;s optional HTTPS mode uses a self-signed certificate generated on first start
+<li>The web panel's optional HTTPS mode uses a self-signed certificate generated on first start
 with its SHA-256 fingerprint printed to the console, or a user-supplied PKCS12/JKS keystore.</li>
 <li>The panel binds to <code>127.0.0.1</code> by default, requires a bearer token on <strong>every</strong> request
 (including <code>/metrics</code>), sets <code>Cache-Control: no-store</code>, and supports a separate
@@ -362,7 +312,7 @@ stay O(rows-returned).</li>
 <li><strong>Bounded caches</strong>, email recovery codes (256), rate-limiter
 windows (10 000), user cache (20 000) all purge expired entries automatically.</li>
 <li><strong>No netty blocking</strong>, all security checks are synchronous, in-memory, and O(1)-ish map
-operations; nothing blocks netty&#39;s event loop.</li>
+operations; nothing blocks netty's event loop.</li>
 <li>The web panel runs on a <strong>daemon thread pool</strong> (<code>AuthCore-WebPanel</code>), never the server thread.</li>
 </ul>
 <h2 id="webhook--email-alerting">Webhook &amp; Email Alerting</h2>
@@ -376,7 +326,7 @@ only for registration announcements, typically consumed by a Discord bot that as
 falls back to <code>webhook-url</code> when empty.</li>
 <li><strong>Email</strong> (<code>session.email</code>) sends login alerts for new IPs/countries and supports recovery
 codes for forgotten passwords via <code>/account recover</code> (6-digit, single-use, 15-minute TTL).
-⚠️ Completing a recovery also <strong>clears the account&#39;s 2FA (TOTP) secret</strong>, the player must
+⚠️ Completing a recovery also <strong>clears the account's 2FA (TOTP) secret</strong>, the player must
 re-setup 2FA, so a recovered account cannot be held hostage by a lost authenticator.</li>
 <li><strong>Security log file</strong> (<code>session.security.log-file</code>, default <code>security.log</code>) records every
 event with tags such as <code>WEB_KICK</code>, <code>PROXY_FORWARD</code>, <code>NICKNAME_INVALID</code>, <code>DB_EXPORT</code>,
@@ -392,7 +342,7 @@ log can never fill the disk.</li>
 <code>ServerLoginNetworkHandlerMixin</code> and <code>ServerPlayNetworkHandlerChatMixin</code> are declared
 <code>required:false</code> in <code>authcore.server.mixins.json</code>. When a future Minecraft version changes a
 target signature, the mixin is <strong>skipped instead of crashing the server</strong>, and the rest of
-the mod&#39;s defenses (commands, hashing, rate limits, lobby restrictions) stay active.</li>
+the mod's defenses (commands, hashing, rate limits, lobby restrictions) stay active.</li>
 <li><strong>Stonecraft/Stonecutter workspace, Mojang mappings everywhere</strong>, a single merged source
 tree (<code>src/main/java</code> + <code>src/main/resources</code>) is compiled per version-group × loader variant
 by the Stonecraft 1.14 + Stonecutter 0.9 workspace (<code>settings.gradle.kts</code>,
@@ -406,13 +356,12 @@ at runtime). Java toolchains follow the group: 17 (1.16-1.18), 21 (1.19-1.21), 2
 (built at 1.21.11, covers 1.19.0 - 1.21.11) and <code>authcore-26.1-26.3-{fabric,neoforge}-&lt;v&gt;.jar</code>
 (built at 26.3, covers 26.1 - 26.3).
 The legacy <code>authcore-classic</code>/<code>authcore-modern</code> split is gone.</li>
-<li><strong>Host-compatibility harness</strong>, <code>test/docker/run-tests.sh</code> boots every range jar
- on its full verify matrix (1.16.5 / 1.17.1 / 1.18.2, 1.19.4 / 1.20.6 / 1.21.1 / 1.21.11, 26.1.2 /
+<li><strong>Host-compatibility harness</strong>, <code>test/docker/run-tests.sh</code> boots every range jar on its full verify matrix (1.16.5 / 1.17.1 / 1.18.2, 1.19.4 / 1.20.6 / 1.21.1 / 1.21.11, 26.1.2 /
 26.2 / 26.3) in Docker containers, driven by the <code>versions.json</code> range-group matrix (options
 <code>-Groups</code>, <code>-Version</code>, <code>-Jar</code>, <code>-Smoke</code>, <code>-Build</code>, <code>-Parallel</code>, <code>-KeepReports</code> and more),
 with live log streaming and pruned reports (<code>reports/latest.md|html|json</code>). The full matrix
 passed on 2026-08-10.</li>
-<li><strong>Server-side only</strong>, the jar is a server mod (<code>environment: &quot;server&quot;</code>) and a
+<li><strong>Server-side only</strong>, the jar is a server mod (<code>environment: "server"</code>) and a
 BungeeCord/Velocity proxy plugin; there is no client code in the jar. Players always
 authenticate with plain chat commands.</li>
 </ul>
@@ -464,7 +413,7 @@ authenticate with plain chat commands.</li>
 <tr>
 <td>Identification failures (premium impersonation)</td>
 <td>OWASP A07</td>
-<td>Server-side session verification (the server&#39;s own Mojang session service), premium-UUID mismatch kick, risk-scored logins</td>
+<td>Server-side session verification (the server's own Mojang session service), premium-UUID mismatch kick, risk-scored logins</td>
 </tr>
 <tr>
 <td>Logging &amp; monitoring gaps</td>
@@ -514,7 +463,7 @@ authenticate with plain chat commands.</li>
 <tr>
 <td>Account sharing / trading</td>
 <td>Minecraft-specific</td>
-<td>Network device fingerprint (+15 risk, &quot;Possible Account Sharing&quot; alert), optional <code>block-on-new-country</code></td>
+<td>Network device fingerprint (+15 risk, "Possible Account Sharing" alert), optional <code>block-on-new-country</code></td>
 </tr>
 <tr>
 <td>Targeted IP abuse</td>
@@ -599,15 +548,9 @@ proxy (BungeeCord <code>LoginEvent</code> / Velocity <code>LoginEvent</code>).</
 BLOCKED with a warning, so a Redis outage can never open the network. Set
 <code>fail-closed=false</code> for the old fail-open behavior.</li>
 <li>Session keys are written by backends with <code>database.redis.enabled</code> and carry the configured
-TTL; the proxy&#39;s zero-dependency RESP client uses short timeouts (1.5s) so the login path
+TTL; the proxy's zero-dependency RESP client uses short timeouts (1.5s) so the login path
 is never stalled by a hung Redis.</li>
-</ul>
-
-    
-    
-    
-    
-<h2 id="detection-bypass-resistance">Detection Bypass Resistance</h2>
+</ul> <h2 id="detection-bypass-resistance">Detection Bypass Resistance</h2>
 <p>AuthCore implements a <strong>7-layer defense-in-depth stack</strong> that makes bypassing
 authentication practically infeasible for automated clients. Each layer is independent - bypassing
 one never disables the others.</p>
@@ -659,17 +602,4 @@ one never disables the others.</p>
 <li><strong>Per-server secrets</strong>: No hardcoded keys - attestation key generated on first boot, persisted to disk, rotated on reload</li>
 <li><strong>State integrity</strong>: All detection maps bounded (cardinality limits) and pruned on tick</li>
 <li><strong>No single point of failure</strong>: Each layer is independent; bypassing one doesn't disable others</li>
-</ul>
-    </article>
-  </main>
-</div>
-<button id="toTop" aria-label="Back to top">↑</button>
-<footer>
-  <strong>AuthCore</strong>, The Fortress Framework for Minecraft Servers ·
-  <a href="https://github.com/PotenFYR-Studios/AuthCore" target="_blank" rel="noopener">GitHub</a> ·
-  <a href="https://modrinth.com/mod/authCore" target="_blank" rel="noopener">Modrinth</a>
-</footer>
-
-
-</body>
-</html>
+</ul> </article> </main> <button id="toTop" aria-label="Back to top">↑</button> 

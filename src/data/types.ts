@@ -1,4 +1,4 @@
-/* types.ts — data access layer over the generated registry + per-repo chunks */
+/* types.ts-data access layer over the generated registry + per-repo chunks */
 
 import registryRaw from "./registry.json";
 import reposRaw from "./repos.json";

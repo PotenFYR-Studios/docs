@@ -1,87 +1,24 @@
 <!-- markdownlint-disable -->
-<div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:8b5cf6,50:ec4899,100:f97316&height=220&section=header&text=Database%20Eggs&fontSize=52&fontColor=ffffff&fontAlignY=34&desc=One%20egg.%20Every%20database.%20Every%20version.%20Every%20panel.&descSize=18&descAlignY=55&animation=twinkling" width="100%" alt="Database Eggs Banner"/>
-
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pause=1200&color=8B5CF6&center=true&vCenter=true&width=800&lines=One+Universal+Egg+for+Pterodactyl%2C+Pelican%2C+Feather+%26+Docker;50%2B+Production-Ready+Databases%2C+Caches+%26+Search+Engines;Hardware-Aware+Dynamic+RAM+%26+CPU+Auto-Tuning;Strict+Version+Contracts+%26+Zero-Leak+Security;By+PotenFYR+Studios+%C2%B7+support%40potenfyr.in)](https://github.com/PotenFYR-Studios/Database-Eggs)
-
-<p align="center">
-  <a href="https://potenfyr.in"><img src="https://img.shields.io/badge/Website-potenfyr.in-8b5cf6?style=for-the-badge&logo=googlechrome&logoColor=white&labelColor=1c1e26" alt="Website" /></a>
-  <a href="https://discord.com/invite/zUaN2FPBec"><img src="https://img.shields.io/badge/Discord-Join%20us-5865F2?style=for-the-badge&logo=discord&logoColor=white&labelColor=1c1e26" alt="Discord" /></a>
-  <a href="mailto:support@potenfyr.in"><img src="https://img.shields.io/badge/Email-support%40potenfyr.in-f97316?style=for-the-badge&logo=gmail&logoColor=white&labelColor=1c1e26" alt="Email" /></a>
-  <a href="https://github.com/PotenFYR-Studios/Database-Eggs"><img src="https://komarev.com/ghpvc/?username=PotenFYR-Studios-Database-Eggs&color=ec4899&style=for-the-badge&label=VIEW&labelColor=1c1e26" alt="View" /></a>
-</p>
-
-<p align="center">
-  <a href="/database-eggs"><img src="https://img.shields.io/badge/Docs-database--eggs-8b5cf6?style=flat-square&logo=gitbook&logoColor=white&labelColor=1c1e26" alt="Docs" /></a>
-  <a href="https://nest.potenfyr.in"><img src="https://img.shields.io/badge/Egg%20Catalog-nest.potenfyr.in-2ea043?style=flat-square&logo=databricks&logoColor=white&labelColor=1c1e26" alt="Egg Nest" /></a>
-  <a href="https://github.com/PotenFYR-Studios/Database-Eggs/actions/workflows/validate-eggs.yml"><img src="https://img.shields.io/github/actions/workflow/status/PotenFYR-Studios/Database-Eggs/validate-eggs.yml?style=flat-square&logo=githubactions&label=Validate%20Eggs&labelColor=1c1e26&color=2ea043" alt="Validate Eggs" /></a>
-  <a href="https://github.com/PotenFYR-Studios/Database-Eggs/actions/workflows/test-docker.yml"><img src="https://img.shields.io/github/actions/workflow/status/PotenFYR-Studios/Database-Eggs/test-docker.yml?style=flat-square&logo=githubactions&label=Test%20Docker&labelColor=1c1e26&color=2ea043" alt="Test Docker" /></a>
-  <a href="https://github.com/PotenFYR-Studios/Database-Eggs/actions/workflows/docker-image.yml"><img src="https://img.shields.io/github/actions/workflow/status/PotenFYR-Studios/Database-Eggs/docker-image.yml?style=flat-square&logo=githubactions&label=Docker%20Image&labelColor=1c1e26&color=2ea043" alt="Docker Image" /></a>
-  <a href="https://github.com/PotenFYR-Studios/Database-Eggs/actions/workflows/docs-pages.yml"><img src="https://img.shields.io/github/actions/workflow/status/PotenFYR-Studios/Database-Eggs/docs-pages.yml?style=flat-square&logo=githubactions&label=Docs%20Deploy&labelColor=1c1e26&color=2ea043" alt="Docs Deploy" /></a>
-  <a href="https://github.com/PotenFYR-Studios/Database-Eggs/pkgs/container/database-eggs"><img src="https://img.shields.io/badge/Docker%20Image-GHCR-2496ED?style=flat-square&logo=docker&logoColor=white&labelColor=1c1e26" alt="Docker Image" /></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache--2.0%20%2B%20Commons%20Clause-8b5cf6.svg?style=flat-square&logo=apache&logoColor=white&labelColor=1c1e26" alt="License" /></a>
-  <a href="https://github.com/PotenFYR-Studios/Database-Eggs"><img src="https://img.shields.io/badge/Architectures-amd64%20%7C%20arm64%20%7C%20arm%2Fv7%20%7C%20s390x%20%7C%20ppc64le%20%7C%20riscv64-0ea5e9?style=flat-square&labelColor=1c1e26" alt="Architectures" /></a>
-  <a href="https://github.com/PotenFYR-Studios/Database-Eggs"><img src="https://img.shields.io/badge/Panels-Pterodactyl%20%7C%20Pelican%20%7C%20Feather%20%7C%20Wisp%20%7C%20Docker-f97316?style=flat-square&labelColor=1c1e26" alt="Panels" /></a>
-</p>
-
-**Database-Eggs** is a production-ready multi-database egg collection: one universal egg, one universal container image, and every SQL, NoSQL, in-memory, vector, time-series, search, graph and object-storage engine you need: installable and version-pinned on demand. If you are looking for a **Pterodactyl database egg**, a **multi-database egg for Pelican or Feather Panel**, or a standalone **Docker database container**, this is it.
-
-[Docs](/database-eggs) · [Install Guide](/database-eggs/docs/) · [Egg Catalog](/database-eggs/docs/eggs/) · [Egg Nest](https://nest.potenfyr.in)
-
----
-
-</div>
-
-## 📑 Contents
-
-- [✨ Highlights](#-highlights)
+<div align="center"> <img src="https://capsule-render.vercel.app/api?type=waving&color=0:8b5cf6,50:ec4899,100:f97316&height=220&section=header&text=Database%20Eggs&fontSize=52&fontColor=ffffff&fontAlignY=34&desc=One%20egg.%20Every%20database.%20Every%20version.%20Every%20panel.&descSize=18&descAlignY=55&animation=twinkling" width="100%" alt="Database Eggs Banner"/> [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&pause=1200&color=8B5CF6&center=true&vCenter=true&width=800&lines=One+Universal+Egg+for+Pterodactyl%2C+Pelican%2C+Feather+%26+Docker;50%2B+Production-Ready+Databases%2C+Caches+%26+Search+Engines;Hardware-Aware+Dynamic+RAM+%26+CPU+Auto-Tuning;Strict+Version+Contracts+%26+Zero-Leak+Security;By+PotenFYR+Studios+%C2%B7+support%40potenfyr.in)](https://github.com/PotenFYR-Studios/Database-Eggs) <p align="center"> <a href="https://potenfyr.in"><img src="https://img.shields.io/badge/Website-potenfyr.in-8b5cf6?style=for-the-badge&logo=googlechrome&logoColor=white&labelColor=1c1e26" alt="Website" /></a> <a href="https://discord.com/invite/zUaN2FPBec"><img src="https://img.shields.io/badge/Discord-Join%20us-5865F2?style=for-the-badge&logo=discord&logoColor=white&labelColor=1c1e26" alt="Discord" /></a> <a href="mailto:support@potenfyr.in"><img src="https://img.shields.io/badge/Email-support%40potenfyr.in-f97316?style=for-the-badge&logo=gmail&logoColor=white&labelColor=1c1e26" alt="Email" /></a> <a href="https://github.com/PotenFYR-Studios/Database-Eggs"><img src="https://komarev.com/ghpvc/?username=PotenFYR-Studios-Database-Eggs&color=ec4899&style=for-the-badge&label=VIEW&labelColor=1c1e26" alt="View" /></a>
+</p> <p align="center"> <a href="/database-eggs"><img src="https://img.shields.io/badge/Docs-database--eggs-8b5cf6?style=flat-square&logo=gitbook&logoColor=white&labelColor=1c1e26" alt="Docs" /></a> <a href="https://nest.potenfyr.in"><img src="https://img.shields.io/badge/Egg%20Catalog-nest.potenfyr.in-2ea043?style=flat-square&logo=databricks&logoColor=white&labelColor=1c1e26" alt="Egg Nest" /></a> <a href="https://github.com/PotenFYR-Studios/Database-Eggs/actions/workflows/validate-eggs.yml"><img src="https://img.shields.io/github/actions/workflow/status/PotenFYR-Studios/Database-Eggs/validate-eggs.yml?style=flat-square&logo=githubactions&label=Validate%20Eggs&labelColor=1c1e26&color=2ea043" alt="Validate Eggs" /></a> <a href="https://github.com/PotenFYR-Studios/Database-Eggs/actions/workflows/test-docker.yml"><img src="https://img.shields.io/github/actions/workflow/status/PotenFYR-Studios/Database-Eggs/test-docker.yml?style=flat-square&logo=githubactions&label=Test%20Docker&labelColor=1c1e26&color=2ea043" alt="Test Docker" /></a> <a href="https://github.com/PotenFYR-Studios/Database-Eggs/actions/workflows/docker-image.yml"><img src="https://img.shields.io/github/actions/workflow/status/PotenFYR-Studios/Database-Eggs/docker-image.yml?style=flat-square&logo=githubactions&label=Docker%20Image&labelColor=1c1e26&color=2ea043" alt="Docker Image" /></a> <a href="https://github.com/PotenFYR-Studios/Database-Eggs/actions/workflows/docs-pages.yml"><img src="https://img.shields.io/github/actions/workflow/status/PotenFYR-Studios/Database-Eggs/docs-pages.yml?style=flat-square&logo=githubactions&label=Docs%20Deploy&labelColor=1c1e26&color=2ea043" alt="Docs Deploy" /></a> <a href="https://github.com/PotenFYR-Studios/Database-Eggs/pkgs/container/database-eggs"><img src="https://img.shields.io/badge/Docker%20Image-GHCR-2496ED?style=flat-square&logo=docker&logoColor=white&labelColor=1c1e26" alt="Docker Image" /></a> <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache--2.0%20%2B%20Commons%20Clause-8b5cf6.svg?style=flat-square&logo=apache&logoColor=white&labelColor=1c1e26" alt="License" /></a> <a href="https://github.com/PotenFYR-Studios/Database-Eggs"><img src="https://img.shields.io/badge/Architectures-amd64%20%7C%20arm64%20%7C%20arm%2Fv7%20%7C%20s390x%20%7C%20ppc64le%20%7C%20riscv64-0ea5e9?style=flat-square&labelColor=1c1e26" alt="Architectures" /></a> <a href="https://github.com/PotenFYR-Studios/Database-Eggs"><img src="https://img.shields.io/badge/Panels-Pterodactyl%20%7C%20Pelican%20%7C%20Feather%20%7C%20Wisp%20%7C%20Docker-f97316?style=flat-square&labelColor=1c1e26" alt="Panels" /></a>
+</p> **Database-Eggs** is a production-ready multi-database egg collection: one universal egg, one universal container image, and every SQL, NoSQL, in-memory, vector, time-series, search, graph and object-storage engine you need: installable and version-pinned on demand. If you are looking for a **Pterodactyl database egg**, a **multi-database egg for Pelican or Feather Panel**, or a standalone **Docker database container**, this is it. [Docs](/database-eggs) · [Install Guide](/database-eggs/docs/) · [Egg Catalog](/database-eggs/docs/eggs/) · [Egg Nest](https://nest.potenfyr.in) --- </div> ## 📑 Contents - [✨ Highlights](#-highlights)
 - [📦 The Eggs](#-the-eggs)
 - [🚀 Quick Start in 5 Minutes](#-quick-start-in-5-minutes)
 - [🗄️ Supported Engines](#️-supported-engines)
 - [⚙️ Startup Variables](#️-startup-variables)
 - [🛡️ Security & Performance](#️-security--performance)
 - [🤝 Contributing](#-contributing)
-- [📜 License](#-license)
-
----
-
-## ✨ Highlights
-
-- 🎯 **Single universal egg**: one JSON definition and one image (`ghcr.io/potenfyr-studios/database-eggs:latest`) replace dozens of stale single-database eggs across Pterodactyl, Pelican, Feather, Wisp and Docker.
+- [📜 License](#-license) --- ## ✨ Highlights - 🎯 **Single universal egg**: one JSON definition and one image (`ghcr.io/potenfyr-studios/database-eggs:latest`) replace dozens of stale single-database eggs across Pterodactyl, Pelican, Feather, Wisp and Docker.
 - 🚀 **On-demand version installs**: `latest`, a major (`18`), a series (`11.4`), an exact patch (`8.0.45`) or a direct URL. Engines install isolated inside the container on first boot and are cached; switching major versions never deletes previous data.
 - 🔒 **Zero-leak security**: cryptographically random credentials, persisted mode-600 in `.env`, masked in console output, SCRAM-SHA-256 and per-engine hardening by default.
 - ⚡ **Hardware-aware auto-tuning**: InnoDB, `shared_buffers`, WiredTiger and `maxmemory` sized automatically from the container's RAM/CPU limits.
-- 🖥️ **Every panel**: auto-detects Pterodactyl, Pelican, Feather, Wisp and plain Docker, with graceful stop-signal handling for each daemon family.
-
-## 📦 The Eggs
-
-| Egg | File | Engines | Docker Image | Docs |
+- 🖥️ **Every panel**: auto-detects Pterodactyl, Pelican, Feather, Wisp and plain Docker, with graceful stop-signal handling for each daemon family. ## 📦 The Eggs | Egg | File | Engines | Docker Image | Docs |
 | :-- | :--- | :---: | :--- | :--- |
-| **Multi Database** | [`egg-database-multi.json`](egg-database-multi.json) | 50 + custom | `ghcr.io/potenfyr-studios/database-eggs:latest` | [Install](/database-eggs/docs/) |
-
-> The full machine-readable catalog of every PotenFYR egg collection lives at [nest.potenfyr.in](https://nest.potenfyr.in).
-
-**Multi Database**: *One egg. Every database. Every version.* Select any engine via a single `DATABASE_TYPE` variable: the runtime downloads, SHA-verifies, tunes and supervises it, with per-version isolated data directories, multi-user provisioning (`DB_USERNAMES`), optional git-sync of your code into the workspace, and self-updating launcher logic.
-
-## 🚀 Quick Start in 5 Minutes
-
-1. **Download the egg**: [`egg-database-multi.json`](egg-database-multi.json) (or `curl -fsSL https://raw.githubusercontent.com/PotenFYR-Studios/Database-Eggs/master/egg-database-multi.json -o egg-database-multi.json`).
-2. **Import into your panel**:
-   - **Pterodactyl / Jexactyl**: *Admin → Nests → Create (or pick) → Import Egg*
-   - **Pelican**: *Admin → Eggs → Import*
-   - **Feather / Wisp / Convoy**: import the same JSON on any Wings-family daemon.
+| **Multi Database** | [`egg-database-multi.json`](egg-database-multi.json) | 50 + custom | `ghcr.io/potenfyr-studios/database-eggs:latest` | [Install](/database-eggs/docs/) | > The full machine-readable catalog of every PotenFYR egg collection lives at [nest.potenfyr.in](https://nest.potenfyr.in). **Multi Database**: *One egg. Every database. Every version.* Select any engine via a single `DATABASE_TYPE` variable: the runtime downloads, SHA-verifies, tunes and supervises it, with per-version isolated data directories, multi-user provisioning (`DB_USERNAMES`), optional git-sync of your code into the workspace, and self-updating launcher logic. ## 🚀 Quick Start in 5 Minutes 1. **Download the egg**: [`egg-database-multi.json`](egg-database-multi.json) (or `curl -fsSL https://raw.githubusercontent.com/PotenFYR-Studios/Database-Eggs/master/egg-database-multi.json -o egg-database-multi.json`).
+2. **Import into your panel**: - **Pterodactyl / Jexactyl**: *Admin → Nests → Create (or pick) → Import Egg* - **Pelican**: *Admin → Eggs → Import* - **Feather / Wisp / Convoy**: import the same JSON on any Wings-family daemon.
 3. **Create a server** on the egg with the image `ghcr.io/potenfyr-studios/database-eggs:latest` and allocate a port.
 4. **Set startup variables** (`DATABASE_TYPE=postgresql`, `DB_VERSION=18`) and start.
-5. **Read the connection card** in the console; credentials are saved to `/home/container/.env` (mode `600`), or use `db-cli` inside the server.
-
-Full walkthrough: [/database-eggs/docs](/database-eggs/docs/).
-
-## 🗄️ Supported Engines
-
-Dispatched `DATABASE_TYPE` values (aliases in parentheses), straight from the egg definition:
-
-| Category | `DATABASE_TYPE` values |
+5. **Read the connection card** in the console; credentials are saved to `/home/container/.env` (mode `600`), or use `db-cli` inside the server. Full walkthrough: [/database-eggs/docs](/database-eggs/docs/). ## 🗄️ Supported Engines Dispatched `DATABASE_TYPE` values (aliases in parentheses), straight from the egg definition: | Category | `DATABASE_TYPE` values |
 | :--- | :--- |
 | **Relational & Distributed SQL** | `postgresql` `mariadb` `mysql` `cockroachdb` `yugabytedb` `tidb` `dolt` `sqlite` |
 | **In-Memory & High-Speed Cache** | `redis` `valkey` `keydb` `dragonfly` `memcached` |
@@ -91,13 +28,7 @@ Dispatched `DATABASE_TYPE` values (aliases in parentheses), straight from the eg
 | **Object & Blob Storage** | `minio` `seaweedfs` (`weed`) `garage` |
 | **Consensus, Ledger & App Stores** | `pocketbase` `etcd` `immudb` `cassandra` `aerospike` `consul` |
 | **Messaging & Events** | `nats` `kafka` |
-| **Extensible** | `custom`: bring any engine tarball/binary via URL |
-
-## ⚙️ Startup Variables
-
-The egg exports **35 variables**, the ones you will actually touch:
-
-| Variable | Default | What it does |
+| **Extensible** | `custom`: bring any engine tarball/binary via URL | ## ⚙️ Startup Variables The egg exports **35 variables**, the ones you will actually touch: | Variable | Default | What it does |
 | :--- | :--- | :--- |
 | `DATABASE_TYPE` | `mariadb` | Engine to run (`postgresql`, `redis`, `mongodb`, `surrealdb`, …) |
 | `DB_VERSION` | `latest` | `latest`, major (`18`), series (`11.4`), exact (`8.0.45`) or a direct URL |
@@ -120,23 +51,7 @@ The egg exports **35 variables**, the ones you will actually touch:
 | `GIT_EXCLUDE` | *(empty)* | Space/comma-separated glob patterns the sync must never install or overwrite (e.g. `config/custom/* secrets`) |
 | `GIT_AUTO_UPDATE` | `1` | Poll for new commits while the server runs; the console announces every synced commit (sha + subject + author) (`0` = boot-time sync only) |
 | `GIT_POLL_SECONDS` | `300` | Poll interval in seconds for `GIT_AUTO_UPDATE` (30-86400) |
-| `EXTRA_RUNTIMES` | *(empty)* | Inject companions on demand (`python`, `nodejs`, `bun`, `psql`, …) |
-
-All 35 variables with defaults, validation rules and descriptions: [Egg Catalog](/database-eggs/docs/eggs/). A handful of advanced internal overrides (`PF_DEBUG`, `SKIP_VERSION_INSTALL`, `DATA_DIR`, …) exist in the runtime scripts but are not exported to the panel.
-
-### Dump restore (MariaDB/MySQL)
-
-Drop a `.sql`, `.sql.gz`, `.sql.xz` or `.sql.zst` dump into `/home/container/dump`, set `RESTORE_DUMP=1` and restart. The first dump (glob order) is imported exactly once per file checksum. The restore runs before account reconciliation, so grants are re-applied even when the dump contains a `DROP DATABASE`. A failed restore never stops the database — fix the dump and restart to retry. Only one dump is picked per boot.
-
-The import runs through the MariaDB client with `--max_allowed_packet=1G`, so large rows in the dump are accepted regardless of the server's own packet setting. Compatibility normalization is enabled by default, so a logical dump made by an older MariaDB release (for example 10.3) can be restored into a newer release (for example 13.0) without modifying the original dump file. `RESTORE_DUMP_SKIP_SYSTEM` defaults to `1`: the version-specific `mysql`, `performance_schema` and `information_schema` schemas from older dumps are skipped because the running server owns them — set it to `0` only when a dump is genuinely meant to recreate those schemas. With `RESTORE_DUMP_FORCE=1` the client keeps going past SQL errors, but the dump is recorded as restored once per checksum only when the import completes (every pipeline stage succeeds); when SQL errors were reported, their count is printed in the console and appended to the marker as a `# forced=1 errors=N` line. With the default `0`, a dump that reports SQL errors is not recorded, so the next restart retries it. Delete `dump/.restored.sha256` if you want to force a re-import.
-
-On every boot, `mariadb-upgrade` (or `mysql_upgrade`) checks and upgrades the server's own system tables before any dump restore (`DB_AUTO_UPGRADE=0` disables this); it is a fast no-op when nothing changed, and repairs stale `mysql.*` definitions after a version switch.
-
-### Management console (MariaDB/MySQL)
-
-On MariaDB and MySQL servers, the panel console accepts management commands while the database runs. Authentication is fixed to the local root account; commands connect over TCP to the running server.
-
-| Command | Effect |
+| `EXTRA_RUNTIMES` | *(empty)* | Inject companions on demand (`python`, `nodejs`, `bun`, `psql`, …) | All 35 variables with defaults, validation rules and descriptions: [Egg Catalog](/database-eggs/docs/eggs/). A handful of advanced internal overrides (`PF_DEBUG`, `SKIP_VERSION_INSTALL`, `DATA_DIR`, …) exist in the runtime scripts but are not exported to the panel. ### Dump restore (MariaDB/MySQL) Drop a `.sql`, `.sql.gz`, `.sql.xz` or `.sql.zst` dump into `/home/container/dump`, set `RESTORE_DUMP=1` and restart. The first dump (glob order) is imported exactly once per file checksum. The restore runs before account reconciliation, so grants are re-applied even when the dump contains a `DROP DATABASE`. A failed restore never stops the database - fix the dump and restart to retry. Only one dump is picked per boot. The import runs through the MariaDB client with `--max_allowed_packet=1G`, so large rows in the dump are accepted regardless of the server's own packet setting. Compatibility normalization is enabled by default, so a logical dump made by an older MariaDB release (for example 10.3) can be restored into a newer release (for example 13.0) without modifying the original dump file. `RESTORE_DUMP_SKIP_SYSTEM` defaults to `1`: the version-specific `mysql`, `performance_schema` and `information_schema` schemas from older dumps are skipped because the running server owns them - set it to `0` only when a dump is genuinely meant to recreate those schemas. With `RESTORE_DUMP_FORCE=1` the client keeps going past SQL errors, but the dump is recorded as restored once per checksum only when the import completes (every pipeline stage succeeds); when SQL errors were reported, their count is printed in the console and appended to the marker as a `# forced=1 errors=N` line. With the default `0`, a dump that reports SQL errors is not recorded, so the next restart retries it. Delete `dump/.restored.sha256` if you want to force a re-import. On every boot, `mariadb-upgrade` (or `mysql_upgrade`) checks and upgrades the server's own system tables before any dump restore (`DB_AUTO_UPGRADE=0` disables this); it is a fast no-op when nothing changed, and repairs stale `mysql.*` definitions after a version switch. ### Management console (MariaDB/MySQL) On MariaDB and MySQL servers, the panel console accepts management commands while the database runs. Authentication is fixed to the local root account; commands connect over TCP to the running server. | Command | Effect |
 | --- | --- |
 | `help` | List console commands |
 | `status` | Show whether the server answers queries |
@@ -146,92 +61,22 @@ On MariaDB and MySQL servers, the panel console accepts management commands whil
 | `restore <file> [db]`, `dump restore <file>` | Import a `.sql`/`.sql.gz` file (defaults to `DB_NAME`) |
 | `sql <statement>` / bare `sql` | Run one statement, or enter a live SQL session (`exit`/`quit` leaves) |
 | `root <new_password>` | Change the root password everywhere and persist it (credentials state + `.env`) |
-| `mysql [args]` / `mariadb [args]` | Pass arguments to the client (interactive when no `-e`); `-p` is ignored, user is forced to root |
-
-Dumps and restores run as the root account over TCP; the console is available on MariaDB/MySQL engines only. `stop`, `restart`, `exit` and friends still shut the server down through the panel stop watcher.
-
-## 🛡️ Security & Performance
-
-- **Least privilege**: fully compliant with the Pterodactyl container UID `988:988`; never requires host root.
+| `mysql [args]` / `mariadb [args]` | Pass arguments to the client (interactive when no `-e`); `-p` is ignored, user is forced to root | Dumps and restores run as the root account over TCP; the console is available on MariaDB/MySQL engines only. `stop`, `restart`, `exit` and friends still shut the server down through the panel stop watcher. ## 🛡️ Security & Performance - **Least privilege**: fully compliant with the Pterodactyl container UID `988:988`; never requires host root.
 - **Credential isolation**: secrets live only in `.env` (mode `600`) and the startup environment; sockets under `/tmp/.db-sockets`; passwords masked across stdout and crash logs.
 - **Strict version contract**: resolved binaries are run with `--version` and verified against the requested series; upstream failures abort with diagnostics instead of downgrading.
-- **Isolated instances**: data is partitioned per `data/<engine>/<series>/`; major upgrades create a fresh namespace and never touch the old one.
-
-## 🤝 Contributing
-
-Found a bug, want a new engine, or have an egg improvement? We welcome issues and pull requests!
-
-1. Fork the repo and branch from `master`.
+- **Isolated instances**: data is partitioned per `data/<engine>/<series>/`; major upgrades create a fresh namespace and never touch the old one. ## 🤝 Contributing Found a bug, want a new engine, or have an egg improvement? We welcome issues and pull requests! 1. Fork the repo and branch from `master`.
 2. For egg changes, edit [`egg-database-multi.json`](egg-database-multi.json) (keep the PTDL_v2 shape, see [CONTRIBUTING.md](CONTRIBUTING.md) for the full variable contract).
 3. Validate locally: `jq empty egg-database-multi.json` and `bash -n` any shell scripts you touched.
-4. Open a PR; CI validates the JSON structure and shell syntax, and the Docker suite exercises real engines.
-
-🐛 **Bug reports**: [open an issue](https://github.com/PotenFYR-Studios/Database-Eggs/issues/new/choose) using the matching template.
-🔐 **Security vulnerabilities**: please follow [SECURITY.md](SECURITY.md); do not open public issues for security reports.
-
-## 📜 License
-
-Database-Eggs is free for any purpose, commercial use included: run it, fork it, modify it, self-host it, and build products or services around it. You may not sell the software itself, offer a paid product or service whose value derives entirely or substantially from this software's functionality, or use PotenFYR names or trademarks. License notices you redistribute must carry the Commons Clause notice. The <https://github.com/PotenFYR-Studios/Database-Eggs/blob/master/LICENSE> is the single authoritative source, not this summary.
-
----
-
-Built by **[PotenFYR Studios](https://github.com/PotenFYR-Studios)** · [potenfyr.in](https://potenfyr.in) · Part of the PotenFYR Studios open-source ecosystem.
-
----
-
-## ⭐ Star History
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=potenfyr-studios/.github,potenfyr-studios/.web,potenfyr-studios/AuthCore,potenfyr-studios/Database-Eggs,potenfyr-studios/EchoingDeaths,potenfyr-studios/FYRwall,potenfyr-studios/HBS-Tool,potenfyr-studios/LinkFYR,potenfyr-studios/Minecraft-Eggs,potenfyr-studios/OrbyNode,potenfyr-studios/PteroOps-MCP,potenfyr-studios/Prog-Language-Eggs,potenfyr-studios/Shell-Eggs,potenfyr-studios/VigilFYR,potenfyr-studios/discord-botlists,potenfyr-studios/ojaj,potenfyr-studios/potenfyr-nest,potenfyr-studios/statfyr&type=Date&theme=dark" />
-  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=potenfyr-studios/.github,potenfyr-studios/.web,potenfyr-studios/AuthCore,potenfyr-studios/Database-Eggs,potenfyr-studios/EchoingDeaths,potenfyr-studios/FYRwall,potenfyr-studios/HBS-Tool,potenfyr-studios/LinkFYR,potenfyr-studios/Minecraft-Eggs,potenfyr-studios/OrbyNode,potenfyr-studios/PteroOps-MCP,potenfyr-studios/Prog-Language-Eggs,potenfyr-studios/Shell-Eggs,potenfyr-studios/VigilFYR,potenfyr-studios/discord-botlists,potenfyr-studios/ojaj,potenfyr-studios/potenfyr-nest,potenfyr-studios/statfyr&type=Date" />
-  <img alt="Star history chart for all PotenFYR Studios public repositories" src="https://api.star-history.com/svg?repos=potenfyr-studios/.github,potenfyr-studios/.web,potenfyr-studios/AuthCore,potenfyr-studios/Database-Eggs,potenfyr-studios/EchoingDeaths,potenfyr-studios/FYRwall,potenfyr-studios/HBS-Tool,potenfyr-studios/LinkFYR,potenfyr-studios/Minecraft-Eggs,potenfyr-studios/OrbyNode,potenfyr-studios/PteroOps-MCP,potenfyr-studios/Prog-Language-Eggs,potenfyr-studios/Shell-Eggs,potenfyr-studios/VigilFYR,potenfyr-studios/discord-botlists,potenfyr-studios/ojaj,potenfyr-studios/potenfyr-nest,potenfyr-studios/statfyr&type=Date" width="80%" />
-</picture>
-
-Every public PotenFYR Studios repository on one live chart, served by [star-history.com](https://star-history.com).
-
-## 📫 Connect With Us
-
-<div align="center">
-
-[![GitHub](https://img.shields.io/badge/GitHub-PotenFYR--Studios-181717?style=for-the-badge&logo=github&labelColor=1c1e26)](https://github.com/PotenFYR-Studios)
+4. Open a PR; CI validates the JSON structure and shell syntax, and the Docker suite exercises real engines. 🐛 **Bug reports**: [open an issue](https://github.com/PotenFYR-Studios/Database-Eggs/issues/new/choose) using the matching template.
+🔐 **Security vulnerabilities**: please follow [SECURITY.md](SECURITY.md); do not open public issues for security reports. ## 📜 License Database-Eggs is free for any purpose, commercial use included: run it, fork it, modify it, self-host it, and build products or services around it. You may not sell the software itself, offer a paid product or service whose value derives entirely or substantially from this software's functionality, or use PotenFYR names or trademarks. License notices you redistribute must carry the Commons Clause notice. The <https://github.com/PotenFYR-Studios/Database-Eggs/blob/master/LICENSE> is the single authoritative source, not this summary. --- Built by **[PotenFYR Studios](https://github.com/PotenFYR-Studios)** · [potenfyr.in](https://potenfyr.in) · Part of the PotenFYR Studios open-source ecosystem. --- ## ⭐ Star History <picture> <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=potenfyr-studios/.github,potenfyr-studios/.web,potenfyr-studios/AuthCore,potenfyr-studios/Database-Eggs,potenfyr-studios/EchoingDeaths,potenfyr-studios/FYRwall,potenfyr-studios/HBS-Tool,potenfyr-studios/LinkFYR,potenfyr-studios/Minecraft-Eggs,potenfyr-studios/OrbyNode,potenfyr-studios/PteroOps-MCP,potenfyr-studios/Prog-Language-Eggs,potenfyr-studios/Shell-Eggs,potenfyr-studios/VigilFYR,potenfyr-studios/discord-botlists,potenfyr-studios/ojaj,potenfyr-studios/potenfyr-nest,potenfyr-studios/statfyr&type=Date&theme=dark" /> <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=potenfyr-studios/.github,potenfyr-studios/.web,potenfyr-studios/AuthCore,potenfyr-studios/Database-Eggs,potenfyr-studios/EchoingDeaths,potenfyr-studios/FYRwall,potenfyr-studios/HBS-Tool,potenfyr-studios/LinkFYR,potenfyr-studios/Minecraft-Eggs,potenfyr-studios/OrbyNode,potenfyr-studios/PteroOps-MCP,potenfyr-studios/Prog-Language-Eggs,potenfyr-studios/Shell-Eggs,potenfyr-studios/VigilFYR,potenfyr-studios/discord-botlists,potenfyr-studios/ojaj,potenfyr-studios/potenfyr-nest,potenfyr-studios/statfyr&type=Date" /> <img alt="Star history chart for all PotenFYR Studios public repositories" src="https://api.star-history.com/svg?repos=potenfyr-studios/.github,potenfyr-studios/.web,potenfyr-studios/AuthCore,potenfyr-studios/Database-Eggs,potenfyr-studios/EchoingDeaths,potenfyr-studios/FYRwall,potenfyr-studios/HBS-Tool,potenfyr-studios/LinkFYR,potenfyr-studios/Minecraft-Eggs,potenfyr-studios/OrbyNode,potenfyr-studios/PteroOps-MCP,potenfyr-studios/Prog-Language-Eggs,potenfyr-studios/Shell-Eggs,potenfyr-studios/VigilFYR,potenfyr-studios/discord-botlists,potenfyr-studios/ojaj,potenfyr-studios/potenfyr-nest,potenfyr-studios/statfyr&type=Date" width="80%" />
+</picture> Every public PotenFYR Studios repository on one live chart, served by [star-history.com](https://star-history.com). ## 📫 Connect With Us <div align="center"> [![GitHub](https://img.shields.io/badge/GitHub-PotenFYR--Studios-181717?style=for-the-badge&logo=github&labelColor=1c1e26)](https://github.com/PotenFYR-Studios)
 [![Website](https://img.shields.io/badge/Website-potenfyr.in-8b5cf6?style=for-the-badge&logo=googlechrome&labelColor=1c1e26)](https://potenfyr.in)
 [![Community](https://img.shields.io/badge/Community-Discord-5865F2?style=for-the-badge&logo=discord&labelColor=1c1e26)](https://discord.com/invite/zUaN2FPBec)
-[![Modrinth](https://img.shields.io/badge/Modrinth-Organization-1bd96a?style=for-the-badge&logo=modrinth&labelColor=1c1e26)](https://modrinth.com/organization/potenfyr)
-
-</div>
-
-## 🎯 Vision
-
-✨ **Universal** (one egg, 50+ engines) · ⚡ **Performant** (hardware-aware auto-tuning) · 🔒 **Secure** (zero-leak credentials) · 🤝 **Panel-Agnostic** (Pterodactyl · Pelican · Feather · Wisp · Docker)
-
-## 👥 Contributors
-
-Contributions are **greatly appreciated** - see [CONTRIBUTING.md](CONTRIBUTING.md) and the [good first issues](https://github.com/PotenFYR-Studios/Database-Eggs/labels/good%20first%20issue). Security concerns: please use [SECURITY.md](SECURITY.md) (private vulnerability reporting), not public issues.
-
-<a href="https://github.com/PotenFYR-Studios/Database-Eggs/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=PotenFYR-Studios/Database-Eggs" alt="Database-Eggs contributors" />
+[![Modrinth](https://img.shields.io/badge/Modrinth-Organization-1bd96a?style=for-the-badge&logo=modrinth&labelColor=1c1e26)](https://modrinth.com/organization/potenfyr) </div> ## 🎯 Vision ✨ **Universal** (one egg, 50+ engines) · ⚡ **Performant** (hardware-aware auto-tuning) · 🔒 **Secure** (zero-leak credentials) · 🤝 **Panel-Agnostic** (Pterodactyl · Pelican · Feather · Wisp · Docker) ## 👥 Contributors Contributions are **greatly appreciated** - see [CONTRIBUTING.md](CONTRIBUTING.md) and the [good first issues](https://github.com/PotenFYR-Studios/Database-Eggs/labels/good%20first%20issue). Security concerns: please use [SECURITY.md](SECURITY.md) (private vulnerability reporting), not public issues. <a href="https://github.com/PotenFYR-Studios/Database-Eggs/graphs/contributors"> <img src="https://contrib.rocks/image?repo=PotenFYR-Studios/Database-Eggs" alt="Database-Eggs contributors" />
 </a>
-<a href="https://github.com/PotenFYR-Studios/Database-Eggs/stargazers">
-  <img src="https://img.shields.io/github/stars/PotenFYR-Studios/Database-Eggs?style=social&label=Stars" alt="Live star count" />
+<a href="https://github.com/PotenFYR-Studios/Database-Eggs/stargazers"> <img src="https://img.shields.io/github/stars/PotenFYR-Studios/Database-Eggs?style=social&label=Stars" alt="Live star count" />
 </a>
-<a href="https://github.com/PotenFYR-Studios/Database-Eggs/network/members">
-  <img src="https://img.shields.io/github/forks/PotenFYR-Studios/Database-Eggs?style=social&label=Forks" alt="Live fork count" />
-</a>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/PotenFYR-Studios/FYRwall/output/github-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/PotenFYR-Studios/FYRwall/output/github-snake.svg" />
-  <img alt="Contribution snake animation" src="https://raw.githubusercontent.com/PotenFYR-Studios/FYRwall/output/github-snake.svg" width="100%" />
-</picture>
-
----
-
-<!-- markdownlint-disable -->
-
-
-<div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:f97316,50:ec4899,100:8b5cf6&height=120&section=footer&text=Made%20with%20%E2%9D%A4%EF%B8%8F%20by%20PotenFYR%20Studios&fontSize=22&fontColor=ffffff&animation=twinkling" width="100%" alt="footer"/>
-
-</div>
+<a href="https://github.com/PotenFYR-Studios/Database-Eggs/network/members"> <img src="https://img.shields.io/github/forks/PotenFYR-Studios/Database-Eggs?style=social&label=Forks" alt="Live fork count" />
+</a> <picture> <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/PotenFYR-Studios/FYRwall/output/github-snake-dark.svg" /> <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/PotenFYR-Studios/FYRwall/output/github-snake.svg" /> <img alt="Contribution snake animation" src="https://raw.githubusercontent.com/PotenFYR-Studios/FYRwall/output/github-snake.svg" width="100%" />
+</picture> --- <!-- markdownlint-disable --> <div align="center"> <img src="https://capsule-render.vercel.app/api?type=waving&color=0:f97316,50:ec4899,100:8b5cf6&height=120&section=footer&text=Made%20with%20%E2%9D%A4%EF%B8%8F%20by%20PotenFYR%20Studios&fontSize=22&fontColor=ffffff&animation=twinkling" width="100%" alt="footer"/> </div>
 <!-- markdownlint-enable -->

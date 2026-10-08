@@ -1,54 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Web Admin Panel - AuthCore Docs</title>
-
-<meta name="description" content="HTTP/HTTPS setup, REST reference, token auth, curl examples.">
-<meta property="og:title" content="Web Admin Panel - AuthCore Docs">
-<meta property="og:description" content="HTTP/HTTPS setup, REST reference, token auth, curl examples.">
-<meta property="og:type" content="website">
-
-
-</head>
-<body>
-
-<div id="progress"></div>
-<div id="top" aria-hidden="true"></div>
-
-  <header class="site-header">
-    <a class="brand" href="../../index.html">
-      <span class="brand-text">AuthCore<span class="brand-dot">.</span>docs</span>
-    </a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="site-nav">
-      <a class="nav-link" href="../../index.html">Home</a>
-      <a class="nav-link" href="../../#/repo/authcore/index">Docs Hub</a>
-      <a class="nav-link" href="../../#/repo/authcore/guide">Admin Guide</a>
-      <a class="nav-link" href="../../#/repo/authcore/flows">Flows</a>
-      <a class="nav-link" href="../../#/repo/authcore/config">Config</a>
-      <a class="nav-link" href="../../#/repo/authcore/proxy">Proxy</a>
-      <a class="nav-link active" href="../../#/repo/authcore/webpanel">Web Panel</a>
-      <a class="nav-link" href="../../#/repo/authcore/security">Security</a>
-      <a class="nav-link" href="../../docs/1.0.0/26x.html">26.x</a>
-      <a class="nav-link" href="../../#/repo/authcore/api">API</a>
-      <a class="nav-link" href="../../#/repo/authcore/development">Dev</a>
-      <a class="nav-link" href="../../#/repo/authcore/changelog">Changelog</a>
-      <a class="nav-link nav-gh" href="https://github.com/PotenFYR-Studios/AuthCore" target="_blank" rel="noopener">GitHub ↗</a>
-    </nav>
-  </header>
-<div class="layout">
-  <aside class="toc" id="toc">
-    <div class="toc-title">On this page</div>
-    <ul><li class="toc-item toc-2"><a href="#features">✨ Features</a></li><li class="toc-item toc-3"><a href="#overview">📊 Overview</a></li><li class="toc-item toc-3"><a href="#players">👥 Players</a></li><li class="toc-item toc-3"><a href="#history">🕘 History</a></li><li class="toc-item toc-3"><a href="#actions">⚡ Actions</a></li><li class="toc-item toc-2"><a href="#setup">🛠️ Setup</a></li><li class="toc-item toc-3"><a href="#1-generate-a-token">1. Generate a token</a></li><li class="toc-item toc-3"><a href="#2-configure-settingsconf">2. Configure settings.conf</a></li><li class="toc-item toc-3"><a href="#3-reload">3. Reload</a></li><li class="toc-item toc-2"><a href="#security-recommendations">🔐 Security Recommendations</a></li><li class="toc-item toc-2"><a href="#api-reference">📡 API Reference</a></li><li class="toc-item toc-3"><a href="#get---dashboard">GET /, Dashboard</a></li><li class="toc-item toc-3"><a href="#get-metrics--prometheus-metrics">GET /metrics, Prometheus Metrics</a></li><li class="toc-item toc-3"><a href="#get-apioverview--overview">GET /api/overview, Overview</a></li><li class="toc-item toc-3"><a href="#get-apiplayers--player-list">GET /api/players, Player List</a></li><li class="toc-item toc-3"><a href="#get-apihistoryuuid--login-history">GET /api/history?uuid=<uuid>, Login History</a></li><li class="toc-item toc-3"><a href="#post-apiaction--admin-actions">POST /api/action, Admin Actions</a></li><li class="toc-item toc-2"><a href="#behavior-notes--compatibility">🛡️ Behavior Notes & Compatibility</a></li><li class="toc-item toc-3"><a href="#database-migration-suspension">🛑 Database Migration Suspension</a></li><li class="toc-item toc-3"><a href="#encrypter-argon2-fallback">🧂 Encrypter Argon2 Fallback</a></li><li class="toc-item toc-3"><a href="#version-fragile-mixins-requiredfalse">🧩 Version-Fragile Mixins (required:false)</a></li><li class="toc-item toc-3"><a href="#multi-version-workspace--host-compatibility-matrix">🔮 Multi-Version Workspace & Host-Compatibility Matrix</a></li><li class="toc-item toc-2"><a href="#self-signed-certificate-details">🧾 Self-Signed Certificate Details</a></li><li class="toc-item toc-3"><a href="#brute-force-protection">🔒 Brute-force protection</a></li></ul>
-  </aside>
-  <main>
-    <article>
-
-<div align="center" style="font-family: 'Clash of Clans', 'Comic Sans MS', 'Comic Sans', cursive;"><p></p>
+ <main> <article> <div align="center" style="font-family: 'Clash of Clans', 'Comic Sans MS', 'Comic Sans', cursive;"><p></p>
 </div><hr>
 <hr>
 <h1>AuthCore Web Panel</h1>
@@ -95,30 +45,16 @@ last IP and country</li>
 </code></pre>
 <h3 id="2-configure-settingsconf">2. Configure <code>settings.conf</code></h3>
 <h4>HTTP (local only)</h4>
-<pre><code class="language-hocon">session {
-  web-panel {
-    enabled = true
-    host = &quot;127.0.0.1&quot;
-    port = 25570
-    https-enabled = false
-    token = &quot;REPLACE_WITH_YOUR_HEX_TOKEN&quot;
-  }
+<pre><code class="language-hocon">session { web-panel { enabled = true host = "127.0.0.1" port = 25570 https-enabled = false token = "REPLACE_WITH_YOUR_HEX_TOKEN" }
 }
 </code></pre>
 <h4>HTTPS (self-signed)</h4>
-<pre><code class="language-hocon">session {
-  web-panel {
-    enabled = true
-    host = &quot;127.0.0.1&quot;
-    https-enabled = true
-    https-port = 25571
-    token = &quot;REPLACE_WITH_YOUR_HEX_TOKEN&quot;
-  }
+<pre><code class="language-hocon">session { web-panel { enabled = true host = "127.0.0.1" https-enabled = true https-port = 25571 token = "REPLACE_WITH_YOUR_HEX_TOKEN" }
 }
 </code></pre>
 <p>On first start with HTTPS enabled, AuthCore generates a self-signed RSA-2048 certificate
 (<code>config/authcore/panel-keystore.p12</code>), prints a warning to the console, and displays the
-certificate&#39;s <strong>SHA-256 fingerprint</strong>:</p>
+certificate's <strong>SHA-256 fingerprint</strong>:</p>
 <pre><code>Generated a self-signed certificate for the web panel: ...panel-keystore.p12 - add an exception in your browser!
 Certificate fingerprint (SHA-256): 3A:9B:...:EF
 </code></pre>
@@ -128,13 +64,7 @@ point <code>https-keystore</code> at a PKCS12 (<code>.p12</code>/<code>.pfx</cod
 <h4>Optional: token file</h4>
 <p>Instead of putting the token inline, set <code>token-file</code> to a path <strong>relative to <code>config/authcore/</code></strong>
 containing the raw token. The file contents <strong>win over</strong> the inline <code>token</code>:</p>
-<pre><code class="language-hocon">session {
-  web-panel {
-    enabled = true
-    host = &quot;127.0.0.1&quot;
-    port = 25570
-    token-file = &quot;web-panel-token.txt&quot;   # wins over &quot;token&quot;
-  }
+<pre><code class="language-hocon">session { web-panel { enabled = true host = "127.0.0.1" port = 25570 token-file = "web-panel-token.txt" # wins over "token" }
 }
 </code></pre>
 <pre><code class="language-bash">openssl rand -hex 16 &gt; config/authcore/web-panel-token.txt
@@ -149,16 +79,9 @@ Without a token the panel logs a warning and will <strong>not</strong> start.</p
 <p>Add a second, <strong>read-only</strong> token (<code>readonly-token</code>) for viewers who should see stats, players,
 and history but <strong>never</strong> run actions (kick, delete, set-password, link…). Requests
 authenticated with it are answered normally for <code>GET</code> endpoints but receive
-<code>403 { &quot;success&quot;: false, &quot;error&quot;: &quot;Read-only token cannot run actions&quot; }</code> on
+<code>403 { "success": false, "error": "Read-only token cannot run actions" }</code> on
 <code>POST /api/action</code>:</p>
-<pre><code class="language-hocon">session {
-  web-panel {
-    enabled = true
-    host = &quot;127.0.0.1&quot;
-    port = 25570
-    token = &quot;REPLACE_WITH_YOUR_HEX_TOKEN&quot;        # full access (admin)
-    readonly-token = &quot;REPLACE_WITH_A_READ_ONLY_TOKEN&quot;  # view-only (e.g. mod dashboards)
-  }
+<pre><code class="language-hocon">session { web-panel { enabled = true host = "127.0.0.1" port = 25570 token = "REPLACE_WITH_YOUR_HEX_TOKEN" # full access (admin) readonly-token = "REPLACE_WITH_A_READ_ONLY_TOKEN" # view-only (e.g. mod dashboards) }
 }
 </code></pre>
 <p>Generate a second token the same way (<code>openssl rand -hex 16</code>). The read-only token works only
@@ -182,7 +105,7 @@ to <em>view</em> data.</li>
 <p><strong>Authentication:</strong> every request must include:</p>
 <pre><code class="language-http">Authorization: Bearer &lt;token&gt;
 </code></pre>
-<p>Unauthorized requests receive <code>401 { &quot;success&quot;: false, &quot;error&quot;: &quot;Unauthorized - send &#39;Authorization: Bearer &lt;token&gt;&#39;&quot; }</code>.</p>
+<p>Unauthorized requests receive <code>401 { "success": false, "error": "Unauthorized - send 'Authorization: Bearer &lt;token&gt;'" }</code>.</p>
 <table>
 <thead>
 <tr>
@@ -223,29 +146,20 @@ to <em>view</em> data.</li>
 </tr>
 </tbody></table>
 <h3 id="get---dashboard"><code>GET /</code>, Dashboard</h3>
-<pre><code class="language-bash">curl -H &quot;Authorization: Bearer $TOKEN&quot; http://127.0.0.1:25570/
+<pre><code class="language-bash">curl -H "Authorization: Bearer $TOKEN" http://127.0.0.1:25570/
 </code></pre>
 <p>Returns the single-page HTML dashboard (dark theme, no external resources).</p>
 <h3 id="get-metrics--prometheus-metrics"><code>GET /metrics</code>, Prometheus Metrics</h3>
-<pre><code class="language-bash">curl -H &quot;Authorization: Bearer $TOKEN&quot; http://127.0.0.1:25570/metrics
+<pre><code class="language-bash">curl -H "Authorization: Bearer $TOKEN" http://127.0.0.1:25570/metrics
 </code></pre>
 <p>Returns AuthCore metrics in <strong>Prometheus text format</strong> (<code>Content-Type: text/plain; version=0.0.4</code>),
 so you can scrape the panel from Prometheus/Grafana. The endpoint is token-protected like every
 other route (401 without a valid token). A <strong>read-only token</strong> may also scrape it.</p>
 <h3 id="get-apioverview--overview"><code>GET /api/overview</code>, Overview</h3>
-<pre><code class="language-bash">curl -H &quot;Authorization: Bearer $TOKEN&quot; http://127.0.0.1:25570/api/overview
+<pre><code class="language-bash">curl -H "Authorization: Bearer $TOKEN" http://127.0.0.1:25570/api/overview
 </code></pre>
 <p>Response:</p>
-<pre><code class="language-json">{
-  &quot;version&quot;: &quot;1.0.0&quot;,
-  &quot;registered&quot;: 42,
-  &quot;online&quot;: 7,
-  &quot;inLobby&quot;: 2,
-  &quot;locked&quot;: 1,
-  &quot;premium&quot;: 31,
-  &quot;tps&quot;: 19.8,
-  &quot;database&quot;: &quot;SQLITE&quot;,
-  &quot;redis&quot;: false
+<pre><code class="language-json">{ "version": "1.0.0", "registered": 42, "online": 7, "inLobby": 2, "locked": 1, "premium": 31, "tps": 19.8, "database": "SQLITE", "redis": false
 }
 </code></pre>
 <table>
@@ -306,26 +220,10 @@ other route (401 without a valid token). A <strong>read-only token</strong> may 
 <p>The list is <strong>database-backed</strong> (bounded query via <code>User.fetchPlayersPublic(500, null)</code>) instead
 of iterating the in-memory cache, it stays fast on servers with <strong>100k+ registered users</strong> and
 returns up to <strong>500 accounts</strong> per call.</p>
-<pre><code class="language-bash">curl -H &quot;Authorization: Bearer $TOKEN&quot; http://127.0.0.1:25570/api/players
+<pre><code class="language-bash">curl -H "Authorization: Bearer $TOKEN" http://127.0.0.1:25570/api/players
 </code></pre>
 <p>Response:</p>
-<pre><code class="language-json">{
-  &quot;players&quot;: [
-    {
-      &quot;username&quot;: &quot;Steve&quot;,
-      &quot;uuid&quot;: &quot;069a79f4-44e9-4726-a5be-fca90e38aaf5&quot;,
-      &quot;nickname&quot;: &quot;Stevey&quot;,
-      &quot;premium&quot;: true,
-      &quot;registered&quot;: true,
-      &quot;online&quot;: true,
-      &quot;inLobby&quot;: false,
-      &quot;locked&quot;: false,
-      &quot;risk&quot;: 20,
-      &quot;ip&quot;: &quot;127.0.0.1&quot;,
-      &quot;country&quot;: &quot;US&quot;
-    }
-  ],
-  &quot;count&quot;: 1
+<pre><code class="language-json">{ "players": [ { "username": "Steve", "uuid": "069a79f4-44e9-4726-a5be-fca90e38aaf5", "nickname": "Stevey", "premium": true, "registered": true, "online": true, "inLobby": false, "locked": false, "risk": 20, "ip": "127.0.0.1", "country": "US" } ], "count": 1
 }
 </code></pre>
 <table>
@@ -398,21 +296,14 @@ returns up to <strong>500 accounts</strong> per call.</p>
 </tr>
 </tbody></table>
 <h3 id="get-apihistoryuuid--login-history"><code>GET /api/history?uuid=&lt;uuid&gt;</code>, Login History</h3>
-<pre><code class="language-bash">curl -H &quot;Authorization: Bearer $TOKEN&quot; \
-  &quot;http://127.0.0.1:25570/api/history?uuid=069a79f4-44e9-4726-a5be-fca90e38aaf5&quot;
+<pre><code class="language-bash">curl -H "Authorization: Bearer $TOKEN" \ "http://127.0.0.1:25570/api/history?uuid=069a79f4-44e9-4726-a5be-fca90e38aaf5"
 </code></pre>
 <p>Response (history is an array of formatted strings; invalid/absent UUID → empty array):</p>
-<pre><code class="language-json">{
-  &quot;history&quot;: [
-    &quot;2026-08-08 12:00:00 | Steve | 127.0.0.1 | US | online | SUCCESS | risk=20&quot;
-  ]
+<pre><code class="language-json">{ "history": [ "2026-08-08 12:00:00 | Steve | 127.0.0.1 | US | online | SUCCESS | risk=20" ]
 }
 </code></pre>
 <h3 id="post-apiaction--admin-actions"><code>POST /api/action</code>, Admin Actions</h3>
-<pre><code class="language-bash">curl -X POST -H &quot;Authorization: Bearer $TOKEN&quot; \
-  -H &quot;Content-Type: application/json&quot; \
-  -d &#39;{&quot;action&quot;: &quot;kick&quot;, &quot;uuid&quot;: &quot;069a79f4-44e9-4726-a5be-fca90e38aaf5&quot;}&#39; \
-  http://127.0.0.1:25570/api/action
+<pre><code class="language-bash">curl -X POST -H "Authorization: Bearer $TOKEN" \ -H "Content-Type: application/json" \ -d '{"action": "kick", "uuid": "069a79f4-44e9-4726-a5be-fca90e38aaf5"}' \ http://127.0.0.1:25570/api/action
 </code></pre>
 <p>Request body:</p>
 <table>
@@ -456,7 +347,7 @@ returns up to <strong>500 accounts</strong> per call.</p>
 </tr>
 <tr>
 <td><code>logout</code></td>
-<td>Ends the player&#39;s active session</td>
+<td>Ends the player's active session</td>
 </tr>
 <tr>
 <td><code>unlock</code></td>
@@ -489,53 +380,29 @@ this API. See <a href="api.html">API.md</a>
 → <em>Discord Account Linking</em> for the full flow.</p>
 </blockquote>
 <p>Success response:</p>
-<pre><code class="language-json">{ &quot;success&quot;: true, &quot;message&quot;: &quot;Kicked Steve&quot; }
+<pre><code class="language-json">{ "success": true, "message": "Kicked Steve" }
 </code></pre>
-<p>Error response (examples: <code>Invalid JSON body</code>, <code>Missing &#39;action&#39;</code>, <code>Missing &#39;uuid&#39;</code>,
+<p>Error response (examples: <code>Invalid JSON body</code>, <code>Missing 'action'</code>, <code>Missing 'uuid'</code>,
 <code>Invalid UUID</code>, <code>User not found</code>, <code>User is not online</code>, <code>Unknown action: x</code>):</p>
-<pre><code class="language-json">{ &quot;success&quot;: false, &quot;error&quot;: &quot;User not found&quot; }
+<pre><code class="language-json">{ "success": false, "error": "User not found" }
 </code></pre>
 <h4>Per-action curl examples</h4>
 <pre><code class="language-bash">TOKEN=REPLACE_WITH_YOUR_HEX_TOKEN
 BASE=http://127.0.0.1:25570
-UUID=069a79f4-44e9-4726-a5be-fca90e38aaf5
-
-# Kick
-curl -X POST -H &quot;Authorization: Bearer $TOKEN&quot; -H &quot;Content-Type: application/json&quot; \
-  -d &quot;{\&quot;action\&quot;:\&quot;kick\&quot;,\&quot;uuid\&quot;:\&quot;$UUID\&quot;}&quot; $BASE/api/action
-
-# Logout
-curl -X POST -H &quot;Authorization: Bearer $TOKEN&quot; -H &quot;Content-Type: application/json&quot; \
-  -d &quot;{\&quot;action\&quot;:\&quot;logout\&quot;,\&quot;uuid\&quot;:\&quot;$UUID\&quot;}&quot; $BASE/api/action
-
-# Unlock
-curl -X POST -H &quot;Authorization: Bearer $TOKEN&quot; -H &quot;Content-Type: application/json&quot; \
-  -d &quot;{\&quot;action\&quot;:\&quot;unlock\&quot;,\&quot;uuid\&quot;:\&quot;$UUID\&quot;}&quot; $BASE/api/action
-
-# Delete
-curl -X POST -H &quot;Authorization: Bearer $TOKEN&quot; -H &quot;Content-Type: application/json&quot; \
-  -d &quot;{\&quot;action\&quot;:\&quot;delete\&quot;,\&quot;uuid\&quot;:\&quot;$UUID\&quot;}&quot; $BASE/api/action
-
-# Set password (requires value)
-curl -X POST -H &quot;Authorization: Bearer $TOKEN&quot; -H &quot;Content-Type: application/json&quot; \
-  -d &quot;{\&quot;action\&quot;:\&quot;set-password\&quot;,\&quot;uuid\&quot;:\&quot;$UUID\&quot;,\&quot;value\&quot;:\&quot;NewPassw0rd1\&quot;}&quot; $BASE/api/action
-
-# Reload (no uuid needed)
-curl -X POST -H &quot;Authorization: Bearer $TOKEN&quot; -H &quot;Content-Type: application/json&quot; \
-  -d &#39;{&quot;action&quot;:&quot;reload&quot;}&#39; $BASE/api/action
-
-# Link a Discord account via a 6-char code from /discord link (uuid is ignored, code wins)
-curl -X POST -H &quot;Authorization: Bearer $TOKEN&quot; -H &quot;Content-Type: application/json&quot; \
-  -d &#39;{&quot;action&quot;:&quot;link&quot;,&quot;uuid&quot;:&quot;069a79f4-44e9-4726-a5be-fca90e38aaf5&quot;,&quot;value&quot;:&quot;AB12CD&quot;}&#39; $BASE/api/action
-
-# Link a Discord account directly by discordId (stored on the uuid account, no Redis needed)
-curl -X POST -H &quot;Authorization: Bearer $TOKEN&quot; -H &quot;Content-Type: application/json&quot; \
-  -d &quot;{\&quot;action\&quot;:\&quot;link\&quot;,\&quot;uuid\&quot;:\&quot;$UUID\&quot;,\&quot;value\&quot;:\&quot;123456789012345678\&quot;}&quot; $BASE/api/action
+UUID=069a79f4-44e9-4726-a5be-fca90e38aaf5 # Kick
+curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \ -d "{\"action\":\"kick\",\"uuid\":\"$UUID\"}" $BASE/api/action # Logout
+curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \ -d "{\"action\":\"logout\",\"uuid\":\"$UUID\"}" $BASE/api/action # Unlock
+curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \ -d "{\"action\":\"unlock\",\"uuid\":\"$UUID\"}" $BASE/api/action # Delete
+curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \ -d "{\"action\":\"delete\",\"uuid\":\"$UUID\"}" $BASE/api/action # Set password (requires value)
+curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \ -d "{\"action\":\"set-password\",\"uuid\":\"$UUID\",\"value\":\"NewPassw0rd1\"}" $BASE/api/action # Reload (no uuid needed)
+curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \ -d '{"action":"reload"}' $BASE/api/action # Link a Discord account via a 6-char code from /discord link (uuid is ignored, code wins)
+curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \ -d '{"action":"link","uuid":"069a79f4-44e9-4726-a5be-fca90e38aaf5","value":"AB12CD"}' $BASE/api/action # Link a Discord account directly by discordId (stored on the uuid account, no Redis needed)
+curl -X POST -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \ -d "{\"action\":\"link\",\"uuid\":\"$UUID\",\"value\":\"123456789012345678\"}" $BASE/api/action
 </code></pre>
 <hr>
 <h2 id="behavior-notes--compatibility">Behavior Notes &amp; Compatibility</h2>
 <h3 id="database-migration-suspension">Database Migration Suspension</h3>
-<p>If AuthCore&#39;s automatic schema migration <strong>fails</strong> at startup (<code>Database.migrationBlocked = true</code>), the server <strong>suspends registration and login</strong> and prints fix instructions (back up +
+<p>If AuthCore's automatic schema migration <strong>fails</strong> at startup (<code>Database.migrationBlocked = true</code>), the server <strong>suspends registration and login</strong> and prints fix instructions (back up +
 delete the DB file to recreate it, run the manual <code>ALTER TABLE</code> statements from the log, or
 restore a backup). The web panel stays up so you can inspect the damage:</p>
 <ul>
@@ -556,7 +423,7 @@ details.</p>
 <code>ServerLoginNetworkHandlerMixin</code>, <code>ServerPlayNetworkHandlerChatMixin</code>) are declared
 <code>required:false</code> in <code>authcore.server.mixins.json</code>. If a future Minecraft version changes a
 method signature, the mixin <strong>does not apply instead of crashing the server</strong>, the panel and
-the rest of the mod keep working, and CI&#39;s multi-version matrix reports the mismatch.</p>
+the rest of the mod keep working, and CI's multi-version matrix reports the mismatch.</p>
 <h3 id="multi-version-workspace--host-compatibility-matrix">Multi-Version Workspace &amp; Host-Compatibility Matrix</h3>
 <ul>
 <li>The <strong>Stonecraft 1.14 + Stonecutter 0.9</strong> workspace compiles one merged source tree
@@ -564,8 +431,7 @@ the rest of the mod keep working, and CI&#39;s multi-version matrix reports the 
 <code>:1.18.2-forge</code>, <code>:1.21.11-fabric</code>, <code>:1.21.11-forge</code>, <code>:1.21.11-neoforge</code>,
 <code>:26.3-fabric</code>, <code>:26.3-neoforge</code>; active <code>1.21.11-fabric</code>) into the seven range jars
 (<code>authcore-&lt;range&gt;-&lt;loader&gt;-&lt;v&gt;.jar</code>); Java toolchains are 17 / 21 / 25 per group.</li>
-<li>The host-compatibility harness (<code>test/docker/run-tests.sh</code>) boots each range jar
- on its verify versions in Docker, 1.16.5 / 1.17.1 / 1.18.2, 1.19.4 / 1.20.6 / 1.21.1 / 1.21.11,
+<li>The host-compatibility harness (<code>test/docker/run-tests.sh</code>) boots each range jar on its verify versions in Docker, 1.16.5 / 1.17.1 / 1.18.2, 1.19.4 / 1.20.6 / 1.21.1 / 1.21.11,
 26.1.2 / 26.2 / 26.3, with live log streaming and report pruning
 (<code>reports/latest.md|html|json</code>). Full matrix: <strong>8/8 endpoints × 7/7 loader targets PASS</strong>
 (2026-08-10).</li>
@@ -581,12 +447,8 @@ auto-generated store)</li>
 the certificate your browser/curl receives to confirm you are talking to your own server:</li>
 </ul>
 <pre><code class="language-bash"># Linux/macOS
-openssl s_client -connect 127.0.0.1:25571 -servername 127.0.0.1 &lt;/dev/null 2&gt;/dev/null \
-  | openssl x509 -noout -fingerprint -sha256
-
-# or with curl
-curl -kv https://127.0.0.1:25571/api/overview -H &quot;Authorization: Bearer $TOKEN&quot; 2&gt;&amp;1 \
-  | grep -A1 &quot;Server certificate&quot;
+openssl s_client -connect 127.0.0.1:25571 -servername 127.0.0.1 &lt;/dev/null 2&gt;/dev/null \ | openssl x509 -noout -fingerprint -sha256 # or with curl
+curl -kv https://127.0.0.1:25571/api/overview -H "Authorization: Bearer $TOKEN" 2&gt;&amp;1 \ | grep -A1 "Server certificate"
 </code></pre>
 <h3 id="brute-force-protection">Brute-force protection</h3>
 <ul>
@@ -594,22 +456,4 @@ curl -kv https://127.0.0.1:25571/api/overview -H &quot;Authorization: Bearer $TO
 <li>After <strong>5 failed token attempts</strong> from one source IP, the panel returns <strong>429</strong> for a
 60-second lockout window (tracking is bounded - max 2048 IPs, stale entries pruned).</li>
 <li>Internal errors are masked (generic <code>500</code>) - details go to the server log only.</li>
-</ul>
-
-    
-    
-    
-    
-    </article>
-  </main>
-</div>
-<button id="toTop" aria-label="Back to top">↑</button>
-<footer>
-  <strong>AuthCore</strong>, The Fortress Framework for Minecraft Servers ·
-  <a href="https://github.com/PotenFYR-Studios/AuthCore" target="_blank" rel="noopener">GitHub</a> ·
-  <a href="https://modrinth.com/mod/authCore" target="_blank" rel="noopener">Modrinth</a>
-</footer>
-
-
-</body>
-</html>
+</ul> </article> </main> <button id="toTop" aria-label="Back to top">↑</button> 

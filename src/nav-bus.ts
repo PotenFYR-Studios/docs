@@ -1,5 +1,5 @@
 /*
- * nav-bus.ts — decouples deep modules (deck, eggs) from React tree plumbing:
+ * nav-bus.ts-decouples deep modules (deck, eggs) from React tree plumbing:
  * any module can request a route change without prop-drilling.
  */
 type NavFn = (to: string) => void;

@@ -1,70 +1,25 @@
-<div class="layout"><aside class="sidebar-rail"><div class="side-group"><button type="button" class="side-group-btn" aria-expanded="true"><span class="side-section">Get started</span><span class="side-chevron open" aria-hidden="true">›</span></button><div class="side-group-body"><a href="#/repo/statfyr/getting-started" class="side-link ">Getting started</a><a href="#/repo/statfyr/configuration" class="side-link ">Configuration</a><a href="#/repo/statfyr/commands" class="side-link ">Commands &amp; permissions</a></div></div><div class="side-group"><button type="button" class="side-group-btn" aria-expanded="true"><span class="side-section">Reference</span><span class="side-chevron open" aria-hidden="true">›</span></button><div class="side-group-body"><a href="#/repo/statfyr/placeholders" class="side-link ">Placeholders</a><a href="#/repo/statfyr/integrations" class="side-link ">Integrations</a><a href="#/repo/statfyr/analytics" class="side-link ">Analytics &amp; history</a><a href="#/repo/statfyr/api" class="side-link ">API reference</a><a href="#/repo/statfyr/examples" class="side-link ">Examples</a></div></div><div class="side-group"><button type="button" class="side-group-btn" aria-expanded="true"><span class="side-section">Project</span><span class="side-chevron open" aria-hidden="true">›</span></button><div class="side-group-body"><a href="#/repo/statfyr/faq" class="side-link ">FAQ</a></div></div><p class="side-section">Resources</p><a class="side-link" href="https://modrinth.com/plugin/statfyr" target="_blank" rel="noopener noreferrer">Modrinth ↗</a><a class="side-link" href="https://github.com/PotenFYR-Studios/statfyr" target="_blank" rel="noopener noreferrer">GitHub ↗</a></aside><article class="doc-article min-w-0"><nav class="crumb-trail" aria-label="Breadcrumb"><span class="crumb-item"><a href="#/repo/statfyr/docs" class="breadcrumb">Docs</a><span class="breadcrumb" aria-hidden="true"> / </span></span><span class="crumb-item"><span class="breadcrumb">Examples</span></span></nav><h1 class="mt-3">Examples</h1><p class="mt-4 !text-[1.02em] leading-relaxed text-[#b9bfd4]">Two copy-paste blocks to go from install to a working, authenticated API: a hardened config.yml and a curl walkthrough of every endpoint. For full integrations (dashboards, leaderboards, a Discord bot), see the integration examples.</p><div class="mt-6"><h2 id="config">The config.yml</h2><p>On first run the plugin writes <code>plugins/statfyr/config.yml</code>. This excerpt sets the values you almost certainly want to change before exposing the API beyond localhost; all keys and defaults are straight from the shipped config file:</p><div class="relative my-4"><div class="flex items-center justify-between rounded-t-[10px] border border-b-0 border-line bg-[#12152a] px-4 py-1.5 font-mono text-xs text-[#9aa0b4]"><span>plugins/statfyr/config.yml</span><span class="text-[10px] uppercase tracking-wider text-[#6a7089]">yaml</span></div><pre data-lang="yaml" class="!mt-0 !rounded-t-none"><button type="button" class="copy-btn" aria-label="Copy code to clipboard">Copy</button><code>https:
-  enabled: true
-  keystore-path: &quot;plugins/statfyr/keystore.jks&quot;
-  keystore-password: &quot;changeit&quot;       # set your own, or env STATFYR_KEYSTORE_PASSWORD
-
-security:
-  # Bearer auth: Authorization: Bearer &lt;your-key&gt;
-  enable-api-key: true
-  api-key: &quot;GENERATE_ME&quot;              # e.g. openssl rand -hex 32, or env STATFYR_API_KEY
-
-  # Rate limiting (per client IP)
-  enable-rate-limit: true
-  rate-limit-requests: 120
-  rate-limit-window-seconds: 60
-
-  # CORS
-  enable-cors: true
-  allowed-origins:
-    - &quot;https://dashboard.example.com&quot;
-
-http:
-  port: 8080
-  bind-address: &quot;0.0.0.0&quot;             # 127.0.0.1 keeps the API localhost-only</code></pre></div><p>After editing, apply changes without a restart: <code>/statfyr reload</code>. Generate the key once, hand it only to trusted clients; it grants full read access to every statistic.</p><aside class="callout callout-warn"><div class="callout-head"><span aria-hidden="true">▲</span><span class="mono-label">Heads up</span></div><div class="[&amp;_code]:text-[#d8ccfe]">Authentication is only active while the key is non-blank: with <code>enable-api-key: true</code> and an empty <code>api-key</code>, the plugin treats auth as disabled and serves every endpoint openly. Set the key, or set <code>enable-api-key: false</code> knowingly on a trusted network.</div></aside><aside class="callout callout-warn"><div class="callout-head"><span aria-hidden="true">▲</span><span class="mono-label">Heads up</span></div><div class="[&amp;_code]:text-[#d8ccfe]"><code>allowed-origins</code> is not enforced yet: with <code>enable-cors: true</code> the API answers <code>Access-Control-Allow-Origin: *</code> regardless of the list. Don&#x27;t rely on it as a security boundary: the API key is the boundary. The list stays in the config for the day it is wired up.</div></aside><h2 id="endpoints">Endpoint walkthrough</h2><p>With <code>enable-api-key: true</code>, every route requires the header, including <code>/api/health</code> included. Requests are GET-only (anything else answers <code>405</code>; CORS preflight <code>OPTIONS</code> answers <code>204</code>).</p><div class="relative my-4"><div class="flex items-center justify-between rounded-t-[10px] border border-b-0 border-line bg-[#12152a] px-4 py-1.5 font-mono text-xs text-[#9aa0b4]"><span>first-requests.sh</span><span class="text-[10px] uppercase tracking-wider text-[#6a7089]">bash</span></div><pre data-lang="bash" class="!mt-0 !rounded-t-none"><button type="button" class="copy-btn" aria-label="Copy code to clipboard">Copy</button><code>BASE=&quot;http://127.0.0.1:8080&quot;
-KEY=&quot;GENERATE_ME&quot;
-
-# API index and self-describing endpoint list
-curl -s -H &quot;Authorization: Bearer $KEY&quot; &quot;$BASE/api&quot;
-curl -s -H &quot;Authorization: Bearer $KEY&quot; &quot;$BASE/api/docs&quot;
-
-# Health and player roster
-curl -s -H &quot;Authorization: Bearer $KEY&quot; &quot;$BASE/api/health&quot;
-curl -s -H &quot;Authorization: Bearer $KEY&quot; &quot;$BASE/api/players?online_only=true&quot;
-
-# Full stats and computed summary for one player
-curl -s -H &quot;Authorization: Bearer $KEY&quot; &quot;$BASE/api/player/Notch&quot;
-curl -s -H &quot;Authorization: Bearer $KEY&quot; &quot;$BASE/api/player/Notch/summary&quot;
-
-# Sessions, history and activity timeline
-curl -s -H &quot;Authorization: Bearer $KEY&quot; &quot;$BASE/api/player/Notch/sessions&quot;
-curl -s -H &quot;Authorization: Bearer $KEY&quot; &quot;$BASE/api/player/Notch/history?from=7d&quot;
-curl -s -H &quot;Authorization: Bearer $KEY&quot; &quot;$BASE/api/player/Notch/activity?from=7d&quot;
-
-# Leaderboards (all-time and weekly)
-curl -s -H &quot;Authorization: Bearer $KEY&quot; &quot;$BASE/api/leaderboard/kills?limit=5&quot;
-curl -s -H &quot;Authorization: Bearer $KEY&quot; &quot;$BASE/api/leaderboard/kills?period=weekly&amp;limit=5&quot;
-
-# Server analytics, retention and heatmaps
-curl -s -H &quot;Authorization: Bearer $KEY&quot; &quot;$BASE/api/server/summary&quot;
-curl -s -H &quot;Authorization: Bearer $KEY&quot; &quot;$BASE/api/server/retention&quot;
-curl -s -H &quot;Authorization: Bearer $KEY&quot; &quot;$BASE/api/server/activity&quot;
-
-# Archived weekly leaderboards and network shape
-curl -s -H &quot;Authorization: Bearer $KEY&quot; &quot;$BASE/api/archive/kills?period=weekly&quot;
-curl -s -H &quot;Authorization: Bearer $KEY&quot; &quot;$BASE/api/network&quot;</code></pre></div><aside class="callout callout-note"><div class="callout-head"><span aria-hidden="true">✦</span><span class="mono-label">Note</span></div><div class="[&amp;_code]:text-[#d8ccfe]">A missing or wrong key answers <code>401</code>; tripping the 120-requests-per-60-seconds limit answers <code>429</code>. Full request/response shapes live in the <a href="#/repo/statfyr/api">API reference</a>.</div></aside><h2 id="fetch">Fetch it from JavaScript</h2><p>The whole client is one wrapper: base URL plus Bearer header:</p><div class="relative my-4"><div class="flex items-center justify-between rounded-t-[10px] border border-b-0 border-line bg-[#12152a] px-4 py-1.5 font-mono text-xs text-[#9aa0b4]"><span>statfyr.js</span><span class="text-[10px] uppercase tracking-wider text-[#6a7089]">javascript</span></div><pre data-lang="javascript" class="!mt-0 !rounded-t-none"><button type="button" class="copy-btn" aria-label="Copy code to clipboard">Copy</button><code>const BASE = &quot;http://127.0.0.1:8080&quot;;
-
-export async function statfyr(path) {
-  const res = await fetch(BASE + path, {
-    headers: { Authorization: &quot;Bearer &quot; + process.env.STATFYR_API_KEY },
-  });
-  if (!res.ok) throw new Error(&quot;statfyr &quot; + res.status);
-  return res.json();
-}
-
-const health = await statfyr(&quot;/api/health&quot;);
-const top = await statfyr(&quot;/api/leaderboard/playtime?limit=10&quot;);</code></pre></div><h2 id="commands">Manage it in game</h2><p>Admin commands need <code>statfyr.admin</code> (or the granular <code>statfyr.reload</code> / <code>statfyr.status</code>); player commands are available to everyone by default:</p><div class="relative my-4"><pre data-lang="text"><button type="button" class="copy-btn" aria-label="Copy code to clipboard">Copy</button><code>/statfyr stats [player]   # view statistics
-/statfyr top [stat] [period]  # leaderboards
-/statfyr help             # list commands
-/statfyr reload           # re-read config and restart the HTTP server
-/statfyr status           # current runtime status
-/statfyr database         # storage statistics</code></pre></div><p>See <a href="#/repo/statfyr/commands">Commands &amp; Permissions</a> for the full list.</p><h2 id="next">Go deeper</h2><ul><li><a href="#/repo/statfyr/api">API reference</a>: every endpoint&#x27;s parameters, response fields, and error shapes.</li><li><a href="#/repo/statfyr/commands">Commands &amp; Permissions</a>: the full command and permission surface, plus LuckPerms examples.</li><li><a href="#/repo/statfyr/placeholders">PlaceholderAPI</a>: player and server placeholders.</li><li><a href="#/repo/statfyr/integrations">Integrations</a>: Vault, Discord, Prometheus, the dashboard and the custom metrics API.</li><li><a href="#/repo/statfyr/analytics">Analytics &amp; History</a>: sessions, history, retention and segmentation.</li><li><a href="#/repo/statfyr/examples">Integration examples</a>: a live dashboard, a paginated leaderboard, and a Discord bot built on this API.</li><li><a href="#/repo/statfyr/configuration">Configuration reference</a>: every key in config.yml, with enforced/reserved status flagged per key.</li></ul></div></article><nav class="toc-rail" aria-label="On this page"><p class="toc-title mb-2 text-[#6a7089]">On this page</p><a href="#config" class="toc-item  active">The config.yml</a><a href="#endpoints" class="toc-item  ">Endpoint walkthrough</a><a href="#fetch" class="toc-item  ">Fetch it from JavaScript</a><a href="#commands" class="toc-item  ">Manage it in game</a><a href="#next" class="toc-item  ">Go deeper</a></nav></div>
+<article class="doc-article min-w-0"><h1 class="mt-3">Examples</h1><p class="mt-4 !text-[1.02em] leading-relaxed text-[#b9bfd4]">Two copy-paste blocks to go from install to a working, authenticated API: a hardened config.yml and a curl walkthrough of every endpoint. For full integrations (dashboards, leaderboards, a Discord bot), see the integration examples.</p><div class="mt-6"><h2 id="config">The config.yml</h2><p>On first run the plugin writes <code>plugins/statfyr/config.yml</code>. This excerpt sets the values you almost certainly want to change before exposing the API beyond localhost; all keys and defaults are straight from the shipped config file:</p><div class="relative my-4"><div class="flex items-center justify-between rounded-t-[10px] border border-b-0 border-line bg-[#12152a] px-4 py-1.5 font-mono text-xs text-[#9aa0b4]"><span>plugins/statfyr/config.yml</span><span class="text-[10px] uppercase tracking-wider text-[#6a7089]">yaml</span></div><pre data-lang="yaml" class="!mt-0 !rounded-t-none"><button type="button" class="copy-btn" aria-label="Copy code to clipboard">Copy</button><code>https: enabled: true keystore-path: "plugins/statfyr/keystore.jks" keystore-password: "changeit" # set your own, or env STATFYR_KEYSTORE_PASSWORD security: # Bearer auth: Authorization: Bearer &lt;your-key&gt; enable-api-key: true api-key: "GENERATE_ME" # e.g. openssl rand -hex 32, or env STATFYR_API_KEY # Rate limiting (per client IP) enable-rate-limit: true rate-limit-requests: 120 rate-limit-window-seconds: 60 # CORS enable-cors: true allowed-origins: - "https://dashboard.example.com" http: port: 8080 bind-address: "0.0.0.0" # 127.0.0.1 keeps the API localhost-only</code></pre></div><p>After editing, apply changes without a restart: <code>/statfyr reload</code>. Generate the key once, hand it only to trusted clients; it grants full read access to every statistic.</p><h2 id="endpoints">Endpoint walkthrough</h2><p>With <code>enable-api-key: true</code>, every route requires the header, including <code>/api/health</code> included. Requests are GET-only (anything else answers <code>405</code>; CORS preflight <code>OPTIONS</code> answers <code>204</code>).</p><div class="relative my-4"><div class="flex items-center justify-between rounded-t-[10px] border border-b-0 border-line bg-[#12152a] px-4 py-1.5 font-mono text-xs text-[#9aa0b4]"><span>first-requests.sh</span><span class="text-[10px] uppercase tracking-wider text-[#6a7089]">bash</span></div><pre data-lang="bash" class="!mt-0 !rounded-t-none"><button type="button" class="copy-btn" aria-label="Copy code to clipboard">Copy</button><code>BASE="http://127.0.0.1:8080"
+KEY="GENERATE_ME" # API index and self-describing endpoint list
+curl -s -H "Authorization: Bearer $KEY" "$BASE/api"
+curl -s -H "Authorization: Bearer $KEY" "$BASE/api/docs" # Health and player roster
+curl -s -H "Authorization: Bearer $KEY" "$BASE/api/health"
+curl -s -H "Authorization: Bearer $KEY" "$BASE/api/players?online_only=true" # Full stats and computed summary for one player
+curl -s -H "Authorization: Bearer $KEY" "$BASE/api/player/Notch"
+curl -s -H "Authorization: Bearer $KEY" "$BASE/api/player/Notch/summary" # Sessions, history and activity timeline
+curl -s -H "Authorization: Bearer $KEY" "$BASE/api/player/Notch/sessions"
+curl -s -H "Authorization: Bearer $KEY" "$BASE/api/player/Notch/history?from=7d"
+curl -s -H "Authorization: Bearer $KEY" "$BASE/api/player/Notch/activity?from=7d" # Leaderboards (all-time and weekly)
+curl -s -H "Authorization: Bearer $KEY" "$BASE/api/leaderboard/kills?limit=5"
+curl -s -H "Authorization: Bearer $KEY" "$BASE/api/leaderboard/kills?period=weekly&amp;limit=5" # Server analytics, retention and heatmaps
+curl -s -H "Authorization: Bearer $KEY" "$BASE/api/server/summary"
+curl -s -H "Authorization: Bearer $KEY" "$BASE/api/server/retention"
+curl -s -H "Authorization: Bearer $KEY" "$BASE/api/server/activity" # Archived weekly leaderboards and network shape
+curl -s -H "Authorization: Bearer $KEY" "$BASE/api/archive/kills?period=weekly"
+curl -s -H "Authorization: Bearer $KEY" "$BASE/api/network"</code></pre></div><h2 id="fetch">Fetch it from JavaScript</h2><p>The whole client is one wrapper: base URL plus Bearer header:</p><div class="relative my-4"><div class="flex items-center justify-between rounded-t-[10px] border border-b-0 border-line bg-[#12152a] px-4 py-1.5 font-mono text-xs text-[#9aa0b4]"><span>statfyr.js</span><span class="text-[10px] uppercase tracking-wider text-[#6a7089]">javascript</span></div><pre data-lang="javascript" class="!mt-0 !rounded-t-none"><button type="button" class="copy-btn" aria-label="Copy code to clipboard">Copy</button><code>const BASE = "http://127.0.0.1:8080"; export async function statfyr(path) { const res = await fetch(BASE + path, { headers: { Authorization: "Bearer " + process.env.STATFYR_API_KEY }, }); if (!res.ok) throw new Error("statfyr " + res.status); return res.json();
+} const health = await statfyr("/api/health");
+const top = await statfyr("/api/leaderboard/playtime?limit=10");</code></pre></div><h2 id="commands">Manage it in game</h2><p>Admin commands need <code>statfyr.admin</code> (or the granular <code>statfyr.reload</code> / <code>statfyr.status</code>); player commands are available to everyone by default:</p><div class="relative my-4"><pre data-lang="text"><button type="button" class="copy-btn" aria-label="Copy code to clipboard">Copy</button><code>/statfyr stats [player] # view statistics
+/statfyr top [stat] [period] # leaderboards
+/statfyr help # list commands
+/statfyr reload # re-read config and restart the HTTP server
+/statfyr status # current runtime status
+/statfyr database # storage statistics</code></pre></div><p>See <a href="#/repo/statfyr/commands">Commands &amp; Permissions</a> for the full list.</p><h2 id="next">Go deeper</h2><ul><li><a href="#/repo/statfyr/api">API reference</a>: every endpoint's parameters, response fields, and error shapes.</li><li><a href="#/repo/statfyr/commands">Commands &amp; Permissions</a>: the full command and permission surface, plus LuckPerms examples.</li><li><a href="#/repo/statfyr/placeholders">PlaceholderAPI</a>: player and server placeholders.</li><li><a href="#/repo/statfyr/integrations">Integrations</a>: Vault, Discord, Prometheus, the dashboard and the custom metrics API.</li><li><a href="#/repo/statfyr/analytics">Analytics &amp; History</a>: sessions, history, retention and segmentation.</li><li><a href="#/repo/statfyr/examples">Integration examples</a>: a live dashboard, a paginated leaderboard, and a Discord bot built on this API.</li><li><a href="#/repo/statfyr/configuration">Configuration reference</a>: every key in config.yml, with enforced/reserved status flagged per key.</li></ul></div></article>

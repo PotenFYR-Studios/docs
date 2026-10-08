@@ -15,7 +15,7 @@
 <p align="center">
   <b>The single source of truth for PotenFYR documentation.</b><br>
   Every public repo under PotenFYR-Studios has its docs vendored into this repo, compiled into one
-  dark, sky-blue SPA, and served on <a href="https://docs.potenfyr.in"><b>docs.potenfyr.in</b></a> — no more
+  dark, sky-blue SPA, and served on <a href="https://docs.potenfyr.in"><b>docs.potenfyr.in</b></a>-no more
   scattered <code>docs/</code> trees or per-repo Pages sites to keep in sync.
 </p>
 
@@ -31,8 +31,8 @@
 - [Repo catalog](#repo-catalog)
 - [Getting started](#getting-started)
 - [Architecture](#architecture)
-- [Docs as data — how content flows](#docs-as-data-how-content-flows)
-- [Theming — the ROG palette](#theming-the-rog-palette)
+- [Docs as data-how content flows](#docs-as-data-how-content-flows)
+- [Theming-the ROG palette](#theming-the-rog-palette)
 - [Easter eggs](#easter-eggs)
 - [Deploying changes](#deploying-changes)
 - [Contributing docs](#contributing-docs)
@@ -49,7 +49,7 @@
 Before this repo existed, PotenFYR documentation lived everywhere: full `docs/`
 trees inside five repos, standalone Vite sites inside two more, READMEs doing
 double duty on a dozen others, and one-off GitHub Pages deployments per repo.
-Nineteen URLs, four build stacks, a dozen CI jobs — all saying roughly the same
+Nineteen URLs, four build stacks, a dozen CI jobs-all saying roughly the same
 thing in different fonts.
 
 That model breaks quietly: install one-liners go stale, a README edit in
@@ -62,7 +62,7 @@ This hub answers with a simple rule:
 > points here.**
 
 One pipeline, one visual language, one deploy. A new repo joining the org needs
-a README and one line in the catalog table below — not a documentation project.
+a README and one line in the catalog table below-not a documentation project.
 
 ---
 
@@ -80,10 +80,10 @@ Everything you'd reach for is in here, loudly:
 | **Motion** | `framer-motion` + ~20 hand-rolled Magic-UI-style components | runtime |
 | **Styling** | Tailwind v4 theme tokens (`@theme`), zero runtime CSS-in-JS | build-time |
 | **Fonts** | self-hosted Inter / JetBrains Mono / Space Grotesk (`woff2`, ~140 KB) | build-time |
-| **State** | one 60-line React context store — no Redux, no Zustand | runtime |
+| **State** | one 60-line React context store-no Redux, no Zustand | runtime |
 | **Icons** | `lucide-react`, one custom brand mark (`GithubMark`) | runtime |
 
-Nothing at *runtime* talks to the network — every page you can visit is
+Nothing at *runtime* talks to the network-every page you can visit is
 already type-checked JSON.
 
 ---
@@ -101,7 +101,7 @@ Current totals: **18 repos · 190 doc pages · 4 categories**.
 | **Security & APIs** | `VigilFYR`, `FYRwall`, `OrbyNode`, `PteroOps-MCP`, `LinkFYR`, `HBS-Tool` | Agent guard-rails, firewall GUIs, MCP servers, config audits |
 | **Discord & Web** | `discord-botlists`, `.web` | Multi-botlist SDK, the PotenFYR website itself |
 
-Adding a repo is one line of effort — drop `content/<slug>/README.md`, add a
+Adding a repo is one line of effort-drop `content/<slug>/README.md`, add a
 `blurb` + `category` override in `OVERRIDES`, and build. The rest (route, cards,
 search, catalog grid, terminal `ls/open` support) is automatic.
 
@@ -109,7 +109,7 @@ search, catalog grid, terminal `ls/open` support) is automatic.
 
 ## 🚀 Getting started
 
-Prereqs: [Bun](https://bun.sh) ≥ 1.4, and `gh` authenticated (`gh auth login`) —
+Prereqs: [Bun](https://bun.sh) ≥ 1.4, and `gh` authenticated (`gh auth login`)-
 both used at build-time only.
 
 ```bash
@@ -197,14 +197,14 @@ Three reasons, in order of weight:
 2. **One visual language, shared components.** Magic UI / Aceternity components
    work best when they're *in-tree* and typed against our tokens, not imported
    from an npm package that drifts.
-3. **Repo-authored docs, not CMS-authored.** Content stays in git as markdown —
-   reviewable, diffable, and movable — but ships as data the SPA lazy-loads.
+3. **Repo-authored docs, not CMS-authored.** Content stays in git as markdown-
+   reviewable, diffable, and movable-but ships as data the SPA lazy-loads.
 
 </details>
 
 ---
 
-## 🔁 Docs as data — how content flows
+## 🔁 Docs as data-how content flows
 
 1. **Vendoring.** Every public repo's `docs/` folder (or README) is vendored
    into `content/<slug>/…`, with per-repo link rewrites already applied during
@@ -212,8 +212,8 @@ Three reasons, in order of weight:
    their own.
 2. **Turnover.** When a source repo updates its README, the flow is:
    edit upstream → `cp <upstream>/README.md docs/content/<slug>/README.md` →
-   commit the hub. (We considered auto-syncing — see
-   [API rate limits](#faq) — but vendoring wins on determinism.)
+   commit the hub. (We considered auto-syncing-see
+   [API rate limits](#faq)-but vendoring wins on determinism.)
 3. **Renders.** `build:content` writes JSON chunks; `vite build` code-splits
    them so `/repo/orbynode` loads only its 44-page chunk.
 4. **Deploy.** `.github/workflows/deploy.yml` pushes Pages from `dist/` with the
@@ -230,20 +230,20 @@ Three reasons, in order of weight:
 | `[text](../adr/001-x.md)` | `[text](#/repo/orbynode/adr/001-x)` |
 | `https://*.docs.potenfyr.in/...` | rewritten to the hub route during the consolidation PRs |
 | `[text](#anchor)` | kept as-is (SPAs handle same-page anchors) |
-| `https://github.com/…` | kept — real repo links stay real |
+| `https://github.com/…` | kept-real repo links stay real |
 
 </details>
 
 ---
 
-## 🎨 Theming — the ROG palette
+## 🎨 Theming-the ROG palette
 
 The palette is derived from the PotenFYR org avatar: near-black
 `#05070c` void, a sky gradient running `#4fa3ec → #b6dcff`, and an icy
 `#e3f1ff` ghost for headings.
 
 ```css
-/* src/theme.css — the four tokens that drive every component */
+/* src/theme.css-the four tokens that drive every component */
 --color-rog-void:   #05070c;   /* page background            */
 --color-rog-panel:  #141827;   /* cards, code, tables        */
 --color-rog-sky:    #4fa3ec;   /* primary accent (links, CTA)*/
@@ -284,10 +284,10 @@ git push origin main         # → .github/workflows/deploy.yml runs automatical
 ```
 
 The workflow:
-1. `bun run build:content` — recompiles from `content/`.
-2. `bun run typecheck` — blocks merge on type errors **and** link-rewrite
+1. `bun run build:content`-recompiles from `content/`.
+2. `bun run typecheck`-blocks merge on type errors **and** link-rewrite
    regressions caught by the type surface.
-3. `bun run build:offline` — the actual Vite bundle.
+3. `bun run build:offline`-the actual Vite bundle.
 4. generates `dist/404.html` (copy of `index.html` + a `<script>` that hashes
    the missing path) and uploads Pages.
 
@@ -303,7 +303,7 @@ deploy time. The workflow also generates `nojekyll`.
   open a PR here; the pipeline handles the rest.
 - **Add a repo to the hub?** See [Repo catalog](#repo-catalog).
 - **Rework a component?** Everything under `src/magicui.tsx` is a native,
-  typed rewrite of its Magic UI counterpart — copy our patterns rather than
+  typed rewrite of its Magic UI counterpart-copy our patterns rather than
   installing `magicui` npm packages, so tokens can flow cleanly.
 
 Run `bun run typecheck` before opening a PR; CI does the same on push.
@@ -338,13 +338,13 @@ were deleted at the same time.
 
 1. Vendored markdown: <code>content/<slug>/README.md</code> (or a full docs tree).
 2. Add a line to <code>OVERRIDES</code> in <code>scripts/build-content.ts</code> with a <code>category</code> + <code>blurb</code>.
-3. <code>bun run build:offline</code> — verify in <code>dist/</code>, open a PR.
+3. <code>bun run build:offline</code>-verify in <code>dist/</code>, open a PR.
 </details>
 
 <details>
 <summary><b>Does the repo fetch GitHub stars live?</b></summary>
 
-No — <code>registry.json</code> stores stars at <strong>build time</strong> via
+No-<code>registry.json</code> stores stars at <strong>build time</strong> via
 <code>gh api</code> / <code>bun run sync</code>. We considered using the
 GitHub REST API live but most free-plan runners burn through the 60 req/hr
 anonymous limit on the first page load, so caching wins.
@@ -363,7 +363,7 @@ public the pipeline deploys without changes.
 
 | Route | Purpose |
 |---|---|
-| <code>/</code> | Home — hero, bento, repo grid, marquee |
+| <code>/</code> | Home-hero, bento, repo grid, marquee |
 | <code>/repos</code> | Catalog with <code>?cat=</code> filter |
 | <code>/repo/<slug></code> | Repo overview (default page) |
 | <code>/repo/<slug>/<page></code> | Specific doc page |
@@ -374,14 +374,14 @@ public the pipeline deploys without changes.
 
 ## 📜 License
 
-Apache-2.0 + Commons Clause — matching the rest of the PotenFYR tooling. A
+Apache-2.0 + Commons Clause-matching the rest of the PotenFYR tooling. A
 dedicated `LICENSE` file for this repo is pending; see
 [fyrwall/LICENSE](https://github.com/PotenFYR-Studios/FYRwall/blob/master/LICENSE)
 for the exact text used across the org's code repos.
 
 <div align="center">
 
-### 🜲 [docs.potenfyr.in](https://docs.potenfyr.in) — one engine, every repo.
+### 🜲 [docs.potenfyr.in](https://docs.potenfyr.in)-one engine, every repo.
 
 *Vite · React · TypeScript · Bun · Tailwind · shiki · markdown-it*
 

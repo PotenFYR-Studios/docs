@@ -1,58 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Configuration Reference - AuthCore Docs</title>
-
-<meta name="description" content="Every setting, default and use-case.">
-<meta property="og:title" content="Configuration Reference - AuthCore Docs">
-<meta property="og:description" content="Every setting, default and use-case.">
-<meta property="og:type" content="website">
-
-
-</head>
-<body>
-
-<div id="progress"></div>
-<div id="top" aria-hidden="true"></div>
-
-  <header class="site-header">
-    <a class="brand" href="../../index.html">
-      <span class="brand-text">AuthCore<span class="brand-dot">.</span>docs</span>
-    </a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="site-nav">
-      <a class="nav-link" href="../../index.html">Home</a>
-      <a class="nav-link" href="../../#/repo/authcore/index">Docs Hub</a>
-      <a class="nav-link" href="../../#/repo/authcore/guide">Admin Guide</a>
-      <a class="nav-link" href="../../#/repo/authcore/flows">Flows</a>
-      <a class="nav-link active" href="../../#/repo/authcore/config">Config</a>
-      <a class="nav-link" href="../../#/repo/authcore/proxy">Proxy</a>
-      <a class="nav-link" href="../../#/repo/authcore/webpanel">Web Panel</a>
-      <a class="nav-link" href="../../#/repo/authcore/security">Security</a>
-      <a class="nav-link" href="../../docs/1.0.0/26x.html">26.x</a>
-      <a class="nav-link" href="../../#/repo/authcore/api">API</a>
-      <a class="nav-link" href="../../#/repo/authcore/development">Dev</a>
-      <a class="nav-link" href="../../#/repo/authcore/changelog">Changelog</a>
-      <a class="nav-link nav-gh" href="https://github.com/PotenFYR-Studios/AuthCore" target="_blank" rel="noopener">GitHub ↗</a>
-    </nav>
-  </header>
-<div class="layout">
-  <aside class="toc" id="toc">
-    <div class="toc-title">On this page</div>
-    <ul><li class="toc-item toc-2"><a href="#root-settings">🌍 Root Settings</a></li><li class="toc-item toc-3"><a href="#logging--startup-output">logging 📣 (startup output)</a></li><li class="toc-item toc-2"><a href="#session">🕒 session</a></li><li class="toc-item toc-3"><a href="#core-session-settings">Core Session Settings</a></li><li class="toc-item toc-3"><a href="#combat-log">combat-log ⚔️</a></li><li class="toc-item toc-3"><a href="#progressive-punishment">progressive-punishment 📈</a></li><li class="toc-item toc-3"><a href="#account-lock">account-lock 🔒</a></li><li class="toc-item toc-3"><a href="#intelligence">intelligence 🧠</a></li><li class="toc-item toc-3"><a href="#security">security 🛡️</a></li><li class="toc-item toc-3"><a href="#shadow-ban">shadow-ban 👻</a></li><li class="toc-item toc-3"><a href="#rate-limit">rate-limit 🚦</a></li><li class="toc-item toc-3"><a href="#proxy-support">proxy-support 🌐</a></li><li class="toc-item toc-3"><a href="#web-panel">web-panel 🖥️</a></li><li class="toc-item toc-3"><a href="#email">email 📧</a></li><li class="toc-item toc-3"><a href="#auto-whitelist">auto-whitelist 📜</a></li><li class="toc-item toc-3"><a href="#trusted">trusted ⭐</a></li><li class="toc-item toc-3"><a href="#maintenance">maintenance 🛠️</a></li><li class="toc-item toc-3"><a href="#honeypot">honeypot 🍯</a></li><li class="toc-item toc-3"><a href="#backup">backup 💾</a></li><li class="toc-item toc-2"><a href="#sessionauthentication">🔐 session.authentication</a></li><li class="toc-item toc-2"><a href="#password-rules">🔤 password-rules</a></li><li class="toc-item toc-2"><a href="#database">🗄️ database</a></li><li class="toc-item toc-3"><a href="#databasemysql">database.mysql</a></li><li class="toc-item toc-3"><a href="#databasepostgres">database.postgres</a></li><li class="toc-item toc-3"><a href="#databaseredis">database.redis</a></li><li class="toc-item toc-2"><a href="#lobby-limbo-restrictions">🏠 lobby (limbo restrictions)</a></li><li class="toc-item toc-3"><a href="#limbo-config-teleport">limbo-config (teleport)</a></li><li class="toc-item toc-3"><a href="#timeout-dynamic-login-timeout-by-ping">timeout (dynamic login timeout by ping)</a></li><li class="toc-item toc-3"><a href="#lobby-behavior">Lobby Behavior</a></li><li class="toc-item toc-3"><a href="#announcements--rotating">announcements 📢 (rotating)</a></li><li class="toc-item toc-3"><a href="#announcement--join">announcement 📢 (join)</a></li><li class="toc-item toc-3"><a href="#captcha">captcha 🤖</a></li><li class="toc-item toc-2"><a href="#commands">🧑‍💻 commands</a></li><li class="toc-item toc-3"><a href="#user-commands">User Commands</a></li><li class="toc-item toc-3"><a href="#admin-commands">Admin Commands</a></li><li class="toc-item toc-2"><a href="#discord-account-linking">🔗 Discord Account Linking</a></li><li class="toc-item toc-3"><a href="#message-keys">Message keys</a></li><li class="toc-item toc-2"><a href="#custom-locales">🗣️ Custom Locales</a></li><li class="toc-item toc-2"><a href="#security-testing">🧪 Security Testing</a></li><li class="toc-item toc-3"><a href="#proxy-interop--per-role-configs">🧩 Proxy, Interop & per-role configs</a></li><li class="toc-item toc-3"><a href="#proxy-plugin-full-auth-keys-configauthcore-proxyproperties">🛡️ Proxy plugin full-auth keys (config/authcore-proxy.properties)</a></li></ul>
-  </aside>
-  <main>
-    <article>
-
-<div align="center" style="font-family: 'Clash of Clans', 'Comic Sans MS', 'Comic Sans', cursive;"><p></p>
+ <main> <article> <div align="center" style="font-family: 'Clash of Clans', 'Comic Sans MS', 'Comic Sans', cursive;"><p></p>
 </div><hr>
 <hr>
 <h1>AuthCore Configuration Reference</h1>
-<p>This document describes <strong>every</strong> setting in AuthCore&#39;s <code>config/settings.conf</code> (HOCON format).
+<p>This document describes <strong>every</strong> setting in AuthCore's <code>config/settings.conf</code> (HOCON format).
 Settings are grouped into sections; keys are shown in kebab-case as they appear in the file.
 Defaults are the values shipped with a fresh install.</p>
 <blockquote>
@@ -83,16 +33,16 @@ automatically with <code>database.redis.enabled</code>.</p>
 <tbody><tr>
 <td><code>version</code></td>
 <td>string</td>
-<td><code>&quot;1.0.0&quot;</code></td>
+<td><code>"1.0.0"</code></td>
 <td>Internal config version used for automated migrations. Do <strong>not</strong> edit manually.</td>
 <td>Never touch it, migrations bump it automatically when the format changes.</td>
 </tr>
 <tr>
 <td><code>language</code></td>
 <td>string</td>
-<td><code>&quot;en&quot;</code></td>
+<td><code>"en"</code></td>
 <td>Language/locale for player-facing messages: <code>en</code>, <code>zh</code>, <code>es</code>, <code>de</code>, <code>fr</code>, <code>pt</code>, <code>ru</code>. Bundled locale files are extracted automatically. For a fully custom locale, drop a <code>messages-&lt;lang&gt;.conf</code> file into the config directory, see <a href="#custom-locales">Custom Locales</a>.</td>
-<td>Set to <code>&quot;zh&quot;</code> (or any bundled locale) so your players get messages in their own language.</td>
+<td>Set to <code>"zh"</code> (or any bundled locale) so your players get messages in their own language.</td>
 </tr>
 <tr>
 <td><code>debug-mode</code></td>
@@ -139,12 +89,12 @@ automatically with <code>database.redis.enabled</code>.</p>
 <td>boolean</td>
 <td><code>true</code></td>
 <td>Warn when running on an untested Minecraft version (outside the verified range groups: 1.16.0-1.18.2, 1.19.0-1.21.11 and 26.1-26.3). AuthCore <strong>never refuses to load</strong>, it warns and keeps working.</td>
-<td>Keep on when riding a brand-new Minecraft release; set to <code>false</code> once you&#39;ve verified your version in staging.</td>
+<td>Keep on when riding a brand-new Minecraft release; set to <code>false</code> once you've verified your version in staging.</td>
 </tr>
 </tbody></table>
 <hr>
 <h2 id="session">🕒 <code>session</code></h2>
-<p>There is no <code>server-mode</code> setting: the server&#39;s online/offline mode is <strong>always taken
+<p>There is no <code>server-mode</code> setting: the server's online/offline mode is <strong>always taken
 automatically from <code>server.properties</code></strong> (<code>online-mode</code>). On online-mode servers keep
 <code>enable-secure-profile=false</code> in <code>server.properties</code> so clients without a secure chat
 profile (cracked/modded players) can still join and chat - AuthCore prints this as a startup
@@ -179,7 +129,7 @@ warning.</p>
 <td>boolean</td>
 <td><code>false</code></td>
 <td>Skip combat detection for unauthorized players (they can disconnect without being flagged).</td>
-<td>Enable on a PvP server so lobby players aren&#39;t punished for disconnecting mid-fight.</td>
+<td>Enable on a PvP server so lobby players aren't punished for disconnecting mid-fight.</td>
 </tr>
 <tr>
 <td><code>combat-timeout</code></td>
@@ -200,7 +150,7 @@ warning.</p>
 <td>boolean</td>
 <td><code>true</code></td>
 <td>Persist sessions across reconnects. Strongly recommended to keep enabled.</td>
-<td>Keep on so players who disconnect mid-session don&#39;t have to re-login every time.</td>
+<td>Keep on so players who disconnect mid-session don't have to re-login every time.</td>
 </tr>
 <tr>
 <td><code>kick-after-session-timeout</code></td>
@@ -280,7 +230,7 @@ warning.</p>
 <td>long</td>
 <td><code>300000</code> (5 min)</td>
 <td>Maximum cooldown cap.</td>
-<td>Cap at 10 minutes so legit players aren&#39;t locked out too long.</td>
+<td>Cap at 10 minutes so legit players aren't locked out too long.</td>
 </tr>
 </tbody></table>
 <h3 id="account-lock"><code>account-lock</code> 🔒</h3>
@@ -339,7 +289,7 @@ warning.</p>
 <td>boolean</td>
 <td><code>true</code></td>
 <td>Alert admins (webhook + security log) on login from a new IP.</td>
-<td>Keep on so you&#39;re pinged when a player logs in from a new address.</td>
+<td>Keep on so you're pinged when a player logs in from a new address.</td>
 </tr>
 <tr>
 <td><code>alert-on-new-country</code></td>
@@ -367,7 +317,7 @@ warning.</p>
 <p>🖇️ <strong>Network device fingerprint</strong>, on every login AuthCore computes a SHA-256 fingerprint of
 the login origin (<code>IP + country</code>) and stores it in the <code>deviceFingerprint</code> DB column. When an
 account logs in from a <em>different</em> fingerprint than the one recorded, <strong>+15</strong> is added to the
-risk score and a <strong>&quot;Possible Account Sharing&quot;</strong> webhook alert fires. This is automatic, there
+risk score and a <strong>"Possible Account Sharing"</strong> webhook alert fires. This is automatic, there
 is no toggle.</p>
 </blockquote>
 <h3 id="security"><code>security</code> 🛡️</h3>
@@ -384,30 +334,30 @@ is no toggle.</p>
 <tbody><tr>
 <td><code>webhook-url</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
+<td><code>""</code></td>
 <td>Discord webhook URL for login/security events (join, login, failed login, lockouts, suspicious logins). Empty = disabled.</td>
 <td>Paste a Discord webhook so logins and brute-force attempts land in your admin channel.</td>
 </tr>
 <tr>
 <td><code>role-sync-webhook-url</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
+<td><code>""</code></td>
 <td>Optional <em>separate</em> Discord webhook used only for registration announcements (e.g. consumed by Discord bots assigning roles). Falls back to <code>webhook-url</code> when empty.</td>
-<td>Point it at a bot that assigns a &quot;Member&quot; role when someone registers.</td>
+<td>Point it at a bot that assigns a "Member" role when someone registers.</td>
 </tr>
 <tr>
 <td><code>extra-webhook-urls</code></td>
 <td>list</td>
 <td><code>[]</code></td>
 <td>Additional generic webhook URLs (Slack, Telegram, custom) that receive the <strong>same</strong> events as the Discord webhook.</td>
-<td>Add a Slack/Telegram webhook to mirror security events into your team&#39;s chat.</td>
+<td>Add a Slack/Telegram webhook to mirror security events into your team's chat.</td>
 </tr>
 <tr>
 <td><code>log-file</code></td>
 <td>string</td>
-<td><code>&quot;security.log&quot;</code></td>
+<td><code>"security.log"</code></td>
 <td>File name (in the config directory) for the security event log. Empty = disabled.</td>
-<td>Keep the default; set to <code>&quot;&quot;</code> only if you don&#39;t want on-disk history.</td>
+<td>Keep the default; set to <code>""</code> only if you don't want on-disk history.</td>
 </tr>
 <tr>
 <td><code>log-max-bytes</code></td>
@@ -419,7 +369,7 @@ is no toggle.</p>
 <tr>
 <td><code>ip-rules-file</code></td>
 <td>string</td>
-<td><code>&quot;ip-rules.conf&quot;</code></td>
+<td><code>"ip-rules.conf"</code></td>
 <td>Per-IP allow/deny rules file (in the config directory). One rule per line: <code>allow 1.2.3.4</code> / <code>deny 5.6.7.8</code>; lines starting with <code>#</code> are comments. <strong>First match wins</strong>, default is allow. Denied IPs are kicked on join.</td>
 <td>Manually <code>deny</code> a griefing IP, and the honeypot appends its auto-bans here too.</td>
 </tr>
@@ -445,9 +395,9 @@ is no toggle.</p>
 <tr>
 <td><code>disconnect-reason</code></td>
 <td>string</td>
-<td><code>&quot;Connection lost&quot;</code></td>
+<td><code>"Connection lost"</code></td>
 <td>The generic disconnect reason shown to shadow-banned players.</td>
-<td>Customize it if <code>&quot;Connection lost&quot;</code> looks too suspicious to savvy players.</td>
+<td>Customize it if <code>"Connection lost"</code> looks too suspicious to savvy players.</td>
 </tr>
 </tbody></table>
 <h3 id="rate-limit"><code>rate-limit</code> 🚦</h3>
@@ -492,7 +442,7 @@ is no toggle.</p>
 <tr>
 <td><code>over-limit-message</code></td>
 <td>string</td>
-<td><code>&quot;Too many connections from your address. Please wait a moment!&quot;</code></td>
+<td><code>"Too many connections from your address. Please wait a moment!"</code></td>
 <td>Kick message shown when the join rate limit is exceeded.</td>
 <td>Write a friendly custom message for rate-limited players.</td>
 </tr>
@@ -532,14 +482,14 @@ is no toggle.</p>
 <tr>
 <td><code>protocol</code></td>
 <td>string</td>
-<td><code>&quot;auto&quot;</code></td>
+<td><code>"auto"</code></td>
 <td>Forwarding protocol: <code>auto</code> (detect), <code>bungeecord</code> (BungeeCord / Velocity legacy <code>ip\0uuid\0properties</code>), <code>velocity</code> (Velocity modern forwarding, legacy parse as fallback).</td>
 <td><code>auto</code> works for most setups; pick <code>velocity</code> when using modern forwarding.</td>
 </tr>
 <tr>
 <td><code>velocity-secret</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
+<td><code>""</code></td>
 <td>Velocity modern forwarding shared secret (optional, for verifying forwarded payloads).</td>
 <td>Set the shared secret when your proxy uses Velocity modern forwarding.</td>
 </tr>
@@ -565,7 +515,7 @@ is no toggle.</p>
 <tr>
 <td><code>host</code></td>
 <td>string</td>
-<td><code>&quot;127.0.0.1&quot;</code></td>
+<td><code>"127.0.0.1"</code></td>
 <td>Interface to bind to. <code>127.0.0.1</code> = local only (recommended); <code>0.0.0.0</code> = all interfaces (not recommended without a token).</td>
 <td>Keep <code>127.0.0.1</code> and SSH-tunnel; never bind <code>0.0.0.0</code> publicly.</td>
 </tr>
@@ -593,35 +543,35 @@ is no toggle.</p>
 <tr>
 <td><code>https-keystore</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
+<td><code>""</code></td>
 <td>Path to a custom PKCS12/JKS keystore. Empty = auto-generated self-signed keystore.</td>
 <td>Point at your own certificate to avoid browser warnings.</td>
 </tr>
 <tr>
 <td><code>https-keystore-password</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
+<td><code>""</code></td>
 <td>Password of the custom keystore (ignored for the auto-generated one).</td>
 <td>Set the password of the custom keystore you configured above.</td>
 </tr>
 <tr>
 <td><code>token</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
+<td><code>""</code></td>
 <td>Access token (required). Sent as <code>Authorization: Bearer &lt;token&gt;</code>. The panel will <strong>not</strong> start without one. Generate with <code>openssl rand -hex 16</code>.</td>
 <td>Generate a hex token, full read/write admin access.</td>
 </tr>
 <tr>
 <td><code>token-file</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
+<td><code>""</code></td>
 <td>Path (in the config directory) to a file containing the access token. When set, this <strong>wins over</strong> the inline <code>token</code>, convenient for CI/secrets management (keeps the token out of <code>settings.conf</code>).</td>
 <td>Store the secret in <code>web-panel-token.txt</code> provisioned by your secret manager.</td>
 </tr>
 <tr>
 <td><code>readonly-token</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
+<td><code>""</code></td>
 <td>Optional read-only token: requests authenticated with this token can view data but <strong>cannot</strong> run actions (kick, delete, set-password, link…). Empty = disabled.</td>
 <td>Hand a second token to a moderator tool that should only <em>view</em> stats and players.</td>
 </tr>
@@ -647,9 +597,9 @@ is no toggle.</p>
 <tr>
 <td><code>host</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
+<td><code>""</code></td>
 <td>SMTP server host, e.g. <code>smtp.gmail.com</code>.</td>
-<td>Use your provider&#39;s SMTP host (Gmail, Outlook, your own).</td>
+<td>Use your provider's SMTP host (Gmail, Outlook, your own).</td>
 </tr>
 <tr>
 <td><code>port</code></td>
@@ -661,21 +611,21 @@ is no toggle.</p>
 <tr>
 <td><code>username</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
+<td><code>""</code></td>
 <td>SMTP username (usually the full email address).</td>
-<td>The sending account&#39;s address/username.</td>
+<td>The sending account's address/username.</td>
 </tr>
 <tr>
 <td><code>password</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
+<td><code>""</code></td>
 <td>SMTP password / app password.</td>
 <td>Use an app password for Gmail/Outlook (2FA-safe).</td>
 </tr>
 <tr>
 <td><code>from</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
+<td><code>""</code></td>
 <td>From address shown in sent emails.</td>
 <td>Set to <code>AuthCore &lt;you@server.com&gt;</code> so alerts are recognizable.</td>
 </tr>
@@ -760,9 +710,9 @@ is no toggle.</p>
 <tr>
 <td><code>kick-message</code></td>
 <td>string</td>
-<td><code>&quot;Server is under maintenance! Please check back later.&quot;</code></td>
+<td><code>"Server is under maintenance! Please check back later."</code></td>
 <td>Kick reason shown to players while maintenance mode is active.</td>
-<td>Set a friendly text like <code>&quot;Back in 30 minutes, world update!&quot;</code>.</td>
+<td>Set a friendly text like <code>"Back in 30 minutes, world update!"</code>.</td>
 </tr>
 </tbody></table>
 <h3 id="honeypot"><code>honeypot</code> 🍯</h3>
@@ -861,7 +811,7 @@ is no toggle.</p>
 <td><code>premium-auto-login</code></td>
 <td>boolean</td>
 <td><code>true</code></td>
-<td>Auto-login players with legitimate premium (Mojang) accounts without a password. This config is ALWAYS respected, regardless of the server&#39;s online/offline mode. Works on BOTH modes (on offline servers AuthCore runs the vanilla encryption handshake and verifies the session with the server&#39;s own Mojang session service - no external API calls; failures fall back to offline register/login, players are never blocked). Auto-login players are never given a generated password - their stored password stays null. If you turn this OFF, verified online-mode players are treated like any standard account: because their stored password is null, they are asked to /register on their next re-auth (their premium status is preserved, so auto-login resumes when you re-enable it).</td>
+<td>Auto-login players with legitimate premium (Mojang) accounts without a password. This config is ALWAYS respected, regardless of the server's online/offline mode. Works on BOTH modes (on offline servers AuthCore runs the vanilla encryption handshake and verifies the session with the server's own Mojang session service - no external API calls; failures fall back to offline register/login, players are never blocked). Auto-login players are never given a generated password - their stored password stays null. If you turn this OFF, verified online-mode players are treated like any standard account: because their stored password is null, they are asked to /register on their next re-auth (their premium status is preserved, so auto-login resumes when you re-enable it).</td>
 <td>Keep on for hybrid servers so real Mojang accounts never type a password; online-mode players can switch to password login themselves with <code>/account set-mode offline</code>.</td>
 </tr>
 <tr>
@@ -883,7 +833,7 @@ is no toggle.</p>
 <td>boolean</td>
 <td><code>true</code></td>
 <td>Require password confirmation during registration (prevents typos).</td>
-<td>Keep on to catch typo&#39;d passwords.</td>
+<td>Keep on to catch typo'd passwords.</td>
 </tr>
 <tr>
 <td><code>allow-login-after-registration</code></td>
@@ -904,26 +854,26 @@ is no toggle.</p>
 <td>boolean</td>
 <td><code>true</code></td>
 <td>Prevent the same account name from being authenticated from multiple locations at once.</td>
-<td>Keep on so an account can&#39;t be logged in twice at once.</td>
+<td>Keep on so an account can't be logged in twice at once.</td>
 </tr>
 <tr>
 <td><code>auto-luck-perms-group</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
+<td><code>""</code></td>
 <td>Automatically assign a LuckPerms group to newly registered accounts. Empty = disabled.</td>
-<td>Set to <code>&quot;member&quot;</code> so every new registration is auto-grouped in LuckPerms.</td>
+<td>Set to <code>"member"</code> so every new registration is auto-grouped in LuckPerms.</td>
 </tr>
 <tr>
 <td><code>bind-bedrock-xuid</code></td>
 <td>boolean</td>
 <td><code>false</code></td>
-<td>Bind Bedrock (Geyser/Floodgate) accounts to their XUID. On join, the player&#39;s XUID must match the stored one or they are kicked.</td>
+<td>Bind Bedrock (Geyser/Floodgate) accounts to their XUID. On join, the player's XUID must match the stored one or they are kicked.</td>
 <td>Enable so Bedrock accounts are locked to their XUID, blocking impersonation.</td>
 </tr>
 </tbody></table>
 <blockquote>
 <p>🔑 <strong>2FA reset on recovery</strong>, completing <code>/account recover</code> (email-based password recovery)
-also <strong>clears the TOTP secret</strong>, so the account&#39;s two-factor authentication is disabled and the
+also <strong>clears the TOTP secret</strong>, so the account's two-factor authentication is disabled and the
 player must re-setup 2FA after recovering the account.</p>
 </blockquote>
 <hr>
@@ -985,7 +935,7 @@ player must re-setup 2FA after recovering the account.</p>
 <td>boolean</td>
 <td><code>true</code></td>
 <td>Enforce the digit (0-9) rule.</td>
-<td>Keep on so passwords can&#39;t be all letters.</td>
+<td>Keep on so passwords can't be all letters.</td>
 </tr>
 <tr>
 <td><code>digits.min</code></td>
@@ -1027,7 +977,7 @@ player must re-setup 2FA after recovering the account.</p>
 <td>boolean</td>
 <td><code>false</code></td>
 <td>Allow reusing a previously used password when changing it.</td>
-<td>Keep <code>false</code> so players can&#39;t cycle back to an old password.</td>
+<td>Keep <code>false</code> so players can't cycle back to an old password.</td>
 </tr>
 <tr>
 <td><code>history-size</code></td>
@@ -1039,7 +989,7 @@ player must re-setup 2FA after recovering the account.</p>
 <tr>
 <td><code>password-hash-algorithm</code></td>
 <td>string</td>
-<td><code>&quot;argon2&quot;</code></td>
+<td><code>"argon2"</code></td>
 <td>Hashing algorithm: <code>argon2</code> (default, memory-hard, GPU-resistant), <code>bcrypt</code>, <code>scrypt</code>, <code>pbkdf2</code>, <code>sha-512</code>, <code>sha-256</code>, or <code>md5</code> (insecure, do <strong>not</strong> use).</td>
 <td>Keep <code>argon2</code>; switch to <code>bcrypt</code> only for legacy compatibility.</td>
 </tr>
@@ -1059,7 +1009,7 @@ player must re-setup 2FA after recovering the account.</p>
 <tbody><tr>
 <td><code>sqlite</code></td>
 <td>string</td>
-<td><code>&quot;authCore-db.sqlite&quot;</code></td>
+<td><code>"authCore-db.sqlite"</code></td>
 <td>SQLite file name (stored in <code>config/database/</code>). No external server required.</td>
 <td>Keep the default for a simple single-server setup.</td>
 </tr>
@@ -1085,7 +1035,7 @@ player must re-setup 2FA after recovering the account.</p>
 <tr>
 <td><code>host</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
+<td><code>""</code></td>
 <td>Server host, e.g. <code>localhost</code> or <code>db.example.com</code>.</td>
 <td>Point at your MySQL host.</td>
 </tr>
@@ -1099,21 +1049,21 @@ player must re-setup 2FA after recovering the account.</p>
 <tr>
 <td><code>database</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
+<td><code>""</code></td>
 <td>Database/schema name.</td>
 <td>The schema AuthCore should use.</td>
 </tr>
 <tr>
 <td><code>username</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
+<td><code>""</code></td>
 <td>Database username.</td>
 <td>A user with full rights on that schema.</td>
 </tr>
 <tr>
 <td><code>password</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
+<td><code>""</code></td>
 <td>Database password (stored in plain text, protect the config file).</td>
 <td>Use a dedicated, least-privilege account.</td>
 </tr>
@@ -1146,7 +1096,7 @@ player must re-setup 2FA after recovering the account.</p>
 <tr>
 <td><code>host</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
+<td><code>""</code></td>
 <td>Server host.</td>
 <td>Point at your PostgreSQL host.</td>
 </tr>
@@ -1160,21 +1110,21 @@ player must re-setup 2FA after recovering the account.</p>
 <tr>
 <td><code>database</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
+<td><code>""</code></td>
 <td>Database/schema name.</td>
 <td>The schema AuthCore should use.</td>
 </tr>
 <tr>
 <td><code>username</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
+<td><code>""</code></td>
 <td>Database username.</td>
 <td>A user with full rights on that schema.</td>
 </tr>
 <tr>
 <td><code>password</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
+<td><code>""</code></td>
 <td>Database password (stored in plain text, protect the config file).</td>
 <td>Use a dedicated, least-privilege account.</td>
 </tr>
@@ -1207,7 +1157,7 @@ player must re-setup 2FA after recovering the account.</p>
 <tr>
 <td><code>host</code></td>
 <td>string</td>
-<td><code>&quot;localhost&quot;</code></td>
+<td><code>"localhost"</code></td>
 <td>Redis server host.</td>
 <td>Point at the shared Redis instance.</td>
 </tr>
@@ -1221,7 +1171,7 @@ player must re-setup 2FA after recovering the account.</p>
 <tr>
 <td><code>password</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
+<td><code>""</code></td>
 <td>Redis password (empty if auth is disabled).</td>
 <td>Set if your Redis requires AUTH.</td>
 </tr>
@@ -1238,7 +1188,7 @@ player must re-setup 2FA after recovering the account.</p>
 Redis key <code>authcore:config:overrides</code> is <strong>merged over the local <code>settings.conf</code> on load</strong>.
 This lets a server network push shared settings (webhooks, rule files, lobby policies) from a
 single place; keys present in the snippet win over the local file. Store it with any Redis
-client, e.g. <code>SET authcore:config:overrides &quot;session { security { webhook-url = \&quot;...\&quot; } }&quot;</code>.</p>
+client, e.g. <code>SET authcore:config:overrides "session { security { webhook-url = \"...\" } }"</code>.</p>
 </blockquote>
 <hr>
 <h2 id="lobby-limbo-restrictions">🏠 <code>lobby</code> (limbo restrictions)</h2>
@@ -1264,15 +1214,15 @@ client, e.g. <code>SET authcore:config:overrides &quot;session { security { webh
 <td><code>only-on-first-time</code></td>
 <td>boolean</td>
 <td><code>true</code></td>
-<td>Only teleport on the player&#39;s first join.</td>
+<td>Only teleport on the player's first join.</td>
 <td>Keep on so only brand-new players get teleported.</td>
 </tr>
 <tr>
 <td><code>location.dimension</code></td>
 <td>string</td>
-<td><code>&quot;minecraft:overworld&quot;</code></td>
+<td><code>"minecraft:overworld"</code></td>
 <td>Target dimension key, e.g. <code>minecraft:the_nether</code>.</td>
-<td>Set to your spawn plaza&#39;s dimension.</td>
+<td>Set to your spawn plaza's dimension.</td>
 </tr>
 <tr>
 <td><code>location.x</code></td>
@@ -1385,9 +1335,9 @@ client, e.g. <code>SET authcore:config:overrides &quot;session { security { webh
 <tr>
 <td><code>whitelisted-commands</code></td>
 <td>list</td>
-<td><code>[&quot;login&quot;, &quot;account&quot;, &quot;register&quot;]</code></td>
+<td><code>["login", "account", "register"]</code></td>
 <td>Commands affected by the whitelist/blacklist logic. Auth commands are always included.</td>
-<td>Add e.g. <code>&quot;rules&quot;</code> if guests should read server rules.</td>
+<td>Add e.g. <code>"rules"</code> if guests should read server rules.</td>
 </tr>
 <tr>
 <td><code>use-whitelist-as-blacklist</code></td>
@@ -1415,7 +1365,7 @@ client, e.g. <code>SET authcore:config:overrides &quot;session { security { webh
 <td>boolean</td>
 <td><code>false</code></td>
 <td>Allow breaking or placing blocks.</td>
-<td>Keep off, lobby guests shouldn&#39;t modify your spawn.</td>
+<td>Keep off, lobby guests shouldn't modify your spawn.</td>
 </tr>
 <tr>
 <td><code>allow-attacking-player</code></td>
@@ -1471,7 +1421,7 @@ client, e.g. <code>SET authcore:config:overrides &quot;session { security { webh
 <td>boolean</td>
 <td><code>false</code></td>
 <td>Allow dropping items from inventory.</td>
-<td>Keep off so guests can&#39;t litter your spawn.</td>
+<td>Keep off so guests can't litter your spawn.</td>
 </tr>
 <tr>
 <td><code>allow-item-pickup</code></td>
@@ -1561,7 +1511,7 @@ client, e.g. <code>SET authcore:config:overrides &quot;session { security { webh
 <td><code>hide-inventory</code></td>
 <td>boolean</td>
 <td><code>false</code></td>
-<td>Completely hide the player&#39;s inventory UI while in lobby.</td>
+<td>Completely hide the player's inventory UI while in lobby.</td>
 <td>Enable for a fully immersive auth screen.</td>
 </tr>
 <tr>
@@ -1616,7 +1566,7 @@ client, e.g. <code>SET authcore:config:overrides &quot;session { security { webh
 <td>list</td>
 <td><code>[]</code></td>
 <td>Rotating server announcements shown to authenticated players. Each entry is shown for <code>announcement-interval-sec</code>, then the next one. Supports the <code>%player%</code> placeholder.</td>
-<td>List messages like <code>&quot;Vote for us!&quot;</code>, <code>&quot;Join our Discord!&quot;</code>, rotated on a timer.</td>
+<td>List messages like <code>"Vote for us!"</code>, <code>"Join our Discord!"</code>, rotated on a timer.</td>
 </tr>
 <tr>
 <td><code>announcement-interval-sec</code></td>
@@ -1647,9 +1597,9 @@ client, e.g. <code>SET authcore:config:overrides &quot;session { security { webh
 <tr>
 <td><code>text</code></td>
 <td>string</td>
-<td><code>&quot;&quot;</code></td>
-<td>The announcement message. Supports the <code>%player%</code> placeholder (replaced with the player&#39;s username).</td>
-<td>Set to <code>&quot;Welcome back, %player%!&quot;</code> for a personal touch.</td>
+<td><code>""</code></td>
+<td>The announcement message. Supports the <code>%player%</code> placeholder (replaced with the player's username).</td>
+<td>Set to <code>"Welcome back, %player%!"</code> for a personal touch.</td>
 </tr>
 </tbody></table>
 <h3 id="captcha"><code>captcha</code> 🤖</h3>
@@ -1688,7 +1638,7 @@ client, e.g. <code>SET authcore:config:overrides &quot;session { security { webh
 <td><code>trigger-risk-threshold</code></td>
 <td>int</td>
 <td><code>60</code></td>
-<td>Challenge when the player&#39;s ClientGuard risk score reaches this value during the observation window.</td>
+<td>Challenge when the player's ClientGuard risk score reaches this value during the observation window.</td>
 <td>Lower = more challenges, higher = fewer false positives.</td>
 </tr>
 <tr>
@@ -1702,7 +1652,7 @@ client, e.g. <code>SET authcore:config:overrides &quot;session { security { webh
 <td><code>instant-login-sec</code></td>
 <td>int</td>
 <td><code>5</code></td>
-<td>Login is &quot;instant&quot; (bot-like) when it happens within this many seconds of joining - real players need time to read the chat and type. Adds +25 to the bot score.</td>
+<td>Login is "instant" (bot-like) when it happens within this many seconds of joining - real players need time to read the chat and type. Adds +25 to the bot score.</td>
 <td>Raise to 10 on touchscreen clients (slower typing).</td>
 </tr>
 <tr>
@@ -1737,7 +1687,7 @@ client, e.g. <code>SET authcore:config:overrides &quot;session { security { webh
 <td><code>trusted-score</code></td>
 <td>int</td>
 <td><code>20</code></td>
-<td>Score subtracted for accounts that were &quot;trusted&quot; by a previous successful login (session.trusted). This does NOT bypass verification - it only reduces the score.</td>
+<td>Score subtracted for accounts that were "trusted" by a previous successful login (session.trusted). This does NOT bypass verification - it only reduces the score.</td>
 <td>Raise to 30 on community servers with returning players.</td>
 </tr>
 <tr>
@@ -1942,7 +1892,7 @@ LuckPerms is not loaded: <code>0</code> = all players, <code>1</code> = moderato
 <td><code>authcore.admin.whoisUsername</code></td>
 <td><code>3</code></td>
 <td><code>/authcore whois [&lt;username&gt;] [&lt;uuid&gt;] [&lt;player&gt;]</code>, detailed account info (database-backed).</td>
-<td>Investigate an account&#39;s IP/country/mode/risk.</td>
+<td>Investigate an account's IP/country/mode/risk.</td>
 </tr>
 <tr>
 <td><code>admin.set-offline-mode-player</code></td>
@@ -1985,7 +1935,7 @@ LuckPerms is not loaded: <code>0</code> = all players, <code>1</code> = moderato
 <p>Discord linking has <strong>no settings</strong>, it reuses <code>session.security.webhook-url</code> (the code is
 published there) and <code>database.redis</code> (code storage + <code>discordId</code> mapping). Players use
 <code>/discord link</code> / <code>/discord unlink</code>; Discord bots complete the pairing via the web panel API
-(<code>action: &quot;link&quot;</code>, see
+(<code>action: "link"</code>, see
 <a href="webpanel.html">WEBPANEL.md</a>).</p>
 <h3 id="message-keys">Message keys</h3>
 <p>The player-facing texts are fully editable in <code>messages.conf</code> (and per-locale files):</p>
@@ -2038,23 +1988,23 @@ To fully customize a locale, or add one of your own, drop a <code>messages-&lt;l
 </thead>
 <tbody><tr>
 <td><code>config/authcore/messages.conf</code></td>
-<td><code>&quot;en&quot;</code></td>
+<td><code>"en"</code></td>
 <td>Overrides the English messages</td>
 </tr>
 <tr>
 <td><code>config/authcore/messages-fr.conf</code></td>
-<td><code>&quot;fr&quot;</code></td>
+<td><code>"fr"</code></td>
 <td>Overrides the French messages</td>
 </tr>
 <tr>
 <td><code>config/authcore/messages-de.conf</code></td>
-<td><code>&quot;de&quot;</code></td>
+<td><code>"de"</code></td>
 <td>…and so on for any code</td>
 </tr>
 </tbody></table>
 <p>How it works:</p>
 <ol>
-<li>Pick the code you want (<code>language = &quot;fr&quot;</code> in <code>settings.conf</code>) and create
+<li>Pick the code you want (<code>language = "fr"</code> in <code>settings.conf</code>) and create
 <code>config/authcore/messages-fr.conf</code>.</li>
 <li>Copy the structure from the extracted <code>messages.conf</code> (or the file from a previous export)
 and edit the texts you want to change.</li>
@@ -2073,15 +2023,13 @@ to the bundled defaults. The completeness warning helps translators deliver 100%
 at <strong><code>test/</code></strong>, <strong>57 checks</strong> covering password hashing round-trips for all 6
 algorithms, unique per-hash salts, email recovery codes, the rate limiter,
 proxy IP parsing, device fingerprints and time formatting. Run it after a build:</p>
-<pre><code class="language-powershell">.\gradlew.bat build                          # once: produces the compiled classes + cached jars
+<pre><code class="language-powershell">.\gradlew.bat build # once: produces the compiled classes + cached jars
 powershell -ExecutionPolicy Bypass -File tools\security-tests\run-tests.ps1
 </code></pre>
 <p>The suite is part of the security process, see
 <a href="security.html">SECURITY.md</a> for the PBKDF2
 bug it caught and how it guards regressions. CI runs the suite on every push, and the
-host-compatibility harness (<code>test/docker/run-tests.sh</code>) boots every range jar on its
- verify matrix, 1.16.5 / 1.17.1 / 1.18.2 (1.16-1.18 jar, built at 1.18.2), 1.19.4 / 1.20.6 / 1.21.1 /
- 1.21.11 (1.19-1.21 jar, built at 1.21.11) and 26.1.2 / 26.2 / 26.3 (26.1-26.3 jar, built at 26.3), with
+host-compatibility harness (<code>test/docker/run-tests.sh</code>) boots every range jar on its verify matrix, 1.16.5 / 1.17.1 / 1.18.2 (1.16-1.18 jar, built at 1.18.2), 1.19.4 / 1.20.6 / 1.21.1 / 1.21.11 (1.19-1.21 jar, built at 1.21.11) and 26.1.2 / 26.2 / 26.3 (26.1-26.3 jar, built at 26.3), with
 live log streaming and pruned reports (<code>reports/latest.md|html|json</code>). The full matrix passed
 on 2026-08-10.</p>
 <h3 id="proxy-interop--per-role-configs">Proxy, Interop &amp; per-role configs</h3>
@@ -2115,7 +2063,7 @@ merged over settings.conf (credentials can live outside the main config)</li>
 </tr>
 <tr>
 <td><code>kick-message</code></td>
-<td>&quot;You must log in on the main server first.&quot;</td>
+<td>"You must log in on the main server first."</td>
 <td>Disconnect reason for unauthenticated players</td>
 </tr>
 <tr>
@@ -2148,22 +2096,4 @@ merged over settings.conf (credentials can live outside the main config)</li>
 <td><code>0</code></td>
 <td>Optional Redis database index</td>
 </tr>
-</tbody></table>
-
-    
-    
-    
-    
-    </article>
-  </main>
-</div>
-<button id="toTop" aria-label="Back to top">↑</button>
-<footer>
-  <strong>AuthCore</strong>, The Fortress Framework for Minecraft Servers ·
-  <a href="https://github.com/PotenFYR-Studios/AuthCore" target="_blank" rel="noopener">GitHub</a> ·
-  <a href="https://modrinth.com/mod/authCore" target="_blank" rel="noopener">Modrinth</a>
-</footer>
-
-
-</body>
-</html>
+</tbody></table> </article> </main> <button id="toTop" aria-label="Back to top">↑</button> 

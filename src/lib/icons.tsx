@@ -1,4 +1,4 @@
-/* icons.tsx — brand marks that lucide dropped when they pruned brand icons */
+/* icons.tsx-brand marks that lucide dropped when they pruned brand icons */
 import * as React from "react";
 
 export function GithubMark({ className }: { className?: string }) {

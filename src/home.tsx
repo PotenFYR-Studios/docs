@@ -1,5 +1,5 @@
 /*
- * home.tsx — docs.potenfyr.in landing: hero (Meteors + OrbitingCircles +
+ * home.tsx-docs.potenfyr.in landing: hero (Meteors + OrbitingCircles +
  * AuroraText + TypingAnimation), org stats with NumberTicker, category
  * bento, full repo grid with MagicCard + BorderBeam, marquee footer.
  */
@@ -90,7 +90,7 @@ export function Home(): React.ReactElement {
 
           <BlurFade delay={0.3} className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-rog-dim sm:text-lg">
             <p>
-              Documentation for PotenFYR Studios — hosting eggs, AuthCore & Statfyr, FYRwall,
+              Documentation for PotenFYR Studios-hosting eggs, AuthCore & Statfyr, FYRwall,
               Vigil, OrbyNode and the rest of the fleet, renovated into one dark, sky-blue experience.
             </p>
           </BlurFade>
@@ -109,7 +109,7 @@ export function Home(): React.ReactElement {
           </BlurFade>
 
           <BlurFade delay={0.5} className="mt-8 text-center font-mono text-[13px] text-rog-dim">
-            <TypingAnimation text="docs.potenfyr.in — every page, one place, zero clutter." />
+            <TypingAnimation text="docs.potenfyr.in-every page, one place, zero clutter." />
           </BlurFade>
 
           {/* stats strip */}
@@ -181,7 +181,7 @@ export function Home(): React.ReactElement {
         <RetroGrid className="-scale-y-50 opacity-40" />
         <BlurFade>
           <h2 className="mb-1.5 text-2xl font-bold tracking-tight text-rog-ghost sm:text-3xl">Every repo, every page</h2>
-          <p className="mb-9 text-[14.5px] text-rog-dim">Straight into each repo's docs — the overview page first.</p>
+          <p className="mb-9 text-[14.5px] text-rog-dim">Straight into each repo's docs-the overview page first.</p>
         </BlurFade>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {repos.map((r, i) => (

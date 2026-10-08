@@ -1,5 +1,5 @@
 /*
- * notfound.tsx — 404 with personality + cheat sheet overlay.
+ * notfound.tsx-404 with personality + cheat sheet overlay.
  */
 import * as React from "react";
 import { motion } from "framer-motion";
@@ -22,7 +22,7 @@ export function NotFound(): React.ReactElement {
         <div className="pp-aurora-text font-mono text-[88px] font-black leading-none sm:text-[120px]">404</div>
         <h1 className="mt-2 text-xl font-bold text-rog-ghost">This route drifted off the grid</h1>
         <p className="mx-auto mt-3 max-w-sm text-[14px] leading-relaxed text-rog-dim">
-          The page you asked for isn't in the hub. Try the catalog — or the command deck
+          The page you asked for isn't in the hub. Try the catalog-or the command deck
           (<code className="rounded bg-rog-panel px-1.5 py-0.5 font-mono text-[12px] text-rog-sky">⌘K</code>, then <code className="rounded bg-rog-panel px-1.5 py-0.5 font-mono text-[12px] text-rog-sky">ls</code>).
         </p>
         <div className="mt-8 flex items-center justify-center gap-3">

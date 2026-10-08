@@ -1,5 +1,5 @@
 /*
- * app-store.ts — tiny React context store (no external state lib): toasts,
+ * app-store.ts-tiny React context store (no external state lib): toasts,
  * cheat-sheet/terminal/search overlay state, konami badge, demo buttons.
  */
 import * as React from "react";

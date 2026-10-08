@@ -1,84 +1,12 @@
-<main class="mx-auto max-w-[1080px] px-6 pb-20 pt-9"><p class="mono-label mb-3">CustomDamageNumbers · recipes</p><h1 class="text-[clamp(1.9em,3.6vw,2.6em)] font-extrabold leading-tight tracking-[-0.02em]"><span class="grad-text">Examples</span></h1><p class="mt-3 max-w-[760px] text-[1.04em] leading-[1.75] text-muted">Copy-paste recipes for the things people actually configure: the two jars, the animation curve, keeping numbers on the mob, surviving a mob farm, and handing a rank its own style.</p><div class="mt-10 space-y-4"><section class="glass-card !gap-2"><h2 class="text-[1.05em] font-bold text-white">Install the right jar</h2><p class="text-[0.86em] leading-[1.6] text-muted">Two jars, one plugin. Modern for 1.20.2 and newer, legacy for everything back to 1.17.</p><div class="mt-2"><div class=""><pre class="spec-pre" data-lang="bash"><code>plugins/
-  PacketEvents-2.14.0.jar
-  CustomDamageNumbers-1.0.0.jar          # 1.20.2 - 26.x
-  # or
-  CustomDamageNumbers-Legacy-1.0.0.jar   # 1.17.x - 1.20.1
-
-# verify what actually loaded
+<main class="mx-auto max-w-[1080px] px-6 pb-20 pt-9"><p class="mono-label mb-3">CustomDamageNumbers · recipes</p><h1 class="text-[clamp(1.9em,3.6vw,2.6em)] font-extrabold leading-tight tracking-[-0.02em]"><span class="grad-text">Examples</span></h1><p class="mt-3 max-w-[760px] text-[1.04em] leading-[1.75] text-muted">Copy-paste recipes for the things people actually configure: the two jars, the animation curve, keeping numbers on the mob, surviving a mob farm, and handing a rank its own style.</p><div class="mt-10 space-y-4"><section class="glass-card !gap-2"><h2 class="text-[1.05em] font-bold text-white">Install the right jar</h2><p class="text-[0.86em] leading-[1.6] text-muted">Two jars, one plugin. Modern for 1.20.2 and newer, legacy for everything back to 1.17.</p><div class="mt-2"><div class=""><pre class="spec-pre" data-lang="bash"><code>plugins/ PacketEvents-2.14.0.jar CustomDamageNumbers-1.0.0.jar # 1.20.2 - 26.x # or CustomDamageNumbers-Legacy-1.0.0.jar # 1.17.x - 1.20.1 # verify what actually loaded
 /cdn version
-/cdn backend</code><button type="button" class="copy-btn">Copy</button></pre></div></div></section><section class="glass-card !gap-2"><h2 class="text-[1.05em] font-bold text-white">Tune the animation</h2><p class="text-[0.86em] leading-[1.6] text-muted">Every value is live. Edit, reload, and the next hit uses the new curve — no restart.</p><div class="mt-2"><div class=""><pre class="spec-pre" data-lang="yaml"><code>animation:
-  duration-ticks: 30
-  rise-ticks: 10
-  vertical-speed: 0.08
-  horizontal-randomness: 0.20
-  scale-animation: true
-  start-scale: 1.3
-  end-scale: 0.8
-  fade-out: true
-  fade-start: 0.6
-  bounce: true
-  bounce-strength: 0.35
-  rotation: false
-  random-offset: true
-  spawn-spread: 0.20
-
-# /cdn reload</code><button type="button" class="copy-btn">Copy</button></pre></div></div></section><section class="glass-card !gap-2"><h2 class="text-[1.05em] font-bold text-white">Keep numbers on the mob</h2><p class="text-[0.86em] leading-[1.6] text-muted">follow-entity anchors the number to the victim; follow-smoothing removes the jitter when the target is moving fast.</p><div class="mt-2"><div class=""><pre class="spec-pre" data-lang="yaml"><code>animation:
-  follow-entity: true       # number travels with the damaged entity
-  anchor-height: 1.8        # above the entity&#x27;s feet
-  follow-smoothing: 0.35    # 0 = snap each tick, higher = softer
-
-# see it: /cdn test, then hit a mob and watch it move</code><button type="button" class="copy-btn">Copy</button></pre></div></div></section><section class="glass-card !gap-2"><h2 class="text-[1.05em] font-bold text-white">Stop a farm from flooding the screen</h2><p class="text-[0.86em] leading-[1.6] text-muted">Merging folds rapid hits into one growing number; the caps protect the server if a farm gets out of hand.</p><div class="mt-2"><div class=""><pre class="spec-pre" data-lang="yaml"><code>merge-system:
-  enabled: true
-  merge-window-ms: 150
-  max-merged-damage: 9999
-  same-attacker-only: true
-
-general:
-  max-active-displays: 2000
-
-performance:
-  max-per-player: 50
-  animation-interval: 1     # raise to 2 on very busy servers</code><button type="button" class="copy-btn">Copy</button></pre></div></div></section><section class="glass-card !gap-2"><h2 class="text-[1.05em] font-bold text-white">Give a rank its own style</h2><p class="text-[0.86em] leading-[1.6] text-muted">Style profiles override individual styles. Hand one out with a permission instead of editing config per player.</p><div class="mt-2"><div class=""><pre class="spec-pre" data-lang="yaml"><code>style-profiles:
-  fortnite:
-    critical:
-      format: &quot;{damage}&quot;
-      color: &quot;#FFFF00&quot;
-  mmo:
-    normal:
-      format: &quot;{damage} DMG&quot;
-    critical:
-      format: &quot;{damage} CRIT&quot;
-      color: &quot;#FF5555&quot;
-
-# then, in LuckPerms:
-#   /lp group vip permission set cdn.style.mmo true
+/cdn backend</code><button type="button" class="copy-btn">Copy</button></pre></div></div></section><section class="glass-card !gap-2"><h2 class="text-[1.05em] font-bold text-white">Tune the animation</h2><p class="text-[0.86em] leading-[1.6] text-muted">Every value is live. Edit, reload, and the next hit uses the new curve - no restart.</p><div class="mt-2"><div class=""><pre class="spec-pre" data-lang="yaml"><code>animation: duration-ticks: 30 rise-ticks: 10 vertical-speed: 0.08 horizontal-randomness: 0.20 scale-animation: true start-scale: 1.3 end-scale: 0.8 fade-out: true fade-start: 0.6 bounce: true bounce-strength: 0.35 rotation: false random-offset: true spawn-spread: 0.20 # /cdn reload</code><button type="button" class="copy-btn">Copy</button></pre></div></div></section><section class="glass-card !gap-2"><h2 class="text-[1.05em] font-bold text-white">Keep numbers on the mob</h2><p class="text-[0.86em] leading-[1.6] text-muted">follow-entity anchors the number to the victim; follow-smoothing removes the jitter when the target is moving fast.</p><div class="mt-2"><div class=""><pre class="spec-pre" data-lang="yaml"><code>animation: follow-entity: true # number travels with the damaged entity anchor-height: 1.8 # above the entity's feet follow-smoothing: 0.35 # 0 = snap each tick, higher = softer # see it: /cdn test, then hit a mob and watch it move</code><button type="button" class="copy-btn">Copy</button></pre></div></div></section><section class="glass-card !gap-2"><h2 class="text-[1.05em] font-bold text-white">Stop a farm from flooding the screen</h2><p class="text-[0.86em] leading-[1.6] text-muted">Merging folds rapid hits into one growing number; the caps protect the server if a farm gets out of hand.</p><div class="mt-2"><div class=""><pre class="spec-pre" data-lang="yaml"><code>merge-system: enabled: true merge-window-ms: 150 max-merged-damage: 9999 same-attacker-only: true general: max-active-displays: 2000 performance: max-per-player: 50 animation-interval: 1 # raise to 2 on very busy servers</code><button type="button" class="copy-btn">Copy</button></pre></div></div></section><section class="glass-card !gap-2"><h2 class="text-[1.05em] font-bold text-white">Give a rank its own style</h2><p class="text-[0.86em] leading-[1.6] text-muted">Style profiles override individual styles. Hand one out with a permission instead of editing config per player.</p><div class="mt-2"><div class=""><pre class="spec-pre" data-lang="yaml"><code>style-profiles: fortnite: critical: format: "{damage}" color: "#FFFF00" mmo: normal: format: "{damage} DMG" critical: format: "{damage} CRIT" color: "#FF5555" # then, in LuckPerms:
+# /lp group vip permission set cdn.style.mmo true
 # and the player runs:
-#   /cdn style mmo</code><button type="button" class="copy-btn">Copy</button></pre></div></div></section><section class="glass-card !gap-2"><h2 class="text-[1.05em] font-bold text-white">Custom colours and formats</h2><p class="text-[0.86em] leading-[1.6] text-muted">A colour inside the format wins; the color setting is the default when the format does not set one. Hex, MiniMessage names and legacy codes all work.</p><div class="mt-2"><div class=""><pre class="spec-pre" data-lang="yaml"><code>styles:
-  normal:
-    enabled: true
-    format: &quot;{damage}&quot;
-    color: &quot;#FFFFFF&quot;
-    bold: true
-    shadow: true          # modern jar only
-  critical:
-    enabled: true
-    format: &quot;✧ {damage}&quot;
-    color: &quot;#FF3333&quot;
-  fire:
-    enabled: true
-    format: &quot;🔥 {damage}&quot;
-    color: &quot;#FF9900&quot;
-  healing:
-    enabled: true
-    format: &quot;+{damage}&quot;
-    color: &quot;#00FF99&quot;</code><button type="button" class="copy-btn">Copy</button></pre></div></div></section><section class="glass-card !gap-2"><h2 class="text-[1.05em] font-bold text-white">Let players turn it off</h2><p class="text-[0.86em] leading-[1.6] text-muted">Numbers are cosmetic; a player who finds them noisy should be able to opt out without opening a ticket.</p><div class="mt-2"><div class=""><pre class="spec-pre" data-lang="bash"><code>/cdn toggle             # flip your own numbers
-/cdn toggle off         # unambiguous
-/cdn toggle off Steve   # staff, with cdn.toggle.others
-
-# how many opted out? it is on the statistics panel
-/cdn stats</code><button type="button" class="copy-btn">Copy</button></pre></div></div></section><section class="glass-card !gap-2"><h2 class="text-[1.05em] font-bold text-white">Test without hitting anything</h2><p class="text-[0.86em] leading-[1.6] text-muted">A test display exercises the whole pipeline — backend, animation, viewers — with no damage event involved.</p><div class="mt-2"><div class=""><pre class="spec-pre" data-lang="bash"><code>/cdn test                 # one default display
-/cdn test critical 25     # a critical style, value 25
-/cdn test fire            # a specific style
-
-/cdn debug on             # log every packet while you poke at it
-/cdn clear                # wipe the live displays immediately</code><button type="button" class="copy-btn">Copy</button></pre></div></div></section></div><section class="glass-card mt-10 !p-8"><h2 class="text-[1.15em] font-bold text-white">Where to go next</h2><ul class="mt-2 space-y-1.5 text-[0.92em] text-ink2"><li><a class="text-link hover:text-linkh" href="/docs#configuration">The full config reference</a> — every key and its default.</li><li><a class="text-link hover:text-linkh" href="/docs#troubleshooting">Troubleshooting</a> — nothing appears, nothing moves, and the jar guard.</li><li><a class="text-link hover:text-linkh" href="/docs#performance">Performance and memory</a> — what the audit measured.</li></ul></section></main>
+# /cdn style mmo</code><button type="button" class="copy-btn">Copy</button></pre></div></div></section><section class="glass-card !gap-2"><h2 class="text-[1.05em] font-bold text-white">Custom colours and formats</h2><p class="text-[0.86em] leading-[1.6] text-muted">A colour inside the format wins; the color setting is the default when the format does not set one. Hex, MiniMessage names and legacy codes all work.</p><div class="mt-2"><div class=""><pre class="spec-pre" data-lang="yaml"><code>styles: normal: enabled: true format: "{damage}" color: "#FFFFFF" bold: true shadow: true # modern jar only critical: enabled: true format: "✧ {damage}" color: "#FF3333" fire: enabled: true format: "🔥 {damage}" color: "#FF9900" healing: enabled: true format: "+{damage}" color: "#00FF99"</code><button type="button" class="copy-btn">Copy</button></pre></div></div></section><section class="glass-card !gap-2"><h2 class="text-[1.05em] font-bold text-white">Let players turn it off</h2><p class="text-[0.86em] leading-[1.6] text-muted">Numbers are cosmetic; a player who finds them noisy should be able to opt out without opening a ticket.</p><div class="mt-2"><div class=""><pre class="spec-pre" data-lang="bash"><code>/cdn toggle # flip your own numbers
+/cdn toggle off # unambiguous
+/cdn toggle off Steve # staff, with cdn.toggle.others # how many opted out? it is on the statistics panel
+/cdn stats</code><button type="button" class="copy-btn">Copy</button></pre></div></div></section><section class="glass-card !gap-2"><h2 class="text-[1.05em] font-bold text-white">Test without hitting anything</h2><p class="text-[0.86em] leading-[1.6] text-muted">A test display exercises the whole pipeline - backend, animation, viewers - with no damage event involved.</p><div class="mt-2"><div class=""><pre class="spec-pre" data-lang="bash"><code>/cdn test # one default display
+/cdn test critical 25 # a critical style, value 25
+/cdn test fire # a specific style /cdn debug on # log every packet while you poke at it
+/cdn clear # wipe the live displays immediately</code><button type="button" class="copy-btn">Copy</button></pre></div></div></section></div><section class="glass-card mt-10 !p-8"><h2 class="text-[1.15em] font-bold text-white">Where to go next</h2><ul class="mt-2 space-y-1.5 text-[0.92em] text-ink2"><li><a class="text-link hover:text-linkh" href="/docs#configuration">The full config reference</a> - every key and its default.</li><li><a class="text-link hover:text-linkh" href="/docs#troubleshooting">Troubleshooting</a> - nothing appears, nothing moves, and the jar guard.</li><li><a class="text-link hover:text-linkh" href="/docs#performance">Performance and memory</a> - what the audit measured.</li></ul></section></main>

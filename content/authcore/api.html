@@ -1,54 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Developer API - AuthCore Docs</title>
-
-<meta name="description" content="AuthCoreApi, database schema, integration guide.">
-<meta property="og:title" content="Developer API - AuthCore Docs">
-<meta property="og:description" content="AuthCoreApi, database schema, integration guide.">
-<meta property="og:type" content="website">
-
-
-</head>
-<body>
-
-<div id="progress"></div>
-<div id="top" aria-hidden="true"></div>
-
-  <header class="site-header">
-    <a class="brand" href="../../index.html">
-      <span class="brand-text">AuthCore<span class="brand-dot">.</span>docs</span>
-    </a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="site-nav">
-      <a class="nav-link" href="../../index.html">Home</a>
-      <a class="nav-link" href="../../#/repo/authcore/index">Docs Hub</a>
-      <a class="nav-link" href="../../#/repo/authcore/guide">Admin Guide</a>
-      <a class="nav-link" href="../../#/repo/authcore/flows">Flows</a>
-      <a class="nav-link" href="../../#/repo/authcore/config">Config</a>
-      <a class="nav-link" href="../../#/repo/authcore/proxy">Proxy</a>
-      <a class="nav-link" href="../../#/repo/authcore/webpanel">Web Panel</a>
-      <a class="nav-link" href="../../#/repo/authcore/security">Security</a>
-      <a class="nav-link" href="../../docs/1.0.0/26x.html">26.x</a>
-      <a class="nav-link active" href="../../#/repo/authcore/api">API</a>
-      <a class="nav-link" href="../../#/repo/authcore/development">Dev</a>
-      <a class="nav-link" href="../../#/repo/authcore/changelog">Changelog</a>
-      <a class="nav-link nav-gh" href="https://github.com/PotenFYR-Studios/AuthCore" target="_blank" rel="noopener">GitHub ↗</a>
-    </nav>
-  </header>
-<div class="layout">
-  <aside class="toc" id="toc">
-    <div class="toc-title">On this page</div>
-    <ul><li class="toc-item toc-2"><a href="#overview">📖 Overview</a></li><li class="toc-item toc-2"><a href="#method-reference">📋 Method Reference</a></li><li class="toc-item toc-3"><a href="#player-list--statistics-api-netded3ecmodelsuser">🗂️ Player List & Statistics API (in.potenfyr.authcore.models.User)</a></li><li class="toc-item toc-2"><a href="#example">🧪 Example</a></li><li class="toc-item toc-2"><a href="#integration-notes">📝 Integration Notes</a></li><li class="toc-item toc-3"><a href="#threading">🧵 Threading</a></li><li class="toc-item toc-3"><a href="#lazy-loading-for-100k-users">🐢 Lazy Loading for 100k+ Users</a></li><li class="toc-item toc-3"><a href="#database-migration-suspension-databasemigrationblocked">🛑 Database Migration Suspension (Database.migrationBlocked)</a></li><li class="toc-item toc-3"><a href="#encrypter--argon2id-fallback-behavior">🧂 Encrypter, Argon2id Fallback Behavior</a></li><li class="toc-item toc-3"><a href="#null-safety">⚠️ Null Safety</a></li><li class="toc-item toc-3"><a href="#version-compatibility">🔄 Version Compatibility</a></li><li class="toc-item toc-2"><a href="#internal-packages">🗂️ Internal Packages</a></li><li class="toc-item toc-2"><a href="#database-schema-reference">🗄️ Database Schema Reference</a></li><li class="toc-item toc-3"><a href="#users-table">USERS table</a></li><li class="toc-item toc-3"><a href="#login_history-table">LOGIN_HISTORY table</a></li><li class="toc-item toc-2"><a href="#placeholder-tokens">🔤 Placeholder Tokens</a></li><li class="toc-item toc-2"><a href="#new-admin-commands-100">🛠️ New Admin Commands (1.0.0)</a></li><li class="toc-item toc-2"><a href="#web-panel-metrics-endpoint">📡 Web Panel /metrics Endpoint</a></li><li class="toc-item toc-2"><a href="#server-side-files">🗂️ Server-Side Files</a></li><li class="toc-item toc-2"><a href="#discord-account-linking">🔗 Discord Account Linking</a></li><li class="toc-item toc-3"><a href="#in-game-commands">In-game commands</a></li><li class="toc-item toc-3"><a href="#completing-the-link-discord-bot--web-panel-api">Completing the link (Discord bot → web panel API)</a></li><li class="toc-item toc-3"><a href="#bot-integration-rules">Bot integration rules</a></li><li class="toc-item toc-2"><a href="#cross-server-security-event-bus-redis-pubsub">📡 Cross-Server Security Event Bus (Redis pub/sub)</a></li><li class="toc-item toc-3"><a href="#events">Events</a></li><li class="toc-item toc-3"><a href="#payload">Payload</a></li><li class="toc-item toc-3"><a href="#receiver-behavior">Receiver behavior</a></li><li class="toc-item toc-2"><a href="#security-test-suite">🧪 Security Test Suite</a></li><li class="toc-item toc-2"><a href="#interop--network-events">📡 Interop & Network Events</a></li></ul>
-  </aside>
-  <main>
-    <article>
-
-<div align="center" style="font-family: 'Clash of Clans', 'Comic Sans MS', 'Comic Sans', cursive;"><p></p>
+ <main> <article> <div align="center" style="font-family: 'Clash of Clans', 'Comic Sans MS', 'Comic Sans', cursive;"><p></p>
 </div><hr>
 <hr>
 <h1>AuthCore Developer API</h1>
@@ -130,13 +80,13 @@ safe to call from the <strong>server thread</strong> at any time after the serve
 <td><code>getRiskScore(UUID)</code></td>
 <td><code>uuid</code>, player UUID</td>
 <td><code>int</code></td>
-<td>The account&#39;s last computed login risk score (0-100). Returns <code>100</code> if the user is unknown.</td>
+<td>The account's last computed login risk score (0-100). Returns <code>100</code> if the user is unknown.</td>
 </tr>
 <tr>
 <td><code>isPremium(UUID)</code></td>
 <td><code>uuid</code>, player UUID</td>
 <td><code>boolean</code></td>
-<td>Whether the player&#39;s UUID belongs to a premium (online-mode / Mojang) account.</td>
+<td>Whether the player's UUID belongs to a premium (online-mode / Mojang) account.</td>
 </tr>
 <tr>
 <td><code>verifyPassword(UUID, String)</code></td>
@@ -208,7 +158,7 @@ user loading; see <a href="#-lazy-loading-for-100k-users">Lazy Loading</a> below
 </tr>
 <tr>
 <td><code>countByMode(String)</code></td>
-<td><code>mode</code>, <code>&quot;online-mode&quot;</code> or <code>&quot;offline-mode&quot;</code></td>
+<td><code>mode</code>, <code>"online-mode"</code> or <code>"offline-mode"</code></td>
 <td><code>long</code></td>
 <td>Account count for one authentication mode, counted in the database.</td>
 </tr>
@@ -220,48 +170,14 @@ user loading; see <a href="#-lazy-loading-for-100k-users">Lazy Loading</a> below
 </tr>
 </tbody></table>
 <pre><code class="language-java">// Admin bridge: how many accounts, split by mode?
-long total  = User.countRegistered();
-long online = User.countByMode(&quot;online-mode&quot;);
-
-// Searchable player list for an external dashboard (bounded query, no cache scan)
-for (User u : User.fetchPlayersPublic(100, &quot;ste&quot;)) {
-    System.out.println(u.username + &quot; -&gt; &quot; + u.uuid);
+long total = User.countRegistered();
+long online = User.countByMode("online-mode"); // Searchable player list for an external dashboard (bounded query, no cache scan)
+for (User u : User.fetchPlayersPublic(100, "ste")) { System.out.println(u.username + " -&gt; " + u.uuid);
 }
 </code></pre>
 <h2 id="example">Example</h2>
 <pre><code class="language-java">import in.potenfyr.authcore.api.AuthCoreApi;
-import in.potenfyr.authcore.models.User;
-
-import java.util.UUID;
-
-public class MyIntegration {
-
-    public void handlePlayerJoin(UUID playerId) {
-        // 1. Always verify AuthCore is fully initialized first
-        if (!AuthCoreApi.isEnabled()) {
-            return;
-        }
-
-        // 2. Fetch the cached user (safe null handling built in)
-        User user = AuthCoreApi.getUser(playerId);
-        if (user == null || !AuthCoreApi.isRegistered(playerId)) {
-            // player has no account yet - prompt registration
-            return;
-        }
-
-        // 3. Verify the password the player submitted
-        String submittedPassword = getSubmittedPassword(playerId);
-        if (!AuthCoreApi.verifyPassword(playerId, submittedPassword)) {
-            return; // wrong password - count a failed attempt in your own logic
-        }
-
-        // 4. Authenticate the account in memory
-        AuthCoreApi.login(playerId);
-    }
-
-    private String getSubmittedPassword(UUID playerId) {
-        return &quot;...&quot;; // from your own UI/capture layer
-    }
+import in.potenfyr.authcore.models.User; import java.util.UUID; public class MyIntegration { public void handlePlayerJoin(UUID playerId) { // 1. Always verify AuthCore is fully initialized first if (!AuthCoreApi.isEnabled()) { return; } // 2. Fetch the cached user (safe null handling built in) User user = AuthCoreApi.getUser(playerId); if (user == null || !AuthCoreApi.isRegistered(playerId)) { // player has no account yet - prompt registration return; } // 3. Verify the password the player submitted String submittedPassword = getSubmittedPassword(playerId); if (!AuthCoreApi.verifyPassword(playerId, submittedPassword)) { return; // wrong password - count a failed attempt in your own logic } // 4. Authenticate the account in memory AuthCoreApi.login(playerId); } private String getSubmittedPassword(UUID playerId) { return "..."; // from your own UI/capture layer }
 }
 </code></pre>
 <h2 id="integration-notes">Integration Notes</h2>
@@ -298,20 +214,20 @@ back up + delete the DB file to let AuthCore recreate it, run the missing <code>
 statements manually (shown in the log), or restore a backup from <code>config/authcore/backups/</code>.</li>
 <li>While blocked, <code>User</code> lookups short-circuit (<code>migrationBlockedGuard()</code>) and return <code>null</code>, so
 API calls like <code>getUser(...)</code>, <code>isRegistered(...)</code> and <code>verifyPassword(...)</code> return their
-&quot;unknown account&quot; values instead of hitting a broken schema.</li>
-<li>Check <code>Database.migrationBlocked</code> in your integration to surface a &quot;database needs repair&quot;
+"unknown account" values instead of hitting a broken schema.</li>
+<li>Check <code>Database.migrationBlocked</code> in your integration to surface a "database needs repair"
 state to players/admins instead of failing silently.</li>
 </ul>
 <h3 id="encrypter--argon2id-fallback-behavior">Encrypter, Argon2id Fallback Behavior</h3>
 <p><code>in.potenfyr.authcore.security.Encrypter</code> never stores an unusable hash:</p>
 <ul>
 <li>An <strong>unknown algorithm</strong> in <code>password-rules.password-hash-algorithm</code> logs a warning
-(<em>&quot;Unknown password-hash-algorithm &#39;{}&#39; - falling back to argon2 for this hash.&quot;</em>) and hashes
-with <strong>Argon2id</strong> instead, registration never fails on a typo&#39;d config value.</li>
+(<em>"Unknown password-hash-algorithm '{}' - falling back to argon2 for this hash."</em>) and hashes
+with <strong>Argon2id</strong> instead, registration never fails on a typo'd config value.</li>
 <li>A <strong>hashing exception</strong> (library failure, bad input) is caught and retried once with Argon2id
 as a last resort; only if Argon2 itself fails does <code>hash(...)</code> return <code>null</code>.</li>
-<li>Verification of an unknown algorithm returns <code>false</code> (never a crash), matching the &quot;uniform
-response&quot; enumeration-prevention policy.</li>
+<li>Verification of an unknown algorithm returns <code>false</code> (never a crash), matching the "uniform
+response" enumeration-prevention policy.</li>
 <li><code>md5</code> is <strong>never stored</strong>: configured <code>md5</code> hashes through SHA-256 internally (legacy
 compatibility) and flags the account with a weak-algorithm risk warning.</li>
 </ul>
@@ -343,8 +259,7 @@ source sets anymore. Version-fragile mixins are declared <code>required:false</c
 signature on a future Minecraft version degrades gracefully (mixin skipped) instead of
 crashing the server. As long as you only use <code>AuthCoreApi</code>, you never touch any of it.</li>
 <li><strong>Verified on real servers</strong>, the host-test harness (<code>test/docker</code>) boots every range
-endpoint in Docker: the 1.16-1.18 jar on 1.16.5/1.17.1/1.18.2, the 1.19-1.21 jar on
- 1.19.4/1.20.6/1.21.1/1.21.11 and the 26.1-26.3 jar on 26.1.2/26.2/26.3, all <strong>PASS</strong> (2026-08-10).</li>
+endpoint in Docker: the 1.16-1.18 jar on 1.16.5/1.17.1/1.18.2, the 1.19-1.21 jar on 1.19.4/1.20.6/1.21.1/1.21.11 and the 26.1-26.3 jar on 26.1.2/26.2/26.3, all <strong>PASS</strong> (2026-08-10).</li>
 </ul>
 <h2 id="internal-packages">Internal Packages</h2>
 <table>
@@ -470,7 +385,7 @@ fabric-api version present at runtime. Missing APIs are skipped gracefully.</p>
 <tr>
 <td><code>deviceFingerprint</code></td>
 <td>TEXT</td>
-<td>SHA-256 fingerprint of the login origin (IP + country), used for &quot;Possible Account Sharing&quot; detection (nullable)</td>
+<td>SHA-256 fingerprint of the login origin (IP + country), used for "Possible Account Sharing" detection (nullable)</td>
 </tr>
 <tr>
 <td><code>trustedUntilMs</code></td>
@@ -550,11 +465,11 @@ fabric-api version present at runtime. Missing APIs are skipped gracefully.</p>
 </thead>
 <tbody><tr>
 <td><code>%authcore_username%</code></td>
-<td>The player&#39;s account name</td>
+<td>The player's account name</td>
 </tr>
 <tr>
 <td><code>%authcore_nickname%</code></td>
-<td>The player&#39;s display nickname (falls back to the username when unset)</td>
+<td>The player's display nickname (falls back to the username when unset)</td>
 </tr>
 <tr>
 <td><code>%authcore_registered%</code></td>
@@ -603,14 +518,14 @@ fabric-api version present at runtime. Missing APIs are skipped gracefully.</p>
 <tr>
 <td><code>/authcore resetpw &lt;player&gt; &lt;new-password&gt;</code></td>
 <td><code>authcore.admin.setPlayerPassword</code> (level 3)</td>
-<td>Console-friendly alias of <code>set-password</code>, reset a player&#39;s password without touching the web panel.</td>
+<td>Console-friendly alias of <code>set-password</code>, reset a player's password without touching the web panel.</td>
 </tr>
 </tbody></table>
 <h2 id="web-panel-metrics-endpoint">📡 Web Panel <code>/metrics</code> Endpoint</h2>
 <p>The web panel exposes <strong><code>GET /metrics</code></strong>, token-protected like every other endpoint (send
 <code>Authorization: Bearer &lt;token&gt;</code>) and emitted in <strong>Prometheus text format</strong>, so you can scrape
 AuthCore with Prometheus/Grafana:</p>
-<pre><code class="language-bash">curl -H &quot;Authorization: Bearer $TOKEN&quot; http://127.0.0.1:25570/metrics
+<pre><code class="language-bash">curl -H "Authorization: Bearer $TOKEN" http://127.0.0.1:25570/metrics
 </code></pre>
 <p>See <a href="webpanel.html">WEBPANEL.md</a> for the endpoint reference.</p>
 <h2 id="server-side-files">Server-Side Files</h2>
@@ -619,7 +534,7 @@ AuthCore with Prometheus/Grafana:</p>
 in <a href="config.html">CONFIG.md</a>). Lines: <code>allow 1.2.3.4</code> / <code>deny 5.6.7.8</code>, <code>#</code> comments; first match
 wins, default allow. Denied IPs are kicked on join.</li>
 <li><strong><code>config/authcore/messages-&lt;lang&gt;.conf</code></strong>, custom locale overrides (see <a href="config.html">CONFIG.md</a>,
-&quot;Custom Locales&quot;).</li>
+"Custom Locales").</li>
 </ul>
 <hr>
 <h2 id="discord-account-linking">Discord Account Linking</h2>
@@ -638,25 +553,23 @@ wins, default allow. Denied IPs are kicked on join.</li>
 </tr>
 <tr>
 <td align="left"><code>/discord unlink</code></td>
-<td align="left">Clears the account&#39;s <code>discordId</code> (fails with a &quot;not linked&quot; message if none is set).</td>
+<td align="left">Clears the account's <code>discordId</code> (fails with a "not linked" message if none is set).</td>
 </tr>
 </tbody></table>
 <p>Both require a <strong>registered</strong> account with the standard user permission (<code>user.logout</code> node /
 permission level <code>0</code>). Events are recorded in the security log with the <code>DISCORD_LINK_CODE</code>,
 <code>DISCORD_LINK</code> and <code>DISCORD_UNLINK</code> tags.</p>
 <h3 id="completing-the-link-discord-bot--web-panel-api">Completing the link (Discord bot → web panel API)</h3>
-<p>The player sends the code to the server&#39;s Discord bot; the bot completes the pairing by calling
+<p>The player sends the code to the server's Discord bot; the bot completes the pairing by calling
 the web panel API:</p>
 <pre><code class="language-http">POST /api/action
 Authorization: Bearer &lt;token&gt;
-Content-Type: application/json
-
-{ &quot;action&quot;: &quot;link&quot;, &quot;uuid&quot;: &quot;069a79f4-44e9-4726-a5be-fca90e38aaf5&quot;, &quot;value&quot;: &quot;AB12CD&quot; }
+Content-Type: application/json { "action": "link", "uuid": "069a79f4-44e9-4726-a5be-fca90e38aaf5", "value": "AB12CD" }
 </code></pre>
 <p><code>value</code> is resolved in this order:</p>
 <ol>
 <li>A <strong>6-char code</strong> matching <code>[A-Z2-9]{6}</code>, resolved through Redis
-(<code>authcore:discordlink:&lt;code&gt;</code>, consumed on use → single-use) to the requesting player&#39;s
+(<code>authcore:discordlink:&lt;code&gt;</code>, consumed on use → single-use) to the requesting player's
 username; the <code>uuid</code> field is ignored.</li>
 <li>A <strong>raw <code>discordId</code></strong>, stored directly on the account identified by <code>uuid</code> (no code
 needed; works without Redis).</li>
@@ -718,19 +631,14 @@ is enabled automatically with Redis.</p>
 </tr>
 </tbody></table>
 <h3 id="payload">Payload</h3>
-<pre><code class="language-json">{
-  &quot;type&quot;: &quot;login&quot;,
-  &quot;username&quot;: &quot;Steve&quot;,
-  &quot;detail&quot;: &quot;logged in (server srv-01)&quot;,
-  &quot;server&quot;: &quot;srv-01&quot;,
-  &quot;ts&quot;: 1750000000000
+<pre><code class="language-json">{ "type": "login", "username": "Steve", "detail": "logged in (server srv-01)", "server": "srv-01", "ts": 1750000000000
 }
 </code></pre>
 <h3 id="receiver-behavior">Receiver behavior</h3>
 <p>On every other server in the network, each event is:</p>
 <ol>
 <li><strong>Logged</strong> to <code>security.log</code> with an <code>EVENT_BUS_&lt;TYPE&gt;</code> tag.</li>
-<li><strong>Forwarded</strong> to the local webhook as a &quot;Cross-Server Event&quot; embed.</li>
+<li><strong>Forwarded</strong> to the local webhook as a "Cross-Server Event" embed.</li>
 <li><strong>Executed locally</strong> where applicable, <code>kick</code> / <code>logout</code> events kick the matching
 locally-connected player.</li>
 </ol>
@@ -741,7 +649,7 @@ locally-connected player.</li>
 <code>test/</code>, <strong>80 checks</strong> covering password hashing round-trips for all 6
 algorithms, unique per-hash salts, email recovery codes, the rate limiter,
 proxy IP parsing, device fingerprints and time formatting:</p>
-<pre><code class="language-powershell">.\gradlew.bat build                          # once: produces the compiled classes + cached jars
+<pre><code class="language-powershell">.\gradlew.bat build # once: produces the compiled classes + cached jars
 powershell -ExecutionPolicy Bypass -File tools\security-tests\run-tests.ps1
 </code></pre>
 <p>The suite is part of the security process, see <a href="security.html">SECURITY.md</a> for what it caught
@@ -761,12 +669,12 @@ when a backend runs a different authentication mod.</p>
 <tbody><tr>
 <td align="left"><code>authcore:auth</code> (loader-neutral custom payload)</td>
 <td align="left">`AUTH_CHANGED</td>
-<td align="left"><uuid></td>
+<td align="left"><uuid></uuid></td>
 </tr>
 <tr>
 <td align="left"><code>bungeecord:main</code> subchannel <code>AuthCore</code></td>
 <td align="left">`AuthCore\0AUTH_CHANGED</td>
-<td align="left"><uuid></td>
+<td align="left"><uuid></uuid></td>
 </tr>
 </tbody></table>
 <p>Config: <code>session.interop { enabled, channel, bungee-channel }</code> (default on).</p>
@@ -774,22 +682,4 @@ when a backend runs a different authentication mod.</p>
 registers a <code>ServerLoginNetworking</code> receiver (Fabric; fabric-api, reflectively) for
 <code>velocity:player_info</code>, verifies the HMAC-SHA256 and applies the real UUID/username to the
 login profile. <code>Networking.VelocitySupport</code> (<code>parsePlayerInfo</code>, <code>verifyVelocityHmac</code>) is
-exposed for integration code.</p>
-
-    
-    
-    
-    
-    </article>
-  </main>
-</div>
-<button id="toTop" aria-label="Back to top">↑</button>
-<footer>
-  <strong>AuthCore</strong>, The Fortress Framework for Minecraft Servers ·
-  <a href="https://github.com/PotenFYR-Studios/AuthCore" target="_blank" rel="noopener">GitHub</a> ·
-  <a href="https://modrinth.com/mod/authCore" target="_blank" rel="noopener">Modrinth</a>
-</footer>
-
-
-</body>
-</html>
+exposed for integration code.</p> </article> </main> <button id="toTop" aria-label="Back to top">↑</button> 

@@ -1,5 +1,5 @@
 /*
- * eggs.tsx — the hidden easter-egg layer for docs.potenfyr.in.
+ * eggs.tsx-the hidden easter-egg layer for docs.potenfyr.in.
  * Triggers:
  *   • Konami ↑↑↓↓←→←→BA   → confetti + "DECK MASTER" toast + egg badge
  *   • typing "fyr"        → flame burst overlay
@@ -147,7 +147,7 @@ export function EggLayer(): React.ReactElement {
 
   useKonami(() => {
     confetti(140, 50, 12);
-    pushToast({ icon: "sparkles", title: "DECK MASTER", body: "Konami code accepted — you are one of us now." });
+    pushToast({ icon: "sparkles", title: "DECK MASTER", body: "Konami code accepted-you are one of us now." });
     setRogMode(true);
   });
 
@@ -187,7 +187,7 @@ export function EggLayer(): React.ReactElement {
   );
 }
 
-/** invisible anchor for the 7-tap logo egg — rendered near the actual logo button */
+/** invisible anchor for the 7-tap logo egg-rendered near the actual logo button */
 function Hidden({ logoTap }: { logoTap: () => void }) {
   return <span data-egg="rog-tap" onClick={logoTap} className="hidden" />;
 }

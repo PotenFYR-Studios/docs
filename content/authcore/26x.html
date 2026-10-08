@@ -1,59 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>26.1 - 26.3 Builds - AuthCore Docs</title>
-
-<meta name="description" content="Range jars, the unobfuscated era, architecture and verification.">
-<meta property="og:title" content="26.1 - 26.3 Builds - AuthCore Docs">
-<meta property="og:description" content="Range jars, the unobfuscated era, architecture and verification.">
-<meta property="og:type" content="website">
-
-
-</head>
-<body>
-
-<div id="progress"></div>
-<div id="top" aria-hidden="true"></div>
-
-  <header class="site-header">
-    <a class="brand" href="../../index.html">
-      <span class="brand-text">AuthCore<span class="brand-dot">.</span>docs</span>
-    </a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="site-nav">
-      <a class="nav-link" href="../../index.html">Home</a>
-      <a class="nav-link" href="../../#/repo/authcore/index">Docs Hub</a>
-      <a class="nav-link" href="../../#/repo/authcore/guide">Admin Guide</a>
-      <a class="nav-link" href="../../#/repo/authcore/flows">Flows</a>
-      <a class="nav-link" href="../../#/repo/authcore/config">Config</a>
-      <a class="nav-link" href="../../#/repo/authcore/proxy">Proxy</a>
-      <a class="nav-link" href="../../#/repo/authcore/webpanel">Web Panel</a>
-      <a class="nav-link" href="../../#/repo/authcore/security">Security</a>
-      <a class="nav-link active" href="../../docs/1.0.0/26x.html">26.x</a>
-      <a class="nav-link" href="../../#/repo/authcore/api">API</a>
-      <a class="nav-link" href="../../#/repo/authcore/development">Dev</a>
-      <a class="nav-link" href="../../#/repo/authcore/changelog">Changelog</a>
-      <a class="nav-link nav-gh" href="https://github.com/PotenFYR-Studios/AuthCore" target="_blank" rel="noopener">GitHub ↗</a>
-    </nav>
-  </header>
-<div class="layout">
-  <aside class="toc" id="toc">
-    <div class="toc-title">On this page</div>
-    <ul><li class="toc-item toc-2"><a href="#source-layout">Source layout</a></li><li class="toc-item toc-2"><a href="#building">Building</a></li><li class="toc-item toc-2"><a href="#version-specific-code-stonecutter-conditionals">Version-specific code (Stonecutter conditionals)</a></li><li class="toc-item toc-3"><a href="#how-to-find-262-api-ground-truth">How to find 26.3 API ground truth</a></li><li class="toc-item toc-2"><a href="#verified-on-real-servers">🔍 Verified on real servers</a></li></ul>
-  </aside>
-  <main>
-    <article>
-
-<div align="center" style="font-family: 'Clash of Clans', 'Comic Sans MS', 'Comic Sans', cursive;"><p></p>
+ <main> <article> <div align="center" style="font-family: 'Clash of Clans', 'Comic Sans MS', 'Comic Sans', cursive;"><p></p>
 </div><hr>
 <hr>
 <h1>Building AuthCore for every version (1.16.x - 26.1-26.3)</h1>
 <p>Minecraft changed the rules at <strong>26.1</strong>: Mojang released the game <strong>unobfuscated</strong> (readable
-Mojang names in the shipped jar, parameter names included) and <strong>Fabric&#39;s intermediary no
+Mojang names in the shipped jar, parameter names included) and <strong>Fabric's intermediary no
 longer exists</strong> for that era. The Fabric project <a href="https://fabricmc.net/2025/10/31/obfuscation.html">announced</a>
 that yarn is discontinued and mods must migrate to Mojang names.</p>
 <p>That is why AuthCore ships <strong>one jar per version range and loader</strong>, <strong>7 jars</strong> (3 ranges ×
@@ -136,18 +86,13 @@ behaviour for every mod today.</p>
 <blockquote>
 <p>🧩 <strong>Bonus: each jar also acts as a BungeeCord / Velocity plugin</strong> (<code>bungee.yml</code> +
 <code>velocity-plugin.json</code> + <code>in.potenfyr.authcore.proxy.*</code>). The proxy role is version-independent, so it
-is compiled once in <code>src/main/java</code> and lands in <strong>every</strong> jar, drop any jar into a proxy&#39;s
+is compiled once in <code>src/main/java</code> and lands in <strong>every</strong> jar, drop any jar into a proxy's
 <code>plugins/</code> folder and it auto-detects (config: <code>config/authcore-proxy.properties</code>).</p>
 </blockquote>
 <h2 id="source-layout">Source layout</h2>
 <pre><code>src/
-├── fabric/                 fabric entrypoint (FabricEntry.java)
-├── neoforge/               neoforge entrypoint (NeoForgeEntry.java)
-    └── main/                   ACTIVE merged tree - server mod + proxy plugin in ONE jar
-    ├── java/               all code (Mojang names; version-specific code gated by Stonecutter
-    │                      conditionals, e.g. /*? if &lt; 26 {*/; forge entrypoints included)
-    └── resources/          fabric.mod.json + mods.toml + neoforge.mods.toml + mixin configs
-                            + bungee.yml + velocity-plugin.json + assets (lang files, icon)
+├── fabric/ fabric entrypoint (FabricEntry.java)
+├── neoforge/ neoforge entrypoint (NeoForgeEntry.java) └── main/ ACTIVE merged tree - server mod + proxy plugin in ONE jar ├── java/ all code (Mojang names; version-specific code gated by Stonecutter │ conditionals, e.g. /*? if &lt; 26 {*/; forge entrypoints included) └── resources/ fabric.mod.json + mods.toml + neoforge.mods.toml + mixin configs + bungee.yml + velocity-plugin.json + assets (lang files, icon)
 </code></pre>
 <h2 id="building">Building</h2>
 <p>The build is a <strong>Stonecraft 1.14 + Stonecutter 0.9 workspace</strong>: <code>settings.gradle.kts</code>
@@ -158,20 +103,14 @@ registers one variant per (Minecraft, loader), <code>:1.18.2-fabric</code>, <cod
 <code>versions/dependencies/&lt;mc&gt;.properties</code>.</p>
 <pre><code class="language-bash"># Default build - the active Stonecutter version (1.21.11-fabric):
 ./gradlew build
-#  -&gt; versions/1.21.11-fabric/build/libs/authcore-1.19-1.21-fabric-1.0.0.jar
-
-# Every variant at once (Stonecutter chiseled build - all seven jars):
-./gradlew chiseledBuild
-
-# One specific variant:
+# -&gt; versions/1.21.11-fabric/build/libs/authcore-1.19-1.21-fabric-1.0.0.jar # Every variant at once (Stonecutter chiseled build - all seven jars):
+./gradlew chiseledBuild # One specific variant:
 ./gradlew :26.3-fabric:build
-#  -&gt; versions/26.3-fabric/build/libs/authcore-26.1-26.3-fabric-1.0.0.jar
+# -&gt; versions/26.3-fabric/build/libs/authcore-26.1-26.3-fabric-1.0.0.jar
 ./gradlew :26.3-neoforge:build
-#  -&gt; versions/26.3-neoforge/build/libs/authcore-26.1-26.3-neoforge-1.0.0.jar
+# -&gt; versions/26.3-neoforge/build/libs/authcore-26.1-26.3-neoforge-1.0.0.jar
 ./gradlew :1.21.11-forge:build
-#  -&gt; versions/1.21.11-forge/build/libs/authcore-1.19-1.21-forge-1.0.0.jar
-
-# Collect a built jar into the root build/libs (release pipeline / harness):
+# -&gt; versions/1.21.11-forge/build/libs/authcore-1.19-1.21-forge-1.0.0.jar # Collect a built jar into the root build/libs (release pipeline / harness):
 ./gradlew :1.18.2-fabric:collectJars
 </code></pre>
 <p>Missing JDK toolchains are auto-downloaded by the foojay resolver (17 for the 1.16-1.18
@@ -189,17 +128,14 @@ actionType == ContainerInput.THROW
 <ul>
 <li>Loader conditionals are registered automatically by Stonecraft: <code>fabric</code>, <code>forge</code>,
 <code>neoforge</code>, <code>forgeLike</code>.</li>
-<li>26.1-26.3 API differences already handled via conditionals:<ul>
-  <li><code>displayClientMessage(Component, boolean)</code> → <code>sendSystemMessage(Component, boolean)</code></li>
-  <li><code>ClickType</code> → <code>ContainerInput</code> (same constants)</li>
+<li>26.1-26.3 API differences already handled via conditionals:<ul> <li><code>displayClientMessage(Component, boolean)</code> → <code>sendSystemMessage(Component, boolean)</code></li> <li><code>ClickType</code> → <code>ContainerInput</code> (same constants)</li>
 </ul>
 </li>
 </ul>
 <h3 id="how-to-find-262-api-ground-truth">How to find 26.3 API ground truth</h3>
 <p>The 26.3 game jar is unobfuscated, so <code>javap</code> gives exact answers, point it at the 26.3
 merged game jar from the Gradle cache:</p>
-<pre><code class="language-bash">javap -cp &lt;path-to-26.3-minecraft-merged.jar&gt; \
-  net.minecraft.client.gui.screens.Screen
+<pre><code class="language-bash">javap -cp &lt;path-to-26.3-minecraft-merged.jar&gt; \ net.minecraft.client.gui.screens.Screen
 </code></pre>
 <hr>
 <h2 id="verified-on-real-servers">Verified on real servers</h2>
@@ -247,29 +183,11 @@ Older endpoints (fabric 1.16.5/1.17.1 provisioning, forge 1.19.4-1.21.1,
 neoforge 1.20.6/1.21.1) are being brought to full green; future lines (27+) get an
 open-ended <code>&lt;version&gt;+</code> range jar automatically.</p>
 <p>Run it yourself (requires only Docker):</p>
-<pre><code class="language-bash">test/build.sh                           # build all 7 variants in Docker (temurin, no local JDK needed)
-test/docker/run-tests.sh                # smoke: boot each build target (parallel)
-test/docker/run-tests.sh --all          # full range-endpoint matrix
+<pre><code class="language-bash">test/build.sh # build all 7 variants in Docker (temurin, no local JDK needed)
+test/docker/run-tests.sh # smoke: boot each build target (parallel)
+test/docker/run-tests.sh --all # full range-endpoint matrix
 </code></pre>
 <p>Options: <code>--all</code> / <code>--smoke</code> / <code>--groups &lt;ranges&gt;</code> / <code>--loaders &lt;names&gt;</code> / <code>--versions &lt;mc&gt;</code> / <code>--jar &lt;path&gt;</code> /
 <code>--parallel &lt;n&gt;</code> / <code>--timeout &lt;sec&gt;</code>.
 The harness caches server downloads between runs and
-writes <code>test/docker/report/</code>.</p>
-
-    
-    
-    
-    
-    </article>
-  </main>
-</div>
-<button id="toTop" aria-label="Back to top">↑</button>
-<footer>
-  <strong>AuthCore</strong>, The Fortress Framework for Minecraft Servers ·
-  <a href="https://github.com/PotenFYR-Studios/AuthCore" target="_blank" rel="noopener">GitHub</a> ·
-  <a href="https://modrinth.com/mod/authCore" target="_blank" rel="noopener">Modrinth</a>
-</footer>
-
-
-</body>
-</html>
+writes <code>test/docker/report/</code>.</p> </article> </main> <button id="toTop" aria-label="Back to top">↑</button> 

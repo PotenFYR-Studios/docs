@@ -1,5 +1,5 @@
 /*
- * repos.tsx — /repos catalog with client-side search + category filter
+ * repos.tsx-/repos catalog with client-side search + category filter
  * (?cat=), and the per-repo docs reader at /repo/<slug>[/…path] with a
  * file-tree sidebar, TOC rail, prev/next, and lazy-loaded content chunk.
  */

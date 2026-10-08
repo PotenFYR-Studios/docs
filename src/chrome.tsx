@@ -1,5 +1,5 @@
 /*
- * chrome.tsx — top navbar + footer shell.
+ * chrome.tsx-top navbar + footer shell.
  */
 import * as React from "react";
 import { Link, useRouteParts } from "./router";

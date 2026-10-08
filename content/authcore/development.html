@@ -1,54 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Development & Architecture - AuthCore Docs</title>
-
-<meta name="description" content="Build system, multi-version / multi-loader management, testing.">
-<meta property="og:title" content="Development & Architecture - AuthCore Docs">
-<meta property="og:description" content="Build system, multi-version / multi-loader management, testing.">
-<meta property="og:type" content="website">
-
-
-</head>
-<body>
-
-<div id="progress"></div>
-<div id="top" aria-hidden="true"></div>
-
-  <header class="site-header">
-    <a class="brand" href="../../index.html">
-      <span class="brand-text">AuthCore<span class="brand-dot">.</span>docs</span>
-    </a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="site-nav">
-      <a class="nav-link" href="../../index.html">Home</a>
-      <a class="nav-link" href="../../#/repo/authcore/index">Docs Hub</a>
-      <a class="nav-link" href="../../#/repo/authcore/guide">Admin Guide</a>
-      <a class="nav-link" href="../../#/repo/authcore/flows">Flows</a>
-      <a class="nav-link" href="../../#/repo/authcore/config">Config</a>
-      <a class="nav-link" href="../../#/repo/authcore/proxy">Proxy</a>
-      <a class="nav-link" href="../../#/repo/authcore/webpanel">Web Panel</a>
-      <a class="nav-link" href="../../#/repo/authcore/security">Security</a>
-      <a class="nav-link" href="../../docs/1.0.0/26x.html">26.x</a>
-      <a class="nav-link" href="../../#/repo/authcore/api">API</a>
-      <a class="nav-link active" href="../../#/repo/authcore/development">Dev</a>
-      <a class="nav-link" href="../../#/repo/authcore/changelog">Changelog</a>
-      <a class="nav-link nav-gh" href="https://github.com/PotenFYR-Studios/AuthCore" target="_blank" rel="noopener">GitHub ↗</a>
-    </nav>
-  </header>
-<div class="layout">
-  <aside class="toc" id="toc">
-    <div class="toc-title">On this page</div>
-    <ul><li class="toc-item toc-2"><a href="#1-overview">1. Overview</a></li><li class="toc-item toc-2"><a href="#2-build-system">2. Build system</a></li><li class="toc-item toc-3"><a href="#key-files">Key files</a></li><li class="toc-item toc-3"><a href="#the-variant-model">The variant model</a></li><li class="toc-item toc-3"><a href="#building">Building</a></li><li class="toc-item toc-2"><a href="#3-source-architecture">3. Source architecture</a></li><li class="toc-item toc-2"><a href="#4-managing-multiple-minecraft-versions">4. Managing multiple Minecraft versions</a></li><li class="toc-item toc-3"><a href="#41-version-groups">4.1 Version groups</a></li><li class="toc-item toc-3"><a href="#42-why-the-ranges-are-where-they-are">4.2 Why the ranges are where they are</a></li><li class="toc-item toc-3"><a href="#43-stonecutter-conditionals">4.3 Stonecutter conditionals</a></li><li class="toc-item toc-3"><a href="#44-discipline-what-keeps-the-promise-alive">4.4 Discipline (what keeps the promise alive)</a></li><li class="toc-item toc-2"><a href="#5-managing-multiple-loaders">5. Managing multiple loaders</a></li><li class="toc-item toc-2"><a href="#6-testing">6. Testing</a></li><li class="toc-item toc-3"><a href="#61-unit--security-tests-test-security">6.1 Unit / security tests (test/)</a></li><li class="toc-item toc-3"><a href="#62-host-compatibility-harness-testdocker">6.2 Host-compatibility harness (test/docker)</a></li><li class="toc-item toc-3"><a href="#63-mfa--sso-verification">6.3 MFA / SSO verification</a></li><li class="toc-item toc-2"><a href="#7-roadmap">7. Roadmap</a></li></ul>
-  </aside>
-  <main>
-    <article>
-
-<h1>AuthCore, Development &amp; Architecture</h1>
+ <main> <article> <h1>AuthCore, Development &amp; Architecture</h1>
 <p>This document explains <strong>how AuthCore is built</strong>, <strong>how the codebase is organized</strong> and
 <strong>how multi-version / multi-loader support is managed</strong> so contributors can extend the mod
 without breaking the 1.16.x - 26.1-26.3 compatibility promise.</p>
@@ -95,29 +45,26 @@ version-group endpoint inside Docker (see §6).</li>
 </tr>
 </tbody></table>
 <h3 id="key-files">Key files</h3>
-<pre><code>settings.gradle.kts        # plugin management + the version/loader matrix (stonecutter.shared)
-stonecutter.gradle.kts     # auto-managed &quot;active&quot; variant (IDE + bare `gradlew` use this one)
-build.gradle.kts           # central build script, evaluated once per variant
-gradle.properties          # mod metadata + third-party library versions
-versions/dependencies/
-  1.18.2.properties        # per-version loader/API pins (minecraft, fabric, forge, neoforge)
-  1.21.11.properties
-  26.3.properties
+<pre><code>settings.gradle.kts # plugin management + the version/loader matrix (stonecutter.shared)
+stonecutter.gradle.kts # auto-managed "active" variant (IDE + bare `gradlew` use this one)
+build.gradle.kts # central build script, evaluated once per variant
+gradle.properties # mod metadata + third-party library versions
+versions/dependencies/ 1.18.2.properties # per-version loader/API pins (minecraft, fabric, forge, neoforge) 1.21.11.properties 26.3.properties
 </code></pre>
 <h3 id="the-variant-model">The variant model</h3>
 <p>Every released jar is one <strong>variant</strong> (a generated Gradle project in <code>versions/&lt;mc&gt;-&lt;loader&gt;/</code>).
 <code>stonecutter.shared</code> in <code>settings.gradle.kts</code> declares the matrix:</p>
-<pre><code class="language-kotlin">mc(&quot;1.18.2&quot;, &quot;fabric&quot;, &quot;forge&quot;)              // G1 jars: authcore-1.16-1.18-{fabric,forge}-&lt;v&gt;.jar
-mc(&quot;1.21.11&quot;, &quot;fabric&quot;, &quot;forge&quot;, &quot;neoforge&quot;) // G2 jars: authcore-1.19-1.21-{fabric,forge,neoforge}-&lt;v&gt;.jar
-mc(&quot;26.3&quot;, &quot;fabric&quot;, &quot;neoforge&quot;)             // G3 jars: authcore-26.1-26.3-{fabric,neoforge}-&lt;v&gt;.jar
+<pre><code class="language-kotlin">mc("1.18.2", "fabric", "forge") // G1 jars: authcore-1.16-1.18-{fabric,forge}-&lt;v&gt;.jar
+mc("1.21.11", "fabric", "forge", "neoforge") // G2 jars: authcore-1.19-1.21-{fabric,forge,neoforge}-&lt;v&gt;.jar
+mc("26.3", "fabric", "neoforge") // G3 jars: authcore-26.1-26.3-{fabric,neoforge}-&lt;v&gt;.jar
 </code></pre>
-<p><code>vcsVersion = &quot;1.21.11-fabric&quot;</code> is the <strong>active</strong> variant: the raw template sources are
+<p><code>vcsVersion = "1.21.11-fabric"</code> is the <strong>active</strong> variant: the raw template sources are
 written in its output state (see §4), IDEs and <code>gradlew build</code> act on it.</p>
 <h3 id="building">Building</h3>
-<pre><code class="language-bash">./gradlew :1.21.11-fabric:build          # build one variant
-./gradlew build                          # build the active variant only
-./gradlew chiseledBuild                  # build ALL variants (fan-out)
-./gradlew :&lt;variant&gt;:collectJars         # copy a variant jar into build/libs
+<pre><code class="language-bash">./gradlew :1.21.11-fabric:build # build one variant
+./gradlew build # build the active variant only
+./gradlew chiseledBuild # build ALL variants (fan-out)
+./gradlew :&lt;variant&gt;:collectJars # copy a variant jar into build/libs
 </code></pre>
 <p>Notes:</p>
 <ul>
@@ -125,34 +72,22 @@ written in its output state (see §4), IDEs and <code>gradlew build</code> act o
 (MC 26.3 enforces it); the foojay resolver downloads 17/21/25 toolchains automatically.</li>
 <li>Runtime libraries (SQLite/MySQL/PostgreSQL JDBC, Redis, HOCON configurate, password4j,
 bouncycastle, gson, kotlin-stdlib, two-factor-auth) are <strong>shaded</strong> into the jar with
-Loom&#39;s <code>include</code>; Floodgate, LuckPerms, Bungee/ Velocity APIs are <code>compileOnly</code>.</li>
+Loom's <code>include</code>; Floodgate, LuckPerms, Bungee/ Velocity APIs are <code>compileOnly</code>.</li>
 <li>Released artifacts land in <code>dist/</code> as <code>authcore-&lt;range&gt;-&lt;loader&gt;-&lt;modversion&gt;.jar</code>.</li>
 </ul>
 <hr>
 <h2 id="3-source-architecture">3. Source architecture</h2>
 <pre><code>src/
-├── fabric/                  # fabric entrypoint only: FabricEntry.java
-├── neoforge/                # neoforge entrypoint only: NeoForgeEntry.java
-└── main/java/in/potenfyr/authcore/
-    ├── AuthCoreServer.java  # main entrypoint (loader-neutral start()) + startup banner
-    ├── api/                 # AuthCoreApi - public API for other mods
-    ├── command/             # /authcore command trees (Admin, Account, Login, Register, Discord)
-    ├── compat/              # Compat - reflection bridges for version-drifting APIs
-    ├── entrypoint/          # ForgeEntry (+ ForgeEntryModern) - forge @Mod classes
-    ├── events/              # block/item/entity interaction + player join handlers
-    ├── mixin/               # server mixins
-    ├── models/              # Config, Lobby, Messages, User (session state)
-    ├── network/             # web panel, interop channel, Mojang/GeoIP lookups, Redis
-    ├── proxy/               # BungeeCord / Velocity plugin entrypoints (same jar!)
-    ├── security/            # Security, Honeypot, RateLimiter, SecurityLog, Backups, ...
-    └── util/                # Database, HoconConf, Registry, FabricHooks, Logger, ...
+├── fabric/ # fabric entrypoint only: FabricEntry.java
+├── neoforge/ # neoforge entrypoint only: NeoForgeEntry.java
+└── main/java/in/potenfyr/authcore/ ├── AuthCoreServer.java # main entrypoint (loader-neutral start()) + startup banner ├── api/ # AuthCoreApi - public API for other mods ├── command/ # /authcore command trees (Admin, Account, Login, Register, Discord) ├── compat/ # Compat - reflection bridges for version-drifting APIs ├── entrypoint/ # ForgeEntry (+ ForgeEntryModern) - forge @Mod classes ├── events/ # block/item/entity interaction + player join handlers ├── mixin/ # server mixins ├── models/ # Config, Lobby, Messages, User (session state) ├── network/ # web panel, interop channel, Mojang/GeoIP lookups, Redis ├── proxy/ # BungeeCord / Velocity plugin entrypoints (same jar!) ├── security/ # Security, Honeypot, RateLimiter, SecurityLog, Backups, ... └── util/ # Database, HoconConf, Registry, FabricHooks, Logger, ...
 src/main/resources/
-├── fabric.mod.json         # fabric metadata (placeholders expanded at build time)
-├── META-INF/mods.toml              # forge metadata (excluded from fabric jars)
-├── META-INF/neoforge.mods.toml     # neoforge metadata (excluded from fabric jars)
+├── fabric.mod.json # fabric metadata (placeholders expanded at build time)
+├── META-INF/mods.toml # forge metadata (excluded from fabric jars)
+├── META-INF/neoforge.mods.toml # neoforge metadata (excluded from fabric jars)
 ├── authcore.server.mixins.json
-├── bungee.yml, velocity-plugin.json   # proxy metadata (same jar)
-└── assets/authcore/        # icon + bundled translations
+├── bungee.yml, velocity-plugin.json # proxy metadata (same jar)
+└── assets/authcore/ # icon + bundled translations
 </code></pre>
 <hr>
 <h2 id="4-managing-multiple-minecraft-versions">4. Managing multiple Minecraft versions</h2>
@@ -201,7 +136,7 @@ candidate ids; also works on unobfuscated 26.1-26.3 via the mojmap name).</li>
 <li><code>ActionResult</code> constants, on 1.20.5+ they became classes with nested subclasses and the
 1.21.11 mappings type them as <code>ActionResult$Pass</code> etc. A direct field reference
 compiled for 1.21.11 fails to load on 1.20.6 → <code>Compat.actionResultPass()/Fail()</code>
-resolve by field name (&quot;PASS&quot;/&quot;FAIL&quot;, or stable intermediary ids <code>field_5811</code>/<code>field_5814</code>).</li>
+resolve by field name ("PASS"/"FAIL", or stable intermediary ids <code>field_5811</code>/<code>field_5814</code>).</li>
 <li><code>ScreenHandler.clicked</code>, <code>(…ClickType…)LItemStack;</code> on 1.16, <code>(…ClickType…)V</code> on 1.17-1.21,
 <code>(…ContainerInput…)V</code> on 26.1-26.3 → two mixins with <strong>descriptor-based selectors</strong>,
 each <code>require = 0</code>, so exactly one matches per runtime.</li>
@@ -219,13 +154,7 @@ linkage exists in the jar.</li>
 <p>Code that differs between versions is written with preprocessor comments. The template
 files are kept in the <strong>active (1.21.11) output state</strong>, the branch that matches 1.21.11
 is active code, every other branch is <code>/*...*/</code>-commented:</p>
-<pre><code class="language-java">  @Inject(
-      method =
-          /*? if &lt; 1.19.4 {*/
-          /*&quot;clicked(IILnet/minecraft/world/inventory/ClickType;Lnet/minecraft/world/entity/player/Player;)V&quot;,
-          *//*?} else {*/
-          &quot;clicked(IILnet/minecraft/world/inventory/ContainerInput;Lnet/minecraft/world/entity/player/Player;)V&quot;,
-          /*?}*/
+<pre><code class="language-java"> @Inject( method = /*? if &lt; 1.19.4 {*/ /*"clicked(IILnet/minecraft/world/inventory/ClickType;Lnet/minecraft/world/entity/player/Player;)V", *//*?} else {*/ "clicked(IILnet/minecraft/world/inventory/ContainerInput;Lnet/minecraft/world/entity/player/Player;)V", /*?}*/
 </code></pre>
 <p>Supported: <code>if</code>, <code>else if</code>, <code>else</code>, version comparisons (<code>&lt; 1.19.4</code>, <code>&gt;= 1.20.5</code>, <code>= 26.3</code>),
 loader constants (<code>fabric</code>, <code>forge</code>, <code>neoforge</code>, <code>forgeLike</code>). <strong>Never put conditionals
@@ -314,22 +243,4 @@ on join, <code>trustVanilla</code> fallback. Every Redis call degrades to a no-o
 <li><strong>P3</strong> GameTest deep suite (register/login flows, lobby restrictions, 2FA) + automated
 mapping-stability check (intermediary-id diff between range endpoints) in CI.</li>
 <li><strong>P4</strong> Modrinth / CurseForge publish automation.</li>
-</ul>
-
-    
-    
-    
-    
-    </article>
-  </main>
-</div>
-<button id="toTop" aria-label="Back to top">↑</button>
-<footer>
-  <strong>AuthCore</strong>, The Fortress Framework for Minecraft Servers ·
-  <a href="https://github.com/PotenFYR-Studios/AuthCore" target="_blank" rel="noopener">GitHub</a> ·
-  <a href="https://modrinth.com/mod/authCore" target="_blank" rel="noopener">Modrinth</a>
-</footer>
-
-
-</body>
-</html>
+</ul> </article> </main> <button id="toTop" aria-label="Back to top">↑</button> 

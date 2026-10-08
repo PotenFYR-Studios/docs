@@ -1,5 +1,5 @@
 /*
- * deck.tsx — the PotenFYR command deck (⌘K terminal-style overlay).
+ * deck.tsx-the PotenFYR command deck (⌘K terminal-style overlay).
  * Commands: help, ls [repo], all, open <slug>, goto <repo/page>, search <q>,
  * stars, eggs, konami, clear, whoami, sudo, exit. Fuzzy `goto`/open matching.
  */
@@ -94,8 +94,8 @@ export function Deck() {
       case "ls": {
         if (rest) {
           const r = (registry.repos as RepoEntry[]).find((x) => x.slug === rest.toLowerCase() || x.label.toLowerCase() === rest.toLowerCase());
-          if (!r) { push({ kind: "err", text: `no repo named "${rest}" — try ls` }); return; }
-          push({ kind: "ok", text: `${r!.label} (${r.category}) — ${r!.pageList.length} page(s):` });
+          if (!r) { push({ kind: "err", text: `no repo named "${rest}"-try ls` }); return; }
+          push({ kind: "ok", text: `${r!.label} (${r.category})-${r!.pageList.length} page(s):` });
           for (const p of r!.pageList) push({ kind: "out", text: `  ${p.path}${p.overview ? "  [overview]" : ""}` });
         } else {
           push({ kind: "ok", text: `${registry.repos.length} repos available:` });
@@ -131,7 +131,7 @@ export function Deck() {
         push({ kind: "out", text: "docs visitor · powered by curiosity" });
         break;
       case "sudo":
-        push({ kind: "err", text: "nice try — this deck is read-only by design." });
+        push({ kind: "err", text: "nice try-this deck is read-only by design." });
         break;
       case "exit":
         setDeckOpen(false);
@@ -146,7 +146,7 @@ export function Deck() {
         push({ kind: "out", text: "  =^.^=" });
         break;
       default:
-        push({ kind: "err", text: `unknown command "${head}" — try: ${COMMANDS.slice(0, 6).join(", ")}…` });
+        push({ kind: "err", text: `unknown command "${head}"-try: ${COMMANDS.slice(0, 6).join(", ")}…` });
     }
   }
 
@@ -232,7 +232,7 @@ export function DeckButton({ className }: { className?: string }) {
   return (
     <button
       onClick={() => setDeckOpen(true)}
-      title="Command deck — ⌘K"
+      title="Command deck-⌘K"
       className={cn(
         "group flex items-center gap-2 rounded-xl border border-rog-line bg-rog-panel/70 px-3 py-2 text-rog-dim transition-colors hover:border-rog-sky/50 hover:text-rog-frost",
         className

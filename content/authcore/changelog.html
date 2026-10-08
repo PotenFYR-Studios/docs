@@ -1,54 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Changelog - AuthCore Docs</title>
-
-<meta name="description" content="Full release history, from the first alpha to 1.0.1.">
-<meta property="og:title" content="Changelog - AuthCore Docs">
-<meta property="og:description" content="Full release history, from the first alpha to 1.0.1.">
-<meta property="og:type" content="website">
-
-
-</head>
-<body>
-
-<div id="progress"></div>
-<div id="top" aria-hidden="true"></div>
-
-  <header class="site-header">
-    <a class="brand" href="../../index.html">
-      <span class="brand-text">AuthCore<span class="brand-dot">.</span>docs</span>
-    </a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="site-nav">
-      <a class="nav-link" href="../../index.html">Home</a>
-      <a class="nav-link" href="../../#/repo/authcore/index">Docs Hub</a>
-      <a class="nav-link" href="../../#/repo/authcore/guide">Admin Guide</a>
-      <a class="nav-link" href="../../#/repo/authcore/flows">Flows</a>
-      <a class="nav-link" href="../../#/repo/authcore/config">Config</a>
-      <a class="nav-link" href="../../#/repo/authcore/proxy">Proxy</a>
-      <a class="nav-link" href="../../#/repo/authcore/webpanel">Web Panel</a>
-      <a class="nav-link" href="../../#/repo/authcore/security">Security</a>
-      <a class="nav-link" href="../../docs/1.0.0/26x.html">26.x</a>
-      <a class="nav-link" href="../../#/repo/authcore/api">API</a>
-      <a class="nav-link" href="../../#/repo/authcore/development">Dev</a>
-      <a class="nav-link active" href="../../#/repo/authcore/changelog">Changelog</a>
-      <a class="nav-link nav-gh" href="https://github.com/PotenFYR-Studios/AuthCore" target="_blank" rel="noopener">GitHub ↗</a>
-    </nav>
-  </header>
-<div class="layout">
-  <aside class="toc" id="toc">
-    <div class="toc-head"><div class="toc-title">On this page</div><span class="toc-count">23 topics</span></div>
-    <ul><li class="toc-item toc-2"><a href="#100---2026-08-15">[1.0.0] - 2026-08-15</a></li><li class="toc-item toc-3"><a href="#hybrid-mode-per-account-login-style--release-hardening-latest">Hybrid mode, per-account login style & release hardening (latest)</a></li><li class="toc-item toc-3"><a href="#limbo-performance--configuration-overhaul">Limbo, performance & configuration overhaul</a></li><li class="toc-item toc-3"><a href="#119-121-backward-compatibility-neoforge-211x">1.19-1.21 backward compatibility (NeoForge 21.1.x)</a></li><li class="toc-item toc-3"><a href="#out-of-the-box-experience--hardening-2026-08-14">Out-of-the-box experience & hardening (2026-08-14)</a></li><li class="toc-item toc-3"><a href="#universal-single-jar-architecture-116x---261-262-2026-08-11">Universal single-jar architecture (1.16.x - 26.1-26.2) (2026-08-11)</a></li><li class="toc-item toc-3"><a href="#multi-loader--multi-version-workspace-stonecutter--stonecraft">Multi-loader & multi-version workspace (Stonecutter / Stonecraft)</a></li><li class="toc-item toc-3"><a href="#modrinth-version-range-fix">Modrinth version range fix</a></li><li class="toc-item toc-3"><a href="#security--anti-bypass">Security & anti-bypass</a></li><li class="toc-item toc-3"><a href="#security-fixes-found-by-the-new-test-suite">Security fixes found by the new test suite</a></li><li class="toc-item toc-3"><a href="#performance-for-100k-users">Performance for 100k+ users</a></li><li class="toc-item toc-3"><a href="#race-condition-hardening">Race-condition hardening</a></li><li class="toc-item toc-3"><a href="#new-features">New features</a></li><li class="toc-item toc-3"><a href="#quality">Quality</a></li><li class="toc-item toc-3"><a href="#bot--backend-separation">Bot / backend separation</a></li><li class="toc-item toc-3"><a href="#tooling">Tooling</a></li><li class="toc-item toc-3"><a href="#cleanup">Cleanup</a></li><li class="toc-item toc-3"><a href="#single-human-verification-map-captcha--gui-removal-intelligence-overhaul-2026-08-16">Single human verification (map captcha & GUI removal, intelligence overhaul) (2026-08-16)</a></li><li class="toc-item toc-2"><a href="#100-alpha5---2026-08-08">[1.0.0-alpha.5] - 2026-08-08</a></li><li class="toc-item toc-2"><a href="#100-alpha4---2026-08-08">[1.0.0-alpha.4] - 2026-08-08</a></li><li class="toc-item toc-2"><a href="#100-alpha3---2026-08-08">[1.0.0-alpha.3] - 2026-08-08</a></li><li class="toc-item toc-2"><a href="#100-alpha2---2026-08-08">[1.0.0-alpha.2] - 2026-08-08</a></li><li class="toc-item toc-2"><a href="#100-alpha1---2026-01-01">[1.0.0-alpha.1] - 2026-01-01</a></li></ul>
-    <div class="toc-progress"><span></span></div>
-    <a class="toc-top" href="#top">Back to top</a>
-  </aside>
-  <main>
-    <article>
+ <main> <article>
 <div align="center" style="font-family: 'Clash of Clans', 'Comic Sans MS', 'Comic Sans', cursive;"><h1>AuthCore Changelog</h1>
 <p>All notable changes to AuthCore, from the first alpha to the current release.</p>
 <p></p>
@@ -96,7 +46,7 @@ forwarded to clients.</li>
 <ul>
 <li>Every <code>main</code> push that passes build + host tests republishes the <code>latest</code>
 GitHub release: same-version uploads REPLACE the jars and regenerate the changelog notes;
-the stable <code>v*</code> tag release remains the &quot;Latest&quot; release.</li>
+the stable <code>v*</code> tag release remains the "Latest" release.</li>
 <li>Test suite grown to 180+ checks (spoof guard, trusted proxies + CIDR, proxy config
 strictness, interop parsing, session cache); the Docker harness now verifies server-mode
 auto-detection and banner data correctness on every leg.</li>
@@ -110,8 +60,8 @@ auth defaults.</p>
 <h3 id="hybrid-mode-per-account-login-style--release-hardening">Hybrid mode, per-account login style &amp; release hardening</h3>
 <p><strong>Anti-float platform - mid-air logouts can never kick players in the limbo</strong></p>
 <ul>
-<li>A player who logs out mid-air (or underwater) used to be kicked by vanilla&#39;s
-&quot;Flying is not enabled&quot; floating check while standing in the limbo. AuthCore now
+<li>A player who logs out mid-air (or underwater) used to be kicked by vanilla's
+"Flying is not enabled" floating check while standing in the limbo. AuthCore now
 places an invisible BARRIER platform under the limbo player (<code>lobby.anti-float-platform</code>,
 on by default); diving players are stood on a platform at the water/lava surface instead
 of being left submerged. The original block is restored shortly after the authentication
@@ -119,7 +69,7 @@ flow completes (<code>lobby.anti-float-platform-delay-ms</code>, default 10 seco
 overwriting a block another player placed in the meantime.</li>
 <li><strong>Crash recovery for the limbo</strong> (already present, verified): the pre-limbo snapshot
 (exact position + dimension, inventory, effects, game mode, health/food/xp) is persisted
-at lock time; if the server (or the player&#39;s session) crashes mid-limbo, the snapshot is
+at lock time; if the server (or the player's session) crashes mid-limbo, the snapshot is
 restored on the next join BEFORE the fresh lock, so after login the player always returns
 to the exact spot they were at their last disconnect - regardless of the admin-configured
 limbo location.</li>
@@ -135,7 +85,7 @@ restriction is fully packet-level on NeoForge and every 26.x jar.</li>
 <li>The <code>session.server-mode</code> setting is removed entirely: the mod always reads the real
 <code>online-mode</code> from the running Minecraft server (<code>MinecraftServer#usesAuthentication</code>).
 Premium auto-login works the same on online AND offline-mode servers (on offline servers
-AuthCore re-runs the vanilla encryption handshake and verifies with the server&#39;s own
+AuthCore re-runs the vanilla encryption handshake and verifies with the server's own
 Mojang session service - no external API calls; failures fall back to offline
 register/login, players are never blocked or kicked).</li>
 <li>Online-mode servers get a startup warning to keep <code>enable-secure-profile=false</code> in
@@ -147,9 +97,9 @@ can still join and chat.</li>
 <li>New <code>allow-offline-players</code> config (session.authentication, default <code>true</code>): with it on,
 offline (cracked) players can join and register/login on <strong>online-mode servers too</strong> -
 the login mixin intercepts offline-UUID clients on online-mode servers and runs them
-through vanilla&#39;s own offline accept flow (no Mojang session check, offline UUID kept;
+through vanilla's own offline accept flow (no Mojang session check, offline UUID kept;
 online-mode players still use their real UUID and the normal session verification).
-Fail-safe: on versions where the offline accept flow cannot be driven, vanilla&#39;s normal
+Fail-safe: on versions where the offline accept flow cannot be driven, vanilla's normal
 rejection takes over - nobody is stranded.</li>
 <li>With <code>allow-offline-players = false</code> the server is online-mode-only everywhere: offline
 players are kicked with a clear message on arrival (join gate, before session resume /
@@ -157,7 +107,7 @@ register / login), and on online-mode servers they are disconnected at login.</l
 </ul>
 <p><strong>Premium auto-login respects its config on BOTH modes; auto-login players keep a null password</strong></p>
 <ul>
-<li>The <code>premium-auto-login</code> config (on by default) is now honored regardless of the server&#39;s
+<li>The <code>premium-auto-login</code> config (on by default) is now honored regardless of the server's
 mode. Auto-login players are NEVER given an auto-generated password - their stored
 password stays null (the old <code>premium-auto-register</code> random-password path is removed).</li>
 <li>If auto-login is turned off (or a player switches to password login), verified online-mode
@@ -168,7 +118,7 @@ auto-login simply resumes when the config (or their mode choice) is switched bac
 <p><strong>Per-account login style: players and admins can switch online/offline mode</strong></p>
 <ul>
 <li>New player command <code>/account set-mode online|offline</code> (permission <code>authcore.user.setmode</code>,
-level 0): switches the player&#39;s own account between automatic login and password login.</li>
+level 0): switches the player's own account between automatic login and password login.</li>
 <li>Switching to password login is smart about passwords: a player who ALREADY has a stored
 password keeps it and simply logs in with it (<code>/login</code>); only auto-login accounts with a
 null password are asked to <code>/register</code> a new one. The active session is destroyed either
@@ -176,17 +126,17 @@ way so the change takes effect on the next join.</li>
 <li><code>/authcore set-mode offline &lt;player&gt;</code> no longer takes a password argument and follows the
 same rule (existing password kept / register when null). Both admin mode commands destroy
 the session too.</li>
-<li>A player&#39;s own mode choice is honored on join: accounts explicitly set to password login
+<li>A player's own mode choice is honored on join: accounts explicitly set to password login
 are never auto-logged-in, even on an online-mode server where the session was verified.</li>
 </ul>
-<p><strong>Terminology: &quot;premium&quot;/&quot;cracked&quot; replaced project-wide</strong></p>
+<p><strong>Terminology: "premium"/"cracked" replaced project-wide</strong></p>
 <ul>
 <li>Non-user-facing text (console logs, debug output, admin commands, web panel labels, code
 comments, docs) now uses <strong>online-mode players</strong> and <strong>offline-mode players</strong> instead of
-&quot;premium players&quot; and &quot;cracked players&quot;. Internal identifiers and the <code>premium-auto-login</code>
+"premium players" and "cracked players". Internal identifiers and the <code>premium-auto-login</code>
 config key stay unchanged for API/config compatibility.</li>
-<li>Player-facing messages stay human: auto-login greets with &quot;Welcome to the Server!&quot;, mode
-switches talk about &quot;automatic login&quot; / &quot;password login&quot; - no technical jargon anywhere
+<li>Player-facing messages stay human: auto-login greets with "Welcome to the Server!", mode
+switches talk about "automatic login" / "password login" - no technical jargon anywhere
 in chat, titles or kick screens.</li>
 </ul>
 <p><strong>Limbo guard debug output</strong></p>
@@ -194,7 +144,7 @@ in chat, titles or kick screens.</li>
 <li>The per-join limbo guard report is now debug-level and formatted like the startup banner:
 one aligned row per guard (movement / chat / commands / block-break / block-use / item-use
 / item-drop / attacks, each <code>allowed</code> or <code>LOCKED</code>) plus a live lobby-usage line
-(&quot;35% used (7/20)&quot;, &quot;unlimited&quot; when no cap).</li>
+("35% used (7/20)", "unlimited" when no cap).</li>
 </ul>
 <p><strong>Scale, race-condition safety &amp; docs</strong></p>
 <ul>
@@ -226,8 +176,8 @@ player movement.</li>
 armor equipping), while the chat input is NEVER interrupted, so <code>/register</code> and <code>/login</code>
 always work. A periodic force-close packet was tried and removed again: the client closes
 ANY screen (including chat) on a container-close packet, and there is no server-side
-signal for &quot;inventory open&quot;; click-based blocking is the only safe approach.</li>
-<li><strong>Attack-callback fix (the &quot;can&#39;t hit mobs&quot; bug)</strong>: the fabric <code>AttackEntityCallback</code>
+signal for "inventory open"; click-based blocking is the only safe approach.</li>
+<li><strong>Attack-callback fix (the "can't hit mobs" bug)</strong>: the fabric <code>AttackEntityCallback</code>
 listener was registered under the wrong method name (<code>attack</code> instead of <code>interact</code>),
 so the reflective proxy returned null for every attack and the fabric event cancelled
 ALL attacks for everyone, in and out of the lobby. One-line fix.</li>
@@ -283,14 +233,14 @@ with <code>InvalidInjectionException</code>.</li>
 <li><strong>NeoForge 21.1.x boot fixed</strong>: the <code>1.19-1.21</code> NeoForge jar crashed at startup on
 NeoForge 21.1.x (e.g. 21.1.248, Minecraft 1.21.1) with a <code>NoClassDefFoundError</code> on
 <code>net/minecraft/resources/Identifier</code> - the <code>ResourceLocation</code> → <code>Identifier</code> rename
-happened at 1.21.11, so the build target&#39;s class name could not load on older 1.21.x.
+happened at 1.21.11, so the build target's class name could not load on older 1.21.x.
 The font style no longer calls <code>Identifier.tryParse()</code> directly (it is a deliberate
 no-op - the font API keeps changing shape every version and the old reflective lookups
 hung the server thread), and <code>Compat</code>/<code>Lobby</code> no longer import either class name - the
 compat layer stays fully reflective.</li>
 <li><strong>NeoForge loader minimum corrected</strong>: <code>neoforge.mods.toml</code> no longer requires
 <code>[21.11.45,)</code> (the build-target pin, which rejected every NeoForge 21.1.x server). The
-G2 jar now declares <code>[20.2.59-beta,)</code> (the first NeoForge supporting the group&#39;s lowest
+G2 jar now declares <code>[20.2.59-beta,)</code> (the first NeoForge supporting the group's lowest
 Minecraft version), matching the Forge/Fabric minimums.</li>
 <li><strong>gson no longer bundled in NeoForge jars</strong>: the shaded <code>com.google.gson</code> inside the
 jar-in-jar set made the NeoForge module layer ambiguous (<code>com.google.gson</code> is already
@@ -301,13 +251,13 @@ Minecraft 1.21.1 (with the matching NeoForge 21.1.x / Fabric / Forge loaders) in
 addition to 1.19.4, 1.20.6 and 1.21.11, so this regression is caught automatically.</li>
 </ul>
 <h3 id="out-of-the-box-experience--hardening-2026-08-14">Out-of-the-box experience &amp; hardening (2026-08-14)</h3>
-<p><strong>Server mode is now auto-detected (<code>server-mode = &quot;auto&quot;</code>, the new default)</strong></p>
+<p><strong>Server mode is now auto-detected (<code>server-mode = "auto"</code>, the new default)</strong></p>
 <ul>
 <li>The real <code>server.properties</code> online-mode is read from the running server
 (<code>MinecraftServer#usesAuthentication</code>) - cracked AND premium servers work with zero config
 changes. Explicit <code>online</code>/<code>offline</code> values still override, with a one-time mismatch warning.</li>
-<li>Previously the default (<code>&quot;online&quot;</code>) kicked online-mode players on offline-mode servers with a
-bogus &quot;Your Authentication Token is invalid&quot; (premium-UUID mismatch against their
+<li>Previously the default (<code>"online"</code>) kicked online-mode players on offline-mode servers with a
+bogus "Your Authentication Token is invalid" (premium-UUID mismatch against their
 offline-mode UUID) and silently auto-registered offline-mode players as premium (no
 register/login prompt, no limbo). Both are fixed.</li>
 </ul>
@@ -315,17 +265,17 @@ register/login prompt, no limbo). Both are fixed.</li>
 <ul>
 <li>Premium status of new accounts is verified <strong>asynchronously</strong> (IO pool) - the join path
 makes zero blocking Mojang API calls.</li>
-<li>If the Mojang API is unreachable at join, the player is shown &quot;Checking your premium
-account...&quot; and the check <strong>auto-retries in the background</strong> (every 20s, up to 4 min) -
+<li>If the Mojang API is unreachable at join, the player is shown "Checking your premium
+account..." and the check <strong>auto-retries in the background</strong> (every 20s, up to 4 min) -
 auto-register + auto-login resume the moment the API confirms the name.</li>
 <li>Tri-state premium lookups (<code>PREMIUM</code> / <code>NOT_PREMIUM</code> / <code>UNAVAILABLE</code>) so a cached null can
 never be mistaken for a definitive negative; API failures are throttled (30s error cache).</li>
-<li>HTTP 204 (&quot;not a premium profile&quot;) now counts as a healthy API response - previously every
-offline-UUID lookup decayed the API-health window and produced bogus &quot;Mojang API is
-currently unreachable&quot; warnings.</li>
+<li>HTTP 204 ("not a premium profile") now counts as a healthy API response - previously every
+offline-UUID lookup decayed the API-health window and produced bogus "Mojang API is
+currently unreachable" warnings.</li>
 <li>The premium-name squatting guard only fires when premium auto-login is disabled (it used to
 kick legitimate online-mode players joining offline servers before auto-login could run).</li>
-<li>Auto-registered online-mode players now see &quot;Registered! Your account has been created!&quot; as
+<li>Auto-registered online-mode players now see "Registered! Your account has been created!" as
 clear feedback.</li>
 </ul>
 <p><strong>Messages display correctly on every version and loader</strong></p>
@@ -357,18 +307,18 @@ locked into the lobby instead of being left authenticated-but-unregistered with 
 <code>authcore:auth</code> channel - premium auto-login, session resume and deferred verification
 previously stayed silent to proxies/other mods.</li>
 <li><strong>Legacy-hash verification</strong>: <code>Encrypter.verify</code> falls back through all supported algorithms
-instead of throwing password4j parse errors (&quot;Bad salt length&quot; / &quot;Invalid salt version&quot;) on
+instead of throwing password4j parse errors ("Bad salt length" / "Invalid salt version") on
 migrated/foreign DB rows; argon2 hashing uses an explicit spec-conformant 16-byte salt.</li>
 <li><strong>Ghost-detection window</strong> no longer goes negative with small config values.</li>
 <li><strong>Chat commands on 1.16-1.18.2</strong>: chat commands ride the chat packet there - the chat
-restriction now lets &quot;/&quot;-prefixed messages through to the command dispatcher (the lobby
+restriction now lets "/"-prefixed messages through to the command dispatcher (the lobby
 whitelist still blocks non-auth commands), so <code>/login</code> and <code>/register</code> were unblockable
 for lobby players on the classic line.</li>
 <li><strong>Adventure-mode limbo applied</strong>: <code>lobby.force-adventure-mode</code> now actually switches the
 player into adventure on lock (the game-mode-change mixin only blocked leaving it).</li>
 <li><strong>Mode-switch / proxy safety</strong>: online-mode players whose account is keyed by the offline UUID
 (server switched online-mode, or Velocity forwarding on an offline backend) are no longer
-kicked with the &quot;Authentication Token is invalid&quot; mismatch - the genuine premium profile
+kicked with the "Authentication Token is invalid" mismatch - the genuine premium profile
 is confirmed against the Mojang API and auto-logged-in instead.</li>
 <li><strong>Failed-hash guard</strong>: a password hashing failure in <code>/account set-password</code>, email
 recovery, <code>/authcore set-password</code>, mode changes or the web panel can no longer silently
@@ -379,18 +329,18 @@ set the stored password to null and unregister the account.</li>
 verification, SSO) now records a login-history row, not just <code>/login</code>.</li>
 <li><strong>Returning-premium re-validation</strong>: on offline-mode servers the premium claim of returning
 accounts is re-checked against the Mojang API asynchronously - accounts auto-created as
-&quot;premium&quot; by earlier builds are downgraded to offline-mode (register/login prompt) while
+"premium" by earlier builds are downgraded to offline-mode (register/login prompt) while
 legit premium names keep auto-login (fail-open during API outages, cache-aware tri-state).</li>
 <li><strong>Mojang API removed for premium detection</strong>: premium status now comes ONLY from the
-server&#39;s OWN Mojang session authentication - a login mixin captures the profile that
-vanilla&#39;s <code>hasJoinedServer</code> verified (carries Mojang textures properties). All direct
+server's OWN Mojang session authentication - a login mixin captures the profile that
+vanilla's <code>hasJoinedServer</code> verified (carries Mojang textures properties). All direct
 Mojang HTTP lookups (name/uuid profile APIs) were removed from the join flow. On
 offline-mode servers nobody can be premium (the server authenticates no one), so offline
-players are NEVER auto-registered or auto-logged-in anymore - stale &quot;online-mode&quot; DB flags
+players are NEVER auto-registered or auto-logged-in anymore - stale "online-mode" DB flags
 from earlier builds are detected and downgraded on join (register/login prompt).</li>
 <li><strong>Server-side premium verification (offline servers)</strong>: with premium auto-login enabled the
 login mixin now runs the vanilla encryption handshake on offline-mode servers and verifies
-the session with the server&#39;s own <code>MinecraftSessionService</code> - genuine online-mode players are
+the session with the server's own <code>MinecraftSessionService</code> - genuine online-mode players are
 auto-logged-in while cracked clients (and any Mojang outage) fall back to the normal
 offline register/login flow. Fail-safe: handshake failures, API timeouts and clients that
 never answer (15s watchdog) all continue as offline - nobody is ever kicked or stranded.</li>
@@ -398,7 +348,7 @@ never answer (15s watchdog) all continue as offline - nobody is ever kicked or s
 sleeping in beds, and offhand-item swapping are now blocked in the lobby on EVERY loader;
 players riding into the lobby are dismounted on lock. New config keys
 <code>lobby.allow-sleeping</code> and <code>lobby.allow-item-swapping</code> (both default false).</li>
-<li><strong>Full-proof post-login restore</strong>: the snapshot restore now re-mounts the player&#39;s previous
+<li><strong>Full-proof post-login restore</strong>: the snapshot restore now re-mounts the player's previous
 vehicle, lands airborne survival players on safe ground (elytra gliding / mid-air), rescues
 players from suffocation when blocks changed while they were in the lobby, keeps swimmers in
 the water column, and clears fall damage from the restore itself - flying (creative/
@@ -406,10 +356,10 @@ spectator) is restored via the original game mode.</li>
 <li><strong>Auto-migration of everything</strong>: ConfigMigrator now also refreshes the enriched
 multi-channel message defaults for configs that still hold the old single-channel values
 (custom messages are preserved); on first offline-mode detection the database is
-bulk-migrated once per boot (stale &quot;online-mode&quot; flags cleared); schema and config keys
+bulk-migrated once per boot (stale "online-mode" flags cleared); schema and config keys
 migrate automatically as before.</li>
-<li><strong>Command availability fix</strong>: /register, /login and /account were reported as &quot;Unknown
-command&quot; on 1.20.5+ (26.x) because the OP-level permission check used APIs that no longer
+<li><strong>Command availability fix</strong>: /register, /login and /account were reported as "Unknown
+command" on 1.20.5+ (26.x) because the OP-level permission check used APIs that no longer
 exist there (PermissionLevel / getPermissions). The check now short-circuits for level 0
 (all players) and resolves the new <code>net.minecraft.server.permissions</code> API on 26.x, the
 older permission API on 1.20.5-1.21, and the legacy method on 1.16-1.18.</li>
@@ -434,7 +384,7 @@ pipeline for future structural config changes (1.0.0 -&gt; 1.0.1 ships with no t
 needed; runtime auto-detection handles the server-mode default change).</li>
 <li><strong>Transparent password-hash upgrade</strong>: weak (md5 / sha-256 / sha-512) or outdated stored
 hashes - including AuthMe-style imported ones - are re-hashed with the configured algorithm
-on the account&#39;s next successful login (never blocks the login, flagged in the security log).</li>
+on the account's next successful login (never blocks the login, flagged in the security log).</li>
 <li><strong>AuthMe import</strong> (<code>/authcore import authme &lt;file&gt;</code>): imports accounts from an AuthMe
 SQLite database; existing accounts are never overwritten; legacy hash formats are supported
 (<code>$SHA$</code>, bcrypt, argon2, pbkdf2, scrypt, plain hex digests) and verified/upgraded on login.</li>
@@ -449,12 +399,12 @@ variants live under <code>src/</code> (<code>src/main/java</code> + <code>src/cl
 version-stable mixin targets. Verified by compiling the identical source against <strong>1.16.5,
 1.17.1, 1.18.2, 1.19.4, 1.20.6, 1.21.1 and 1.21.11</strong> (all green), with a per-push CI matrix.</li>
 <li><strong>Universal mixins</strong>: login hello (reflects over <code>getProfile()</code> vs <code>name()/profileId()</code>, plus
-authlib&#39;s <code>getName()/getId()</code> vs record <code>name()/id()</code>), handshake proxy forwarding (record
+authlib's <code>getName()/getId()</code> vs record <code>name()/id()</code>), handshake proxy forwarding (record
 accessor vs private field), chat restriction (single mixin covering <code>onGameMessage</code> /
 <code>onChatMessage</code> / <code>handleChatMessage</code>).</li>
 <li><strong><code>FabricHooks</code></strong> registers commands (API v1/v2), item-use and damage events reflectively -
 missing fabric APIs are skipped gracefully.</li>
-<li><code>fabric.mod.json</code> declares <code>minecraft &gt;=1.16.0</code>, <code>java &gt;=16</code>, <code>environment &quot;*&quot;</code> - the same jar
+<li><code>fabric.mod.json</code> declares <code>minecraft &gt;=1.16.0</code>, <code>java &gt;=16</code>, <code>environment "*"</code> - the same jar
 runs on servers AND clients, standalone or behind <strong>Velocity / BungeeCord</strong>.</li>
 <li>Version-independent features (commands, config, database, security, web panel, email, Redis)
 work unchanged on every version.</li>
@@ -485,7 +435,7 @@ versions corrected: 1.19.4+build.2, 1.20.6+build.3, fabric-api 0.46.1+1.17, 0.10
 intermediary gone), so AuthCore ships a <strong>second jar</strong> built from the Mojang-mapped
 source (<code>src/modern/java</code>, <code>-Pmodern=true</code>, loom 1.16.x, Java 25, no mappings):
 <code>authcore-modern-1.0.0.jar</code> for <strong>26.0+</strong> servers/clients. The classic universal jar covers
-<strong>1.16.0 - 1.21.11</strong>. Both jars carry the client login-screen companion (<code>environment &quot;*&quot;</code>),
+<strong>1.16.0 - 1.21.11</strong>. Both jars carry the client login-screen companion (<code>environment "*"</code>),
 and the release workflow attaches both. The two name-spaces cannot coexist in one jar - see
 <code>docs/26x.md</code> for the migration/sync workflow.</li>
 </ul>
@@ -507,12 +457,12 @@ of the full grid:<ul>
 </ul>
 </li>
 <li>Loader minimums are now the group-aware floors (the first loader version supporting each
-group&#39;s LOWEST Minecraft version, never the build target - otherwise in-range servers are
+group's LOWEST Minecraft version, never the build target - otherwise in-range servers are
 rejected): Fabric loader <code>&gt;=0.14.24</code> (1.19 line) / <code>&gt;=0.16.0</code> (26.1 line), FML
 <code>[41.1.0,)</code> (1.19 line) / <code>[36.1.0,)</code> (1.16 line), NeoForge <code>[20.2.59-beta,)</code>
 (1.20.2 line) / <code>[26.1.0,)</code> (26.1 line).</li>
 <li>Root cause: the range placeholders never reached the built jars - <code>fabric.mod.json</code> shipped
-<code>&quot;minecraft&quot;: &quot;*&quot;</code> (Modrinth reads this as &quot;all versions&quot;) and <code>mods.toml</code> shipped only the
+<code>"minecraft": "*"</code> (Modrinth reads this as "all versions") and <code>mods.toml</code> shipped only the
 single build target. All 7 jars were rebuilt and their metadata verified.</li>
 </ul>
 <h3 id="security--anti-bypass">Security &amp; anti-bypass</h3>
@@ -530,7 +480,7 @@ author; no internals leak to clients.</li>
 </ul>
 <h3 id="security-fixes-found-by-the-new-test-suite">Security fixes found by the new test suite</h3>
 <ul>
-<li><strong>PBKDF2 DoS fixed</strong> - password4j&#39;s PBKDF2 <code>check()</code> could hang the server thread during
+<li><strong>PBKDF2 DoS fixed</strong> - password4j's PBKDF2 <code>check()</code> could hang the server thread during
 login. PBKDF2 is now a self-contained JDK <code>SecretKeyFactory</code> implementation
 (<code>$pbkdf2-sha256$iter$salt$hash</code>, constant-time comparison).</li>
 </ul>
@@ -605,14 +555,14 @@ weekly compat scan that auto-releases new validated versions with changelog entr
 <li>Removed IDE artifacts (<code>.settings/</code>, <code>bin/</code>, <code>.classpath</code>, <code>.project</code>, <code>.factorypath</code>),
 stale <code>dist/</code> jars and the obsolete <code>authcore-26.x-*</code> jars.</li>
 <li>Fixed mojibake in the ClientGuard config comment, removed duplicated/corrupt changelog
-sections, corrected stale wording (&quot;26.0+&quot; → 26.1-26.2, Java 17/21/25, multi-loader
+sections, corrected stale wording ("26.0+" → 26.1-26.2, Java 17/21/25, multi-loader
 tagline).</li>
 </ul>
 <h3 id="single-human-verification-map-captcha--gui-removal-intelligence-overhaul-2026-08-16">Single human verification (map captcha &amp; GUI removal, intelligence overhaul) (2026-08-16)</h3>
 <p><strong>One verification method, scored on EVERY login</strong></p>
 <ul>
 <li>The map captcha and its remnants are gone completely (no map items, no map-data
-pipeline, no stale &quot;map&quot; text/config); the server-side screen/GUI code is removed too
+pipeline, no stale "map" text/config); the server-side screen/GUI code is removed too
 (screen mixins, force-close inventory on clicks, the <code>IN_LOBBY</code>/<code>OUT_OF_LOBBY</code> GUI
 signals - the client companion still ships its optional screens, the server no longer
 drives them).</li>
@@ -630,7 +580,7 @@ reaches <code>lobby.captcha.bot-score-threshold</code> (default 60). All weights
 and every decision is traced in debug logs.</li>
 <li><strong>No chat spam</strong>: the challenge prompt is a single message at start and one on success -
 no periodic progress spam.</li>
-<li>Fixed the &quot;broken captcha&quot; bug: trusted/TPS-bypass players were blocked at <code>/login</code>
+<li>Fixed the "broken captcha" bug: trusted/TPS-bypass players were blocked at <code>/login</code>
 because the pre-auth gate checked <code>captchaVerified</code> while the lobby skipped issuing the
 captcha. The pre-auth gate is gone entirely; <code>/login</code> and <code>/register</code> no longer take a
 <code>captcha-code</code> argument.</li>
@@ -652,9 +602,9 @@ PASS).</li>
 <li>The graceful-stop check was accidentally nested inside the honeypot <code>if</code> - it is now
 top-level and always runs.</li>
 <li>Player-simulation bugs fixed: the global timeout now writes its check file (a crashed/
-timed-out sim used to count as a silent green PASS), the entrypoint captures the sim&#39;s
+timed-out sim used to count as a silent green PASS), the entrypoint captures the sim's
 real exit code, markers reset per reconnect (the limbo prompt was never re-verified),
-the post-login chat check could never detect new violations (stale &quot;before&quot; snapshot),
+the post-login chat check could never detect new violations (stale "before" snapshot),
 and a TDZ crash on every sim connect (<code>endPromise</code> referencing <code>handle</code> during its own
 construction) is fixed.</li>
 <li>JSON escaping on <code>fail()</code> and the result writer (quotes/backslashes can no longer
@@ -670,11 +620,11 @@ connect; 26.2 cleanly SKIPs until protocol data is published.</li>
 </ul>
 <p><strong>Docs &amp; setup guide</strong></p>
 <ul>
-<li>New &quot;Feature-by-feature setup&quot; section in the guide: every feature (human verification,
+<li>New "Feature-by-feature setup" section in the guide: every feature (human verification,
 MFA, brute force, sessions, ClientGuard, AuthIntelligence, rate limits/IP rules, SSO,
 web panel + honeypot, premium/proxy, maintenance/shadow-ban/whitelist/announcements,
 backups/Discord/locales) with what it does, the exact config, and a real-world scenario.</li>
-<li>README gained a &quot;Feature setup at a glance&quot; table; the config reference documents the
+<li>README gained a "Feature setup at a glance" table; the config reference documents the
 new captcha scoring settings.</li>
 </ul>
 <hr>
@@ -707,18 +657,4 @@ MySQL URL fixes, localhost/LAN support, JDK HttpClient, structured startup banne
 <ul>
 <li>Initial framework: hybrid auth, limbo (lobby), session management, message system,
 granular lobby restrictions, 2FA (TOTP), config system (settings.conf + messages.conf).</li>
-</ul>
-
-    </article>
-  </main>
-</div>
-<button id="toTop" aria-label="Back to top">↑</button>
-<footer>
-  <strong>AuthCore</strong>, The Fortress Framework for Minecraft Servers ·
-  <a href="https://github.com/PotenFYR-Studios/AuthCore" target="_blank" rel="noopener">GitHub</a> ·
-  <a href="https://modrinth.com/mod/authCore" target="_blank" rel="noopener">Modrinth</a>
-</footer>
-
-
-</body>
-</html>
+</ul> </article> </main> <button id="toTop" aria-label="Back to top">↑</button> 

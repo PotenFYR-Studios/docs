@@ -1,5 +1,5 @@
 /*
- * main.tsx — bootstrap: providers, router, route switch, overlays.
+ * main.tsx-bootstrap: providers, router, route switch, overlays.
  */
 import * as React from "react";
 import { createRoot } from "react-dom/client";

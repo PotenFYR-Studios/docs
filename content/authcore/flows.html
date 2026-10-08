@@ -1,78 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Authentication Flows - AuthCore - AuthCore Docs</title>
-
-<meta name="description" content="Every AuthCore flow step by step: join, limbo lockdown, register, login, session resume, premium verification and auto-migration, and the functions involved.">
-<meta property="og:title" content="Authentication Flows - AuthCore - AuthCore Docs">
-<meta property="og:description" content="Every AuthCore flow step by step: join, limbo lockdown, register, login, session resume, premium verification and auto-migration, and the functions involved.">
-<meta property="og:type" content="website">
-
-
-</head>
-<body>
-
-<div id="progress"></div>
-<div id="top" aria-hidden="true"></div>
-
-  <header class="site-header">
-    <a class="brand" href="../../index.html">
-      <span class="brand-text">AuthCore<span class="brand-dot">.</span>docs</span>
-    </a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="site-nav">
-      <a class="nav-link" href="../../index.html">Home</a>
-      <a class="nav-link" href="../../#/repo/authcore/index">Docs Hub</a>
-      <a class="nav-link" href="../../#/repo/authcore/guide">Admin Guide</a>
-      <a class="nav-link" href="../../#/repo/authcore/flows">Flows</a>
-      <a class="nav-link" href="../../#/repo/authcore/config">Config</a>
-      <a class="nav-link" href="../../#/repo/authcore/proxy">Proxy</a>
-      <a class="nav-link" href="../../#/repo/authcore/webpanel">Web Panel</a>
-      <a class="nav-link" href="../../#/repo/authcore/security">Security</a>
-      <a class="nav-link" href="../../docs/1.0.0/26x.html">26.x</a>
-      <a class="nav-link" href="../../#/repo/authcore/api">API</a>
-      <a class="nav-link" href="../../#/repo/authcore/development">Dev</a>
-      <a class="nav-link" href="../../#/repo/authcore/changelog">Changelog</a>
-      <a class="nav-link nav-gh" href="https://github.com/PotenFYR-Studios/AuthCore" target="_blank" rel="noopener">GitHub ↗</a>
-    </nav>
-  </header>
-<div class="layout">
-  <aside class="toc">
-  <div class="toc-title">On this page</div>
-  <ul>
-    <li class="toc-item toc-2"><a href="#how-to-read-this-page">How to read this page</a></li>
-    <li class="toc-item toc-2"><a href="#1-the-join-flow">1. The join flow</a></li>
-    <li class="toc-item toc-2"><a href="#2-the-limbo-lockdown-flow">2. The limbo (lockdown) flow</a></li>
-    <li class="toc-item toc-2"><a href="#3-the-register-flow">3. The register flow</a></li>
-    <li class="toc-item toc-2"><a href="#4-the-login-flow">4. The login flow</a></li>
-    <li class="toc-item toc-2"><a href="#5-the-session-resume-flow">5. The session resume flow</a></li>
-    <li class="toc-item toc-2"><a href="#6-the-logout-flow">6. The logout flow</a></li>
-    <li class="toc-item toc-2"><a href="#7-the-premium-verification-flow">7. The premium verification flow</a></li>
-    <li class="toc-item toc-2"><a href="#8-the-auto-migration-flow">8. The auto-migration flow</a></li>
-    <li class="toc-item toc-2"><a href="#failure-safety-guarantees">Failure safety guarantees</a></li>
-  </ul>
-</aside>
-  <main>
-    <article>
+ <main> <article>
 <h1 id="authentication-flows">Authentication Flows</h1>
 <p>This page walks through every flow in AuthCore, step by step, and names the functions
 involved at each point. It is written for server owners who want to understand what the mod
 does and why, without reading the source. Each flow ends with a short
-<strong>&quot;why it exists&quot;</strong> note.</p>
-
-<h2 id="how-to-read-this-page">How to read this page</h2>
+<strong>"why it exists"</strong> note.</p> <h2 id="how-to-read-this-page">How to read this page</h2>
 <ul>
 <li><code>Class.method</code> names point at the actual code so you can jump in and look around.</li>
-<li>&quot;Lobby&quot; and &quot;limbo&quot; are the same thing: the restricted waiting area every
+<li>"Lobby" and "limbo" are the same thing: the restricted waiting area every
 unauthenticated player is held in.</li>
-<li>&quot;Premium&quot; means a paid (Mojang) Minecraft account. &quot;Standard&quot; means a cracked/offline account.</li>
-</ul>
-
-<h2 id="1-the-join-flow">1. The join flow</h2>
+<li>"Premium" means a paid (Mojang) Minecraft account. "Standard" means a cracked/offline account.</li>
+</ul> <h2 id="1-the-join-flow">1. The join flow</h2>
 <p><strong>Goal:</strong> decide, for every incoming player, whether they are premium or standard, and
 then either let them in or lock them into the limbo.</p>
 <ol>
@@ -114,9 +51,7 @@ and asked to <code>/register</code> or <code>/login</code>.</li>
 </ol>
 <p><strong>Why it exists:</strong> without this gate, anyone could walk onto the server, claim a name,
 and play or grief before proving who they are. The join flow is the single place where every
-account is classified and every security rule is applied.</p>
-
-<h2 id="2-the-limbo-lockdown-flow">2. The limbo (lockdown) flow</h2>
+account is classified and every security rule is applied.</p> <h2 id="2-the-limbo-lockdown-flow">2. The limbo (lockdown) flow</h2>
 <p><strong>Goal:</strong> hold unauthenticated players in a tiny, fully restricted bubble until they
 prove their identity.</p>
 <ol>
@@ -142,8 +77,8 @@ use; <code>ServerPlayerMixin</code> blocks item drops; <code>InventoryMixin</cod
 <li>damage: <code>EntityEvents.onEntityDamage</code> makes the player invulnerable in the lobby.</li>
 </ul>
 </li>
-<li><strong>Reminders:</strong> <code>Lobby.handleTimeout</code> schedules periodic &quot;use /register or
-/login&quot; action-bar messages and the login-timeout kick.</li>
+<li><strong>Reminders:</strong> <code>Lobby.handleTimeout</code> schedules periodic "use /register or
+/login" action-bar messages and the login-timeout kick.</li>
 <li><strong>Unlocking:</strong> after a successful login, <code>Lobby.unlock()</code> calls
 <code>Snapshot.reset(player)</code>, which restores everything: inventory, effects, health, position,
 game mode, operator status, the previous vehicle, and lands airborne players safely (no
@@ -151,9 +86,7 @@ fall damage, no suffocation).</li>
 </ol>
 <p><strong>Why it exists:</strong> the limbo is the core of a secure server: attackers, bots and
 name-squatters have nothing to interact with until they authenticate, and legitimate players
-get back exactly what they had when they leave.</p>
-
-<h2 id="3-the-register-flow">3. The register flow</h2>
+get back exactly what they had when they leave.</p> <h2 id="3-the-register-flow">3. The register flow</h2>
 <p><strong>Goal:</strong> let a brand-new player create an account with a password.</p>
 <ol>
 <li><code>/register &lt;password&gt; &lt;confirm&gt;</code> runs <code>Register.registerCommand</code>. It re-verifies the
@@ -169,9 +102,7 @@ lobby.</li>
 broken half-registered state.</li>
 </ol>
 <p><strong>Why it exists:</strong> registration gives each player a secret only they know, so later
-logins can prove it is really them.</p>
-
-<h2 id="4-the-login-flow">4. The login flow</h2>
+logins can prove it is really them.</p> <h2 id="4-the-login-flow">4. The login flow</h2>
 <p><strong>Goal:</strong> let a registered player prove their password and leave the limbo.</p>
 <ol>
 <li><code>/login &lt;password&gt;</code> runs <code>Login.execute</code>: cooldown, then it checks the attempt counter
@@ -189,9 +120,7 @@ state (<code>AuthInterop.broadcast</code>) so proxies and other mods know, impor
 and unlocks the lobby, which restores the player (flow 2, step 4).</li>
 </ol>
 <p><strong>Why it exists:</strong> login is the proof step: the password plus any second factor is how
-the server knows the player behind the name is the account owner.</p>
-
-<h2 id="5-the-session-resume-flow">5. The session resume flow</h2>
+the server knows the player behind the name is the account owner.</p> <h2 id="5-the-session-resume-flow">5. The session resume flow</h2>
 <p><strong>Goal:</strong> players who logged in recently should not type their password every time they
 rejoin.</p>
 <ol>
@@ -205,9 +134,7 @@ penalty when <code>require-token-for-resume</code> is enabled.</li>
 </ol>
 <p><strong>Why it exists:</strong> sessions are the convenience layer. The IP lock keeps the convenience
 from becoming a hijack vector: a stolen IP alone is not enough, and tokens rotate on every
-login.</p>
-
-<h2 id="6-the-logout-flow">6. The logout flow</h2>
+login.</p> <h2 id="6-the-logout-flow">6. The logout flow</h2>
 <p><strong>Goal:</strong> end a session cleanly.</p>
 <ol>
 <li><code>/account logout</code> calls <code>User.logout(payload)</code>: the session is invalidated, the Redis
@@ -218,9 +145,7 @@ unlock, in-memory caches dropped (ClientGuard, DiscordSRV), combat-log punishmen
 configured.</li>
 </ol>
 <p><strong>Why it exists:</strong> logout protects the account on shared computers and keeps every other
-system (proxies, Discord bridges, the web panel) in sync with reality.</p>
-
-<h2 id="7-the-premium-verification-flow">7. The premium verification flow</h2>
+system (proxies, Discord bridges, the web panel) in sync with reality.</p> <h2 id="7-the-premium-verification-flow">7. The premium verification flow</h2>
 <p><strong>Goal:</strong> let genuine premium (paid) accounts auto-login on online <em>and</em> offline-mode
 servers without AuthCore ever calling the Mojang web API.</p>
 <ol>
@@ -251,9 +176,7 @@ downgraded on standard-auth servers (flow 8).</li>
 </ol>
 <p><strong>Why it exists:</strong> online-mode players are trusted (Mojang already verified them), so they
 skip the password step. Doing it through the server's own session service keeps it
-unforgeable and removes the fragile HTTP name-lookups entirely.</p>
-
-<h2 id="8-the-auto-migration-flow">8. The auto-migration flow</h2>
+unforgeable and removes the fragile HTTP name-lookups entirely.</p> <h2 id="8-the-auto-migration-flow">8. The auto-migration flow</h2>
 <p><strong>Goal:</strong> upgrade old configs, databases and messages without manual work.</p>
 <ul>
 <li><strong>Config:</strong> <code>ConfigMigrator.migrate()</code> runs after config load, applies registered
@@ -270,9 +193,7 @@ auth with clear instructions if that is impossible).</li>
 </ul>
 <p><strong>Why it exists:</strong> upgrades should never ask the owner to rebuild databases or hunt for
 new settings. Every migration is fail-safe: if it cannot run, the mod keeps working and tells
-you what to fix.</p>
-
-<h2 id="failure-safety-guarantees">Failure safety guarantees</h2>
+you what to fix.</p> <h2 id="failure-safety-guarantees">Failure safety guarantees</h2>
 <ul>
 <li>No code path can crash the server: every mixin uses exact descriptors with
 <code>require = 0</code>, so version-specific signatures are skipped, never fatal.</li>
@@ -293,18 +214,4 @@ memory or thread cliff.</li>
 <code>synchronized</code> database access (single shared connection), <code>volatile</code> shared config/messages,
 deduped join/leave hooks and atomic counters - concurrent joins, logins, web-panel actions,
 Redis events and backups never interleave or deadlock.</li>
-</ul>
-    
-    </article>
-  </main>
-</div>
-<button id="toTop" aria-label="Back to top">↑</button>
-<footer>
-  <strong>AuthCore</strong>, The Fortress Framework for Minecraft Servers ·
-  <a href="https://github.com/PotenFYR-Studios/AuthCore" target="_blank" rel="noopener">GitHub</a> ·
-  <a href="https://modrinth.com/mod/authCore" target="_blank" rel="noopener">Modrinth</a>
-</footer>
-
-
-</body>
-</html>
+</ul> </article> </main> <button id="toTop" aria-label="Back to top">↑</button> 
