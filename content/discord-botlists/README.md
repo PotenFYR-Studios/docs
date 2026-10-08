@@ -27,7 +27,7 @@ The docs pages carry the full API reference (per-module), theme configuration fo
 
 ## Works everywhere
 
-discord.js, Eris, Oceanic,轻 anything with a `guilds` cache, or no framework at all. Node 18+ or Bun 1.1+.
+discord.js, Eris, Oceanic, or anything with a `guilds` cache - or no framework at all. Node 18+ or Bun 1.1+.
 
 ## Links
 

@@ -101,28 +101,39 @@ export function mdToBlocks(mdSrc: string, md: MdInstance, hl: Highlighter): { bl
     if (tok.type === "bullet_list_open" || tok.type === "ordered_list_open") {
       const ordered = tok.type === "ordered_list_open";
       const items: Array<{ html: string }> = [];
-      // walk forward until list_close at same nesting
-      let depth = 0;
-      let j = i;
-      while (j < tokens.length) {
+      let j = i + 1;
+      let depth = 1; // inside this list
+      while (j < tokens.length && depth > 0) {
         const t = tokens[j]!;
-        if (t.type.endsWith("_list_open")) depth++;
-        if (t.type.startsWith("list_item_open") && depth === 1) {
-          // gather the item's inline token
-          const li = tokens[j + 1]!;
-          if (li && li.type === "inline") { const liTok = li as unknown as TokenLike;
-            const html = inlineHtml(md, liTok);
+        if (t.type.endsWith("_list_open")) { depth++; }
+        else if (t.type === "list_item_open" && depth === 1) {
+          // scan to the paired list_item_close, collecting the first inline token
+          let inner = 0;
+          const inlineTok = tokens[j + 1];
+          let inlineFound: any = null;
+          if (inlineTok && inlineTok.type === "inline") inlineFound = inlineTok;
+          else {
+            for (let k = j + 1; k < tokens.length; k++) {
+              const tt = tokens[k]!;
+              if (tt.type === "list_item_open") inner++;
+              if (tt.type === "inline" && !inlineFound) inlineFound = tt;
+              if (tt.type === "list_item_close") { if (inner === 0) break; inner--; }
+              if (tt.type === (ordered ? "ordered_list_close" : "bullet_list_close") && !inlineFound) break;
+            }
+          }
+          if (inlineFound) {
+            const html = inlineHtml(md, inlineFound as unknown as TokenLike);
             if (html.trim() && !looksLikeBadge(html)) items.push({ html });
           }
         }
         if (t.type === (ordered ? "ordered_list_close" : "bullet_list_close")) {
           depth--;
-          if (depth === 0) { break; }
+          if (depth === 0) break;
         }
         j++;
       }
-      i = j;
       if (items.length) blocks.push({ t: 3, ordered, items });
+      i = j >= tokens.length ? tokens.length - 1 : j;
       continue;
     }
 
