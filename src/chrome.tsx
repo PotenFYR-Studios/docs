@@ -66,7 +66,7 @@ function NavLink({ to, active, children }: { to: string; active?: boolean; child
 export function Footer() {
   const { setDeckOpen } = useAppStore();
   return (
-    <footer className="mt-20 border-t border-rog-line/70 bg-rog-void/60 py-10">
+    <footer className="mt-auto border-t border-rog-line/70 bg-rog-void/60 py-10">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="flex flex-wrap items-center justify-between gap-6">
           <div className="flex items-center gap-3">

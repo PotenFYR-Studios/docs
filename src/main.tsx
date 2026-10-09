@@ -42,11 +42,15 @@ function App(): React.ReactElement {
   return (
     <RouterCtx.Provider value={router}>
       <AppProvider>
-        <DeckHotkey />
-        <Navbar />
-        {page}
-        {isRepoDoc ? <MobileDocBar repo={repoBySlug(parts[1] ?? "")!} /> : null}
-        <Footer />
+        <div className="flex min-h-screen flex-col">
+          <DeckHotkey />
+          <Navbar />
+          <div className="flex-1">
+            {page}
+            {isRepoDoc ? <MobileDocBar repo={repoBySlug(parts[1] ?? "")!} /> : null}
+          </div>
+          <Footer />
+        </div>
         <Deck />
       </AppProvider>
     </RouterCtx.Provider>
