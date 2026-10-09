@@ -12,7 +12,7 @@ import {
 import { GithubMark } from "~/lib/icons";
 import { Link } from "./router";
 import { registry } from "~/data/types";
-import { AuroraText, BlurFade, BorderBeam, FlickeringGrid, MagicCard, Marquee, Meteors, NumberTicker, OrbitingCircles, ParticlesLite, RetroGrid, ShimmerButton, TypingAnimation, AnimatedShinyText, ScrollProgress } from "./magicui";
+import { AuroraText, BlurFade, BorderBeam, FlickeringGrid, MagicCard, Marquee, NumberTicker, OrbitingCircles, ShimmerButton, TypingAnimation, AnimatedShinyText, ScrollProgress } from "./magicui";
 import { RogLogo } from "./rog-logo";
 import { cn } from "~/lib/utils";
 import { useAppStore } from "./app-store";
@@ -33,10 +33,8 @@ export function Home(): React.ReactElement {
 
       {/* ============ HERO ============ */}
       <section className="relative overflow-hidden pb-16 pt-32 sm:pt-36">
-        <FlickeringGrid opacity={0.85} />
-        <Meteors count={16} />
+        <FlickeringGrid opacity={0.6} />
         <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-rog-void via-transparent to-transparent" aria-hidden />
-        <ParticlesLite count={26} />
 
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
           {/* orbiting repo avatars around the logo */}
@@ -91,7 +89,7 @@ export function Home(): React.ReactElement {
           <BlurFade delay={0.3} className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-rog-dim sm:text-lg">
             <p>
               Hosting eggs, AuthCore & Statfyr, FYRwall,
-              Vigil, OrbyNode and the rest of the fleet — documented in one place,
+              Vigil, OrbyNode and the rest of the fleet, documented in one place
               with a consistent dark, sky-blue experience.
             </p>
           </BlurFade>
@@ -110,7 +108,7 @@ export function Home(): React.ReactElement {
           </BlurFade>
 
           <BlurFade delay={0.5} className="mt-8 text-center font-mono text-[13px] text-rog-dim">
-            <TypingAnimation text="docs.potenfyr.in — every repo, every page, one place." />
+            <TypingAnimation text="docs.potenfyr.in - every repo, every page, one place." />
           </BlurFade>
 
           {/* stats strip */}
@@ -179,10 +177,9 @@ export function Home(): React.ReactElement {
 
       {/* ============ FULL REPO GRID ============ */}
       <section id="repos" className="relative mx-auto max-w-6xl px-4 pb-24 sm:px-6">
-        <RetroGrid className="-scale-y-50 opacity-40" />
         <BlurFade>
           <h2 className="mb-1.5 text-2xl font-bold tracking-tight text-rog-ghost sm:text-3xl">Every repo, every page</h2>
-          <p className="mb-9 text-[14.5px] text-rog-dim">Straight into each repo's docs — overview page first.</p>
+          <p className="mb-9 text-[14.5px] text-rog-dim">Straight into each repo's docs, overview page first.</p>
         </BlurFade>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {repos.map((r, i) => (
@@ -220,21 +217,18 @@ export function Home(): React.ReactElement {
       </section>
 
       {/* ============ CLOSING ============ */}
-      <section className="relative overflow-hidden border-t border-rog-line/60 py-20">
-        <FlickeringGrid opacity={0.35} />
+      <section className="relative border-t border-rog-line/60 py-20">
         <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
           <BlurFade>
-            <div className="pp-aurora-border mx-auto mb-8 max-w-xl rounded-2xl border border-rog-line bg-rog-deep/70 p-8 backdrop-blur">
-              <RogLogo size={54} glow />
-              <h3 className="mt-5 text-xl font-bold text-rog-ghost">Documentation that stays current.</h3>
-              <p className="mx-auto mt-2 max-w-sm text-[13.5px] leading-relaxed text-rog-dim">
-                Pages here are rebuilt from each repository's README and docs on every sync, so what
-                you read matches what ships.
-              </p>
-            </div>
+            <RogLogo size={44} glow />
+            <h3 className="mt-5 text-xl font-bold text-rog-ghost">Documentation that stays current.</h3>
+            <p className="mx-auto mt-2 max-w-md text-[13.5px] leading-relaxed text-rog-dim">
+              Pages here are rebuilt from each repository's README and docs on every sync, so what
+              you read matches what ships.
+            </p>
           </BlurFade>
           <BlurFade delay={0.12}>
-            <div className={cn("flex flex-wrap items-center justify-center gap-3")}>
+            <div className={cn("mt-7 flex flex-wrap items-center justify-center gap-3")}>
               <Link to="/repos" className="text-[13.5px] font-semibold text-rog-frost/90 underline-offset-4 hover:underline">
                 browse all repos →
               </Link>

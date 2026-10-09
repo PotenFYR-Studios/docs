@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T07:36:23.381Z",
+  "generatedAt": "2026-10-09T08:00:30.980Z",
   "categories": [
     "Minecraft Tooling",
     "Hosting Eggs",
@@ -4356,7 +4356,7 @@
       ],
       "pushedAt": "2026-10-08T16:03:57Z",
       "category": "Hosting Eggs",
-      "blurb": "One universal Minecraft egg — 18+ server types",
+      "blurb": "One universal Minecraft egg, 18+ server types",
       "default": "README",
       "pageList": [
         {
@@ -4644,7 +4644,7 @@
       ],
       "pushedAt": "2026-10-08T16:04:00Z",
       "category": "Minecraft Tooling",
-      "blurb": "OneJumpAllJump — synchronized chaos plugin",
+      "blurb": "OneJumpAllJump - synchronized chaos plugin",
       "default": "README",
       "pageList": [
         {

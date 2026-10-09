@@ -5,12 +5,11 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import { Compass } from "lucide-react";
 import { Link } from "./router";
-import { Meteors, ShimmerButton } from "./magicui";
+import { ShimmerButton } from "./magicui";
 
 export function NotFound(): React.ReactElement {
   return (
     <main className="relative grid min-h-[76vh] place-items-center overflow-hidden px-4 pt-24">
-      <Meteors count={18} />
       <motion.div
         initial={{ opacity: 0, y: 18, scale: 0.97 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}

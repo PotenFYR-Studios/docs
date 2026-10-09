@@ -14,6 +14,9 @@ function normalize(h: string): string {
   let p = h.trim();
   if (p.startsWith("#")) p = p.slice(1);
   if (!p.startsWith("/")) p = "/" + p;
+  // queries never belong to the route path; they stay in location.search
+  const q = p.indexOf("?");
+  if (q !== -1) p = p.slice(0, q);
   if (p.length > 1 && p.endsWith("/")) p = p.slice(0, -1);
   return p || "/";
 }
@@ -29,7 +32,10 @@ export function useRouter(): { path: string; navigate: (to: string, replace?: bo
   });
 
   React.useEffect(() => {
-    const onPop = () => setPath(normalize(window.location.pathname.replace(/\/docs(?=\/)/, "") || window.location.hash));
+    const onPop = () => {
+      const pn = window.location.pathname.replace(/\/docs(?=\/)/, "");
+      setPath(normalize((pn || "") + window.location.search + window.location.hash));
+    };
     window.addEventListener("popstate", onPop);
     window.addEventListener("hashchange", onPop);
     return () => {

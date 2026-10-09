@@ -12,7 +12,7 @@ import {
 import { GithubMark } from "~/lib/icons";
 import { Link, useRouteParts, useRouter, RouterCtx } from "./router";
 import { registry, repoBySlug, loadRepoContent, type LoadedPage, type RepoEntry } from "~/data/types";
-import { BlurFade, BorderBeam, MagicCard, Meteors, ScrollProgress } from "./magicui";
+import { BlurFade, BorderBeam, MagicCard, ScrollProgress } from "./magicui";
 import { DocBlocks } from "./doc-blocks";
 import { cn } from "~/lib/utils";
 import { useAppStore } from "./app-store";
@@ -22,8 +22,11 @@ import { useAppStore } from "./app-store";
 function useQueryParam(name: string): [string | null, (v: string | null) => void] {
   const read = React.useCallback((): string | null => {
     try {
-      // URLSearchParams over the hash query (SPA ignores real search on GH Pages)
-      const hash = typeof window === "undefined" ? "" : window.location.hash || "";
+      // query lives in location.search after history-API navigation, or in the
+      // hash query on 404-redirect boot (GH Pages)
+      const search = typeof window === "undefined" ? "" : window.location.search || "";
+      if (search) return new URLSearchParams(search).get(name);
+      const hash = window.location.hash || "";
       const q = hash.includes("?") ? hash.slice(hash.indexOf("?") + 1) : "";
       return new URLSearchParams(q).get(name);
     } catch { return null; }
@@ -31,8 +34,18 @@ function useQueryParam(name: string): [string | null, (v: string | null) => void
   const [value, setValue] = React.useState<string | null>(read);
   React.useEffect(() => {
     const on = () => setValue(read());
-    if (typeof window !== "undefined") window.addEventListener("hashchange", on);
-    return () => { if (typeof window !== "undefined") window.removeEventListener("hashchange", on); };
+    if (typeof window !== "undefined") {
+      window.addEventListener("hashchange", on);
+      window.addEventListener("popstate", on);
+      // pushState does not fire popstate; poll cheaply on navigation-adjacent clicks
+      window.addEventListener("click", () => setTimeout(on, 0));
+    }
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("hashchange", on);
+        window.removeEventListener("popstate", on);
+      }
+    };
   }, [read]);
   return [value, setValue];
 }
@@ -52,7 +65,6 @@ export function ReposIndex(): React.ReactElement {
 
   return (
     <main className="relative mx-auto max-w-7xl px-4 pb-20 pt-28 sm:px-6">
-      <Meteors count={8} />
       <BlurFade>
         <h1 className="text-3xl font-extrabold tracking-tight text-rog-ghost sm:text-4xl">
           The <span className="pp-aurora-text">catalog</span>
@@ -325,7 +337,6 @@ function RepoNotFound({ slug }: { slug: string }) {
   const { setDeckOpen } = useAppStore();
   return (
     <main className="relative grid min-h-[70vh] place-items-center px-4 pt-24">
-      <Meteors count={10} />
       <div className="relative max-w-md text-center">
         <h1 className="text-4xl font-extrabold text-rog-ghost">No docs for “{slug}”</h1>
         <p className="mt-3 text-[14px] text-rog-dim">Wrong slug? Try the catalog, or open the command deck (⌘K) and run <code className="rounded bg-rog-panel px-1.5 py-0.5 font-mono text-[12px] text-rog-sky">ls</code>.</p>

@@ -19,10 +19,10 @@ const META_FILE = join(ROOT, "src/data/repos.json");
 const OVERRIDES: Record<string, { category: string; blurb: string; showInNav?: boolean }> = {
   authcore: { category: "Minecraft Tooling", blurb: "Fabric authentication & anti-abuse framework" },
   statfyr: { category: "Minecraft Tooling", blurb: "Real-time player-stats REST API" },
-  ojaj: { category: "Minecraft Tooling", blurb: "OneJumpAllJump — synchronized chaos plugin" },
+  ojaj: { category: "Minecraft Tooling", blurb: "OneJumpAllJump - synchronized chaos plugin" },
   echoingdeaths: { category: "Minecraft Tooling", blurb: "Immersive death-curse mechanics" },
   customdamagenumbers: { category: "Minecraft Tooling", blurb: "Animated packet-only damage indicators" },
-  "minecraft-eggs": { category: "Hosting Eggs", blurb: "One universal Minecraft egg — 18+ server types" },
+  "minecraft-eggs": { category: "Hosting Eggs", blurb: "One universal Minecraft egg, 18+ server types" },
   "prog-language-eggs": { category: "Hosting Eggs", blurb: "Run 50+ languages in one container" },
   "database-eggs": { category: "Hosting Eggs", blurb: "One egg, every database under the sun" },
   "shell-eggs": { category: "Hosting Eggs", blurb: "Host any shell, from one panel egg" },

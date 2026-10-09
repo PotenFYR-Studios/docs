@@ -1,0 +1,63 @@
+name: Refresh repo metadata (stars) and redeploy
+
+on:
+  schedule:
+    - cron: "17 3 * * *" # daily, off the top of the hour
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    if: github.event.repository.private != true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Sync repo metadata (stars, descriptions) from GitHub API
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bun run sync
+
+      - name: Detect metadata changes
+        id: diff
+        run: |
+          if git diff --quiet src/data/repos.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build
+        if: steps.diff.outputs.changed == 'true'
+        run: bun run build
+
+      - name: Configure Pages (picks up docs.potenfyr.in from repo settings / CNAME)
+        if: steps.diff.outputs.changed == 'true'
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        if: steps.diff.outputs.changed == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        if: steps.diff.outputs.changed == 'true'
+        uses: actions/deploy-pages@v4
