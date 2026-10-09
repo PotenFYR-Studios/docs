@@ -1,6 +1,9 @@
-# Capability Map Every capability from the product comparison matrix, mapped to the PteroOps implementation.
+# Capability Map
+Every capability from the product comparison matrix, mapped to the PteroOps implementation.
 Status is the same three-valued scheme used in [`docs/status.md`](status.md):
-**IMPLEMENTED** · **PARTIAL** (works with a documented caveat) · **PLANNED**. ## Baseline Pterodactyl operations | Capability | Status | Delivered by | Notes |
+**IMPLEMENTED** · **PARTIAL** (works with a documented caveat) · **PLANNED**.
+## Baseline Pterodactyl operations
+| Capability | Status | Delivered by | Notes |
 | --- | --- | --- | --- |
 | Server discovery | IMPLEMENTED | `ptero_list_servers`, `ptero://servers` | Multi-panel, identity is `tenant/panel/serverId` |
 | Server status | IMPLEMENTED | `ptero_get_server`, `ptero_get_health`, `ptero_get_resources` via get_metrics | Health is application-aware, not just `state == running` |
@@ -17,7 +20,10 @@ Status is the same three-valued scheme used in [`docs/status.md`](status.md):
 | Allocations | IMPLEMENTED | `ptero_list_allocations`, `ptero_manage_allocation` | Assign / primary / notes / release |
 | Subusers | IMPLEMENTED | `ptero_list_subusers`, `ptero_manage_subuser` | Invite / update / remove, audited |
 | Admin API | IMPLEMENTED | `ptero_admin_list_nodes`, `ptero_admin_list_users`, `ptero_admin_list_nests` | Read-only by design; destructive admin ops are excluded |
-| Authentication | IMPLEMENTED | `ptlc_*` / `ptla_*` capability registry | Tools unregister when keys cannot support them; secrets never printed | ## Foundations | Capability | Status | Delivered by | Notes |
+| Authentication | IMPLEMENTED | `ptlc_*` / `ptla_*` capability registry | Tools unregister when keys cannot support them; secrets never printed |
+## Foundations
+
+| Capability | Status | Delivered by | Notes |
 | --- | --- | --- | --- |
 | Multi-tenant foundation | IMPLEMENTED | tenant-scoped repositories, `tenants` config, PostgreSQL driver, Redis locks | Isolation enforced below the MCP layer; per-tenant incidents, console, files, audit |
 | Audit logs | IMPLEMENTED | append-only `audit_events`, `ptero_query_audit`, `ptero_export_audit`, compliance retention preset | Actor, tool, target, decision, approval, correlation id; CSV/JSON export; never scrubbed of audit truth, always redacted of secrets |
@@ -42,7 +48,10 @@ Status is the same three-valued scheme used in [`docs/status.md`](status.md):
 | AI remediation | IMPLEMENTED | `ptero_propose_remediation`, `ptero_execute_remediation`, `ptero_rollback_remediation`, `ptero_simulate_remediation`, `ptero_canary_remediate` | Dry-run, blast radius, effectiveness stats, transactional execution |
 | Approval workflow | IMPLEMENTED | approvals service + `ptero_approve_action` | proposed → approved/rejected/expired/executed, deny-wins, expiry, full audit |
 | Application-aware troubleshooting | IMPLEMENTED | profiles + diagnosis + tests + debug context | Paper/Node/Python/etc. fatal signatures, ready markers, config locations, diagnostic commands |
-| Multi-server incident investigation | IMPLEMENTED | `ptero_investigate_incident` | Scope: server, node, panel, group; shared failure domains detected before any action | ## Beyond the matrix (PteroOps-specific) | Capability | Delivered by |
+| Multi-server incident investigation | IMPLEMENTED | `ptero_investigate_incident` | Scope: server, node, panel, group; shared failure domains detected before any action |
+## Beyond the matrix (PteroOps-specific)
+
+| Capability | Delivered by |
 | --- | --- |
 | Cross-server incident correlation | `ptero_investigate_incident` (parent/child incidents) |
 | Configuration drift across groups | `ptero_compare_server_group` |
@@ -55,7 +64,10 @@ Status is the same three-valued scheme used in [`docs/status.md`](status.md):
 | Baseline anomaly hints | `ptero_get_metrics` + `anomaly_scan` job |
 | Read-only web console | `GET /ui` |
 | Compliance audit export | `ptero_export_audit` |
-| Demo transcript generator | `npm run demo` | ## Not built (and why) | Capability | Reason |
+| Demo transcript generator | `npm run demo` |
+## Not built (and why)
+
+| Capability | Reason |
 | --- | --- |
 | Destructive admin verbs (delete server, wipe filesystem) | Deliberately excluded: CRITICAL risk, no safe automation path in an AI surface |
 | Hosted multi-tenant control plane | Infrastructure parts are ready (tenant scoping, PostgreSQL, Redis locks); the hosted product itself is out of this repository's scope |

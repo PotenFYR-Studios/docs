@@ -1,0 +1,26 @@
+<main class="docs-layout"><article class="docs-content"><h1>ADR-0001: Application shell</h1><p class="md-blurb">Why Tauri 2, and the replaceable-shell rule.</p><div class="md-body">
+<h4 class="md-h3">Status</h4>
+<p class="md-text">Accepted · living document · supersedes nothing · superseded by nothing.</p>
+
+<h4 class="md-h3">Context</h4>
+<p class="md-text">LinkFYR ships a privileged Rust networking service (<code>linkfyrd</code>) and needs an unprivileged front end for it on Windows, macOS and Linux, with mobile companions later on. The shell must never leak its frameworks into the trust boundary: the GUI is a client of the service, and swapping it out must not touch the crates that do real work.</p>
+<p class="md-text">The candidate shells were Electron, Tauri 2 and a pure native toolkit per platform.</p>
+
+<h4 class="md-h3">Decision</h4>
+<ul class="md-list">
+<li><strong>Tauri 2</strong> over Electron: the webview is the system's own (smaller footprint, no bundled Chromium runtime), the Rust side integrates directly with the workspace crates, and the security model (explicit capability grants, no Node in-process) fits the unprivileged-client rule.</li>
+<li><strong>The replaceable-shell rule:</strong> all Tauri types live in <code>apps/desktop</code> only. Every feature the GUI offers goes through <code>linkfyr-ipc</code>, the typed, versioned API. The CLI (<code>linkfyr</code>) and the tray speak the same contract. The shell is disposable by design &mdash; replacing Tauri with Qt, GTK or anything native is a UI project, never an engine project.</li>
+<li><strong>Mobile companions</strong> (Tauri 2 app for Android/iOS) reuse the same IPC contract, so platform work stays additive.</li>
+</ul>
+
+<h4 class="md-h3">Consequences</h4>
+<ul class="md-list">
+<li>Benefit: One desktop codebase across three OSes with system webviews and no Chromium tax.</li>
+<li>Benefit: IPC versioning gives the CLI and the tray a stable surface; shells can lag or lead the engine independently.</li>
+<li>Trade-off:System webview differences are real; the UI renders a capability matrix instead of faking parity (see platform support).</li>
+<li>Trade-off:Tauri 2 mobile still inherits platform review processes; not a shortcut around store policies.</li>
+</ul>
+
+<h4 class="md-h3">References</h4>
+<ul class="md-list"><li>Architecture: process &amp; trust topology, crate map, data flow.</li><li>Security engineering: IPC hardening and the unprivileged-client rule.</li></ul>
+</div></article></main>

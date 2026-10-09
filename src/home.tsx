@@ -14,7 +14,7 @@ import { Link } from "./router";
 import { registry } from "~/data/types";
 import { AuroraText, BlurFade, BorderBeam, FlickeringGrid, MagicCard, Marquee, Meteors, NumberTicker, OrbitingCircles, ParticlesLite, RetroGrid, ShimmerButton, TypingAnimation, AnimatedShinyText, ScrollProgress } from "./magicui";
 import { RogLogo } from "./rog-logo";
-import { cn, confetti } from "~/lib/utils";
+import { cn } from "~/lib/utils";
 import { useAppStore } from "./app-store";
 
 const CATEGORY_ICON: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -90,14 +90,15 @@ export function Home(): React.ReactElement {
 
           <BlurFade delay={0.3} className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-rog-dim sm:text-lg">
             <p>
-              Documentation for PotenFYR Studios-hosting eggs, AuthCore & Statfyr, FYRwall,
-              Vigil, OrbyNode and the rest of the fleet, renovated into one dark, sky-blue experience.
+              Hosting eggs, AuthCore & Statfyr, FYRwall,
+              Vigil, OrbyNode and the rest of the fleet — documented in one place,
+              with a consistent dark, sky-blue experience.
             </p>
           </BlurFade>
 
           <BlurFade delay={0.42} className="mt-9 flex flex-wrap items-center justify-center gap-3">
-            <ShimmerButton onClick={() => confetti(60, 50, 18)}>
-              <BookOpen className="h-4 w-4" /> Dig into the docs
+            <ShimmerButton onClick={() => {}}>
+              <BookOpen className="h-4 w-4" /> Browse the docs
             </ShimmerButton>
             <a
               href="https://github.com/PotenFYR-Studios"
@@ -109,7 +110,7 @@ export function Home(): React.ReactElement {
           </BlurFade>
 
           <BlurFade delay={0.5} className="mt-8 text-center font-mono text-[13px] text-rog-dim">
-            <TypingAnimation text="docs.potenfyr.in-every page, one place, zero clutter." />
+            <TypingAnimation text="docs.potenfyr.in — every repo, every page, one place." />
           </BlurFade>
 
           {/* stats strip */}
@@ -146,8 +147,8 @@ export function Home(): React.ReactElement {
       {/* ============ CATEGORY BENTO ============ */}
       <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
         <BlurFade>
-          <h2 className="mb-1.5 text-2xl font-bold tracking-tight text-rog-ghost sm:text-3xl">Pick a lane</h2>
-          <p className="mb-9 text-[14.5px] text-rog-dim">{`Four categories… each one a door.`}</p>
+          <h2 className="mb-1.5 text-2xl font-bold tracking-tight text-rog-ghost sm:text-3xl">Browse by category</h2>
+          <p className="mb-9 text-[14.5px] text-rog-dim">{`Four categories, one for every part of the fleet.`}</p>
         </BlurFade>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {registry.categories.map((cat, i) => {
@@ -181,7 +182,7 @@ export function Home(): React.ReactElement {
         <RetroGrid className="-scale-y-50 opacity-40" />
         <BlurFade>
           <h2 className="mb-1.5 text-2xl font-bold tracking-tight text-rog-ghost sm:text-3xl">Every repo, every page</h2>
-          <p className="mb-9 text-[14.5px] text-rog-dim">Straight into each repo's docs-the overview page first.</p>
+          <p className="mb-9 text-[14.5px] text-rog-dim">Straight into each repo's docs — overview page first.</p>
         </BlurFade>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {repos.map((r, i) => (
@@ -225,20 +226,17 @@ export function Home(): React.ReactElement {
           <BlurFade>
             <div className="pp-aurora-border mx-auto mb-8 max-w-xl rounded-2xl border border-rog-line bg-rog-deep/70 p-8 backdrop-blur">
               <RogLogo size={54} glow />
-              <h3 className="mt-5 text-xl font-bold text-rog-ghost">Hidden things are in here.</h3>
+              <h3 className="mt-5 text-xl font-bold text-rog-ghost">Documentation that stays current.</h3>
               <p className="mx-auto mt-2 max-w-sm text-[13.5px] leading-relaxed text-rog-dim">
-                This hub has a few easter eggs. Konami lovers will feel at home; so will anyone
-                who pokes the logo more than a few times.
+                Pages here are rebuilt from each repository's README and docs on every sync, so what
+                you read matches what ships.
               </p>
             </div>
           </BlurFade>
           <BlurFade delay={0.12}>
             <div className={cn("flex flex-wrap items-center justify-center gap-3")}>
-              <ShimmerButton onClick={() => confetti(120, 50, 20)}>
-                <Sparkles className="h-4 w-4" /> Try your luck
-              </ShimmerButton>
               <Link to="/repos" className="text-[13.5px] font-semibold text-rog-frost/90 underline-offset-4 hover:underline">
-                or just browse →
+                browse all repos →
               </Link>
             </div>
           </BlurFade>

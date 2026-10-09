@@ -1,8 +1,12 @@
-# Status Living tracker: what is **IMPLEMENTED**, **PARTIAL** (with the exact caveat) or **PLANNED**.
+# Status Living tracker:
+what is **IMPLEMENTED**, **PARTIAL** (with the exact caveat) or **PLANNED**.
 Update it in the same change as the code, if this file and the code disagree, fix one immediately. **Current milestone:** all phases delivered. **63 MCP tools, 14 resources, 8 prompts;
 270 tests on SQLite (3 DB/Redis cases skipped without env) · 273/273 with PostgreSQL 16 + Redis 7;
 lint/typecheck/build green; stdio + HTTP smoke-verified; web console; AI code debugging;
-installers + release pipeline; org-styled documentation site.** ## Phases | Phase | Scope | Status |
+installers + release pipeline; org-styled documentation site.**
+## Phases
+
+| Phase | Scope | Status |
 | --- | --- | --- |
 | A | Foundation & Pterodactyl access | **DONE** |
 | B | Console subsystem | **DONE** |
@@ -12,7 +16,10 @@ installers + release pipeline; org-styled documentation site.** ## Phases | Phas
 | F | Remediation, approvals, policy, rollback | **DONE** |
 | G | Git, network, topology, correlation | **DONE** |
 | H | Baselines, forecasting, known-good, scheduler | **DONE** |
-| I | Drift, blast radius, simulator, canary, effectiveness | **DONE** | ## Infrastructure | Capability | Status | Notes |
+| I | Drift, blast radius, simulator, canary, effectiveness | **DONE** |
+## Infrastructure
+
+| Capability | Status | Notes |
 | --- | --- | --- |
 | SQLite persistence (`node:sqlite`) | **IMPLEMENTED** | default driver |
 | PostgreSQL persistence (`pg`) | **IMPLEMENTED** | `storage.driver: postgres`; full suite passes against PG 16; CI service job |
@@ -23,7 +30,10 @@ installers + release pipeline; org-styled documentation site.** ## Phases | Phas
 | Deployment manifests | **IMPLEMENTED** | Dockerfile, docker-compose, `deploy/k8s.yaml`, `deploy/pteroops.service`, nginx/Caddy examples |
 | Installers | **IMPLEMENTED** | `scripts/install.sh` / `scripts/install.ps1`: Node check, `source\|release\|npm` methods, PATH launcher, update, uninstall/purge, offline overrides |
 | Release pipeline | **IMPLEMENTED** | `.github/workflows/release.yml`: gates → `npm pack` → GitHub release → optional npm publish |
-| Docs site | **IMPLEMENTED** | `docs/site/` renders these docs; GitHub Pages workflow | ## Module highlights | Module | Status | Notes |
+| Docs site | **IMPLEMENTED** | `docs/site/` renders these docs; GitHub Pages workflow |
+## Module highlights
+
+| Module | Status | Notes |
 | --- | --- | --- |
 | Client API (servers, resources, startup, power, console, files, backups, databases, schedules, allocations, subusers, git pull) | **IMPLEMENTED** | mock-panel tested |
 | Application API (servers, nodes, users, nests, eggs, locations) | **IMPLEMENTED** | admin tools exposed |
@@ -47,7 +57,10 @@ installers + release pipeline; org-styled documentation site.** ## Phases | Phas
 | Drift / server groups / canary follow-ups | **IMPLEMENTED** | |
 | MCP surface | **IMPLEMENTED** | 63 tools / 14 resources / 8 prompts |
 | Transports + UI | **IMPLEMENTED** | stdio, HTTP, `/health`, `/ready`, `/metrics`, `/ui` |
-| Tests | **IMPLEMENTED** | 270 (SQLite; 3 skipped without DB env) / 273 (PostgreSQL + Redis) incl. security, isolation, resolver, scheduler, UI | ## Honest limitations | Limitation | Reality |
+| Tests | **IMPLEMENTED** | 270 (SQLite; 3 skipped without DB env) / 273 (PostgreSQL + Redis) incl. security, isolation, resolver, scheduler, UI |
+## Honest limitations
+
+| Limitation | Reality |
 | --- | --- |
 | Git dirty-state / commit log without provider tokens | Requires the server console to be a shell. Without an active console and without a GitHub/GitLab token, `dirty` is reported as `null` with a note instead of guessing. Commit *history* works over the provider API when `git.tokens` are configured. |
 | Backup restore rollback | A backup restore cannot be automatically reversed; plans mark it as manual recovery and report incomplete rollback honestly. |

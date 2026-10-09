@@ -111,7 +111,7 @@ function TableBlock({ block }: { block: Extract<Block, { t: 5 }> }) {
               <tr key={i} className={cn("border-t border-rog-line/70 transition-colors hover:bg-rog-panel/50", i % 2 === 1 && "bg-rog-panel/25")}>
                 {r.map((c, j) => (
                   <td key={j} className={cn("px-4 py-3 align-top text-[#c4d1e3]", j === 0 && "font-medium text-rog-frost")}>
-                    {c}
+                    <Inline html={c} />
                   </td>
                 ))}
               </tr>
@@ -180,13 +180,27 @@ function Cardish({ html }: { html: string }) {
 }
 
 /** dominated by reading-time estimate + progress */
-export function DocBlocks({ blocks }: { blocks: Block[] }) {
+export function DocBlocks({ blocks, suppressTitle }: { blocks: Block[]; suppressTitle?: string }) {
   const ref = React.useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true });
   void inView;
+  // On overview pages the reader header already shows the repo name; drop a
+  // leading H1 that would duplicate it.
+  let start = 0;
+  if (suppressTitle) {
+    while (start < blocks.length) {
+      const b = blocks[start]!;
+      const norm = (v: string) => v.replace(/[*_`]/g, "").trim().toLowerCase();
+      if (b.t === 1 && b.level === 1 && norm(b.text) === norm(suppressTitle)) {
+        start += 1;
+        continue;
+      }
+      break;
+    }
+  }
   return (
     <div ref={ref} className="doc-blocks max-w-none">
-      {blocks.map((b, i) => <BlockNode key={i} block={b} i={i} />)}
+      {blocks.slice(start).map((b, i) => <BlockNode key={i} block={b} i={i} />)}
     </div>
   );
 }

@@ -14,7 +14,7 @@ import { Link, useRouteParts, useRouter, RouterCtx } from "./router";
 import { registry, repoBySlug, loadRepoContent, type LoadedPage, type RepoEntry } from "~/data/types";
 import { BlurFade, BorderBeam, MagicCard, Meteors, ScrollProgress } from "./magicui";
 import { DocBlocks } from "./doc-blocks";
-import { cn, confetti } from "~/lib/utils";
+import { cn } from "~/lib/utils";
 import { useAppStore } from "./app-store";
 
 /* ============================ /repos catalog ============================ */
@@ -270,7 +270,7 @@ function RepoReader({ repo, pathTail, state }: { repo: RepoEntry; pathTail: stri
               {!page.overview && (
                 <h1 className="mb-1 text-3xl font-extrabold tracking-tight text-rog-ghost">{page.title}</h1>
               )}
-              <DocBlocks blocks={page.blocks} />
+              <DocBlocks blocks={page.blocks} suppressTitle={page.overview ? repo.label : page.title} />
               {/* prev / next */}
               <div className="mt-14 flex items-stretch justify-between gap-3">
                 {prev ? (
@@ -361,7 +361,7 @@ export function MobileDocBar({ repo }: { repo: RepoEntry }): React.ReactElement 
         )}
       </AnimatePresence>
       <div className="mx-auto mb-4 w-fit">
-        <button onClick={() => { setOpen(!open); void confetti(14, 50, 96); }} className="flex items-center gap-2 rounded-full border border-rog-line bg-rog-deep/90 px-5 py-3 text-[12.5px] font-semibold text-rog-frost shadow-xl backdrop-blur">
+        <button onClick={() => setOpen(!open)} className="flex items-center gap-2 rounded-full border border-rog-line bg-rog-deep/90 px-5 py-3 text-[12.5px] font-semibold text-rog-frost shadow-xl backdrop-blur">
           <BookOpen className="h-4 w-4 text-rog-sky" /> pages
           <BorderBeam size={40} duration={7} />
         </button>

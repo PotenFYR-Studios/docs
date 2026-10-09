@@ -1,6 +1,6 @@
 /*
  * app-store.ts-tiny React context store (no external state lib): toasts,
- * cheat-sheet/terminal/search overlay state, konami badge, demo buttons.
+ * cheat-sheet/terminal/search overlay and toast state.
  */
 import * as React from "react";
 

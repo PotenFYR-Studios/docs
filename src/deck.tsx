@@ -1,7 +1,7 @@
 /*
  * deck.tsx-the PotenFYR command deck (⌘K terminal-style overlay).
  * Commands: help, ls [repo], all, open <slug>, goto <repo/page>, search <q>,
- * stars, eggs, konami, clear, whoami, sudo, exit. Fuzzy `goto`/open matching.
+ * stars, clear, whoami, sudo, exit. Fuzzy `goto`/open matching.
  */
 import * as React from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -88,13 +88,12 @@ export function Deck() {
         push({ kind: "out", text: "  open <repo|path>    open a doc (fuzzy)" });
         push({ kind: "out", text: "  search <query>      search titles & blurbs" });
         push({ kind: "out", text: "  stars               star counts across the org" });
-        push({ kind: "out", text: "  eggs                list known easter eggs (spoilers)" });
         push({ kind: "out", text: "  whoami | sudo | clear | exit" });
         break;
       case "ls": {
         if (rest) {
           const r = (registry.repos as RepoEntry[]).find((x) => x.slug === rest.toLowerCase() || x.label.toLowerCase() === rest.toLowerCase());
-          if (!r) { push({ kind: "err", text: `no repo named "${rest}"-try ls` }); return; }
+          if (!r) { push({ kind: "err", text: `no repo named "${rest}" — try ls` }); return; }
           push({ kind: "ok", text: `${r!.label} (${r.category})-${r!.pageList.length} page(s):` });
           for (const p of r!.pageList) push({ kind: "out", text: `  ${p.path}${p.overview ? "  [overview]" : ""}` });
         } else {
@@ -127,7 +126,7 @@ export function Deck() {
         push({ kind: "out", text: "docs visitor · powered by curiosity" });
         break;
       case "sudo":
-        push({ kind: "err", text: "nice try-this deck is read-only by design." });
+        push({ kind: "err", text: "nice try — this deck is read-only by design." });
         break;
       case "exit":
         setDeckOpen(false);
@@ -136,7 +135,7 @@ export function Deck() {
         setLines([]);
         break;
       default:
-        push({ kind: "err", text: `unknown command "${head}"-try: ${COMMANDS.slice(0, 6).join(", ")}…` });
+        push({ kind: "err", text: `unknown command "${head}" — try: ${COMMANDS.slice(0, 6).join(", ")}…` });
     }
   }
 

@@ -148,10 +148,15 @@ function excerptOf(mdText: string, max = 170): string {
 }
 
 function titleOf(text: string, fallback: string): string {
-  // first real heading line (skip image-only/badges)
+  // first real heading line (skip image-only/badges); cut at the first
+  // sentence/table boundary so glued export artifacts don't leak into titles
   for (const line of text.split("\n")) {
     const m = /^#{1,4}\s+(.{2,80})\s*$/.exec(line);
-    if (m) return m[1]!.replace(/[*_`]/g, "").trim();
+    if (!m) continue;
+    let t = m[1]!.replace(/[*_`]/g, "").trim();
+    const cut = [t.indexOf(". "), t.indexOf(": "), t.indexOf(" | "), t.indexOf(" 1. ")].filter((c) => c > 8);
+    if (cut.length) t = t.slice(0, Math.min(...cut)).trim();
+    if (t.length >= 2) return t;
   }
   return fallback;
 }
@@ -194,7 +199,9 @@ async function main() {
     if (fileAbs.endsWith(".html")) {
       const rel = relative(join(CONTENT, slug), fileAbs).replace(/\\/g, "/");
       const base = path(fileAbs, ".html");
-      const title = base.split("-").map(w => (w.match(/^\d+$/) ? w : w[0]!.toUpperCase() + w.slice(1))).join(" ");
+      const filenameTitle = base.split("-").map(w => (w.match(/^\d+$/) ? w : w[0]!.toUpperCase() + w.slice(1))).join(" ");
+      const h1 = /<h1[^>]*>([\s\S]*?)<\/h1>/.exec(raw);
+      const title = (h1 ? h1[1]!.replace(/<[^>]+>/g, "").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&#39;/g, "'").replace(/&quot;/g, "\"").replace(/\s+/g, " ").trim() : "") || filenameTitle;
       let html = raw;
       html = html.replace(/<script[\s\S]*?<\/script>/g, "").replace(/<link[^>]+>/g, "");
       const headings: Heading[] = [];
@@ -222,11 +229,15 @@ async function main() {
     }
 
     const headings: Heading[] = [];
+    const seenIds = new Set<string>();
     const beforeOpen = md.renderer.rules.heading_open?.bind(md.renderer.rules);
     md.renderer.rules.heading_open = (tokens, idx, opts, env, self) => {
       const level = Number(tokens[idx]!.tag!.slice(1));
       const text = (tokens[idx + 1]?.content ?? "").trim();
-      const id = slugify(text);
+      let id = slugify(text);
+      let i = 2;
+      while (seenIds.has(id)) id = `${slugify(text)}-${i++}`;
+      seenIds.add(id);
       headings.push({ id, level, text });
       const rendered = self.renderToken(tokens, idx, opts);
       return rendered.replace(/>$/, ` id="${id}">`);

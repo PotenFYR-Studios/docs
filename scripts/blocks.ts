@@ -53,6 +53,7 @@ export function mdToBlocks(mdSrc: string, md: MdInstance, hl: Highlighter): { bl
   const tokens = md.parse(mdSrc, {});
   const blocks: Block[] = [];
   const headings: Array<{ id: string; level: number; text: string }> = [];
+  const seen = new Set<string>();
 
   for (let i = 0; i < tokens.length; i++) {
     const tok = tokens[i]!;
@@ -62,7 +63,11 @@ export function mdToBlocks(mdSrc: string, md: MdInstance, hl: Highlighter): { bl
       const level = Number(tok.tag!.slice(1));
       const text = (inline?.content ?? "").replace(/[*_`]/g, "").trim();
       if (!text) continue;
-      const id = slugify(text);
+      const base = slugify(text);
+      let id = base;
+      let i = 2;
+      while (seen.has(id)) id = `${base}-${i++}`;
+      seen.add(id);
       headings.push({ id, level, text });
       blocks.push({ t: 1, level: level as 2, id, text });
       i++; // consume inline token
@@ -166,7 +171,16 @@ export function mdToBlocks(mdSrc: string, md: MdInstance, hl: Highlighter): { bl
         if (t.type === "tbody_open") mode = "body";
         if (t.type === "tr_open") row = [];
         if (t.type === "inline") {
-          for (const c of t.children ?? []) if (c.type === "text" && row) row.push(c.content);
+          if (row) {
+            let cell = "";
+            const esc = (v: string) => v.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            for (const c of t.children ?? []) {
+              if (c.type === "text") cell += esc(c.content);
+              else if (c.type === "code_inline") cell += `<code>${esc(c.content)}</code>`;
+              else if (c.type === "softbreak" || c.type === "hardbreak") cell += " ";
+            }
+            row.push(cell);
+          }
         }
         if (t.type === "tr_close") { if (row?.length && mode === "head") head.push(...row); else if (row?.length && mode === "body") rows.push(row); row = null; }
         if (t.type === "table_close") { i = j; break; }
@@ -210,11 +224,12 @@ export function htmlToBlocks(htmlSrc: string): { blocks: Block[]; headings: Arra
     const lvl = Number(el.tagName.slice(1)) + 0; // h1..h4
     const text = (el.getAttribute("data-hub-title") ?? el.textContent ?? "").trim();
     if (!text) return;
-    const id = el.id || slugify(text);
-    if (seen.has(id)) { const n = 2; id2(id, n); }
-    function id2(base: string, i: number) {
-      while (seen.has(`${base}-${i}`)) i++;
-      el.id = `${base}-${i}`;
+    let id = el.id || slugify(text);
+    if (seen.has(id)) {
+      let i = 2;
+      while (seen.has(`${id}-${i}`)) i++;
+      id = `${id}-${i}`;
+      el.id = id;
     }
     seen.add(id);
     headings.push({ id, level: Math.min(lvl, 4), text });

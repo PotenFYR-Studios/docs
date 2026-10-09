@@ -1,4 +1,7 @@
-# FAQ **Is FYRwall really free?**
+# FAQ
+
+## Is FYRwall really free?
+
 Yes. Apache-2.0 with Commons Clause: use, modify, self-host freely and
 embed it inside larger products. What nobody may do is sell FYRwall itself
 as a standalone paid product. **How is this different from Cockpit/Webmin?**
@@ -27,7 +30,9 @@ Debian/Ubuntu, RHEL/Rocky/Alma, Fedora, SUSE, Arch, Alpine, Void, Gentoo -
 anything Go binaries run on. glibc and musl. Seven CPU architectures. **Can I break my firewall with it?**
 The product is designed so that is hard: risky changes are blocked, every
 apply has a snapshot + verify + rollback, and safe-apply timers undo
-connectivity-breaking changes automatically. **Uninstall cleanly?** fyrwall uninstall # or from a repo checkout: sudo sh packaging/uninstall.sh --all --purge
+connectivity-breaking changes automatically. **Uninstall cleanly?** fyrwall uninstall
+Or from a repo checkout:
+sudo sh packaging/uninstall.sh --all --purge
 Removes binaries, units, user, data, logs. Your firewall rules are never
 touched by FYRwall install or uninstall. **Can I use FYRwall commercially?**
 Yes, with one rule. You may embed FYRwall as a feature inside a larger

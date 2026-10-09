@@ -1,7 +1,10 @@
-# Development Guide Local development workflow for OrbyNode. ## Stack - Rust 2024 workspace
+# Development Guide Local development workflow for OrbyNode.
+## Stack - Rust 2024 workspace
 - Axum, Tokio, SQLx and SQLite
 - Vite + React + TypeScript + Bun + Magic UI
-- Optional Tauri desktop shell Do not use Next.js or another React meta-framework. ## Repository layout ```text
+- Optional Tauri desktop shell Do not use Next.js or another React meta-framework.
+## Repository layout
+```text
 crates/core shared config and paths
 crates/daemon binary entry point
 crates/api Axum routes, auth, gateway, embedded UI
@@ -17,24 +20,39 @@ crates/notifications browser events and webhooks
 crates/workflows configuration-driven orchestration
 web embedded Vite + React + TypeScript product client
 docs Markdown sources and prerendered Vite docs site
-``` ## Setup ```bash
+```
+## Setup
+```bash
 git clone https://github.com/PotenFYR-Studios/OrbyNode.git
 cd OrbyNode
 (cd web && bun install)
 cargo build
-``` ## Run backend ```bash
+```
+## Run backend
+```bash
 cargo run -p orbynode-daemon
-``` Defaults: - bind `127.0.0.1:7676`
+```
+Defaults: - bind `127.0.0.1:7676`
 - data directory `~/.orbynode`
-- embedded static UI ## Run frontend ### Build once and embed ```bash
+- embedded static UI
+## Run frontend
+### Build once and embed
+```bash
 (cd web && bun run build)
 cargo run -p orbynode-daemon
-``` ### Iterate against disk assets ```bash
+```
+### Iterate against disk assets
+```bash
 (cd web && bun run build)
 ORBYNODE_STATIC_DIR="$PWD/web/dist" cargo run -p orbynode-daemon
-``` ### Vite dev server ```bash
+```
+### Vite dev server
+```bash
 (cd web && bun run dev)
-``` Use the Vite proxy for local daemon requests. ## Checks Required before every PR: ```bash
+```
+Use the Vite proxy for local daemon requests.
+## Checks Required before every PR:
+```bash
 cargo fmt --check
 cargo clippy --workspace --all-targets -- -D warnings
 cargo test --workspace
@@ -43,39 +61,59 @@ cargo test --workspace
 (cd docs && bun test)
 (cd docs && bun run typecheck)
 (cd docs && bun run build)
-``` Equivalent: ```bash
+```
+Equivalent:
+```bash
 scripts/check.sh
-``` ## Testing patterns - Put unit tests beside the code they cover.
+```
+## Testing patterns - Put unit tests beside the code they cover.
 - Use SQLite `sqlite::memory:` for database tests.
 - Use API route tests for auth and routing behavior.
 - Keep filesystem tests in temporary directories.
 - Keep realtime tests deterministic and bounded.
-- Cover security-relevant behavior explicitly. ## Database migrations Migrations live in `crates/database/src/lib.rs`. Add a new numbered migration;
-do not edit an applied migration. Local test database: ```bash
+- Cover security-relevant behavior explicitly.
+## Database migrations
+Migrations live in `crates/database/src/lib.rs`.
+Add a new numbered migration;
+do not edit an applied migration. Local test database:
+```bash
 rm -rf /tmp/orbynode-dev
 ORBYNODE_DATA_DIR=/tmp/orbynode-dev cargo run -p orbynode-daemon
-``` ## Debugging Use structured logs: ```bash
+```
+## Debugging Use structured logs:
+```bash
 ORBYNODE_LOG_FORMAT=json RUST_LOG=debug cargo run -p orbynode-daemon
-``` Inspect: ```bash
+```
+Inspect:
+```bash
 curl -fsS http://127.0.0.1:7676/health
 curl -fsS http://127.0.0.1:7676/version
-``` ## Release build ```bash
+```
+## Release build
+```bash
 (cd web && bun install)
 (cd web && bun run build)
 cargo build --release --locked -p orbynode-daemon
-``` Local release archive, checksum and SBOM: ```bash
+```
+Local release archive, checksum and SBOM:
+```bash
 scripts/release.sh <rust-target-triple>
-``` ## Code standards - Prefer correctness, security and bounded resources before latency.
+```
+## Code standards
+- Prefer correctness, security and bounded resources before latency.
 - Keep `crates/core` small.
 - Avoid polling, unbounded queues and global locks.
 - Justify every new dependency.
 - Use server-side authorization for every new route or subscription.
-- Keep comments for non-obvious invariants only. ## Frontend standards - Use Vite, React, TypeScript, Bun and Magic UI.
+- Keep comments for non-obvious invariants only.
+## Frontend standards
+- Use Vite, React, TypeScript, Bun and Magic UI.
 - Keep strict TypeScript.
 - Derive live state from snapshots and realtime events.
 - Do not poll.
 - Respect `prefers-reduced-motion`.
-- Do not render terminal bytes as HTML. ## Commit discipline - One focused change per commit.
+- Do not render terminal bytes as HTML.
+## Commit discipline - One focused change per commit.
 - Imperative subject, for example `Fix session revocation`.
 - Explain behavior, tests and risks in the body.
 - Never add AI attribution.
