@@ -215,21 +215,22 @@ export function Home(): React.ReactElement {
 
       {/* ============ CLOSING ============ */}
       <section className="relative border-t border-rog-line/60 py-20">
-        <div className="relative mx-auto max-w-3xl px-4 text-center sm:px-6">
-          <BlurFade>
+        <div className="relative mx-auto flex max-w-3xl flex-col items-center px-4 text-center sm:px-6">
+          <BlurFade className="flex flex-col items-center">
             <RogLogo size={44} glow />
-            <h3 className="mt-5 text-xl font-bold text-rog-ghost">Documentation that stays current.</h3>
-            <p className="mx-auto mt-2 max-w-md text-[13.5px] leading-relaxed text-rog-dim">
+            <h3 className="mt-6 text-xl font-bold text-rog-ghost">Documentation that stays current.</h3>
+            <p className="mt-3 max-w-md text-[13.5px] leading-relaxed text-rog-dim">
               Pages here are rebuilt from each repository's README and docs on every sync, so what
               you read matches what ships.
             </p>
           </BlurFade>
-          <BlurFade delay={0.12}>
-            <div className={cn("mt-7 flex flex-wrap items-center justify-center gap-3")}>
-              <Link to="/repos" className="text-[13.5px] font-semibold text-rog-frost/90 underline-offset-4 hover:underline">
-                browse all repos →
-              </Link>
-            </div>
+          <BlurFade delay={0.12} className="mt-8 flex flex-col items-center">
+            <Link
+              to="/repos"
+              className="inline-flex items-center gap-2 rounded-full border border-rog-line bg-rog-panel/70 px-6 py-3 text-sm font-semibold text-rog-frost/90 transition-all hover:border-rog-sky/60 hover:shadow-[0_0_18px_rgba(79,163,236,0.2)]"
+            >
+              Browse all repos <ArrowRight className="h-4 w-4" />
+            </Link>
           </BlurFade>
         </div>
       </section>
