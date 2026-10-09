@@ -6,8 +6,16 @@
 import * as React from "react";
 import { motion } from "framer-motion";
 import {
-  ArrowRight, BookOpen, Boxes, Flame, Gamepad2, ShieldCheck, Sparkles,
-  Star, TerminalSquare, Languages, Database, MessagesSquare, Globe2, Wrench,
+  ArrowRight,
+  BookOpen,
+  Boxes,
+  Flame,
+  Gamepad2,
+  ShieldCheck,
+  Star,
+  TerminalSquare,
+  MessagesSquare,
+  Wrench,
 } from "lucide-react";
 import { GithubMark } from "~/lib/icons";
 import { Link } from "./router";
@@ -48,23 +56,12 @@ export function Home(): React.ReactElement {
             <div className="absolute inset-10 grid place-items-center rounded-full bg-gradient-to-br from-rog-sky/[0.14] to-transparent">
               <RogLogo size={86} glow />
             </div>
-            <OrbitingCircles radius={86} duration={26} count={6}>
+            <OrbitingCircles radius={104} duration={60} count={4}>
               {(i) => {
-                const icons = [ShieldCheck, Gamepad2, Boxes, MessagesSquare, GithubMark, TerminalSquare];
+                const icons = [ShieldCheck, Boxes, BookOpen, TerminalSquare];
                 const I = icons[i % icons.length]!;
                 return (
-                  <span className="grid h-8 w-8 place-items-center rounded-lg border border-rog-line bg-rog-panel/90 text-rog-sky shadow-lg">
-                    {React.createElement(I, { className: "h-4 w-4" })}
-                  </span>
-                );
-              }}
-            </OrbitingCircles>
-            <OrbitingCircles radius={122} duration={38} reverse count={6}>
-              {(i) => {
-                const icons = [BookOpen, Flame, Languages, Database, Globe2, Sparkles];
-                const I = icons[i % icons.length]!;
-                return (
-                  <span className="grid h-7 w-7 place-items-center rounded-lg border border-rog-line/70 bg-rog-void/90 text-rog-frost/90">
+                  <span className="grid h-7 w-7 place-items-center rounded-lg border border-rog-line/70 bg-rog-panel/80 text-rog-sky/80">
                     {React.createElement(I, { className: "h-3.5 w-3.5" })}
                   </span>
                 );
@@ -74,7 +71,7 @@ export function Home(): React.ReactElement {
 
           <BlurFade className="text-center" delay={0.1}>
             <div className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-rog-line bg-rog-panel/60 px-3.5 py-1.5 text-[12.5px] text-rog-dim backdrop-blur">
-              <AnimatedShinyText>unified documentation · {registry.stats.repos} public repos</AnimatedShinyText>
+              <AnimatedShinyText>{registry.stats.repos} open-source projects · one documentation hub</AnimatedShinyText>
             </div>
           </BlurFade>
 
