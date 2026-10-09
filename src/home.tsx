@@ -20,7 +20,7 @@ import {
 import { GithubMark } from "~/lib/icons";
 import { Link } from "./router";
 import { registry } from "~/data/types";
-import { AuroraText, BlurFade, BorderBeam, FlickeringGrid, MagicCard, Marquee, NumberTicker, OrbitingCircles, ShimmerButton, TypingAnimation, AnimatedShinyText, ScrollProgress } from "./magicui";
+import { AuroraText, BlurFade, BorderBeam, FlickeringGrid, MagicCard, Marquee, NumberTicker, ShimmerButton, TypingAnimation, AnimatedShinyText, ScrollProgress } from "./magicui";
 import { RogLogo } from "./rog-logo";
 import { cn } from "~/lib/utils";
 import { useAppStore } from "./app-store";
@@ -45,7 +45,7 @@ export function Home(): React.ReactElement {
         <div className="absolute inset-x-0 top-0 h-64 bg-gradient-to-b from-rog-void via-transparent to-transparent" aria-hidden />
 
         <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-          {/* orbiting repo avatars around the logo */}
+          {/* hero logo with a soft breathing ring */}
           <motion.div
             initial={{ opacity: 0, scale: 0.88 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -56,17 +56,6 @@ export function Home(): React.ReactElement {
             <div className="absolute inset-10 grid place-items-center rounded-full bg-gradient-to-br from-rog-sky/[0.14] to-transparent">
               <RogLogo size={86} glow />
             </div>
-            <OrbitingCircles radius={104} duration={60} count={4}>
-              {(i) => {
-                const icons = [ShieldCheck, Boxes, BookOpen, TerminalSquare];
-                const I = icons[i % icons.length]!;
-                return (
-                  <span className="grid h-7 w-7 place-items-center rounded-lg border border-rog-line/70 bg-rog-panel/80 text-rog-sky/80">
-                    {React.createElement(I, { className: "h-3.5 w-3.5" })}
-                  </span>
-                );
-              }}
-            </OrbitingCircles>
           </motion.div>
 
           <BlurFade className="text-center" delay={0.1}>
